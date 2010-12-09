@@ -1,0 +1,23 @@
+HKCR
+{
+	Lisa50.LisaCOM.1 = s 'LisaCOM Class'
+	{
+		CLSID = s '{AA8F819D-59B4-4D9D-B7BD-64D2402EE265}'
+	}
+	Lisa50.LisaCOM = s 'LisaCOM Class'
+	{
+		CLSID = s '{AA8F819D-59B4-4D9D-B7BD-64D2402EE265}'
+		CurVer = s 'Lisa50.LisaCOM.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {AA8F819D-59B4-4D9D-B7BD-64D2402EE265} = s 'LisaCOM Class'
+		{
+			ProgID = s 'Lisa50.LisaCOM.1'
+			VersionIndependentProgID = s 'Lisa50.LisaCOM'
+			ForceRemove 'Programmable'
+			LocalServer32 = s '%MODULE%'
+			'TypeLib' = s '{A821B86A-CD3D-4A7D-B06E-76D704FBC8B0}'
+		}
+	}
+}

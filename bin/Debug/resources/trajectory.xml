@@ -1,0 +1,16 @@
+<?xml	version="1.0"	encoding="utf-8"?>
+<trajectory version="1.0" controller="zmp">
+	<joint name="tibia-ankle">
+		<change time="8" type="NX_D6JOINT_DRIVE_VELOCITY" setPoint="-1" />
+		<change time="9" setPoint="0.5" />
+		<change time="12" type="NX_D6JOINT_DRIVE_POSITION" setPoint="0" />
+	</joint>
+	<joint name="knee-tibia">
+		<!-- test apply force - this force will stabilize the joint -->
+		<!-- value*sampleTime -->
+		<change time="8" force="ADD_FORCE" actor="0" value="0 0 400" force_type="NX_IMPULSE" />
+		<!-- change time="8" setPoint="0.2" /-->
+		<!-- change time="9" setPoint="-0.2" /-->
+		<!-- change time="12" setPoint="0" /-->
+	</joint>
+</trajectory>

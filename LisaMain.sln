@@ -1,0 +1,63 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lisa50", "scripts\LisaMain.vcproj", "{C6D5DC0D-0BB6-4683-B201-1F93FAFF3C38}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7C13B159-BCAE-4C09-AFFC-BC04CB693C9F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "unitTests", "scripts\unitTests\unitTests.vcproj", "{5E496AAE-CDC7-4CF6-81BE-B53E4B21C1D1}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lisa_static_libs", "scripts\lisa_static_libs.vcproj", "{85B64612-296A-454F-853C-DB809F80F689}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|Win32 = Debug|Win32
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C6D5DC0D-0BB6-4683-B201-1F93FAFF3C38}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{C6D5DC0D-0BB6-4683-B201-1F93FAFF3C38}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{C6D5DC0D-0BB6-4683-B201-1F93FAFF3C38}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{C6D5DC0D-0BB6-4683-B201-1F93FAFF3C38}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C6D5DC0D-0BB6-4683-B201-1F93FAFF3C38}.Debug|Win32.Build.0 = Debug|Win32
+		{C6D5DC0D-0BB6-4683-B201-1F93FAFF3C38}.Release|Any CPU.ActiveCfg = Release|Win32
+		{C6D5DC0D-0BB6-4683-B201-1F93FAFF3C38}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{C6D5DC0D-0BB6-4683-B201-1F93FAFF3C38}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{C6D5DC0D-0BB6-4683-B201-1F93FAFF3C38}.Release|Win32.ActiveCfg = Release|Win32
+		{C6D5DC0D-0BB6-4683-B201-1F93FAFF3C38}.Release|Win32.Build.0 = Release|Win32
+		{5E496AAE-CDC7-4CF6-81BE-B53E4B21C1D1}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{5E496AAE-CDC7-4CF6-81BE-B53E4B21C1D1}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{5E496AAE-CDC7-4CF6-81BE-B53E4B21C1D1}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{5E496AAE-CDC7-4CF6-81BE-B53E4B21C1D1}.Debug|Win32.ActiveCfg = Debug|Win32
+		{5E496AAE-CDC7-4CF6-81BE-B53E4B21C1D1}.Debug|Win32.Build.0 = Debug|Win32
+		{5E496AAE-CDC7-4CF6-81BE-B53E4B21C1D1}.Release|Any CPU.ActiveCfg = Release|Win32
+		{5E496AAE-CDC7-4CF6-81BE-B53E4B21C1D1}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{5E496AAE-CDC7-4CF6-81BE-B53E4B21C1D1}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{5E496AAE-CDC7-4CF6-81BE-B53E4B21C1D1}.Release|Win32.ActiveCfg = Release|Win32
+		{5E496AAE-CDC7-4CF6-81BE-B53E4B21C1D1}.Release|Win32.Build.0 = Release|Win32
+		{85B64612-296A-454F-853C-DB809F80F689}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{85B64612-296A-454F-853C-DB809F80F689}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{85B64612-296A-454F-853C-DB809F80F689}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{85B64612-296A-454F-853C-DB809F80F689}.Debug|Win32.ActiveCfg = Debug|Win32
+		{85B64612-296A-454F-853C-DB809F80F689}.Debug|Win32.Build.0 = Debug|Win32
+		{85B64612-296A-454F-853C-DB809F80F689}.Release|Any CPU.ActiveCfg = Release|Win32
+		{85B64612-296A-454F-853C-DB809F80F689}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{85B64612-296A-454F-853C-DB809F80F689}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{85B64612-296A-454F-853C-DB809F80F689}.Release|Win32.ActiveCfg = Release|Win32
+		{85B64612-296A-454F-853C-DB809F80F689}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C6D5DC0D-0BB6-4683-B201-1F93FAFF3C38} = {7C13B159-BCAE-4C09-AFFC-BC04CB693C9F}
+		{5E496AAE-CDC7-4CF6-81BE-B53E4B21C1D1} = {7C13B159-BCAE-4C09-AFFC-BC04CB693C9F}
+	EndGlobalSection
+	GlobalSection(DPCodeReviewSolutionGUID) = preSolution
+		DPCodeReviewSolutionGUID = {00000000-0000-0000-0000-000000000000}
+	EndGlobalSection
+EndGlobal

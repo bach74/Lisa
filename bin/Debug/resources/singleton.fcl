@@ -1,0 +1,34 @@
+FUNCTION_BLOCK JOINT1CTRL
+
+VAR_INPUT
+	xpos : REAL;
+END_VAR
+
+VAR_OUTPUT
+	uc : REAL;
+END_VAR
+
+FUZZIFY xpos
+    TERM neg :=  gauss -1 0.05;
+    TERM zero := gauss 0 0.1;
+    TERM pos := gauss 1 0.05;
+END_FUZZIFY
+
+DEFUZZIFY uc
+	TERM uc_neg := -1;
+	TERM uc_zero := 0;
+	TERM uc_pos := 1;
+	METHOD : COGS;
+	DEFAULT := 0;
+END_DEFUZZIFY
+
+RULEBLOCK No1
+	AND : PROD;
+	ACT : PROD;
+	ACCU : SUM;
+	RULE 1 : IF xpos IS pos THEN uc IS uc_neg;
+	RULE 2 : IF xpos IS neg THEN uc IS uc_pos;
+	RULE 3 : IF xpos IS zero THEN uc IS uc_zero;
+END_RULEBLOCK
+
+END_FUNCTION_BLOCK

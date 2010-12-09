@@ -1,0 +1,24 @@
+HKCR
+{
+	Lisa50.LisaCOMController.1 = s 'LisaCOMController Class'
+	{
+		CLSID = s '{8557886E-230E-41F8-B1F1-EC61106F9CDF}'
+	}
+	Lisa50.LisaCOMController = s 'LisaCOMController Class'
+	{
+		CLSID = s '{8557886E-230E-41F8-B1F1-EC61106F9CDF}'
+		CurVer = s 'Lisa50.LisaCOMController.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {8557886E-230E-41F8-B1F1-EC61106F9CDF} = s 'LisaCOMController Class'
+		{
+			ProgID = s 'Lisa50.LisaCOMController.1'
+			VersionIndependentProgID = s 'Lisa50.LisaCOMController'
+			ForceRemove 'Programmable'
+			LocalServer32 = s '%MODULE%'
+			val AppID = s '%APPID%'
+			'TypeLib' = s '{A821B86A-CD3D-4A7D-B06E-76D704FBC8B0}'
+		}
+	}
+}

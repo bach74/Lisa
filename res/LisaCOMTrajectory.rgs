@@ -1,0 +1,23 @@
+HKCR
+{
+	LisaMain.LisaCOMTrajectory.1 = s 'LisaCOMTrajectory Class'
+	{
+		CLSID = s '{1AF71AB7-FA43-43D5-BDDF-F244DAFFCF16}'
+	}
+	LisaMain.LisaCOMTrajectory = s 'LisaCOMTrajectory Class'
+	{
+		CLSID = s '{1AF71AB7-FA43-43D5-BDDF-F244DAFFCF16}'
+		CurVer = s 'LisaMain.LisaCOMTrajectory.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {1AF71AB7-FA43-43D5-BDDF-F244DAFFCF16} = s 'LisaCOMTrajectory Class'
+		{
+			ProgID = s 'LisaMain.LisaCOMTrajectory.1'
+			VersionIndependentProgID = s 'LisaMain.LisaCOMTrajectory'
+			ForceRemove 'Programmable'
+			LocalServer32 = s '%MODULE%'
+			'TypeLib' = s '{A821B86A-CD3D-4A7D-B06E-76D704FBC8B0}'
+		}
+	}
+}

@@ -1,0 +1,117 @@
+// Lisa50.idl : IDL source for Lisa50
+//
+
+// This file will be processed by the MIDL tool to
+// produce the type library (Lisa50.tlb) and marshalling code.
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(2316E6F0-C3AA-41DA-A9CC-71AE7821356F),
+	dual,
+	nonextensible,
+	helpstring("ILisaCOMController Interface"),
+	pointer_default(unique)
+]
+
+interface ILisaCOMController : IDispatch{
+	[id(1), helpstring("get current version")] HRESULT getVersion([out,retval] BSTR* version);
+	[propget, id(10), helpstring("Number of controllers")] HRESULT number([out, retval] SHORT* pVal);
+	[id(11), helpstring("get actuator parameters")] HRESULT getParameters([in] SHORT i, [out,retval] VARIANT* params);
+	[id(12), helpstring("get i-th actuator position")] HRESULT getPosition([in] SHORT i, [out,retval] DOUBLE* pVal);
+	[id(13), helpstring("set i-th actuator numRef-th reference")] HRESULT setReference([in] SHORT i, [in] SHORT numRef, [in] DOUBLE Val);
+	[id(14), helpstring("get i-th actuator velocity")] HRESULT getVelocity([in] SHORT i, [out,retval] DOUBLE* pVal);
+	[id(15), helpstring("set i-th actuator numParam-th parameter")] HRESULT setParameter([in] SHORT i, [in] SHORT numParam, [in] DOUBLE Val);
+	[id(16), helpstring("method setParameters")] HRESULT setParameters([in] SHORT i, [in] VARIANT* params);
+	[id(17), helpstring("get i-th actuator torque")] HRESULT getTorque([in] SHORT i, [out,retval] DOUBLE* pVal);
+	[id(18), helpstring("get reference for the i-th controller")] HRESULT getReference([in] SHORT i, SHORT numRef, [out,retval] DOUBLE* retVal);
+};
+[
+	object,
+	uuid(B49CAF7A-3149-4894-97DB-B6009D136F7D),
+	dual,
+	nonextensible,
+	helpstring("ILisaCOMTrajectory Interface"),
+	pointer_default(unique)
+]
+
+interface ILisaCOMTrajectory : IDispatch{
+	[id(1), helpstring("load trajectory from a file")] HRESULT LoadTrajectory([in] BSTR filename);
+};
+[
+	object,
+	uuid(4878F5AA-2913-4C1F-AE81-939AF4F2B3F6),
+	dual,
+	nonextensible,
+	helpstring("ILisaCOM Interface"),
+	pointer_default(unique)
+]
+interface ILisaCOM : IDispatch{
+	[id(1), helpstring("get i-th link mass")] HRESULT getLinkMass(SHORT i, [out,retval] DOUBLE* value);
+	[id(2), helpstring("get i-th link position")] HRESULT getLinkPosition([in] SHORT i, [out,retval] VARIANT* val);
+	[id(3), helpstring("get i-th joint coordinates (Cartesian space)")] HRESULT getJointCoordinates([in] SHORT i, [out, retval] VARIANT* val);
+	[id(4), helpstring("get center of pressure (COP) position")] HRESULT getCOPPosition([out, retval] VARIANT* point);
+	[id(12), helpstring("get center of pressure (COP) force")] HRESULT getCOPForce([out, retval] VARIANT* force);
+	[id(5), helpstring("finish simulation and close program")] HRESULT close(void);
+	[propget, id(7), helpstring("number of links")] HRESULT numLinks([out, retval] SHORT* pVal);
+	[id(8), helpstring("get links (body) names")] HRESULT enumerateLinks([out,retval] VARIANT* val);
+	[id(9), helpstring("get Link position (by name)")] HRESULT getLinkPositionByName([in] BSTR name, [out,retval] VARIANT* val);
+	[propget, id(10), helpstring("current simulation time")] HRESULT time([out, retval] DOUBLE* pVal);
+	[id(11), helpstring("pause or unpause simulation")] HRESULT Pause([in] SHORT pause);
+};
+[
+	uuid(A821B86A-CD3D-4A7D-B06E-76D704FBC8B0),
+	version(1.0),
+	helpstring("Lisa50 1.0 Type Library")
+]
+
+library Lisa50Lib
+{
+	importlib("stdole2.tlb");
+	[
+		uuid(11207FB3-F644-4A03-98F9-90921A709FE7),
+		helpstring("_ILisaCOMControllerEvents Interface")
+	]
+	dispinterface _ILisaCOMControllerEvents
+	{
+		properties:
+		methods:
+	};
+	[
+		uuid(8557886E-230E-41F8-B1F1-EC61106F9CDF),
+		helpstring("LisaCOMController Class")
+	]
+	coclass LisaCOMController
+	{
+		[default] interface ILisaCOMController;
+		[default, source] dispinterface _ILisaCOMControllerEvents;
+	};
+	[
+		uuid(1AF71AB7-FA43-43D5-BDDF-F244DAFFCF16),
+		helpstring("LisaCOMTrajectory Class")
+	]
+	coclass LisaCOMTrajectory
+	{
+		[default] interface ILisaCOMTrajectory;
+	};
+	[
+		uuid(EFD56125-1A89-4970-BEEB-62058EA8CCB8),
+		helpstring("_ILisaCOMEvents Interface")
+	]
+	dispinterface _ILisaCOMEvents
+	{
+		properties:
+		methods:
+	};
+	[
+		uuid(AA8F819D-59B4-4D9D-B7BD-64D2402EE265),
+		helpstring("LisaCOM Class")
+	]
+	coclass LisaCOM
+	{
+		[default] interface ILisaCOM;
+		[default, source] dispinterface _ILisaCOMEvents;
+	};
+};

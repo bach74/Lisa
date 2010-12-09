@@ -1,0 +1,2422 @@
+<?xml	version="1.0"	encoding="utf-8"?>
+<COLLADA version="1.4.0" xmlns="http://www.collada.org/2005/11/COLLADASchema">
+	<asset>
+		<contributor>
+			<author>NxuStream2 converter - http://www.ageia.com</author>
+			<authoring_tool>PhysX	Rocket,	PhysX	Viewer,	or CreateDynamics</authoring_tool>
+			<comments>questions	to:	jratcliff@ageia.com</comments>
+			<source_data>D:\Development\[Engine]\models\temp\test.dae</source_data>
+		</contributor>
+    <contributor>convert with DaeFix 0.2 by Bach</contributor>
+		<unit	meter="1"	name="meter"/>
+		<up_axis>Y_UP</up_axis>
+	</asset>
+	 <library_materials>
+			<material	id="Material"	name="Material">
+      <instance_effect url="#Material-fx">
+      </instance_effect>
+			</material>
+	 </library_materials>
+	 <library_effects>
+			<effect	id="Material-fx" name="Material">
+				 <profile_COMMON>
+						<technique id="Material-fx-COMMON" sid="COMMON">
+							 <phong>
+									<ambient>
+										 <color>0.803922 0.588235	0.92549	1</color>
+									</ambient>
+									<diffuse>
+										 <color>0.803922 0.588235	0.92549	1</color>
+									</diffuse>
+									<specular>
+										 <color>0.631373 0.631373	0.631373 1</color>
+									</specular>
+									<shininess>
+										 <float>1</float>
+									</shininess>
+									<reflective>
+										 <color>0	0	0	1</color>
+									</reflective>
+									<transparent>
+										 <color>1	1	1	1</color>
+									</transparent>
+									<transparency>
+										 <float>0</float>
+									</transparency>
+							 </phong>
+						</technique>
+				 </profile_COMMON>
+			</effect>
+	 </library_effects>
+	<library_geometries>
+	</library_geometries>
+	<library_visual_scenes>
+		<visual_scene	id="Scene0-Visual"	name="Scene0-Visual">
+			<node	id="Actor0-Node" name="Actor0" type="NODE">
+        <translate>0	11.699739456 -0.485292435</translate>
+        <rotate>-0.99999994 0	0	 90</rotate>
+			</node>
+			<node	id="Actor1-Node" name="Actor1" type="NODE">
+        <translate>-1.467255831	11.699739456 -0.485292435</translate>
+        <rotate>1 0	0	 0</rotate>
+			</node>
+			<node	id="Actor2-Node" name="Actor2" type="NODE">
+        <translate>-1.467255712	11.699739456 -0.485292435</translate>
+        <rotate>0.577350438 0.577349901	-0.577350318	 239.999954224</rotate>
+			</node>
+			<node	id="Actor3-Node" name="Actor3" type="NODE">
+        <translate>-4.084938526	11.699735641 -0.485292107</translate>
+        <rotate>0.000863106 -0.999999225	-0.000843135	 90.000030518</rotate>
+			</node>
+			<node	id="Actor4-Node" name="Actor4" type="NODE">
+        <translate>-4.084703922	0.413023949 -0.485283822</translate>
+        <rotate>0.000862868 -0.999999225	-0.000842896	 90.000030518</rotate>
+			</node>
+			<node	id="Actor5-Node" name="Actor5" type="NODE">
+        <translate>-4.12176466	-11.412108421 -0.484946877</translate>
+        <rotate>0.001619093 0.000086834	-0.999998748	 90.000160217</rotate>
+			</node>
+			<node	id="Actor6-Node" name="Actor6" type="NODE">
+        <translate>-4.126581192	-13.607814789 -0.574880362</translate>
+        <rotate>-0.576657474 -0.579611897	0.575773597	 119.881599426</rotate>
+			</node>
+			<node	id="Actor7-Node" name="Actor7" type="NODE">
+        <translate>-4.126581669	-13.543865204 2.579687595</translate>
+        <rotate>-0.999999404 -0.000772159	-0.000759761	 89.887733459</rotate>
+			</node>
+			<node	id="Actor8-Node" name="Actor8" type="NODE">
+        <translate>1.500586987	11.699739456 -0.485292435</translate>
+        <rotate>1 0	0	 0</rotate>
+			</node>
+			<node	id="Actor9-Node" name="Actor9" type="NODE">
+        <translate>1.500587463	11.699739456 -0.485292435</translate>
+        <rotate>0.577350497 -0.577349901	0.577350438	 239.999954224</rotate>
+			</node>
+			<node	id="Actor10-Node" name="Actor10" type="NODE">
+        <translate>4.184660912	11.699736595 -0.485291958</translate>
+        <rotate>0.000859759 0.999999344	0.000844174	 90.000045776</rotate>
+			</node>
+			<node	id="Actor11-Node" name="Actor11" type="NODE">
+        <translate>4.184475899	0.413089752 -0.523789823</translate>
+        <rotate>0.000859997 0.999999344	0.000844412	 90.000045776</rotate>
+			</node>
+			<node	id="Actor12-Node" name="Actor12" type="NODE">
+        <translate>4.221588612	-11.411972046 -0.564452469</translate>
+        <rotate>0.707107902 -0.707105696	-0.000060772	 180.131134033</rotate>
+			</node>
+			<node	id="Actor13-Node" name="Actor13" type="NODE">
+        <translate>4.22641468	-13.607972145 -0.482007205</translate>
+        <rotate>0.577971518 0.576989233	-0.57708931	 239.892913818</rotate>
+			</node>
+			<node	id="Actor14-Node" name="Actor14" type="NODE">
+        <translate>4.22641468	-13.522512436 2.672051191</translate>
+        <rotate>-0.999999404 -0.000770561	-0.000756079	 90.278442383</rotate>
+			</node>
+			</visual_scene>
+	</library_visual_scenes>
+	<library_physics_materials>
+		<physics_material	id="pmat0_0-PhysicsMaterial"	name="pmat0_0-PhysicsMaterial">
+			<technique_common>
+				<dynamic_friction>0</dynamic_friction>
+				<restitution>0</restitution>
+				<static_friction>0</static_friction>
+			</technique_common>
+		</physics_material>
+		<physics_material	id="pmat1_0-PhysicsMaterial"	name="pmat1_0-PhysicsMaterial">
+			<technique_common>
+				<dynamic_friction>0.300000012</dynamic_friction>
+				<restitution>0</restitution>
+				<static_friction>0.300000012</static_friction>
+			</technique_common>
+		</physics_material>
+	</library_physics_materials>
+	<library_physics_models>
+		<physics_model id="Scene0-PhysicsModel">
+			<rigid_body	sid="Actor0-RigidBody" name="pelvis">
+				<technique_common>
+					<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					<shape>
+            <translate>-0.004596753	-1.473178625 -0.655006409</translate>
+            <rotate>1 0	0	 0</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <density>1</density>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>0.393700778 0.393700778	1.968503952</half_extents>
+						</box>
+					 </shape>
+					<shape>
+            <translate>1.92054069	1.229565501 -3.164549828</translate>
+            <rotate>1 0	0	 0</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <density>1</density>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>0.393700778 1.574803114	0.098425195</half_extents>
+						</box>
+					 </shape>
+					<shape>
+            <translate>0.898849726	-0.70366174 -3.164548874</translate>
+            <rotate>1 0	0	 0</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <density>1</density>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>0.393700778 0.787401557	0.098425195</half_extents>
+						</box>
+					 </shape>
+					<shape>
+            <translate>-0.900531828	-0.703661025 -3.164548874</translate>
+            <rotate>-0.00000003 0.000000067	1.000000119	 48.183574677</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <density>1</density>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>0.393700778 0.787401557	0.098425195</half_extents>
+						</box>
+					 </shape>
+					<shape>
+            <translate>-1.920543671	1.229565978 -3.164548874</translate>
+            <rotate>-0.000000022 0.000000165	1.000001431	 14.940574646</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <density>1</density>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>0.393700778 1.574803114	0.098425195</half_extents>
+						</box>
+					 </shape>
+					<shape>
+            <translate>0.004733997	1.418493629 -3.164548874</translate>
+            <rotate>1 0	0	 0</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <density>1</density>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>1.968503952 1.771653533	0.098425195</half_extents>
+						</box>
+					 </shape>
+					<shape>
+            <translate>0.898850501	-0.703661084 -2.124982834</translate>
+            <rotate>1 0	0	 0</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <density>1</density>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>0.393700778 0.787401557	0.098425195</half_extents>
+						</box>
+					 </shape>
+					<shape>
+            <translate>-0.900531769	-0.703660965 -2.124982834</translate>
+            <rotate>-0.00000003 0.000000067	1.000000119	 48.183574677</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <density>1</density>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>0.393700778 0.787401557	0.098425195</half_extents>
+						</box>
+					 </shape>
+					<shape>
+            <translate>1.92054081	1.229565859 -2.124982834</translate>
+            <rotate>1 0	0	 0</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <density>1</density>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>0.393700778 1.574803114	0.098425195</half_extents>
+						</box>
+					 </shape>
+					<shape>
+            <translate>-1.920543671	1.229565859 -2.124982834</translate>
+            <rotate>-0.000000022 0.000000165	1.000001431	 14.940574646</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <density>1</density>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>0.393700778 1.574803114	0.098425195</half_extents>
+						</box>
+					 </shape>
+					<shape>
+            <translate>0.004733997	1.418493509 -2.124982834</translate>
+            <rotate>1 0	0	 0</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <density>1</density>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>1.968503952 1.771653533	0.098425195</half_extents>
+						</box>
+					 </shape>
+					<shape>
+            <translate>-0.003112835	2.531317234 -2.773774147</translate>
+            <rotate>1 0	0	 0</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <density>1</density>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>0.393700778 0.393700778	0.826771677</half_extents>
+						</box>
+					 </shape>
+					<shape>
+            <translate>-1.489002228	-0.003443331 -2.773774147</translate>
+            <rotate>1 0	0	 0</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <density>1</density>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>0.393700778 0.393700778	0.826771677</half_extents>
+						</box>
+					 </shape>
+					<shape>
+            <translate>1.475581169	-0.003443331 -2.773774147</translate>
+            <rotate>1 0	0	 0</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <density>1</density>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>0.393700778 0.393700778	0.826771677</half_extents>
+						</box>
+					 </shape>
+					 <dynamic>true</dynamic>
+					 <mass>1</mass>
+					 <mass_frame>
+            <translate>-0.00021489	0.609611392 -2.324764252</translate>
+            <rotate>-0.999564588 0.023877937	0.017332666	 27.334672928</rotate>
+					</mass_frame>
+					<inertia>3.111904383	2.101462603 3.897614717</inertia>
+					</technique_common>
+			<extra>
+				<technique profile="PhysX">
+						<wakeUpCounter>0.399999976</wakeUpCounter>
+						<linearDamping>0</linearDamping>
+						<angularDamping>0.050000001</angularDamping>
+						<maxAngularVelocity>7</maxAngularVelocity>
+						<sleepLinearVelocity>0.150000006</sleepLinearVelocity>
+						<sleepAngularVelocity>0.140000001</sleepAngularVelocity>
+            <solverIterationCount>150</solverIterationCount>
+						<disable_gravity>false</disable_gravity>
+						<kinematic>false</kinematic>
+            <pose_sleep_test>false</pose_sleep_test>
+						<filter_sleep_velocity>false</filter_sleep_velocity>
+					<group>0</group>
+					<disable_collision>false</disable_collision>
+					<disable_response>false</disable_response>
+					<lock_com>false</lock_com>
+				</technique>
+			</extra>
+			 </rigid_body>
+			<rigid_body	sid="Actor1-RigidBody" name="pelvis_motor_r">
+				<technique_common>
+					<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					<shape>
+            <translate>-0.031264305	-1.604255676 0.000010073</translate>
+            <rotate>-0.000000138 0.707089484	0.707123995	 179.999984741</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <density>1</density>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>0.590551198 0.590551198	0.196850389</half_extents>
+						</box>
+					 </shape>
+					<shape>
+            <translate>-0.029888034	-2.391673088 -0.000009567</translate>
+            <rotate>-0 1	0.000024319	 179.999984741</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <density>1</density>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>0.098425195 0.590551198	0.098425195</half_extents>
+						</box>
+					 </shape>
+					 <dynamic>true</dynamic>
+					 <mass>0.100000001</mass>
+					 <mass_frame>
+            <translate>-0.031158438	-1.664826274 0.000008562</translate>
+            <rotate>0.003271555 -0.994571507	-0.102013186	 1.012580872</rotate>
+					</mass_frame>
+					<inertia>0.017244719	0.021511288 0.017244739</inertia>
+					</technique_common>
+			<extra>
+				<technique profile="PhysX">
+						<wakeUpCounter>0.399999976</wakeUpCounter>
+						<linearDamping>0</linearDamping>
+						<angularDamping>0.050000001</angularDamping>
+						<maxAngularVelocity>7</maxAngularVelocity>
+						<sleepLinearVelocity>0.150000006</sleepLinearVelocity>
+						<sleepAngularVelocity>0.140000001</sleepAngularVelocity>
+            <solverIterationCount>150</solverIterationCount>
+						<disable_gravity>false</disable_gravity>
+						<kinematic>false</kinematic>
+            <pose_sleep_test>false</pose_sleep_test>
+						<filter_sleep_velocity>false</filter_sleep_velocity>
+					<group>0</group>
+					<disable_collision>false</disable_collision>
+					<disable_response>false</disable_response>
+					<lock_com>false</lock_com>
+				</technique>
+			</extra>
+			 </rigid_body>
+			<rigid_body	sid="Actor2-RigidBody" name="trochanter_r">
+				<technique_common>
+					<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					<shape>
+            <translate>-0.037447929	-0.411477357 0.234382749</translate>
+            <rotate>1 0	0	 0</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <density>1</density>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>1.220472455 0.039370079	0.885826766</half_extents>
+						</box>
+					 </shape>
+					<shape>
+            <translate>0.000000954	0.584485888 0.016837716</translate>
+            <rotate>1 0	0	 0</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <density>1</density>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>1.023622036 0.787401557	1.023622036</half_extents>
+						</box>
+					 </shape>
+					<shape>
+            <translate>0.000002861	1.545832157 1.151260018</translate>
+            <rotate>1 0	0	 0</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <density>1</density>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>0.885826766 0.039370079	2.204724312</half_extents>
+						</box>
+					 </shape>
+					 <dynamic>true</dynamic>
+					 <mass>0.5</mass>
+					 <mass_frame>
+            <translate>-0.001686541	0.617864132 0.118993081</translate>
+            <rotate>-0.996091306 0.016833881	0.086728796	 15.859086037</rotate>
+					</mass_frame>
+					<inertia>0.422312856	0.457753181 0.313425094</inertia>
+					</technique_common>
+			<extra>
+				<technique profile="PhysX">
+						<wakeUpCounter>0.399999976</wakeUpCounter>
+						<linearDamping>0</linearDamping>
+						<angularDamping>0.050000001</angularDamping>
+						<maxAngularVelocity>7</maxAngularVelocity>
+						<sleepLinearVelocity>0.150000006</sleepLinearVelocity>
+						<sleepAngularVelocity>0.140000001</sleepAngularVelocity>
+            <solverIterationCount>150</solverIterationCount>
+						<disable_gravity>false</disable_gravity>
+						<kinematic>false</kinematic>
+            <pose_sleep_test>false</pose_sleep_test>
+						<filter_sleep_velocity>false</filter_sleep_velocity>
+					<group>0</group>
+					<disable_collision>false</disable_collision>
+					<disable_response>false</disable_response>
+					<lock_com>false</lock_com>
+				</technique>
+			</extra>
+			 </rigid_body>
+			<rigid_body	sid="Actor3-RigidBody" name="femur_r">
+				<technique_common>
+					<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					<shape>
+            <translate>0.008165956	-6.249925137 0.548025608</translate>
+            <rotate>-0.578630745 0.574762166	0.578648865	 120.222671509</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <mass>0.200000003</mass>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>0.039370079 0.984251976	5.019685268</half_extents>
+						</box>
+					 </shape>
+					<shape>
+            <translate>0.000002146	-0.000004768 -0.007915497</translate>
+            <rotate>0.577682316 -0.576697946	-0.577669978	 239.942749023</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <density>1</density>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>0.984251976 0.984251976	0.984251976</half_extents>
+						</box>
+					 </shape>
+					<shape>
+            <translate>0.023768544	-6.250713825 -0.465593815</translate>
+            <rotate>-0.580569923 0.570838928	0.580587089	 120.561203003</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <mass>0.200000003</mass>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>0.039370079 0.984251976	5.019685268</half_extents>
+						</box>
+					 </shape>
+					 <dynamic>true</dynamic>
+					 <mass>0.550000012</mass>
+					 <mass_frame>
+            <translate>0.00079762	-0.311431736 -0.005467486</translate>
+            <rotate>-0.097711287 0.993461907	0.059308968	 3.856875896</rotate>
+					</mass_frame>
+					<inertia>1.59201479	0.353447229 1.593839169</inertia>
+					</technique_common>
+			<extra>
+				<technique profile="PhysX">
+						<wakeUpCounter>0.399999976</wakeUpCounter>
+						<linearDamping>0</linearDamping>
+						<angularDamping>0.050000001</angularDamping>
+						<maxAngularVelocity>7</maxAngularVelocity>
+						<sleepLinearVelocity>0.150000006</sleepLinearVelocity>
+						<sleepAngularVelocity>0.140000001</sleepAngularVelocity>
+            <solverIterationCount>150</solverIterationCount>
+						<disable_gravity>false</disable_gravity>
+						<kinematic>false</kinematic>
+            <pose_sleep_test>false</pose_sleep_test>
+						<filter_sleep_velocity>false</filter_sleep_velocity>
+					<group>0</group>
+					<disable_collision>false</disable_collision>
+					<disable_response>false</disable_response>
+					<lock_com>false</lock_com>
+				</technique>
+			</extra>
+			 </rigid_body>
+			<rigid_body	sid="Actor4-RigidBody" name="tibia_r">
+				<technique_common>
+					<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					<shape>
+            <translate>0.036308974	-6.038959026 0.947302341</translate>
+            <rotate>-0.577827632 0.576382637	0.577839315	 120.083236694</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <mass>0.200000003</mass>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>0.11811024 0.984251976	5.511811256</half_extents>
+						</box>
+					 </shape>
+					<shape>
+            <translate>-0.000005722	-0.000072449 -0.007858753</translate>
+            <rotate>-0.577312529 0.577407598	0.577324212	 119.994621277</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <density>1</density>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>0.984251976 0.984251976	0.984251976</half_extents>
+						</box>
+					 </shape>
+					<shape>
+            <translate>0.052918255	-6.038218498 -0.852855444</translate>
+            <rotate>-0.578276813 0.575480819	0.578288674	 120.160804749</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <mass>0.200000003</mass>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>0.11811024 0.984251976	5.511811256</half_extents>
+						</box>
+					 </shape>
+					 <dynamic>true</dynamic>
+					 <mass>0.600000024</mass>
+					 <mass_frame>
+            <translate>0.002217472	-0.300946385 -0.005114238</translate>
+            <rotate>-0.406207711 -0.832299173	0.376480073	 1.007932425</rotate>
+					</mass_frame>
+					<inertia>1.731219411	0.402228057 1.716495514</inertia>
+					</technique_common>
+			<extra>
+				<technique profile="PhysX">
+						<wakeUpCounter>0.399999976</wakeUpCounter>
+						<linearDamping>0</linearDamping>
+						<angularDamping>0.050000001</angularDamping>
+						<maxAngularVelocity>7</maxAngularVelocity>
+						<sleepLinearVelocity>0.150000006</sleepLinearVelocity>
+						<sleepAngularVelocity>0.140000001</sleepAngularVelocity>
+            <solverIterationCount>150</solverIterationCount>
+						<disable_gravity>false</disable_gravity>
+						<kinematic>false</kinematic>
+            <pose_sleep_test>false</pose_sleep_test>
+						<filter_sleep_velocity>false</filter_sleep_velocity>
+					<group>0</group>
+					<disable_collision>false</disable_collision>
+					<disable_response>false</disable_response>
+					<lock_com>false</lock_com>
+				</technique>
+			</extra>
+			 </rigid_body>
+			<rigid_body	sid="Actor5-RigidBody" name="talus_r">
+				<technique_common>
+					<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					<shape>
+            <translate>-0.179208755	0.011706829 0.005957961</translate>
+            <rotate>0.582113266 0.582114637	0.567701101	 120.832565308</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <density>1</density>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>0.984251976 1.220472455	1.220472455</half_extents>
+						</box>
+					 </shape>
+					<shape>
+            <translate>1.287419319	-0.773359776 0.00896275</translate>
+            <rotate>0.578339875 0.578337193	-0.575367093	 239.829330444</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <density>1</density>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>0.157480314 0.826771677	0.452755898</half_extents>
+						</box>
+					 </shape>
+					<shape>
+            <translate>1.287342072	0.753690481 -0.024626672</translate>
+            <rotate>-0.575164676 -0.575163066	0.581694543	 119.627105713</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <density>1</density>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>0.157480314 0.826771677	0.452755898</half_extents>
+						</box>
+					 </shape>
+					 <dynamic>true</dynamic>
+					 <mass>0.5</mass>
+					 <mass_frame>
+            <translate>-0.070049345	0.01010348 0.004931567</translate>
+            <rotate>0.48681286 0.675881624	-0.552652776	 0.837428331</rotate>
+					</mass_frame>
+					<inertia>0.409720391	0.544699728 0.477874547</inertia>
+					</technique_common>
+			<extra>
+				<technique profile="PhysX">
+						<wakeUpCounter>0.399999976</wakeUpCounter>
+						<linearDamping>0</linearDamping>
+						<angularDamping>0.050000001</angularDamping>
+						<maxAngularVelocity>7</maxAngularVelocity>
+						<sleepLinearVelocity>0.150000006</sleepLinearVelocity>
+						<sleepAngularVelocity>0.140000001</sleepAngularVelocity>
+            <solverIterationCount>150</solverIterationCount>
+						<disable_gravity>false</disable_gravity>
+						<kinematic>false</kinematic>
+            <pose_sleep_test>false</pose_sleep_test>
+						<filter_sleep_velocity>false</filter_sleep_velocity>
+					<group>0</group>
+					<disable_collision>false</disable_collision>
+					<disable_response>false</disable_response>
+					<lock_com>false</lock_com>
+				</technique>
+			</extra>
+			 </rigid_body>
+			<rigid_body	sid="Actor6-RigidBody" name="metatarsal_r">
+				<technique_common>
+					<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					<shape>
+            <translate>0.054129601	-1.650686979 -0.003200531</translate>
+            <rotate>-0.001576862 0.999996722	0.001576849	 90.000915527</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <density>1</density>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>1.574803114 0.196850389	0.590551198</half_extents>
+						</box>
+					 </shape>
+					<shape>
+            <translate>-0.867534637	1.283929229 0.035188198</translate>
+            <rotate>-0.001576862 0.999996722	0.001576849	 90.000915527</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <density>1</density>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>1.391732335 1.19094491	0.026968503</half_extents>
+						</box>
+					 </shape>
+					<shape>
+            <translate>0.056848526	-2.733359814 -1.772825241</translate>
+            <rotate>-0.001576862 0.999996722	0.001576849	 90.000915527</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <density>1</density>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>0.196850389 1.279527545	0.590551198</half_extents>
+						</box>
+					 </shape>
+					<shape>
+            <translate>0.02271843	0.359026372 0.016385555</translate>
+            <rotate>-0.001576862 0.999996722	0.001576849	 90.000915527</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <density>1</density>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>0.688976407 1.811023593	0.688976407</half_extents>
+						</box>
+					 </shape>
+					<shape>
+            <translate>0.059555054	-2.733355284 1.77047205</translate>
+            <rotate>-0.001576862 0.999996722	0.001576849	 90.000915527</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <density>1</density>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>0.196850389 1.279527545	0.590551198</half_extents>
+						</box>
+					 </shape>
+					 <dynamic>true</dynamic>
+					 <mass>0.560000002</mass>
+					 <mass_frame>
+            <translate>0.00575909	-0.541040897 0.010630923</translate>
+            <rotate>0.225364998 0.005248669	0.974244356	 1.81611979</rotate>
+					</mass_frame>
+					<inertia>1.974620104	0.59766072 1.558310151</inertia>
+					</technique_common>
+			<extra>
+				<technique profile="PhysX">
+						<wakeUpCounter>0.399999976</wakeUpCounter>
+						<linearDamping>0</linearDamping>
+						<angularDamping>0.050000001</angularDamping>
+						<maxAngularVelocity>7</maxAngularVelocity>
+						<sleepLinearVelocity>0.150000006</sleepLinearVelocity>
+						<sleepAngularVelocity>0.140000001</sleepAngularVelocity>
+            <solverIterationCount>150</solverIterationCount>
+						<disable_gravity>false</disable_gravity>
+						<kinematic>false</kinematic>
+            <pose_sleep_test>false</pose_sleep_test>
+						<filter_sleep_velocity>false</filter_sleep_velocity>
+					<group>0</group>
+					<disable_collision>false</disable_collision>
+					<disable_response>false</disable_response>
+					<lock_com>false</lock_com>
+			<pressure_sensor>true</pressure_sensor>
+				</technique>
+			</extra>
+			 </rigid_body>
+			<rigid_body	sid="Actor7-RigidBody" name="phalangeal_r">
+				<technique_common>
+					<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					<shape>
+            <translate>-0.002854824	-0.073491573 -0.948853493</translate>
+            <rotate>1 0	0	 0</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <density>1</density>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>1.779527545 2.38188982	0.027132874</half_extents>
+						</box>
+					 </shape>
+					<shape>
+            <translate>-0.002950668	-0.079298973 -0.000865936</translate>
+            <rotate>1 0	0	 0</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <density>1</density>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>1.574803114 0.688976407	0.688976407</half_extents>
+						</box>
+					 </shape>
+					 <dynamic>true</dynamic>
+					 <mass>0.300000012</mass>
+					 <mass_frame>
+            <translate>-0.002937889	-0.078524649 -0.127264425</translate>
+            <rotate>-0.9973768 -0.025840113	-0.000026845	 0.26244247</rotate>
+					</mass_frame>
+					<inertia>0.189090014	0.329459548 0.373943865</inertia>
+					</technique_common>
+			<extra>
+				<technique profile="PhysX">
+						<wakeUpCounter>0.399999976</wakeUpCounter>
+						<linearDamping>0</linearDamping>
+						<angularDamping>0.050000001</angularDamping>
+						<maxAngularVelocity>7</maxAngularVelocity>
+						<sleepLinearVelocity>0.150000006</sleepLinearVelocity>
+						<sleepAngularVelocity>0.140000001</sleepAngularVelocity>
+            <solverIterationCount>150</solverIterationCount>
+						<disable_gravity>false</disable_gravity>
+						<kinematic>false</kinematic>
+            <pose_sleep_test>false</pose_sleep_test>
+						<filter_sleep_velocity>false</filter_sleep_velocity>
+					<group>0</group>
+					<disable_collision>false</disable_collision>
+					<disable_response>false</disable_response>
+					<lock_com>false</lock_com>
+			<pressure_sensor>true</pressure_sensor>
+				</technique>
+			</extra>
+			 </rigid_body>
+			<rigid_body	sid="Actor8-RigidBody" name="pelvis_motor_l">
+				<technique_common>
+					<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					<shape>
+            <translate>0.031264901	-1.604255676 0.000010073</translate>
+            <rotate>1 0	0	 0</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <density>1</density>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>0.590551198 0.590551198	0.196850389</half_extents>
+						</box>
+					 </shape>
+					<shape>
+            <translate>0.029888153	-2.391673088 -0.000009596</translate>
+            <rotate>1 0	0	 0</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <density>1</density>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>0.098425195 0.590551198	0.098425195</half_extents>
+						</box>
+					 </shape>
+					 <dynamic>true</dynamic>
+					 <mass>0.100000001</mass>
+					 <mass_frame>
+            <translate>0.031158997	-1.664826274 0.00000856</translate>
+            <rotate>0.004784191 -0.000184528	-0.945601821	 0.088469319</rotate>
+					</mass_frame>
+					<inertia>0.017244743	0.011972783 0.026783219</inertia>
+					</technique_common>
+			<extra>
+				<technique profile="PhysX">
+						<wakeUpCounter>0.399999976</wakeUpCounter>
+						<linearDamping>0</linearDamping>
+						<angularDamping>0.050000001</angularDamping>
+						<maxAngularVelocity>7</maxAngularVelocity>
+						<sleepLinearVelocity>0.150000006</sleepLinearVelocity>
+						<sleepAngularVelocity>0.140000001</sleepAngularVelocity>
+            <solverIterationCount>150</solverIterationCount>
+						<disable_gravity>false</disable_gravity>
+						<kinematic>false</kinematic>
+            <pose_sleep_test>false</pose_sleep_test>
+						<filter_sleep_velocity>false</filter_sleep_velocity>
+					<group>0</group>
+					<disable_collision>false</disable_collision>
+					<disable_response>false</disable_response>
+					<lock_com>false</lock_com>
+				</technique>
+			</extra>
+			 </rigid_body>
+			<rigid_body	sid="Actor9-RigidBody" name="trochanter_l">
+				<technique_common>
+					<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					<shape>
+            <translate>0.000004768	1.545832396 1.15125978</translate>
+            <rotate>1 0	0	 0</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <density>1</density>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>0.885826766 0.039370079	2.204724312</half_extents>
+						</box>
+					 </shape>
+					<shape>
+            <translate>0.000001907	0.584485829 0.016837716</translate>
+            <rotate>1 0	0	 0</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <density>1</density>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>1.023622036 0.787401557	1.023622036</half_extents>
+						</box>
+					 </shape>
+					<shape>
+            <translate>-0.037446022	-0.411477387 0.234382629</translate>
+            <rotate>1 0	0	 0</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <density>1</density>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>1.220472455 0.039370079	0.885826766</half_extents>
+						</box>
+					 </shape>
+					 <dynamic>true</dynamic>
+					 <mass>0.5</mass>
+					 <mass_frame>
+            <translate>-0.001685466	0.617864132 0.118993051</translate>
+            <rotate>-0.996091604 0.016835406	0.086728886	 15.859086037</rotate>
+					</mass_frame>
+					<inertia>0.422312886	0.457753181 0.313425064</inertia>
+					</technique_common>
+			<extra>
+				<technique profile="PhysX">
+						<wakeUpCounter>0.399999976</wakeUpCounter>
+						<linearDamping>0</linearDamping>
+						<angularDamping>0.050000001</angularDamping>
+						<maxAngularVelocity>7</maxAngularVelocity>
+						<sleepLinearVelocity>0.150000006</sleepLinearVelocity>
+						<sleepAngularVelocity>0.140000001</sleepAngularVelocity>
+            <solverIterationCount>150</solverIterationCount>
+						<disable_gravity>false</disable_gravity>
+						<kinematic>false</kinematic>
+            <pose_sleep_test>false</pose_sleep_test>
+						<filter_sleep_velocity>false</filter_sleep_velocity>
+					<group>0</group>
+					<disable_collision>false</disable_collision>
+					<disable_response>false</disable_response>
+					<lock_com>false</lock_com>
+				</technique>
+			</extra>
+			 </rigid_body>
+			<rigid_body	sid="Actor10-RigidBody" name="femur_l">
+				<technique_common>
+					<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					<shape>
+            <translate>0.000002146	-0.000003815 -0.007915497</translate>
+            <rotate>0.577682316 -0.576697946	-0.577669978	 239.942749023</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <density>1</density>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>0.984251976 0.984251976	0.984251976</half_extents>
+						</box>
+					 </shape>
+					<shape>
+            <translate>0.023768604	-6.250712872 -0.465593815</translate>
+            <rotate>-0.580569923 0.570838809	0.580587029	 120.561203003</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <mass>0.200000003</mass>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>0.039370079 0.984251976	5.019685268</half_extents>
+						</box>
+					 </shape>
+					<shape>
+            <translate>0.008165956	-6.249923229 0.548025608</translate>
+            <rotate>-0.578630745 0.574762166	0.578648865	 120.222671509</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <mass>0.200000003</mass>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>0.039370079 0.984251976	5.019685268</half_extents>
+						</box>
+					 </shape>
+					 <dynamic>true</dynamic>
+					 <mass>0.550000012</mass>
+					 <mass_frame>
+            <translate>0.000797621	-0.311430752 -0.005467486</translate>
+            <rotate>-0.097701088 0.993425369	0.059302572	 3.857281923</rotate>
+					</mass_frame>
+					<inertia>1.59201467	0.353447229 1.593838692</inertia>
+					</technique_common>
+			<extra>
+				<technique profile="PhysX">
+						<wakeUpCounter>0.399999976</wakeUpCounter>
+						<linearDamping>0</linearDamping>
+						<angularDamping>0.050000001</angularDamping>
+						<maxAngularVelocity>7</maxAngularVelocity>
+						<sleepLinearVelocity>0.150000006</sleepLinearVelocity>
+						<sleepAngularVelocity>0.140000001</sleepAngularVelocity>
+            <solverIterationCount>150</solverIterationCount>
+						<disable_gravity>false</disable_gravity>
+						<kinematic>false</kinematic>
+            <pose_sleep_test>false</pose_sleep_test>
+						<filter_sleep_velocity>false</filter_sleep_velocity>
+					<group>0</group>
+					<disable_collision>false</disable_collision>
+					<disable_response>false</disable_response>
+					<lock_com>false</lock_com>
+				</technique>
+			</extra>
+			 </rigid_body>
+			<rigid_body	sid="Actor11-RigidBody" name="tibia_l">
+				<technique_common>
+					<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					<shape>
+            <translate>0.036308944	-6.038958073 0.947302341</translate>
+            <rotate>-0.577827632 0.576382637	0.577839315	 120.083236694</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <mass>0.200000003</mass>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>0.11811024 0.984251976	5.511811256</half_extents>
+						</box>
+					 </shape>
+					<shape>
+            <translate>0.052918255	-6.038218021 -0.852855206</translate>
+            <rotate>-0.578276813 0.575480819	0.578288674	 120.160804749</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <mass>0.200000003</mass>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>0.11811024 0.984251976	5.511811256</half_extents>
+						</box>
+					 </shape>
+					<shape>
+            <translate>-0.000005722	-0.000072449 -0.007858276</translate>
+            <rotate>-0.577312469 0.577407598	0.577324212	 119.994621277</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <density>1</density>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>0.984251976 0.984251976	0.984251976</half_extents>
+						</box>
+					 </shape>
+					 <dynamic>true</dynamic>
+					 <mass>0.600000024</mass>
+					 <mass_frame>
+            <translate>0.002217472	-0.300946355 -0.005113779</translate>
+            <rotate>-0.406205475 -0.832287967	0.376479506	 1.007932425</rotate>
+					</mass_frame>
+					<inertia>1.731219053	0.402228028 1.716495395</inertia>
+					</technique_common>
+			<extra>
+				<technique profile="PhysX">
+						<wakeUpCounter>0.399999976</wakeUpCounter>
+						<linearDamping>0</linearDamping>
+						<angularDamping>0.050000001</angularDamping>
+						<maxAngularVelocity>7</maxAngularVelocity>
+						<sleepLinearVelocity>0.150000006</sleepLinearVelocity>
+						<sleepAngularVelocity>0.140000001</sleepAngularVelocity>
+            <solverIterationCount>150</solverIterationCount>
+						<disable_gravity>false</disable_gravity>
+						<kinematic>false</kinematic>
+            <pose_sleep_test>false</pose_sleep_test>
+						<filter_sleep_velocity>false</filter_sleep_velocity>
+					<group>0</group>
+					<disable_collision>false</disable_collision>
+					<disable_response>false</disable_response>
+					<lock_com>false</lock_com>
+				</technique>
+			</extra>
+			 </rigid_body>
+			<rigid_body	sid="Actor12-RigidBody" name="talus_l">
+				<technique_common>
+					<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					<shape>
+            <translate>1.287420273	-0.773359776 0.00896275</translate>
+            <rotate>0.578339875 0.578337312	-0.575367212	 239.829330444</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <density>1</density>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>0.157480314 0.826771677	0.452755898</half_extents>
+						</box>
+					 </shape>
+					<shape>
+            <translate>1.287343025	0.753690958 -0.024626672</translate>
+            <rotate>-0.575164795 -0.575163245	0.581694782	 119.627128601</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <density>1</density>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>0.157480314 0.826771677	0.452755898</half_extents>
+						</box>
+					 </shape>
+					<shape>
+            <translate>-0.179208755	0.011706829 0.005957961</translate>
+            <rotate>0.582113326 0.582114637	0.567701161	 120.832565308</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <density>1</density>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>0.984251976 1.220472455	1.220472455</half_extents>
+						</box>
+					 </shape>
+					 <dynamic>true</dynamic>
+					 <mass>0.5</mass>
+					 <mass_frame>
+            <translate>-0.070049271	0.010103498 0.004931566</translate>
+            <rotate>0.486771464 0.675839245	-0.552619398	 0.837428331</rotate>
+					</mass_frame>
+					<inertia>0.40972057	0.544699967 0.477874786</inertia>
+					</technique_common>
+			<extra>
+				<technique profile="PhysX">
+						<wakeUpCounter>0.399999976</wakeUpCounter>
+						<linearDamping>0</linearDamping>
+						<angularDamping>0.050000001</angularDamping>
+						<maxAngularVelocity>7</maxAngularVelocity>
+						<sleepLinearVelocity>0.150000006</sleepLinearVelocity>
+						<sleepAngularVelocity>0.140000001</sleepAngularVelocity>
+            <solverIterationCount>150</solverIterationCount>
+						<disable_gravity>false</disable_gravity>
+						<kinematic>false</kinematic>
+            <pose_sleep_test>false</pose_sleep_test>
+						<filter_sleep_velocity>false</filter_sleep_velocity>
+					<group>0</group>
+					<disable_collision>false</disable_collision>
+					<disable_response>false</disable_response>
+					<lock_com>false</lock_com>
+				</technique>
+			</extra>
+			 </rigid_body>
+			<rigid_body	sid="Actor13-RigidBody" name="metatarsal_l">
+				<technique_common>
+					<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					<shape>
+            <translate>0.0595541	-2.733355761 1.770471573</translate>
+            <rotate>-0.001576857 0.999996901	0.001576849	 90.000930786</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <density>1</density>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>0.196850389 1.279527545	0.590551198</half_extents>
+						</box>
+					 </shape>
+					<shape>
+            <translate>0.056848526	-2.733359814 -1.772825718</translate>
+            <rotate>-0.001576857 0.999996901	0.001576849	 90.000930786</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <density>1</density>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>0.196850389 1.279527545	0.590551198</half_extents>
+						</box>
+					 </shape>
+					<shape>
+            <translate>-0.867533684	1.28392911 0.035188198</translate>
+            <rotate>-0.001576857 0.999996901	0.001576849	 90.000930786</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <density>1</density>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>1.391732335 1.19094491	0.026968503</half_extents>
+						</box>
+					 </shape>
+					<shape>
+            <translate>0.02271843	0.359026313 0.016385555</translate>
+            <rotate>-0.001576857 0.999996901	0.001576849	 90.000930786</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <density>1</density>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>0.688976407 1.811023593	0.688976407</half_extents>
+						</box>
+					 </shape>
+					<shape>
+            <translate>0.054129601	-1.650686979 -0.003200054</translate>
+            <rotate>-0.001576857 0.999996901	0.001576849	 90.000930786</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <density>1</density>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>1.574803114 0.196850389	0.590551198</half_extents>
+						</box>
+					 </shape>
+					 <dynamic>true</dynamic>
+					 <mass>0.560000002</mass>
+					 <mass_frame>
+            <translate>0.00575902	-0.541041017 0.010630905</translate>
+            <rotate>0.225365475 0.005241559	0.974240661	 1.81611979</rotate>
+					</mass_frame>
+					<inertia>1.974620104	0.59766078 1.558310509</inertia>
+					</technique_common>
+			<extra>
+				<technique profile="PhysX">
+						<wakeUpCounter>0.399999976</wakeUpCounter>
+						<linearDamping>0</linearDamping>
+						<angularDamping>0.050000001</angularDamping>
+						<maxAngularVelocity>7</maxAngularVelocity>
+						<sleepLinearVelocity>0.150000006</sleepLinearVelocity>
+						<sleepAngularVelocity>0.140000001</sleepAngularVelocity>
+            <solverIterationCount>150</solverIterationCount>
+						<disable_gravity>false</disable_gravity>
+						<kinematic>false</kinematic>
+            <pose_sleep_test>false</pose_sleep_test>
+						<filter_sleep_velocity>false</filter_sleep_velocity>
+					<group>0</group>
+					<disable_collision>false</disable_collision>
+					<disable_response>false</disable_response>
+					<lock_com>false</lock_com>
+			<pressure_sensor>true</pressure_sensor>
+				</technique>
+			</extra>
+			 </rigid_body>
+			<rigid_body	sid="Actor14-RigidBody" name="phalangeal_l">
+				<technique_common>
+					<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					<shape>
+            <translate>-0.002854347	-0.073491096 -0.948853493</translate>
+            <rotate>1 0	0	 0</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <density>1</density>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>1.779527545 2.38188982	0.027132874</half_extents>
+						</box>
+					 </shape>
+					<shape>
+            <translate>-0.002950191	-0.079298496 -0.00086689</translate>
+            <rotate>1 0	0	 0</rotate>
+						<instance_physics_material url="#pmat1_0-PhysicsMaterial"/>
+					 <density>1</density>
+					 <extra>
+						 <technique	profile="PhysX">
+							 <group>0</group>
+                <skinWidth>0.01</skinWidth>
+							 <disable_collision>false</disable_collision>
+						 </technique>
+					 </extra>
+						<box>
+							<half_extents>1.574803114 0.688976407	0.688976407</half_extents>
+						</box>
+					 </shape>
+					 <dynamic>true</dynamic>
+          <mass>0.300000012</mass>
+					 <mass_frame>
+            <translate>-0.002937412	-0.078524172 -0.127265245</translate>
+            <rotate>-0.997372568 -0.025840102	-0.000026884	 0.26244247</rotate>
+					</mass_frame>
+          <inertia>0.189089969	0.329459488 0.373943865</inertia>
+					</technique_common>
+			<extra>
+				<technique profile="PhysX">
+						<wakeUpCounter>0.399999976</wakeUpCounter>
+						<linearDamping>0</linearDamping>
+						<angularDamping>0.050000001</angularDamping>
+						<maxAngularVelocity>7</maxAngularVelocity>
+						<sleepLinearVelocity>0.150000006</sleepLinearVelocity>
+						<sleepAngularVelocity>0.140000001</sleepAngularVelocity>
+            <solverIterationCount>150</solverIterationCount>
+						<disable_gravity>false</disable_gravity>
+						<kinematic>false</kinematic>
+            <pose_sleep_test>false</pose_sleep_test>
+						<filter_sleep_velocity>false</filter_sleep_velocity>
+					<group>0</group>
+					<disable_collision>false</disable_collision>
+					<disable_response>false</disable_response>
+					<lock_com>false</lock_com>
+			<pressure_sensor>true</pressure_sensor>
+				</technique>
+			</extra>
+			 </rigid_body>
+      <rigid_constraint sid="Joint0-RigidConstraint" name="pelvis_motor_r">
+				<ref_attachment	rigid_body="Actor0-RigidBody"	name="pelvis">
+          <translate>-1.467255831	0 0</translate>
+          <rotate>1 0	0	 0</rotate>
+				</ref_attachment>
+				<attachment	rigid_body="Actor1-RigidBody"	name="pelvis_motor_r">
+          <translate>0	0 0</translate>
+          <rotate>-1 -0.000000238	-0.000000064	 90</rotate>
+				</attachment>
+				<technique_common>
+					<enabled>1</enabled>
+					<interpenetrate>true</interpenetrate>
+					<limits>
+						<linear>
+							<min>0	0 0</min>
+							<max>0	0 0</max>
+						 </linear>
+						<swing_cone_and_twist>
+							<min>0	0 -INF</min>
+							<max>0	0 INF</max>
+						</swing_cone_and_twist>
+					</limits>
+					<spring>
+						<linear>
+							<stiffness>0</stiffness>
+							<damping>0</damping>
+							<target_value>0</target_value>
+						</linear>
+						<angular>
+							<stiffness>1</stiffness>
+							<damping>0</damping>
+							<target_value>0</target_value>
+						</angular>
+					</spring>
+				</technique_common>
+				<extra>
+					<technique profile="PhysX">
+					<NxJointDriveDesc	id="twistDrive">
+              <driveType>REVOLUTE_DRIVE</driveType>
+						<spring>0</spring>
+						<damping>0</damping>
+              <forceLimit>1</forceLimit>
+					</NxJointDriveDesc>
+					<drivePosition>0	0 0</drivePosition>
+					<driveOrientation>0 0	0 1</driveOrientation>
+			<driveControllerType>PID-velocity</driveControllerType>
+			<driveControllerParams>0.1 0 0.1</driveControllerParams>
+					<driveLinearVelocity>0	0 0</driveLinearVelocity>
+					<driveAngularVelocity>0 0	0</driveAngularVelocity>
+						<projectionMode>NX_JPM_NONE</projectionMode>
+						<projectionDistance>0.100000001</projectionDistance>
+						<projectionAngle>0.087200001</projectionAngle>
+					<gearRatio>1</gearRatio>
+					</technique>
+				</extra>
+			</rigid_constraint>
+      <rigid_constraint sid="Joint1-RigidConstraint" name="trochanter_r">
+				<ref_attachment	rigid_body="Actor1-RigidBody"	name="pelvis_motor_r">
+          <translate>0.000000119	0 0</translate>
+          <rotate>1 0	0	 0</rotate>
+				</ref_attachment>
+				<attachment	rigid_body="Actor2-RigidBody"	name="trochanter_r">
+          <translate>0	0 0</translate>
+          <rotate>0.577350497 0.57735002	-0.577350259	 120.000076294</rotate>
+				</attachment>
+				<technique_common>
+					<enabled>1</enabled>
+
+					<interpenetrate>true</interpenetrate>
+					<limits>
+						<linear>
+							<min>0	0 0</min>
+							<max>0	0 0</max>
+						 </linear>
+						<swing_cone_and_twist>
+							<min>0	0 -INF</min>
+							<max>0	0 INF</max>
+						</swing_cone_and_twist>
+					</limits>
+					<spring>
+						<linear>
+							<stiffness>0</stiffness>
+							<damping>0</damping>
+							<target_value>0</target_value>
+						</linear>
+						<angular>
+							<stiffness>1</stiffness>
+							<damping>0</damping>
+							<target_value>0</target_value>
+						</angular>
+					</spring>
+				</technique_common>
+				<extra>
+					<technique profile="PhysX">
+					<NxJointDriveDesc	id="twistDrive">
+              <driveType>REVOLUTE_DRIVE</driveType>
+						<spring>0</spring>
+						<damping>0</damping>
+              <forceLimit>1</forceLimit>
+					</NxJointDriveDesc>
+					<drivePosition>0	0 0</drivePosition>
+					<driveOrientation>0 0	0 1</driveOrientation>
+			<driveControllerType>PID-velocity</driveControllerType>
+			<driveControllerParams>0.1 0 0.1</driveControllerParams>
+					<driveLinearVelocity>0	0 0</driveLinearVelocity>
+					<driveAngularVelocity>0 0	0</driveAngularVelocity>
+						<projectionMode>NX_JPM_NONE</projectionMode>
+						<projectionDistance>0.100000001</projectionDistance>
+						<projectionAngle>0.087200001</projectionAngle>
+					<gearRatio>1</gearRatio>
+					</technique>
+				</extra>
+			</rigid_constraint>
+      <rigid_constraint sid="Joint2-RigidConstraint" name="femur_r">
+				<ref_attachment	rigid_body="Actor2-RigidBody"	name="trochanter_r">
+          <translate>-0.000003815	-0.000001192 2.617682457</translate>
+          <rotate>1 0	0	 0</rotate>
+				</ref_attachment>
+				<attachment	rigid_body="Actor3-RigidBody"	name="femur_r">
+          <translate>0	0 0</translate>
+          <rotate>-0.000010153 0.000009694	1	 90.097816467</rotate>
+				</attachment>
+				<technique_common>
+					<enabled>1</enabled>
+
+					<interpenetrate>true</interpenetrate>
+					<limits>
+						<linear>
+							<min>0	0 0</min>
+							<max>0	0 0</max>
+						 </linear>
+						<swing_cone_and_twist>
+							<min>0	0 -INF</min>
+							<max>0	0 INF</max>
+						</swing_cone_and_twist>
+					</limits>
+					<spring>
+						<linear>
+							<stiffness>0</stiffness>
+							<damping>0</damping>
+							<target_value>0</target_value>
+						</linear>
+						<angular>
+							<stiffness>1</stiffness>
+							<damping>0</damping>
+							<target_value>0</target_value>
+						</angular>
+					</spring>
+				</technique_common>
+				<extra>
+					<technique profile="PhysX">
+					<NxJointDriveDesc	id="twistDrive">
+              <driveType>REVOLUTE_DRIVE</driveType>
+						<spring>0</spring>
+						<damping>0</damping>
+              <forceLimit>1</forceLimit>
+					</NxJointDriveDesc>
+					<drivePosition>0	0 0</drivePosition>
+					<driveOrientation>0 0	0 1</driveOrientation>
+			<driveControllerType>PID-velocity</driveControllerType>
+			<driveControllerParams>0.1 0 0.1</driveControllerParams>
+					<driveLinearVelocity>0	0 0</driveLinearVelocity>
+					<driveAngularVelocity>0 0	0</driveAngularVelocity>
+						<projectionMode>NX_JPM_NONE</projectionMode>
+						<projectionDistance>0.100000001</projectionDistance>
+						<projectionAngle>0.087200001</projectionAngle>
+					<gearRatio>1</gearRatio>
+					</technique>
+				</extra>
+			</rigid_constraint>
+      <rigid_constraint sid="Joint3-RigidConstraint" name="tibia_r">
+				<ref_attachment	rigid_body="Actor3-RigidBody"	name="femur_r">
+          <translate>0.019266129	-11.28669548 -0.00000906</translate>
+          <rotate>1 0	0	 0</rotate>
+				</ref_attachment>
+				<attachment	rigid_body="Actor4-RigidBody"	name="tibia_r">
+          <translate>0	0 0</translate>
+          <rotate>1 0	0	 0</rotate>
+				</attachment>
+				<technique_common>
+					<enabled>1</enabled>
+
+					<interpenetrate>true</interpenetrate>
+					<limits>
+						<linear>
+							<min>0	0 0</min>
+							<max>0	0 0</max>
+						 </linear>
+						<swing_cone_and_twist>
+							<min>0	0 -INF</min>
+							<max>0	0 INF</max>
+						</swing_cone_and_twist>
+					</limits>
+					<spring>
+						<linear>
+							<stiffness>0</stiffness>
+							<damping>0</damping>
+							<target_value>0</target_value>
+						</linear>
+						<angular>
+							<stiffness>1</stiffness>
+							<damping>0</damping>
+							<target_value>0</target_value>
+						</angular>
+					</spring>
+				</technique_common>
+				<extra>
+					<technique profile="PhysX">
+					<NxJointDriveDesc	id="twistDrive">
+              <driveType>REVOLUTE_DRIVE</driveType>
+						<spring>0</spring>
+						<damping>0</damping>
+              <forceLimit>1</forceLimit>
+					</NxJointDriveDesc>
+					<drivePosition>0	0 0</drivePosition>
+					<driveOrientation>0 0	0 1</driveOrientation>
+			<driveControllerType>PID-velocity</driveControllerType>
+			<driveControllerParams>0.1 0 0.1</driveControllerParams>
+					<driveLinearVelocity>0	0 0</driveLinearVelocity>
+					<driveAngularVelocity>0 0	0</driveAngularVelocity>
+						<projectionMode>NX_JPM_NONE</projectionMode>
+						<projectionDistance>0.100000001</projectionDistance>
+						<projectionAngle>0.087200001</projectionAngle>
+					<gearRatio>1</gearRatio>
+					</technique>
+				</extra>
+			</rigid_constraint>
+      <rigid_constraint sid="Joint4-RigidConstraint" name="talus_r">
+				<ref_attachment	rigid_body="Actor4-RigidBody"	name="tibia_r">
+          <translate>0.020507842	-11.82511425 0.037296772</translate>
+          <rotate>1 0	0	 0</rotate>
+				</ref_attachment>
+				<attachment	rigid_body="Actor5-RigidBody"	name="talus_r">
+          <translate>0	0 0</translate>
+          <rotate>0.577058971 -0.577047408	0.57794404	 119.950004578</rotate>
+				</attachment>
+				<technique_common>
+					<enabled>1</enabled>
+
+					<interpenetrate>true</interpenetrate>
+					<limits>
+						<linear>
+							<min>0	0 0</min>
+							<max>0	0 0</max>
+						 </linear>
+						<swing_cone_and_twist>
+							<min>0	0 -INF</min>
+							<max>0	0 INF</max>
+						</swing_cone_and_twist>
+					</limits>
+					<spring>
+						<linear>
+							<stiffness>0</stiffness>
+							<damping>0</damping>
+							<target_value>0</target_value>
+						</linear>
+						<angular>
+							<stiffness>1</stiffness>
+							<damping>0</damping>
+							<target_value>0</target_value>
+						</angular>
+					</spring>
+				</technique_common>
+				<extra>
+					<technique profile="PhysX">
+					<NxJointDriveDesc	id="twistDrive">
+              <driveType>REVOLUTE_DRIVE</driveType>
+						<spring>0</spring>
+						<damping>0</damping>
+              <forceLimit>1</forceLimit>
+					</NxJointDriveDesc>
+					<drivePosition>0	0 0</drivePosition>
+					<driveOrientation>0 0	0 1</driveOrientation>
+			<driveControllerType>PID-velocity</driveControllerType>
+			<driveControllerParams>0.1 0 0.1</driveControllerParams>
+					<driveLinearVelocity>0	0 0</driveLinearVelocity>
+					<driveAngularVelocity>0 0	0</driveAngularVelocity>
+						<projectionMode>NX_JPM_NONE</projectionMode>
+						<projectionDistance>0.100000001</projectionDistance>
+						<projectionAngle>0.087200001</projectionAngle>
+					<gearRatio>1</gearRatio>
+					</technique>
+				</extra>
+			</rigid_constraint>
+      <rigid_constraint sid="Joint5-RigidConstraint" name="metatarsal_r">
+				<ref_attachment	rigid_body="Actor5-RigidBody"	name="talus_r">
+          <translate>2.195856094	-0.004948616 -0.086180151</translate>
+          <rotate>1 0	0	 0</rotate>
+				</ref_attachment>
+				<attachment	rigid_body="Actor6-RigidBody"	name="metatarsal_r">
+          <translate>0	0 0</translate>
+          <rotate>0.001204674 -0.707105696	0.707106769	 180.138168335</rotate>
+				</attachment>
+				<technique_common>
+					<enabled>1</enabled>
+
+					<interpenetrate>true</interpenetrate>
+					<limits>
+						<linear>
+							<min>0	0 0</min>
+							<max>0	0 0</max>
+						 </linear>
+						<swing_cone_and_twist>
+							<min>0	0 -INF</min>
+							<max>0	0 INF</max>
+						</swing_cone_and_twist>
+					</limits>
+					<spring>
+						<linear>
+							<stiffness>0</stiffness>
+							<damping>0</damping>
+							<target_value>0</target_value>
+						</linear>
+						<angular>
+							<stiffness>1</stiffness>
+							<damping>0</damping>
+							<target_value>0</target_value>
+						</angular>
+					</spring>
+				</technique_common>
+				<extra>
+					<technique profile="PhysX">
+					<NxJointDriveDesc	id="twistDrive">
+              <driveType>REVOLUTE_DRIVE</driveType>
+						<spring>0</spring>
+						<damping>0</damping>
+              <forceLimit>1</forceLimit>
+					</NxJointDriveDesc>
+					<drivePosition>0	0 0</drivePosition>
+					<driveOrientation>0 0	0 1</driveOrientation>
+			<driveControllerType>PID-velocity</driveControllerType>
+			<driveControllerParams>0.1 0 0.1</driveControllerParams>
+					<driveLinearVelocity>0	0 0</driveLinearVelocity>
+					<driveAngularVelocity>0 0	0</driveAngularVelocity>
+						<projectionMode>NX_JPM_NONE</projectionMode>
+						<projectionDistance>0.100000001</projectionDistance>
+						<projectionAngle>0.087200001</projectionAngle>
+					<gearRatio>1</gearRatio>
+					</technique>
+				</extra>
+			</rigid_constraint>
+      <rigid_constraint sid="Joint6-RigidConstraint" name="phalangeal_r">
+				<ref_attachment	rigid_body="Actor6-RigidBody"	name="metatarsal_r">
+          <translate>0.080082893	-3.154196501 -0.004826546</translate>
+          <rotate>1 0	0	 0</rotate>
+				</ref_attachment>
+				<attachment	rigid_body="Actor7-RigidBody"	name="phalangeal_r">
+          <translate>0	0 0</translate>
+          <rotate>0.001577209 -0.999997556	-0.001577183	 89.999298096</rotate>
+				</attachment>
+				<technique_common>
+					<enabled>1</enabled>
+
+					<interpenetrate>true</interpenetrate>
+					<limits>
+						<linear>
+							<min>0	0 0</min>
+							<max>0	0 0</max>
+						 </linear>
+						<swing_cone_and_twist>
+							<min>0	0 -INF</min>
+							<max>0	0 INF</max>
+						</swing_cone_and_twist>
+					</limits>
+					<spring>
+						<linear>
+							<stiffness>0</stiffness>
+							<damping>0</damping>
+							<target_value>0</target_value>
+						</linear>
+						<angular>
+							<stiffness>1</stiffness>
+							<damping>0</damping>
+							<target_value>0</target_value>
+						</angular>
+					</spring>
+				</technique_common>
+				<extra>
+					<technique profile="PhysX">
+					<NxJointDriveDesc	id="twistDrive">
+              <driveType>REVOLUTE_DRIVE</driveType>
+						<spring>0</spring>
+						<damping>0</damping>
+              <forceLimit>1</forceLimit>
+					</NxJointDriveDesc>
+					<drivePosition>0	0 0</drivePosition>
+					<driveOrientation>0 0	0 1</driveOrientation>
+			<driveControllerType>PID-velocity</driveControllerType>
+			<driveControllerParams>0.1 0 0.1</driveControllerParams>
+					<driveLinearVelocity>0	0 0</driveLinearVelocity>
+					<driveAngularVelocity>0 0	0</driveAngularVelocity>
+						<projectionMode>NX_JPM_NONE</projectionMode>
+						<projectionDistance>0.100000001</projectionDistance>
+						<projectionAngle>0.087200001</projectionAngle>
+					<gearRatio>1</gearRatio>
+					</technique>
+				</extra>
+			</rigid_constraint>
+      <rigid_constraint sid="Joint7-RigidConstraint" name="pelvis_motor_l">
+				<ref_attachment	rigid_body="Actor0-RigidBody"	name="pelvis">
+          <translate>1.500586987	0 0</translate>
+          <rotate>1 0	0	 0</rotate>
+				</ref_attachment>
+				<attachment	rigid_body="Actor8-RigidBody"	name="pelvis_motor_l">
+          <translate>0	0 0</translate>
+          <rotate>-0.99999994 -0.000000235	-0.000000067	 90.000007629</rotate>
+				</attachment>
+				<technique_common>
+					<enabled>1</enabled>
+
+					<interpenetrate>true</interpenetrate>
+					<limits>
+						<linear>
+							<min>0	0 0</min>
+							<max>0	0 0</max>
+						 </linear>
+						<swing_cone_and_twist>
+							<min>0	0 -INF</min>
+							<max>0	0 INF</max>
+						</swing_cone_and_twist>
+					</limits>
+					<spring>
+						<linear>
+							<stiffness>0</stiffness>
+							<damping>0</damping>
+							<target_value>0</target_value>
+						</linear>
+						<angular>
+							<stiffness>1</stiffness>
+							<damping>0</damping>
+							<target_value>0</target_value>
+						</angular>
+					</spring>
+				</technique_common>
+				<extra>
+					<technique profile="PhysX">
+					<NxJointDriveDesc	id="twistDrive">
+              <driveType>REVOLUTE_DRIVE</driveType>
+						<spring>0</spring>
+						<damping>0</damping>
+              <forceLimit>1</forceLimit>
+					</NxJointDriveDesc>
+					<drivePosition>0	0 0</drivePosition>
+					<driveOrientation>0 0	0 1</driveOrientation>
+			<driveControllerType>PID-velocity</driveControllerType>
+			<driveControllerParams>0.1 0 0.1</driveControllerParams>
+					<driveLinearVelocity>0	0 0</driveLinearVelocity>
+					<driveAngularVelocity>0 0	0</driveAngularVelocity>
+						<projectionMode>NX_JPM_NONE</projectionMode>
+						<projectionDistance>0.100000001</projectionDistance>
+						<projectionAngle>0.087200001</projectionAngle>
+					<gearRatio>1</gearRatio>
+					</technique>
+				</extra>
+			</rigid_constraint>
+      <rigid_constraint sid="Joint8-RigidConstraint" name="trochanter_l">
+				<ref_attachment	rigid_body="Actor0-RigidBody"	name="pelvis">
+          <translate>1.500587463	0 0</translate>
+          <rotate>1 0	0	 0</rotate>
+				</ref_attachment>
+				<attachment	rigid_body="Actor9-RigidBody"	name="trochanter_l">
+          <translate>0	0 0</translate>
+          <rotate>0.000000602 -1	0.000000427	 90</rotate>
+				</attachment>
+				<technique_common>
+					<enabled>1</enabled>
+
+					<interpenetrate>true</interpenetrate>
+					<limits>
+						<linear>
+							<min>0	0 0</min>
+							<max>0	0 0</max>
+						 </linear>
+						<swing_cone_and_twist>
+							<min>0	0 -INF</min>
+							<max>0	0 INF</max>
+						</swing_cone_and_twist>
+					</limits>
+					<spring>
+						<linear>
+							<stiffness>0</stiffness>
+							<damping>0</damping>
+							<target_value>0</target_value>
+						</linear>
+						<angular>
+							<stiffness>1</stiffness>
+							<damping>0</damping>
+							<target_value>0</target_value>
+						</angular>
+					</spring>
+				</technique_common>
+				<extra>
+					<technique profile="PhysX">
+					<NxJointDriveDesc	id="twistDrive">
+              <driveType>REVOLUTE_DRIVE</driveType>
+						<spring>0</spring>
+						<damping>0</damping>
+              <forceLimit>1</forceLimit>
+					</NxJointDriveDesc>
+					<drivePosition>0	0 0</drivePosition>
+					<driveOrientation>0 0	0 1</driveOrientation>
+			<driveControllerType>PID-velocity</driveControllerType>
+			<driveControllerParams>0.1 0 0.1</driveControllerParams>
+					<driveLinearVelocity>0	0 0</driveLinearVelocity>
+					<driveAngularVelocity>0 0	0</driveAngularVelocity>
+						<projectionMode>NX_JPM_NONE</projectionMode>
+						<projectionDistance>0.100000001</projectionDistance>
+						<projectionAngle>0.087200001</projectionAngle>
+					<gearRatio>1</gearRatio>
+					</technique>
+				</extra>
+			</rigid_constraint>
+      <rigid_constraint sid="Joint9-RigidConstraint" name="femur_l">
+				<ref_attachment	rigid_body="Actor9-RigidBody"	name="trochanter_l">
+          <translate>0.000002861	-0.000000954 2.684073448</translate>
+          <rotate>1 0	0	 0</rotate>
+				</ref_attachment>
+				<attachment	rigid_body="Actor10-RigidBody"	name="femur_l">
+          <translate>0	0 0</translate>
+          <rotate>-0.000007855 -0.000007717	-1	 90.097694397</rotate>
+				</attachment>
+				<technique_common>
+					<enabled>1</enabled>
+
+					<interpenetrate>true</interpenetrate>
+					<limits>
+						<linear>
+							<min>0	0 0</min>
+							<max>0	0 0</max>
+						 </linear>
+						<swing_cone_and_twist>
+							<min>0	0 -INF</min>
+							<max>0	0 INF</max>
+						</swing_cone_and_twist>
+					</limits>
+					<spring>
+						<linear>
+							<stiffness>0</stiffness>
+							<damping>0</damping>
+							<target_value>0</target_value>
+						</linear>
+						<angular>
+							<stiffness>1</stiffness>
+							<damping>0</damping>
+							<target_value>0</target_value>
+						</angular>
+					</spring>
+				</technique_common>
+				<extra>
+					<technique profile="PhysX">
+					<NxJointDriveDesc	id="twistDrive">
+              <driveType>REVOLUTE_DRIVE</driveType>
+						<spring>0</spring>
+						<damping>0</damping>
+              <forceLimit>1</forceLimit>
+					</NxJointDriveDesc>
+					<drivePosition>0	0 0</drivePosition>
+					<driveOrientation>0 0	0 1</driveOrientation>
+			<driveControllerType>PID-velocity</driveControllerType>
+			<driveControllerParams>0.1 0 0.1</driveControllerParams>
+					<driveLinearVelocity>0	0 0</driveLinearVelocity>
+					<driveAngularVelocity>0 0	0</driveAngularVelocity>
+						<projectionMode>NX_JPM_NONE</projectionMode>
+						<projectionDistance>0.100000001</projectionDistance>
+						<projectionAngle>0.087200001</projectionAngle>
+					<gearRatio>1</gearRatio>
+					</technique>
+				</extra>
+			</rigid_constraint>
+      <rigid_constraint sid="Joint10-RigidConstraint" name="tibia_l">
+				<ref_attachment	rigid_body="Actor10-RigidBody"	name="femur_l">
+          <translate>0.019266069	-11.28669548 -0.000009537</translate>
+          <rotate>1 0	0	 0</rotate>
+				</ref_attachment>
+				<attachment	rigid_body="Actor11-RigidBody"	name="tibia_l">
+          <translate>0	0 0</translate>
+          <rotate>1 0	0	 0</rotate>
+				</attachment>
+				<technique_common>
+					<enabled>1</enabled>
+
+					<interpenetrate>true</interpenetrate>
+					<limits>
+						<linear>
+							<min>0	0 0</min>
+							<max>0	0 0</max>
+						 </linear>
+						<swing_cone_and_twist>
+							<min>0	0 -INF</min>
+							<max>0	0 INF</max>
+						</swing_cone_and_twist>
+					</limits>
+					<spring>
+						<linear>
+							<stiffness>0</stiffness>
+							<damping>0</damping>
+							<target_value>0</target_value>
+						</linear>
+						<angular>
+							<stiffness>1</stiffness>
+							<damping>0</damping>
+							<target_value>0</target_value>
+						</angular>
+					</spring>
+				</technique_common>
+				<extra>
+					<technique profile="PhysX">
+					<NxJointDriveDesc	id="twistDrive">
+              <driveType>REVOLUTE_DRIVE</driveType>
+						<spring>0</spring>
+						<damping>0</damping>
+              <forceLimit>1</forceLimit>
+					</NxJointDriveDesc>
+					<drivePosition>0	0 0</drivePosition>
+					<driveOrientation>0 0	0 1</driveOrientation>
+			<driveControllerType>PID-velocity</driveControllerType>
+			<driveControllerParams>0.1 0 0.1</driveControllerParams>
+					<driveLinearVelocity>0	0 0</driveLinearVelocity>
+					<driveAngularVelocity>0 0	0</driveAngularVelocity>
+						<projectionMode>NX_JPM_NONE</projectionMode>
+						<projectionDistance>0.100000001</projectionDistance>
+						<projectionAngle>0.087200001</projectionAngle>
+					<gearRatio>1</gearRatio>
+					</technique>
+				</extra>
+			</rigid_constraint>
+      <rigid_constraint sid="Joint11-RigidConstraint" name="talus_l">
+				<ref_attachment	rigid_body="Actor11-RigidBody"	name="tibia_l">
+          <translate>0.020507813	-11.82511425 0.037297249</translate>
+          <rotate>1 0	0	 0</rotate>
+				</ref_attachment>
+				<attachment	rigid_body="Actor12-RigidBody"	name="talus_l">
+          <translate>0	0 0</translate>
+          <rotate>0.577058792 -0.577047527	0.577944279	 119.950035095</rotate>
+				</attachment>
+				<technique_common>
+					<enabled>1</enabled>
+
+					<interpenetrate>true</interpenetrate>
+					<limits>
+						<linear>
+							<min>0	0 0</min>
+							<max>0	0 0</max>
+						 </linear>
+						<swing_cone_and_twist>
+							<min>0	0 -INF</min>
+							<max>0	0 INF</max>
+						</swing_cone_and_twist>
+					</limits>
+					<spring>
+						<linear>
+							<stiffness>0</stiffness>
+							<damping>0</damping>
+							<target_value>0</target_value>
+						</linear>
+						<angular>
+							<stiffness>1</stiffness>
+							<damping>0</damping>
+							<target_value>0</target_value>
+						</angular>
+					</spring>
+				</technique_common>
+				<extra>
+					<technique profile="PhysX">
+					<NxJointDriveDesc	id="twistDrive">
+              <driveType>REVOLUTE_DRIVE</driveType>
+						<spring>0</spring>
+						<damping>0</damping>
+              <forceLimit>1</forceLimit>
+					</NxJointDriveDesc>
+					<drivePosition>0	0 0</drivePosition>
+					<driveOrientation>0 0	0 1</driveOrientation>
+			<driveControllerType>PID-velocity</driveControllerType>
+			<driveControllerParams>0.1 0 0.1</driveControllerParams>
+					<driveLinearVelocity>0	0 0</driveLinearVelocity>
+					<driveAngularVelocity>0 0	0</driveAngularVelocity>
+						<projectionMode>NX_JPM_NONE</projectionMode>
+						<projectionDistance>0.100000001</projectionDistance>
+						<projectionAngle>0.087200001</projectionAngle>
+					<gearRatio>1</gearRatio>
+					</technique>
+				</extra>
+			</rigid_constraint>
+      <rigid_constraint sid="Joint12-RigidConstraint" name="metatarsal_l">
+				<ref_attachment	rigid_body="Actor12-RigidBody"	name="talus_l">
+          <translate>2.195855141	-0.004948616 -0.08618021</translate>
+          <rotate>1 0	0	 0</rotate>
+				</ref_attachment>
+				<attachment	rigid_body="Actor13-RigidBody"	name="metatarsal_l">
+          <translate>0	0 0</translate>
+          <rotate>0.001205684 0.707106948	0.707105517	 179.861953735</rotate>
+				</attachment>
+				<technique_common>
+					<enabled>1</enabled>
+
+					<interpenetrate>true</interpenetrate>
+					<limits>
+						<linear>
+							<min>0	0 0</min>
+							<max>0	0 0</max>
+						 </linear>
+						<swing_cone_and_twist>
+							<min>0	0 -INF</min>
+							<max>0	0 INF</max>
+						</swing_cone_and_twist>
+					</limits>
+					<spring>
+						<linear>
+							<stiffness>0</stiffness>
+							<damping>0</damping>
+							<target_value>0</target_value>
+						</linear>
+						<angular>
+							<stiffness>1</stiffness>
+							<damping>0</damping>
+							<target_value>0</target_value>
+						</angular>
+					</spring>
+				</technique_common>
+				<extra>
+					<technique profile="PhysX">
+					<NxJointDriveDesc	id="twistDrive">
+              <driveType>REVOLUTE_DRIVE</driveType>
+						<spring>0</spring>
+						<damping>0</damping>
+              <forceLimit>1</forceLimit>
+					</NxJointDriveDesc>
+					<drivePosition>0	0 0</drivePosition>
+					<driveOrientation>0 0	0 1</driveOrientation>
+			<driveControllerType>PID-velocity</driveControllerType>
+			<driveControllerParams>0.1 0 0.1</driveControllerParams>
+					<driveLinearVelocity>0	0 0</driveLinearVelocity>
+					<driveAngularVelocity>0 0	0</driveAngularVelocity>
+						<projectionMode>NX_JPM_NONE</projectionMode>
+						<projectionDistance>0.100000001</projectionDistance>
+						<projectionAngle>0.087200001</projectionAngle>
+					<gearRatio>1</gearRatio>
+					</technique>
+				</extra>
+			</rigid_constraint>
+      <rigid_constraint sid="Joint13-RigidConstraint" name="phalangeal_l">
+				<ref_attachment	rigid_body="Actor13-RigidBody"	name="metatarsal_l">
+          <translate>0.080083847	-3.154196501 -0.004827499</translate>
+          <rotate>1 0	0	 0</rotate>
+				</ref_attachment>
+				<attachment	rigid_body="Actor14-RigidBody"	name="phalangeal_l">
+          <translate>0	0 0</translate>
+          <rotate>0.001577209 -0.999997556	-0.001577183	 89.999282837</rotate>
+				</attachment>
+				<technique_common>
+					<enabled>1</enabled>
+
+					<interpenetrate>true</interpenetrate>
+					<limits>
+						<linear>
+							<min>0	0 0</min>
+							<max>0	0 0</max>
+						 </linear>
+						<swing_cone_and_twist>
+							<min>0	0 -INF</min>
+							<max>0	0 INF</max>
+						</swing_cone_and_twist>
+					</limits>
+					<spring>
+						<linear>
+							<stiffness>0</stiffness>
+							<damping>0</damping>
+							<target_value>0</target_value>
+						</linear>
+						<angular>
+							<stiffness>1</stiffness>
+							<damping>0</damping>
+							<target_value>0</target_value>
+						</angular>
+					</spring>
+				</technique_common>
+				<extra>
+					<technique profile="PhysX">
+					<NxJointDriveDesc	id="twistDrive">
+              <driveType>REVOLUTE_DRIVE</driveType>
+						<spring>0</spring>
+						<damping>0</damping>
+              <forceLimit>1</forceLimit>
+					</NxJointDriveDesc>
+					<drivePosition>0	0 0</drivePosition>
+					<driveOrientation>0 0	0 1</driveOrientation>
+			<driveControllerType>PID-velocity</driveControllerType>
+			<driveControllerParams>0.1 0 0.1</driveControllerParams>
+					<driveLinearVelocity>0	0 0</driveLinearVelocity>
+					<driveAngularVelocity>0 0	0</driveAngularVelocity>
+						<projectionMode>NX_JPM_NONE</projectionMode>
+						<projectionDistance>0.100000001</projectionDistance>
+						<projectionAngle>0.087200001</projectionAngle>
+					<gearRatio>1</gearRatio>
+					</technique>
+				</extra>
+			</rigid_constraint>
+		</physics_model>
+		<physics_model id="Scene0-PhysicsInstance">
+			<instance_physics_model	url="#Scene0-PhysicsModel">
+				<instance_rigid_body target="#Actor0-Node" body="Actor0-RigidBody">
+					<technique_common>
+						<angular_velocity>0 0	0</angular_velocity>
+						<velocity>0 0	0</velocity>
+					</technique_common>
+				</instance_rigid_body>
+				<instance_rigid_body target="#Actor1-Node" body="Actor1-RigidBody">
+					<technique_common>
+						<angular_velocity>0 0	0</angular_velocity>
+						<velocity>0 0	0</velocity>
+					</technique_common>
+				</instance_rigid_body>
+				<instance_rigid_body target="#Actor2-Node" body="Actor2-RigidBody">
+					<technique_common>
+						<angular_velocity>0 0	0</angular_velocity>
+						<velocity>0 0	0</velocity>
+					</technique_common>
+				</instance_rigid_body>
+				<instance_rigid_body target="#Actor3-Node" body="Actor3-RigidBody">
+					<technique_common>
+						<angular_velocity>0 0	0</angular_velocity>
+						<velocity>0 0	0</velocity>
+					</technique_common>
+				</instance_rigid_body>
+				<instance_rigid_body target="#Actor4-Node" body="Actor4-RigidBody">
+					<technique_common>
+						<angular_velocity>0 0	0</angular_velocity>
+						<velocity>0 0	0</velocity>
+					</technique_common>
+				</instance_rigid_body>
+				<instance_rigid_body target="#Actor5-Node" body="Actor5-RigidBody">
+					<technique_common>
+						<angular_velocity>0 0	0</angular_velocity>
+						<velocity>0 0	0</velocity>
+					</technique_common>
+				</instance_rigid_body>
+				<instance_rigid_body target="#Actor6-Node" body="Actor6-RigidBody">
+					<technique_common>
+						<angular_velocity>0 0	0</angular_velocity>
+						<velocity>0 0	0</velocity>
+					</technique_common>
+				</instance_rigid_body>
+				<instance_rigid_body target="#Actor7-Node" body="Actor7-RigidBody">
+					<technique_common>
+						<angular_velocity>0 0	0</angular_velocity>
+						<velocity>0 0	0</velocity>
+					</technique_common>
+				</instance_rigid_body>
+				<instance_rigid_body target="#Actor8-Node" body="Actor8-RigidBody">
+					<technique_common>
+						<angular_velocity>0 0	0</angular_velocity>
+						<velocity>0 0	0</velocity>
+					</technique_common>
+				</instance_rigid_body>
+				<instance_rigid_body target="#Actor9-Node" body="Actor9-RigidBody">
+					<technique_common>
+						<angular_velocity>0 0	0</angular_velocity>
+						<velocity>0 0	0</velocity>
+					</technique_common>
+				</instance_rigid_body>
+				<instance_rigid_body target="#Actor10-Node" body="Actor10-RigidBody">
+					<technique_common>
+						<angular_velocity>0 0	0</angular_velocity>
+						<velocity>0 0	0</velocity>
+					</technique_common>
+				</instance_rigid_body>
+				<instance_rigid_body target="#Actor11-Node" body="Actor11-RigidBody">
+					<technique_common>
+						<angular_velocity>0 0	0</angular_velocity>
+						<velocity>0 0	0</velocity>
+					</technique_common>
+				</instance_rigid_body>
+				<instance_rigid_body target="#Actor12-Node" body="Actor12-RigidBody">
+					<technique_common>
+						<angular_velocity>0 0	0</angular_velocity>
+						<velocity>0 0	0</velocity>
+					</technique_common>
+				</instance_rigid_body>
+				<instance_rigid_body target="#Actor13-Node" body="Actor13-RigidBody">
+					<technique_common>
+						<angular_velocity>0 0	0</angular_velocity>
+						<velocity>0 0	0</velocity>
+					</technique_common>
+				</instance_rigid_body>
+				<instance_rigid_body target="#Actor14-Node" body="Actor14-RigidBody">
+					<technique_common>
+						<angular_velocity>0 0	0</angular_velocity>
+						<velocity>0 0	0</velocity>
+					</technique_common>
+				</instance_rigid_body>
+				<instance_rigid_constraint constraint="Joint0-RigidConstraint"/>
+				<instance_rigid_constraint constraint="Joint1-RigidConstraint"/>
+				<instance_rigid_constraint constraint="Joint2-RigidConstraint"/>
+				<instance_rigid_constraint constraint="Joint3-RigidConstraint"/>
+				<instance_rigid_constraint constraint="Joint4-RigidConstraint"/>
+				<instance_rigid_constraint constraint="Joint5-RigidConstraint"/>
+				<instance_rigid_constraint constraint="Joint6-RigidConstraint"/>
+				<instance_rigid_constraint constraint="Joint7-RigidConstraint"/>
+				<instance_rigid_constraint constraint="Joint8-RigidConstraint"/>
+				<instance_rigid_constraint constraint="Joint9-RigidConstraint"/>
+				<instance_rigid_constraint constraint="Joint10-RigidConstraint"/>
+				<instance_rigid_constraint constraint="Joint11-RigidConstraint"/>
+				<instance_rigid_constraint constraint="Joint12-RigidConstraint"/>
+				<instance_rigid_constraint constraint="Joint13-RigidConstraint"/>
+			<extra>
+				<technique profile="PhysX">
+				</technique>
+			</extra>
+			</instance_physics_model>
+		</physics_model>
+	</library_physics_models>
+	<library_physics_scenes>
+		<physics_scene id="SceneInstances-Physics">
+			<instance_physics_model	url="#Scene0-PhysicsInstance"/>
+			<technique_common>
+        <gravity>0	-9.81 0</gravity>
+			</technique_common>
+		</physics_scene>
+	</library_physics_scenes>
+	<scene>
+		<instance_physics_scene	url="#SceneInstances-Physics"/>
+	</scene>
+</COLLADA>

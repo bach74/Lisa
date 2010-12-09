@@ -1,0 +1,11 @@
+HKCR
+{
+	NoRemove AppID
+	{
+		'%APPID%' = s 'Lisa50'
+		'Lisa50.EXE'
+		{
+			val AppID = s '%APPID%'
+		}
+	}
+}
