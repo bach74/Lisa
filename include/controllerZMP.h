@@ -1,6 +1,5 @@
 #pragma once
 #include "controller.h"
-#include "jFuzzyQt.h"
 #include "sensor.h"
 #include "actuator.h"
 
@@ -20,6 +19,5 @@ class ControllerZMP : public Controller<double>
 		SensorVectors& mSensorZMP;
 		SensorVectors& mSensorCOP;
 		SensorVectors& mSensorCOG;
-		jfuzzyqt::JFuzzyQt mController;
 		std::vector<boost::shared_ptr<Actuator > >& mActuators;
 };

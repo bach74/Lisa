@@ -403,10 +403,6 @@
 					RelativePath="..\src\controllerZMP.cpp"
 					>
 				</File>
-				<File
-					RelativePath="..\src\poseControl.cpp"
-					>
-				</File>
 			</Filter>
 			<Filter
 				Name="joints"
@@ -525,10 +521,6 @@
 				</File>
 				<File
 					RelativePath="..\src\math\FloatMath.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\dependencies-include\jFuzzyQt\moc_jfuzzyqt.cpp"
 					>
 				</File>
 			</Filter>

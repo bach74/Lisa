@@ -9,7 +9,6 @@
 #include "SimulationInputController.h"
 #include "trajectory.h"
 #include "sensors.h"
-#include "poseControl.h"
 #include "../src/com/LisaCOM.h"
 
 
@@ -59,6 +58,4 @@ class SimulationImpl : public Simulation
 		// sensors
 		Sensors* mSensors;
 
-		// pose control
-		PoseControl* mPoseControl;
 };

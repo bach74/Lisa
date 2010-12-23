@@ -20,8 +20,6 @@ ControllerZMP::ControllerZMP(SensorVectors& sensorZMP, SensorVectors& sensorCOP,
 
 	strcat_s(path, MAX_PATH, "\\resources\\");
 	strcat_s(path, MAX_PATH, filename);
-
-	mController.load(path);
 }
 
 /**-------------------------------------------------------------------------------

@@ -210,7 +210,6 @@ void SimulationImpl::onPrepareSimulation()
 	for (;!it.end();++it) {
 		actuators->push_back(it.get());
 	}
-	mPoseControl = new PoseControl(*actuators,mSensors);
 
 	// load trajectory now after the actuators have been instantiated
 	mTrajectory->load(*actuators);
@@ -261,8 +260,6 @@ void SimulationImpl::simulate(float timeSinceLastFrame)
 		mTrajectory->update();
 
 		mActuators->update(t);
-
-		mPoseControl->update(t);
 
 		if (Config::Instance().getKeepAlive())
 		{
