@@ -1,4 +1,14 @@
-#pragma once
+// =============================================================================
+//  SensorDecoratorCross.h   version:  1.5
+//
+//  Copyright (C) 2007-2010 by Bach 
+//  This file is part of the LiSA project.
+//  The LiSA project is licensed under MIT license.
+//
+// =============================================================================
+#ifndef __SENSORDECORATORCROSS_H__
+#define __SENSORDECORATORCROSS_H__
+
 #include "sensordecorator.h"
 #include "drawingCross.h"
 
@@ -20,3 +30,5 @@ class SensorDecoratorCross : public SensorDecorator<std::vector<Ogre::Vector3> >
 
 		DrawingCross* mDrawing;
 };
+
+ #endif

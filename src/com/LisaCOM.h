@@ -1,5 +1,5 @@
 // =============================================================================
-//  LisaCOM.h   version:  1.0
+//  LisaCOM.h   version:  1.5
 //  
 //	Declaration of the LisaCOM
 //
@@ -60,9 +60,9 @@ END_CONNECTION_POINT_MAP()
 
 public:
 
-	STDMETHOD(getLinkMass)(SHORT i, DOUBLE* value);
-	STDMETHOD(getLinkPosition)(SHORT i, VARIANT* val);
-	STDMETHOD(getJointCoordinates)(SHORT i, VARIANT* val);
+	STDMETHOD(getLinkMass)(USHORT i, DOUBLE* value);
+	STDMETHOD(getLinkPosition)(USHORT i, VARIANT* val);
+	STDMETHOD(getJointCoordinates)(USHORT i, VARIANT* val);
 	STDMETHOD(getCOPPosition)(VARIANT* points);
 	STDMETHOD(getCOPForce)(VARIANT* points);
 	STDMETHOD(close)(void);

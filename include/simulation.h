@@ -1,7 +1,17 @@
-#pragma once
+// =============================================================================
+//  Simulation.h   version:  1.5
+//
+//  Copyright (C) 2007-2010 by Bach 
+//  This file is part of the LiSA project.
+//  The LiSA project is licensed under MIT license.
+//
+// =============================================================================
+#ifndef __SIMULATION_H__
+#define __SIMULATION_H__
 
 #include "scene.h"
 #include "link.h"
+#include "links.h"
 #include "actuator.h"
 #include "actuators.h"
 
@@ -76,3 +86,5 @@ class Simulation : public Ogre::FrameListener
 		CRITICAL_SECTION    mCS;
 		bool                mLocked;
 };
+
+ #endif

@@ -4,7 +4,7 @@
 
 
  /* File created by MIDL compiler version 7.00.0500 */
-/* at Thu Dec 23 22:18:34 2010
+/* at Sat Dec 25 20:20:58 2010
  */
 /* Compiler settings for ..\src\com\Lisa50.idl:
     Oicf, W1, Zp8, env=Win32 (32b run)

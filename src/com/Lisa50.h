@@ -4,7 +4,7 @@
 
 
  /* File created by MIDL compiler version 7.00.0500 */
-/* at Thu Dec 23 22:18:34 2010
+/* at Sat Dec 25 20:20:58 2010
  */
 /* Compiler settings for ..\src\com\Lisa50.idl:
     Oicf, W1, Zp8, env=Win32 (32b run)
@@ -142,38 +142,38 @@ EXTERN_C const IID IID_ILisaCOMController;
             /* [retval][out] */ SHORT *pVal) = 0;
         
         virtual /* [helpstring][id] */ HRESULT STDMETHODCALLTYPE getParameters( 
-            /* [in] */ SHORT i,
+            /* [in] */ USHORT i,
             /* [retval][out] */ VARIANT *params) = 0;
         
         virtual /* [helpstring][id] */ HRESULT STDMETHODCALLTYPE getPosition( 
-            /* [in] */ SHORT i,
+            /* [in] */ USHORT i,
             /* [retval][out] */ DOUBLE *pVal) = 0;
         
         virtual /* [helpstring][id] */ HRESULT STDMETHODCALLTYPE setReference( 
-            /* [in] */ SHORT i,
-            /* [in] */ SHORT numRef,
+            /* [in] */ USHORT i,
+            /* [in] */ USHORT numRef,
             /* [in] */ DOUBLE Val) = 0;
         
         virtual /* [helpstring][id] */ HRESULT STDMETHODCALLTYPE getVelocity( 
-            /* [in] */ SHORT i,
+            /* [in] */ USHORT i,
             /* [retval][out] */ DOUBLE *pVal) = 0;
         
         virtual /* [helpstring][id] */ HRESULT STDMETHODCALLTYPE setParameter( 
-            /* [in] */ SHORT i,
-            /* [in] */ SHORT numParam,
+            /* [in] */ USHORT i,
+            /* [in] */ USHORT numParam,
             /* [in] */ DOUBLE Val) = 0;
         
         virtual /* [helpstring][id] */ HRESULT STDMETHODCALLTYPE setParameters( 
-            /* [in] */ SHORT i,
+            /* [in] */ USHORT i,
             /* [in] */ VARIANT *params) = 0;
         
         virtual /* [helpstring][id] */ HRESULT STDMETHODCALLTYPE getTorque( 
-            /* [in] */ SHORT i,
+            /* [in] */ USHORT i,
             /* [retval][out] */ DOUBLE *pVal) = 0;
         
         virtual /* [helpstring][id] */ HRESULT STDMETHODCALLTYPE getReference( 
-            /* [in] */ SHORT i,
-            SHORT numRef,
+            /* [in] */ USHORT i,
+            USHORT numRef,
             /* [retval][out] */ DOUBLE *retVal) = 0;
         
     };
@@ -235,45 +235,45 @@ EXTERN_C const IID IID_ILisaCOMController;
         
         /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *getParameters )( 
             ILisaCOMController * This,
-            /* [in] */ SHORT i,
+            /* [in] */ USHORT i,
             /* [retval][out] */ VARIANT *params);
         
         /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *getPosition )( 
             ILisaCOMController * This,
-            /* [in] */ SHORT i,
+            /* [in] */ USHORT i,
             /* [retval][out] */ DOUBLE *pVal);
         
         /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *setReference )( 
             ILisaCOMController * This,
-            /* [in] */ SHORT i,
-            /* [in] */ SHORT numRef,
+            /* [in] */ USHORT i,
+            /* [in] */ USHORT numRef,
             /* [in] */ DOUBLE Val);
         
         /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *getVelocity )( 
             ILisaCOMController * This,
-            /* [in] */ SHORT i,
+            /* [in] */ USHORT i,
             /* [retval][out] */ DOUBLE *pVal);
         
         /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *setParameter )( 
             ILisaCOMController * This,
-            /* [in] */ SHORT i,
-            /* [in] */ SHORT numParam,
+            /* [in] */ USHORT i,
+            /* [in] */ USHORT numParam,
             /* [in] */ DOUBLE Val);
         
         /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *setParameters )( 
             ILisaCOMController * This,
-            /* [in] */ SHORT i,
+            /* [in] */ USHORT i,
             /* [in] */ VARIANT *params);
         
         /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *getTorque )( 
             ILisaCOMController * This,
-            /* [in] */ SHORT i,
+            /* [in] */ USHORT i,
             /* [retval][out] */ DOUBLE *pVal);
         
         /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *getReference )( 
             ILisaCOMController * This,
-            /* [in] */ SHORT i,
-            SHORT numRef,
+            /* [in] */ USHORT i,
+            USHORT numRef,
             /* [retval][out] */ DOUBLE *retVal);
         
         END_INTERFACE
@@ -490,15 +490,15 @@ EXTERN_C const IID IID_ILisaCOM;
     {
     public:
         virtual /* [helpstring][id] */ HRESULT STDMETHODCALLTYPE getLinkMass( 
-            SHORT i,
+            USHORT i,
             /* [retval][out] */ DOUBLE *value) = 0;
         
         virtual /* [helpstring][id] */ HRESULT STDMETHODCALLTYPE getLinkPosition( 
-            /* [in] */ SHORT i,
+            /* [in] */ USHORT i,
             /* [retval][out] */ VARIANT *val) = 0;
         
         virtual /* [helpstring][id] */ HRESULT STDMETHODCALLTYPE getJointCoordinates( 
-            /* [in] */ SHORT i,
+            /* [in] */ USHORT i,
             /* [retval][out] */ VARIANT *val) = 0;
         
         virtual /* [helpstring][id] */ HRESULT STDMETHODCALLTYPE getCOPPosition( 
@@ -576,17 +576,17 @@ EXTERN_C const IID IID_ILisaCOM;
         
         /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *getLinkMass )( 
             ILisaCOM * This,
-            SHORT i,
+            USHORT i,
             /* [retval][out] */ DOUBLE *value);
         
         /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *getLinkPosition )( 
             ILisaCOM * This,
-            /* [in] */ SHORT i,
+            /* [in] */ USHORT i,
             /* [retval][out] */ VARIANT *val);
         
         /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *getJointCoordinates )( 
             ILisaCOM * This,
-            /* [in] */ SHORT i,
+            /* [in] */ USHORT i,
             /* [retval][out] */ VARIANT *val);
         
         /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *getCOPPosition )( 

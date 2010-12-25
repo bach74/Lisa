@@ -1,11 +1,13 @@
 // =============================================================================
-//  colladafile.h   version:  1.0
+//  colladafile.h   version:  1.5
 //	Collada physics Importer/Exporter for nxOgre. Based on
 //	a serialization sample for the PhysX Physics SDK showing explicit export
 //	and import of a scene by Stephen Hatcher, based on work by Pierre Terdiman
 //	(01.01.04) and others
 //  
-//  Copyright (C) 2007 by Bach - All Rights Reserved
+//  Copyright (C) 2007-2010 by Bach 
+//  This file is part of the LiSA project.
+//  The LiSA project is licensed under MIT license.
 // 
 // =============================================================================
 #ifndef __COLLADAFILE_H__
@@ -27,7 +29,7 @@ class NxuOgre : public NXU_userNotify, public NXU_errorReport
 
 		virtual void NXU_errorMessage(bool isError, const char *str);
 
-		virtual NxScene *NXU_preNotifyScene(unsigned int sno, NxSceneDesc &scene, const char *userProperties) {	return 0; }
+		virtual NxScene *NXU_preNotifyScene(UINT sno, NxSceneDesc &scene, const char *userProperties) {	return 0; }
 		virtual bool NXU_preNotifyJoint(NxJointDesc &joint, const char *userProperties)			{ return true; }
 		virtual bool NXU_preNotifyActor(NxActorDesc &actor, const char *userProperties);
 		virtual bool NXU_preNotifyCloth(NxClothDesc &cloth, const char *userProperties)			{ return true; }
@@ -49,7 +51,7 @@ class NxuOgre : public NXU_userNotify, public NXU_errorReport
 		virtual void NXU_notifyCCDSkeleton(NxCCDSkeleton *t, const char *userProperties) {};
 		virtual void NXU_notifyHeightField(NxHeightField *t,const char *userProperties) {};
 
-		virtual void NXU_notifySceneFailed(unsigned int sno, NxSceneDesc &scene, const char *userProperties) {};
+		virtual void NXU_notifySceneFailed(UINT sno, NxSceneDesc &scene, const char *userProperties) {};
 		virtual void NXU_notifyJointFailed(NxJointDesc &joint, const char *userProperties) {};
 		virtual void NXU_notifyActorFailed(NxActorDesc &actor, const char *userProperties) {};
 		virtual void NXU_notifyClothFailed(NxClothDesc &cloth, const char *userProperties) {};

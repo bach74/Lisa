@@ -1,5 +1,5 @@
 // =============================================================================
-//  LisaCOMTrajectory.h   version:  1.0
+//  LisaCOMTrajectory.h   version:  1.5
 //  
 //  Copyright (C) 2007 by Bach - All Rights Reserved
 // 

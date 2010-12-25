@@ -1,17 +1,25 @@
+// =============================================================================
+//  ConvexHullGraham.h   version:  1.5
 //
-// This class uses the Graham scan algorithm to calculate the convex
-// hull of a batch of points in 2D.
+//  Copyright (C) 2007-2010 by Bach 
+//  This file is part of the LiSA project.
+//  The LiSA project is licensed under MIT license.
 //
-// The convex hull part of the code is based on the article from Dr. Dobb's Portal,
-// September, 2007 by Mark Nelson
-//
-// instead of std::pair<float,float> Ogre::Vector3 is used with implicit y=0 (ground plane).
-// That is .x and .z are convex hull vertices
-//
-
+// =============================================================================
 #pragma once
+
 #include <OgreVector3.h>
 
+/**-------------------------------------------------------------------------------
+	This class uses the Graham scan algorithm to calculate the convex
+	hull of a batch of points in 2D.
+
+	The convex hull part of the code is based on the article from Dr. Dobb's Portal,
+	September, 2007 by Mark Nelson
+
+	instead of std::pair<float,float> Ogre::Vector3 is used with implicit y=0 (ground plane),
+	that is .x and .z are convex hull vertices 
+---------------------------------------------------------------------------------*/
 class ConvexHullGraham
 {
 	public:

@@ -1,8 +1,19 @@
+// =============================================================================
+//  SensorFRI.cpp   version:  1.5
+//  
+//  Copyright (C) 2007-2010 by Bach 
+//  This file is part of the LiSA project.
+//  The LiSA project is licensed under MIT license.
+// 
+// =============================================================================
+
 #include "stdafx.h"
 #include "SensorFRI.h"
 #include "config.h"
+#include "simFacade.h"
 #include "simulation.h"
-#include "globals.h"
+#include "linkIterator.h"
+
 
 SensorFRI::~SensorFRI(void)
 {
@@ -18,7 +29,7 @@ void SensorFRI::update()
 {
 
 	float deltaT = getDataclass()->getTimeSinceLastPhysXFrame();
-	Ogre::Vector3 g=Globals::Instance().getGravity();
+	Ogre::Vector3 g=SimFacade::Instance().getGravity();
 
 
 	std::deque<Ogre::Vector3> a;
@@ -66,7 +77,7 @@ void SensorFRI::update()
 	double sum_Tauz=0;
 
 	// calculate FRI
-	for (unsigned int i=1;i<a.size();++i) {
+	for (UINT i=1;i<a.size();++i) {
 		double FG=m[i]*(-a[i].y+g.y);
 		double mPy=-m[i]*pos[i].y;
 		sum_FG+=FG;

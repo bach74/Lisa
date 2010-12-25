@@ -1,4 +1,13 @@
-#pragma once
+// =============================================================================
+//  DrawingCross.h   version:  1.5
+//
+//  Copyright (C) 2007-2010 by Bach 
+//  This file is part of the LiSA project.
+//  The LiSA project is licensed under MIT license.
+//
+// =============================================================================
+#ifndef __DRAWINGCROSS_H__
+#define __DRAWINGCROSS_H__
 
 class DrawingCross : public Ogre::ManualObject
 {
@@ -12,3 +21,5 @@ class DrawingCross : public Ogre::ManualObject
 	private:
 		Ogre::SceneNode* mRoot;
 };
+
+ #endif

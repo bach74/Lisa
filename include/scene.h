@@ -1,10 +1,13 @@
 // =============================================================================
-//  scene.h   version:  1.0
+//  scene.h   version:  1.5
 //
-//  Copyright (C) 2007 by Bach - All Rights Reserved
+//  Copyright (C) 2007-2010 by Bach 
+//  This file is part of the LiSA project.
+//  The LiSA project is licensed under MIT license.
 //
 // =============================================================================
-#pragma once
+#ifndef __SCENE_H__
+#define __SCENE_H__
 
 #include "ExtendedCamera.h"
 
@@ -52,3 +55,5 @@ class Scene : public Ogre::WindowEventListener
 		// attributes
 		Ogre::ShadowTechnique       mShadowType;
 };
+
+ #endif

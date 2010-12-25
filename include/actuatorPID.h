@@ -1,10 +1,11 @@
 // =============================================================================
-//  actuatorPID.h   version:  1.0
+//  actuatorPID.h   version:  1.5
 //
 //  Copyright (C) 2007-2010 by Bach - All Rights Reserved
 //
 // =============================================================================
-#pragma once
+#ifndef __ACTUATORPID_H__
+#define __ACTUATORPID_H__
 
 #include "actuator.h"
 #include "actuatorPID.h"
@@ -28,3 +29,5 @@ class ActuatorPID: public Actuator
 		virtual void update(double currentTime, double sampleTime);
 };
 
+
+ #endif

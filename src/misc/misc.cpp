@@ -1,7 +1,9 @@
 // =============================================================================
-//  misc.cpp   version:  1.0
+//  misc.cpp   version:  1.5
 //  
-//  Copyright (C) 2007 by Bach - All Rights Reserved
+//  Copyright (C) 2007-2010 by Bach 
+//  This file is part of the LiSA project.
+//  The LiSA project is licensed under MIT license.
 // 
 // =============================================================================
 
@@ -78,7 +80,7 @@ std::string getStringFromResource(UINT resourceID)
 	/// The values in this table refer to vertices in the above table
 	const size_t ibufCount = 36;
 
-	unsigned short faces[ibufCount] =
+	USHORT faces[ibufCount] =
 		{
 			0,2,3,
 			0,1,2,

@@ -1,10 +1,13 @@
 // =============================================================================
-//  simulation.h   version:  1.0
+//  SimulationImpl.h   version:  1.5
 //
-//  Copyright (C) 2007 by Bach - All Rights Reserved
+//  Copyright (C) 2007-2010 by Bach 
+//  This file is part of the LiSA project.
+//  The LiSA project is licensed under MIT license.
 //
 // =============================================================================
-#pragma once
+#ifndef __SIMULATIONIMPL_H__
+#define __SIMULATIONIMPL_H__
 #include "simulation.h"
 #include "SimulationInputController.h"
 #include "trajectory.h"
@@ -59,3 +62,5 @@ class SimulationImpl : public Simulation
 		Sensors* mSensors;
 
 };
+
+ #endif

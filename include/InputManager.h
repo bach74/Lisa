@@ -1,7 +1,9 @@
 // =============================================================================
-//  InputManager.h   version:  1.0
+//  InputManager.h   version:  1.5
 //  
-//  Copyright (C) 2007 by Bach - All Rights Reserved
+//  Copyright (C) 2007-2010 by Bach 
+//  This file is part of the LiSA project.
+//  The LiSA project is licensed under MIT license.
 // 
 // =============================================================================
 #ifndef __INPUTMANAGER_H__
@@ -61,10 +63,10 @@ public:
 	}
 	/**----------------------------------------------------------------------------
 		return joystick.  
-		\param index (unsigned int)
+		\param index (UINT)
 		\return (OIS::JoyStick*)
 	 -----------------------------------------------------------------------------*/
-	OIS::JoyStick* InputManager::getJoystick(unsigned int index)
+	OIS::JoyStick* InputManager::getJoystick(UINT index)
 	{
 		return (index<mJoysticks.size())?mJoysticks[index]:0;
 	}

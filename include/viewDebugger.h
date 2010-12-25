@@ -1,4 +1,13 @@
-#pragma once
+// =============================================================================
+//  ViewDebugger.h   version:  1.5
+//
+//  Copyright (C) 2007-2010 by Bach 
+//  This file is part of the LiSA project.
+//  The LiSA project is licensed under MIT license.
+//
+// =============================================================================
+#ifndef __VIEWDEBUGGER_H__
+#define __VIEWDEBUGGER_H__
 
 #include "simulation.h"
 #include "sensorForce.h"
@@ -50,7 +59,7 @@ class ViewDebugger: public Ogre::FrameListener
 		Ogre::OverlayContainer*			mDebugOverlay;
 		DebugView                       mDebugView;
 		std::vector<NxParameter>        mShowDebuggers;
-		unsigned int                    mShowDebuggersCurrent;
+		UINT                    mShowDebuggersCurrent;
 		bool							mExpandedText;
 		SensorVectors*					mForceVec;
 
@@ -61,3 +70,5 @@ class ViewDebugger: public Ogre::FrameListener
 		
 
 };
+
+ #endif

@@ -1,4 +1,13 @@
-#pragma once
+// =============================================================================
+//  LabelWidget.h   version:  1.5
+//
+//  Copyright (C) 2007-2010 by Bach 
+//  This file is part of the LiSA project.
+//  The LiSA project is licensed under MIT license.
+//
+// =============================================================================
+#ifndef __LABELWIDGET_H__
+#define __LABELWIDGET_H__
 
 class LabelWidget
 {
@@ -34,3 +43,5 @@ class LabelWidget
 		int mCharHeight;
 		Ogre::TextAreaOverlayElement* textPtr;
 };
+
+ #endif

@@ -1,3 +1,12 @@
+// =============================================================================
+//  ConvexHullGraham.cpp   version:  1.5
+//  
+//  Copyright (C) 2007-2010 by Bach 
+//  This file is part of the LiSA project.
+//  The LiSA project is licensed under MIT license.
+// 
+// =============================================================================
+
 #include "stdafx.h"
 #include "math\ConvexHullGraham.h"
 #include <float.h>
@@ -280,7 +289,7 @@ Ogre::Vector3 ConvexHullGraham::getCenter(const std::vector<Ogre::Vector3>& conv
 	}
 
 	if (total_area==0) {	
-		unsigned int size=convexHull.size()-1;
+		UINT size=convexHull.size()-1;
 		// collinear points - calculate center as the average
 		for (unsigned i = 0; i < size; ++i)
 		{

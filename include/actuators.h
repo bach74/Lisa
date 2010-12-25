@@ -1,4 +1,13 @@
-#pragma once
+// =============================================================================
+//  Actuators.h   version:  1.5
+//
+//  Copyright (C) 2007-2010 by Bach 
+//  This file is part of the LiSA project.
+//  The LiSA project is licensed under MIT license.
+//
+// =============================================================================
+#ifndef __ACTUATORS_H__
+#define __ACTUATORS_H__
 
 #include "actuator.h"
 
@@ -59,3 +68,5 @@ class ActuatorIterator : public boost::iterator_facade<ActuatorIterator, Actuato
 		std::vector<boost::shared_ptr<Actuator > >::iterator mNode;
 		Actuators* mActuators;
 };
+
+ #endif

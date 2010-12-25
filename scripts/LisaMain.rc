@@ -91,8 +91,8 @@ IDI_LISA_SMALL          ICON                    "..\\res\\icon1.ico"
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,0,1,3
- PRODUCTVERSION 1,0,1,3
+ FILEVERSION 1,0,5,3
+ PRODUCTVERSION 1,0,5,3
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -108,12 +108,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "bach"
-            VALUE "FileVersion", "1.0.1.3"
+            VALUE "FileVersion", "1.0.5.3"
             VALUE "InternalName", "Lisa50.exe"
-            VALUE "LegalCopyright", "(c) bach 2006-2007.  All rights reserved."
+            VALUE "LegalCopyright", "(c) Bach 2006-2010"
             VALUE "OriginalFilename", "Lisa50.exe"
-            VALUE "ProductName", "L.i.s.a."
-            VALUE "ProductVersion", "1.0.1.3"
+            VALUE "ProductName", "L.i.S.A."
+            VALUE "ProductVersion", "1.0.5.3"
         END
     END
     BLOCK "VarFileInfo"

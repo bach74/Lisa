@@ -1,4 +1,14 @@
-#pragma once
+// =============================================================================
+//  ControllerLineGraph.h   version:  1.5
+//
+//  Copyright (C) 2007-2010 by Bach 
+//  This file is part of the LiSA project.
+//  The LiSA project is licensed under MIT license.
+//
+// =============================================================================
+#ifndef __CONTROLLERLINEGRAPH_H__
+#define __CONTROLLERLINEGRAPH_H__
+
 #include "linegraphwidget.h"
 #include "controller.h"
 
@@ -15,3 +25,5 @@ class ControllerLineGraph : public LineGraphWidget, public Ogre::FrameListener
 	private:
 		Controller<double>* mController;
 };
+
+ #endif

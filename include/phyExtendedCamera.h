@@ -1,13 +1,16 @@
 // =============================================================================
-//  phyExtendedCamera.h   version:  1.0
+//  phyExtendedCamera.h   version:  1.5
 //  
 //	ExtendedCamera specialization class
 //	use physX functions to pick an object with mouse click, instead of Ogre's
 //
-//  Copyright (C) 2007 by Bach - All Rights Reserved
+//  Copyright (C) 2007-2010 by Bach 
+//  This file is part of the LiSA project.
+//  The LiSA project is licensed under MIT license.
 // 
 // =============================================================================
-#pragma once
+#ifndef __PHYEXTENDEDCAMERA_H__
+#define __PHYEXTENDEDCAMERA_H__
 
 #include "extendedCamera.h"
 
@@ -27,3 +30,5 @@ public:
 	
 	std::string mousePick(float x, float y, std::string& currentObject, bool moveObject);
 };
+
+ #endif

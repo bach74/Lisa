@@ -1,9 +1,9 @@
 // =============================================================================
-//  LisaCOM.cpp   version:  1.0
-//  
-//	Implementation of LisaCOM
+//  LisaCOM.cpp   version:  1.5
 //
-//  Copyright (C) 2007 by Bach - All Rights Reserved
+//  Copyright (C) 2007-2010 by Bach 
+//  This file is part of the LiSA project.
+//  The LiSA project is licensed under MIT license.
 // 
 // =============================================================================
 
@@ -11,34 +11,7 @@
 #include "LisaCOM.h"
 #include "atlsafe.h"
 #include "simFacade.h"
-
-/**----------------------------------------------------------------------------
-	Convert function, vector3 to safearray.
-   
-	\param vect (Ogre::Vector3 &)
-	\return (SAFEARRAY*)
- -----------------------------------------------------------------------------*/
-SAFEARRAY* Vector3toSAFEARRAY(Ogre::Vector3& vect)
-{
-	SAFEARRAY* sa=new SAFEARRAY();
-
-	SAFEARRAYBOUND saBound[1];
-	saBound[0].lLbound=0;
-	saBound[0].cElements=3;
-
-	sa=SafeArrayCreate(VT_R8,1,saBound);
-
-	long ind=0;
-	double v[3]={vect.x,vect.y,vect.z};
-	SafeArrayPutElement(sa,&ind,(void*)&v[0]);
-	ind++;
-	SafeArrayPutElement(sa,&ind,(void*)&v[1]);
-	ind++;
-	SafeArrayPutElement(sa,&ind,(void*)&v[2]);
-
-	return sa;
-}
-
+#include "conversion.h"
 
 
 /**-------------------------------------------------------------------------------
@@ -66,7 +39,7 @@ STDMETHODIMP LisaCOM::get_time(DOUBLE* pVal)
 }
 
 /**-------------------------------------------------------------------------------
-	pause or unpause the simulation
+	pause or resume the simulation
 
 	\param		
 	\return	HRESULT
@@ -83,7 +56,7 @@ STDMETHODIMP LisaCOM::Pause(SHORT pause)
 	\param		
 	\return	HRESULT
 --------------------------------------------------------------------------------*/
-STDMETHODIMP LisaCOM::getLinkMass(SHORT i, DOUBLE* value)
+STDMETHODIMP LisaCOM::getLinkMass(USHORT i, DOUBLE* value)
 {
 	*value=SimFacade::Instance().getLinkMass(i);
 	return S_OK;
@@ -95,9 +68,9 @@ STDMETHODIMP LisaCOM::getLinkMass(SHORT i, DOUBLE* value)
 	\param		
 	\return	HRESULT
 --------------------------------------------------------------------------------*/
-STDMETHODIMP LisaCOM::getLinkPosition(SHORT i, VARIANT* val)
+STDMETHODIMP LisaCOM::getLinkPosition(USHORT i, VARIANT* val)
 {
-	CComVariant v(Vector3toSAFEARRAY(SimFacade::Instance().getLinkPosition(i)));
+	CComVariant v(Conversion::Vector3toSAFEARRAY(SimFacade::Instance().getLinkPosition(i)));
 	v.Detach(val);
 	return S_OK;
 }
@@ -111,7 +84,7 @@ STDMETHODIMP LisaCOM::getLinkPosition(SHORT i, VARIANT* val)
 STDMETHODIMP LisaCOM::getLinkPositionByName(BSTR name, VARIANT* val)
 {
 	USES_CONVERSION;
-	CComVariant v(Vector3toSAFEARRAY(SimFacade::Instance().getLinkPosition(std::string(OLE2A(name)))));
+	CComVariant v(Conversion::Vector3toSAFEARRAY(SimFacade::Instance().getLinkPosition(std::string(OLE2A(name)))));
 	v.Detach(val);
 	return S_OK;
 }
@@ -122,9 +95,9 @@ STDMETHODIMP LisaCOM::getLinkPositionByName(BSTR name, VARIANT* val)
 	\param		
 	\return	HRESULT
 --------------------------------------------------------------------------------*/
-STDMETHODIMP LisaCOM::getJointCoordinates(SHORT i, VARIANT* val)
+STDMETHODIMP LisaCOM::getJointCoordinates(USHORT i, VARIANT* val)
 {	
-	CComVariant v(Vector3toSAFEARRAY(SimFacade::Instance().getJointCoordinates(i)));
+	CComVariant v(Conversion::Vector3toSAFEARRAY(SimFacade::Instance().getJointCoordinates(i)));
 	v.Detach(val);
 	return S_OK;
 }
@@ -138,7 +111,7 @@ STDMETHODIMP LisaCOM::getJointCoordinates(SHORT i, VARIANT* val)
 --------------------------------------------------------------------------------*/
 STDMETHODIMP LisaCOM::getCOPPosition(VARIANT* point)
 {
-	CComVariant v(Vector3toSAFEARRAY(SimFacade::Instance().getCOPPosition()));
+	CComVariant v(Conversion::Vector3toSAFEARRAY(SimFacade::Instance().getCOPPosition()));
 	v.Detach(point);
 	return S_OK;
 }
@@ -152,7 +125,7 @@ STDMETHODIMP LisaCOM::getCOPPosition(VARIANT* point)
 --------------------------------------------------------------------------------*/
 STDMETHODIMP LisaCOM::getCOPForce(VARIANT* force)
 {
-	CComVariant v(Vector3toSAFEARRAY(SimFacade::Instance().getCOPForce()));
+	CComVariant v(Conversion::Vector3toSAFEARRAY(SimFacade::Instance().getCOPForce()));
 	v.Detach(force);
 	return S_OK;
 }

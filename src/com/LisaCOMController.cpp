@@ -1,63 +1,16 @@
 // =============================================================================
-//  LisaCOMController.cpp   version:  1.0
-//  
-//	Implementation of CLisaCOMController
+//  LisaCOMController.cpp   version:  1.5
 //
-//  Copyright (C) 2007 by Bach - All Rights Reserved
+//  Copyright (C) 2007-2010 by Bach 
+//  This file is part of the LiSA project.
+//  The LiSA project is licensed under MIT license.
 // 
 // =============================================================================
 
 #include "stdafx.h"
 #include "LisaCOMController.h"
 #include "SimFacade.h"
-
-#ifdef _ATL
-/**-------------------------------------------------------------------------------
-	Convert vector to SAFEARRAY
-
-	\param		vector vect
-	\param		SAFEARRAY sa
-	\return	nothing
---------------------------------------------------------------------------------*/
-void vector2SAFEARRAY(const std::vector<double>& vect,SAFEARRAY** sa)
-{
-
-	SAFEARRAYBOUND *saBound=new SAFEARRAYBOUND[1];
-	saBound[0].lLbound=0;
-	saBound[0].cElements=(vect.size()>0)?vect.size():0;
-
-	*sa=SafeArrayCreate(VT_R8,1,saBound);
-
-	// initialize the data
-	double HUGEP* pData;
-	SafeArrayAccessData(*sa,(void**)&pData);
-		for (std::vector<double>::const_iterator it=vect.begin();it!=vect.end();++it) {
-			*pData++=(*it);
-		}
-	SafeArrayUnaccessData(*sa);
-
-}
-
-/**-------------------------------------------------------------------------------
-	Convert vector to SAFEARRAY
-
-	\param		SAFEARRAY sa
-	\param		vector vect
-	\return	nothing
---------------------------------------------------------------------------------*/
-void SAFEARRAY2vector(SAFEARRAY& sa, std::vector<double>& vect)
-{
-	double* pData;
-	SafeArrayAccessData(&sa,(void**)&pData);
-		for (unsigned int i=0;i<sa.rgsabound[0].cElements;++i)
-		{
-			vect.push_back(double());
-			vect.back()=*pData++;
-		}
-	SafeArrayUnaccessData(&sa);
-}
-#endif
-
+#include "conversion.h"
 
 /**-------------------------------------------------------------------------------
 	Get version
@@ -66,7 +19,7 @@ void SAFEARRAY2vector(SAFEARRAY& sa, std::vector<double>& vect)
 --------------------------------------------------------------------------------*/
 STDMETHODIMP CLisaCOMController::getVersion(BSTR* version)
 {
-	CComBSTR v="version 1.1";
+	CComBSTR v="version 1.2";
 	*version=v.Detach();
 
 	return S_OK;
@@ -79,27 +32,24 @@ STDMETHODIMP CLisaCOMController::getVersion(BSTR* version)
 --------------------------------------------------------------------------------*/
 STDMETHODIMP CLisaCOMController::get_number(SHORT* pVal)
 {
-	*pVal=SimFacade::Instance().getSimulation()->getActuators()->size();
+	*pVal=SimFacade::Instance().getControllerNum();
 	return S_OK;
 }
 
 /**-------------------------------------------------------------------------------
 	Get parameters of the actuator. The parameters can be PID gains, or
-	any other genereic parameters contained in the SAFEARRAY. Client should be 
-	responsable for interpreting the results.
+	any other generic parameters contained in the SAFEARRAY. Client should be 
+	responsible for interpreting the results.
 
 	\param i		i-th actuator 
 	\param params	return VARIANT(SAFEARRAY) of actuator parameters
 	\return		HRESULT
 --------------------------------------------------------------------------------*/
-STDMETHODIMP CLisaCOMController::getParameters(SHORT i, VARIANT* params)
+STDMETHODIMP CLisaCOMController::getParameters(USHORT i, VARIANT* params)
 {
-	Actuator* const jCtlr=SimFacade::Instance().getActuator(i);
-	std::vector<double> vectParams;
-	//jCtlr->getController()->getParameter(vectParams); TODO
-	//vectParams.push_back(jCtlr->getController()->getFeedbackPort());
+	std::vector<double> vectParams = SimFacade::Instance().getActuatorParams(i);
 	SAFEARRAY* sa=new SAFEARRAY();
-	vector2SAFEARRAY(vectParams,&sa);
+	Conversion::vector2SAFEARRAY(vectParams,&sa);
 	CComVariant v(sa);
 	v.Detach(params);
 
@@ -115,13 +65,13 @@ STDMETHODIMP CLisaCOMController::getParameters(SHORT i, VARIANT* params)
 	\param params	VARIANT(SAFEARRAY) of actuator parameters
 	\return		HRESULT
 --------------------------------------------------------------------------------*/
-STDMETHODIMP CLisaCOMController::setParameters(SHORT i, VARIANT* params)
+STDMETHODIMP CLisaCOMController::setParameters(USHORT i, VARIANT* params)
 {
-	Actuator* const jCtlr=SimFacade::Instance().getActuator(i);	
 	SAFEARRAY* sa=params->parray;
 	std::vector<double> vectParams;
-	SAFEARRAY2vector(*sa,vectParams);
-	//jCtlr->getController()->setParameters(vectParams);
+	Conversion::SAFEARRAY2vector(*sa,vectParams);
+	SimFacade::Instance().setActuatorParams(i, vectParams);	
+
 	return S_OK;
 }
 
@@ -134,14 +84,11 @@ STDMETHODIMP CLisaCOMController::setParameters(SHORT i, VARIANT* params)
 	\param params	VARIANT(SAFEARRAY) of actuator parameters
 	\return		HRESULT
 --------------------------------------------------------------------------------*/
-STDMETHODIMP CLisaCOMController::setParameter(SHORT i, SHORT nParam, DOUBLE Val)
+STDMETHODIMP CLisaCOMController::setParameter(USHORT i, USHORT nParam, DOUBLE val)
 {
-	Actuator* const jCtlr=SimFacade::Instance().getActuator(i);	
-	//(nParam==4)?jCtlr->getController()->setParameter(nParam,(int)Val):jCtlr->getController()->setParameter(nParam,Val);
-	//throw Exception("Not implemented!","LisaCOMController");
+	SimFacade::Instance().setActuatorParam(i, nParam, val);
 	return S_OK;
 }
-
 
 /**-------------------------------------------------------------------------------
 	get i-th actuator position
@@ -150,10 +97,9 @@ STDMETHODIMP CLisaCOMController::setParameter(SHORT i, SHORT nParam, DOUBLE Val)
 	\param pVal	returned position (angle)
 	\return	HRESULT
 --------------------------------------------------------------------------------*/
-STDMETHODIMP CLisaCOMController::getPosition(SHORT i, DOUBLE* pVal)
+STDMETHODIMP CLisaCOMController::getPosition(USHORT i, DOUBLE* pVal)
 {
-	Actuator* const jCtlr=SimFacade::Instance().getActuator(i);
-	*pVal=jCtlr->getJoint()->getAngle();
+	*pVal=SimFacade::Instance().getJointAngle(i);
 	return S_OK;
 }
 
@@ -165,10 +111,9 @@ STDMETHODIMP CLisaCOMController::getPosition(SHORT i, DOUBLE* pVal)
 	\param Val		set-point
 	\return	HRESULT
 --------------------------------------------------------------------------------*/
-STDMETHODIMP CLisaCOMController::setReference(SHORT i, SHORT numRef, DOUBLE Val)
+STDMETHODIMP CLisaCOMController::setReference(USHORT i, USHORT numRef, DOUBLE Val)
 {
-	Actuator* const jCtlr=SimFacade::Instance().getActuator(i);
-	jCtlr->getController()->setSetpoint(Val);
+	SimFacade::Instance().setJointSetpoint(i,numRef,Val);
 	return S_OK;
 }
 
@@ -180,13 +125,11 @@ STDMETHODIMP CLisaCOMController::setReference(SHORT i, SHORT numRef, DOUBLE Val)
 	\param retVal	returned reference value
 	\return	HRESULT
 --------------------------------------------------------------------------------*/
-STDMETHODIMP CLisaCOMController::getReference(SHORT i, SHORT numRef, DOUBLE* retVal)
+STDMETHODIMP CLisaCOMController::getReference(USHORT i, USHORT numRef, DOUBLE* retVal)
 {
-	Actuator* const jCtlr=SimFacade::Instance().getActuator(i);
-	jCtlr->getController()->getSetpoint(*retVal);
+	*retVal=SimFacade::Instance().getJointSetpoint(i,numRef);
 	return S_OK;
 }
-
 
 /**-------------------------------------------------------------------------------
 	get i-th actuator velocity
@@ -195,10 +138,9 @@ STDMETHODIMP CLisaCOMController::getReference(SHORT i, SHORT numRef, DOUBLE* ret
 	\param pVal	returned velocity 
 	\return	HRESULT
 --------------------------------------------------------------------------------*/
-STDMETHODIMP CLisaCOMController::getVelocity(SHORT i, DOUBLE* pVal)
+STDMETHODIMP CLisaCOMController::getVelocity(USHORT i, DOUBLE* pVal)
 { 
-	Actuator* const jCtlr=SimFacade::Instance().getActuator(i);
-	*pVal=jCtlr->getJoint()->getVelocity();
+	*pVal=SimFacade::Instance().getJointVelocity(i);
 	return S_OK;
 }
 
@@ -209,9 +151,8 @@ STDMETHODIMP CLisaCOMController::getVelocity(SHORT i, DOUBLE* pVal)
 	\param pVal	returned velocity 
 	\return	HRESULT
 --------------------------------------------------------------------------------*/
-STDMETHODIMP CLisaCOMController::getTorque(SHORT i, DOUBLE* pVal)
-{ 
-	Actuator* const jCtlr=SimFacade::Instance().getActuator(i);
-	*pVal=jCtlr->getJoint()->getTorque();
+STDMETHODIMP CLisaCOMController::getTorque(USHORT i, DOUBLE* pVal)
+{ 	
+	*pVal=SimFacade::Instance().getJointTorque(i);
 	return S_OK;	
 }

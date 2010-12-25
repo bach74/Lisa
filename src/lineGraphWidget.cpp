@@ -1,3 +1,12 @@
+// =============================================================================
+//  LineGraphWidget.cpp   version:  1.5
+//  
+//  Copyright (C) 2007-2010 by Bach 
+//  This file is part of the LiSA project.
+//  The LiSA project is licensed under MIT license.
+// 
+// =============================================================================
+
 #include "stdafx.h"
 #include "LineGraphWidget.h"
 #include "exception.h"
@@ -575,13 +584,13 @@ void LineGraphWidget::addPointToLine(int lineIndex, float realXValue, float real
 			throw Exception("ERROR: LineGraphWidget::addPointToLine with respect intervals on; will not work as you have not setXinterval()", "lineGraphwidget");
 		}
 
-		unsigned long  upcomingInterval = 0;
+		ULONG  upcomingInterval = 0;
 
 		if (currentPoint != NULL)
 		{
-			unsigned long adjustedValue = (unsigned long)(realXValue  * 1000000.0f);
-			unsigned long adjustedInterval = (unsigned long)(mXInterval  * 1000000.0f);
-			unsigned long adjustedCurrentX = (unsigned long)(currentPoint->x * 1000000.0f);
+			ULONG adjustedValue = (ULONG)(realXValue  * 1000000.0f);
+			ULONG adjustedInterval = (ULONG)(mXInterval  * 1000000.0f);
+			ULONG adjustedCurrentX = (ULONG)(currentPoint->x * 1000000.0f);
 			upcomingInterval = adjustedCurrentX + adjustedInterval;
 
 			if (adjustedValue < upcomingInterval)

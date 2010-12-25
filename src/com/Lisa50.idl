@@ -19,14 +19,14 @@ import "ocidl.idl";
 interface ILisaCOMController : IDispatch{
 	[id(1), helpstring("get current version")] HRESULT getVersion([out,retval] BSTR* version);
 	[propget, id(10), helpstring("Number of controllers")] HRESULT number([out, retval] SHORT* pVal);
-	[id(11), helpstring("get actuator parameters")] HRESULT getParameters([in] SHORT i, [out,retval] VARIANT* params);
-	[id(12), helpstring("get i-th actuator position")] HRESULT getPosition([in] SHORT i, [out,retval] DOUBLE* pVal);
-	[id(13), helpstring("set i-th actuator numRef-th reference")] HRESULT setReference([in] SHORT i, [in] SHORT numRef, [in] DOUBLE Val);
-	[id(14), helpstring("get i-th actuator velocity")] HRESULT getVelocity([in] SHORT i, [out,retval] DOUBLE* pVal);
-	[id(15), helpstring("set i-th actuator numParam-th parameter")] HRESULT setParameter([in] SHORT i, [in] SHORT numParam, [in] DOUBLE Val);
-	[id(16), helpstring("method setParameters")] HRESULT setParameters([in] SHORT i, [in] VARIANT* params);
-	[id(17), helpstring("get i-th actuator torque")] HRESULT getTorque([in] SHORT i, [out,retval] DOUBLE* pVal);
-	[id(18), helpstring("get reference for the i-th controller")] HRESULT getReference([in] SHORT i, SHORT numRef, [out,retval] DOUBLE* retVal);
+	[id(11), helpstring("get actuator parameters")] HRESULT getParameters([in] USHORT i, [out,retval] VARIANT* params);
+	[id(12), helpstring("get i-th actuator position")] HRESULT getPosition([in] USHORT i, [out,retval] DOUBLE* pVal);
+	[id(13), helpstring("set i-th actuator numRef-th reference")] HRESULT setReference([in] USHORT i, [in] USHORT numRef, [in] DOUBLE Val);
+	[id(14), helpstring("get i-th actuator velocity")] HRESULT getVelocity([in] USHORT i, [out,retval] DOUBLE* pVal);
+	[id(15), helpstring("set i-th actuator numParam-th parameter")] HRESULT setParameter([in] USHORT i, [in] USHORT numParam, [in] DOUBLE Val);
+	[id(16), helpstring("method setParameters")] HRESULT setParameters([in] USHORT i, [in] VARIANT* params);
+	[id(17), helpstring("get i-th actuator torque")] HRESULT getTorque([in] USHORT i, [out,retval] DOUBLE* pVal);
+	[id(18), helpstring("get reference for the i-th controller")] HRESULT getReference([in] USHORT i, USHORT numRef, [out,retval] DOUBLE* retVal);
 };
 [
 	object,
@@ -49,9 +49,9 @@ interface ILisaCOMTrajectory : IDispatch{
 	pointer_default(unique)
 ]
 interface ILisaCOM : IDispatch{
-	[id(1), helpstring("get i-th link mass")] HRESULT getLinkMass(SHORT i, [out,retval] DOUBLE* value);
-	[id(2), helpstring("get i-th link position")] HRESULT getLinkPosition([in] SHORT i, [out,retval] VARIANT* val);
-	[id(3), helpstring("get i-th joint coordinates (Cartesian space)")] HRESULT getJointCoordinates([in] SHORT i, [out, retval] VARIANT* val);
+	[id(1), helpstring("get i-th link mass")] HRESULT getLinkMass(USHORT i, [out,retval] DOUBLE* value);
+	[id(2), helpstring("get i-th link position")] HRESULT getLinkPosition([in] USHORT i, [out,retval] VARIANT* val);
+	[id(3), helpstring("get i-th joint coordinates (Cartesian space)")] HRESULT getJointCoordinates([in] USHORT i, [out, retval] VARIANT* val);
 	[id(4), helpstring("get center of pressure (COP) position")] HRESULT getCOPPosition([out, retval] VARIANT* point);
 	[id(12), helpstring("get center of pressure (COP) force")] HRESULT getCOPForce([out, retval] VARIANT* force);
 	[id(5), helpstring("finish simulation and close program")] HRESULT close(void);

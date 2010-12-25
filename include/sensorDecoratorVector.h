@@ -1,4 +1,14 @@
-#pragma once
+// =============================================================================
+//  SensorDecoratorVector.h   version:  1.5
+//
+//  Copyright (C) 2007-2010 by Bach 
+//  This file is part of the LiSA project.
+//  The LiSA project is licensed under MIT license.
+//
+// =============================================================================
+#ifndef __SENSORDECORATORVECTOR_H__
+#define __SENSORDECORATORVECTOR_H__
+
 #include "sensordecorator.h"
 
 /**-------------------------------------------------------------------------------
@@ -20,3 +30,5 @@ class SensorDecoratorVector : public SensorDecorator<std::vector<Ogre::Vector3> 
 	private:
 		bool mPersistent;
 };
+
+ #endif

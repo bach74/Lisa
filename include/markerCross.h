@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __MARKERCROSS_H__
+#define __MARKERCROSS_H__
 #include "marker.h"
 
 class MarkerCross : public Marker
@@ -9,3 +10,5 @@ class MarkerCross : public Marker
 
 		void addObjectCross(const Ogre::String& name, Ogre::ColourValue color, float scale);
 };
+
+ #endif

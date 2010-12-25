@@ -1,3 +1,12 @@
+// =============================================================================
+//  ActuatorPID.cpp   version:  1.5
+//  
+//  Copyright (C) 2007-2010 by Bach 
+//  This file is part of the LiSA project.
+//  The LiSA project is licensed under MIT license.
+// 
+// =============================================================================
+
 #include "stdafx.h"
 #include "actuatorPID.h"
 #include "JointRevolute.h"
@@ -88,7 +97,7 @@ void ActuatorPID::update(double currentTime, double sampleTime)
 	}
 	else
 	{
-		throw new Exception("Joint type unsupported", "ActuatorPID.cpp");
+		throw Exception("Joint type unsupported", "ActuatorPID.cpp");
 	}
 
 }

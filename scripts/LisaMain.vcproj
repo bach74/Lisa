@@ -241,15 +241,23 @@
 				>
 			</File>
 			<File
+				RelativePath="..\src\conversion.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\src\debugLogger.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\src\globals.cpp"
+				RelativePath="..\src\link.cpp"
 				>
 			</File>
 			<File
-				RelativePath="..\src\link.cpp"
+				RelativePath="..\src\linkIterator.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\src\links.cpp"
 				>
 			</File>
 			<File
@@ -519,10 +527,6 @@
 					RelativePath="..\src\math\ConvexHullGraham.cpp"
 					>
 				</File>
-				<File
-					RelativePath="..\src\math\FloatMath.cpp"
-					>
-				</File>
 			</Filter>
 		</Filter>
 		<Filter
@@ -543,6 +547,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\include\conversion.h"
+				>
+			</File>
+			<File
 				RelativePath="..\include\debugLogger.h"
 				>
 			</File>
@@ -556,6 +564,14 @@
 			</File>
 			<File
 				RelativePath="..\include\link.h"
+				>
+			</File>
+			<File
+				RelativePath="..\include\linkIterator.h"
+				>
+			</File>
+			<File
+				RelativePath="..\include\links.h"
 				>
 			</File>
 			<File
@@ -799,14 +815,6 @@
 				>
 				<File
 					RelativePath="..\include\math\ConvexHullGraham.h"
-					>
-				</File>
-				<File
-					RelativePath="..\include\math\FloatMath.h"
-					>
-				</File>
-				<File
-					RelativePath="..\include\math\FloatMath.inl"
 					>
 				</File>
 			</Filter>

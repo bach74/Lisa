@@ -1,4 +1,13 @@
-#pragma once
+// =============================================================================
+//  ViewHelp.h   version:  1.5
+//
+//  Copyright (C) 2007-2010 by Bach 
+//  This file is part of the LiSA project.
+//  The LiSA project is licensed under MIT license.
+//
+// =============================================================================
+#ifndef __VIEWHELP_H__
+#define __VIEWHELP_H__
 
 #include "simulation.h"
 
@@ -46,3 +55,5 @@ class ViewHelp: public Ogre::FrameListener
 		ViewHelp();
 
 };
+
+ #endif

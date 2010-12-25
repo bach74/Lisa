@@ -1,12 +1,19 @@
-#pragma once
-
+// =============================================================================
+//  CSVPlotExporter.h   version:  1.5
+//
+//  Copyright (C) 2007-2010 by Bach 
+//  This file is part of the LiSA project.
+//  The LiSA project is licensed under MIT license.
+//
+// =============================================================================
+#ifndef __CSVPLOTEXPORTER_H__
+#define __CSVPLOTEXPORTER_H__
 
 /**-------------------------------------------------------------------------------
- little class to export a set of data plots into CSV format for reading into spreadsheets and things
- file is called "TIMESTAMP_PLOTNAME.csv"
- can also be set to save in gnuplot format
+	little class to export a set of data plots into CSV format for reading into spreadsheets and things
+	file is called "TIMESTAMP_PLOTNAME.csv"
+	can also be set to save in gnuplot format
 ---------------------------------------------------------------------------------*/
-
 class CSVPlotExporter
 {
 	public:
@@ -20,3 +27,5 @@ class CSVPlotExporter
 	private:
 		FILE* mpFile;
 };
+
+ #endif

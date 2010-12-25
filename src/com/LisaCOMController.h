@@ -1,5 +1,5 @@
 // =============================================================================
-//  LisaCOMController.h   version:  1.0
+//  LisaCOMController.h   version:  1.5
 //  
 //	Declaration of the CLisaCOMController
 //
@@ -58,14 +58,14 @@ public:
 
 	STDMETHOD(getVersion)(BSTR* version);
 	STDMETHOD(get_number)(SHORT* pVal);
-	STDMETHOD(getParameters)(SHORT i, VARIANT* params);
-	STDMETHOD(getPosition)(SHORT i, DOUBLE* pVal);
-	STDMETHOD(setParameter)(SHORT i, SHORT numParam, DOUBLE val);
-	STDMETHOD(getVelocity)(SHORT i, DOUBLE* pVal);
-	STDMETHOD(setReference)(SHORT i, SHORT numRef, DOUBLE val);
-	STDMETHOD(setParameters)(SHORT i, VARIANT* params);
-	STDMETHOD(getTorque)(SHORT i, DOUBLE* pVal);
-	STDMETHOD(getReference)(SHORT i, SHORT numRef, DOUBLE* retVal);
+	STDMETHOD(getParameters)(USHORT i, VARIANT* params);
+	STDMETHOD(getPosition)(USHORT i, DOUBLE* pVal);
+	STDMETHOD(setParameter)(USHORT i, USHORT numParam, DOUBLE val);
+	STDMETHOD(getVelocity)(USHORT i, DOUBLE* pVal);
+	STDMETHOD(setReference)(USHORT i, USHORT numRef, DOUBLE val);
+	STDMETHOD(setParameters)(USHORT i, VARIANT* params);
+	STDMETHOD(getTorque)(USHORT i, DOUBLE* pVal);
+	STDMETHOD(getReference)(USHORT i, USHORT numRef, DOUBLE* retVal);
 
 };
 

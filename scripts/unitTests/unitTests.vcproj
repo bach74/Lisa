@@ -252,7 +252,15 @@
 				Name="Obb"
 				>
 				<File
-					RelativePath="..\..\src\math\FloatMath.cpp"
+					RelativePath=".\FloatMath.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\FloatMath.h"
+					>
+				</File>
+				<File
+					RelativePath=".\FloatMath.inl"
 					>
 				</File>
 				<File

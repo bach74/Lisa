@@ -1,4 +1,13 @@
-#pragma once
+// =============================================================================
+//  trajectoryQueue.h   version:  1.5
+//
+//  Copyright (C) 2007-2010 by Bach 
+//  This file is part of the LiSA project.
+//  The LiSA project is licensed under MIT license.
+//
+// =============================================================================
+#ifndef __TRAJECTORYQUEUE_H__
+#define __TRAJECTORYQUEUE_H__
 
 #include "actuator.h"
 
@@ -69,3 +78,5 @@ class QueueElementForce : public TrajectoryQueue
 		std::string mForceType;
 		int mActor;
 };
+
+ #endif

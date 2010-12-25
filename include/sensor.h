@@ -1,4 +1,13 @@
-#pragma once
+// =============================================================================
+//  Sensor.h   version:  1.5
+//
+//  Copyright (C) 2007-2010 by Bach 
+//  This file is part of the LiSA project.
+//  The LiSA project is licensed under MIT license.
+//
+// =============================================================================
+#ifndef __SENSOR_H__
+#define __SENSOR_H__
 
 // forward declaration
 class Simulation;
@@ -40,3 +49,5 @@ class Sensor
 
 #include "OgreVector3.h"
 typedef Sensor<std::vector<Ogre::Vector3> > SensorVectors;
+
+ #endif

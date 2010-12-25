@@ -1,10 +1,11 @@
 // =============================================================================
-//  actuator.h   version:  1.0
+//  actuator.h   version:  1.5
 //
 //  Copyright (C) 2007-2010 by Bach - All Rights Reserved
 //
 // =============================================================================
-#pragma once
+#ifndef __ACTUATOR_H__
+#define __ACTUATOR_H__
 
 #include "controller.h"
 #include "joint.h"
@@ -61,3 +62,5 @@ class Actuator : public LoggerWriter<Actuator>
 		Controller<double>*		mController;
 		Sensor<double, Joint>*	mSensor;
 };
+
+ #endif

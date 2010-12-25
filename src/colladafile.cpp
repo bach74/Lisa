@@ -1,5 +1,5 @@
 // =============================================================================
-//  colladafile.cpp   version:  1.0
+//  colladafile.cpp   version:  1.5
 //
 //   Collada physics Importer/Exporter for nxOgre. Based on
 //   Scene Export: This program shows how to export and import a scene to
@@ -70,7 +70,6 @@ bool NxuOgre::LoadScene(NxOgre::World* world, const char *pFilename, NXU::NXU_Fi
 	{
 		if (mPhysicsSDK)
 		{
-
 			NXU::NxuPhysicsCollection *c = NXU::loadCollection(pFilename, type);
 
 			if (c)
@@ -123,7 +122,6 @@ void NxuOgre::SaveScene(const char* SaveFilename, NXU::NXU_FileType type, bool b
 
 	if (cltn)
 	{
-
 		switch (type)
 		{
 			case NXU::FT_XML:

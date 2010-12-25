@@ -1,7 +1,9 @@
 // =============================================================================
-//  simulation.cpp   version:  1.0
+//  simulation.cpp   version:  1.5
 //
-//  Copyright (C) 2007 by Bach - All Rights Reserved
+//  Copyright (C) 2007-2010 by Bach 
+//  This file is part of the LiSA project.
+//  The LiSA project is licensed under MIT license.
 //
 // =============================================================================
 #include "stdafx.h"
@@ -10,7 +12,8 @@
 #include "colladafile.h"
 #include "config.h"
 #include "mySceneController.h"
-#include "globals.h"
+#include "linkIterator.h"
+
 
 /**----------------------------------------------------------------------------
    create Scene
@@ -96,8 +99,6 @@ SimulationImpl::SimulationImpl(Scene* _scene)
 	{
 		MessageBox(NULL, _T("Scene cannot be created!"), _T("Error in SimulationImpl::SimulationImpl"), MB_ICONEXCLAMATION);
 	}
-
-	Globals::Instance().setScene(mPhyScene);
 
 }
 

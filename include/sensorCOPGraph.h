@@ -1,4 +1,13 @@
-#pragma once
+// =============================================================================
+//  sensorCOPGraph.h   version:  1.5
+//
+//  Copyright (C) 2007-2010 by Bach 
+//  This file is part of the LiSA project.
+//  The LiSA project is licensed under MIT license.
+//
+// =============================================================================
+#ifndef __SENSORCOPGRAPH_H__
+#define __SENSORCOPGRAPH_H__
 #include "lineGraphWidget.h"
 #include "sensor.h"
 
@@ -20,3 +29,5 @@ class SensorCOPGraph : public LineGraphWidget, public Ogre::FrameListener
 		SensorVectors* mSensor;
 
 };
+
+ #endif

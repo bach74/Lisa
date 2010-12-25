@@ -1,5 +1,15 @@
-#pragma once
-#include "boost/iterator/iterator_facade.hpp"
+// =============================================================================
+//  Link.h   version:  1.5
+//
+//  Copyright (C) 2007-2010 by Bach 
+//  This file is part of the LiSA project.
+//  The LiSA project is licensed under MIT license.
+//
+// =============================================================================
+#ifndef __LINK_H__
+#define __LINK_H__
+
+#include <boost/iterator/iterator_facade.hpp>
 
 /**-------------------------------------------------------------------------------
 	Class Link represents dynamic objects in the simulation.
@@ -42,47 +52,4 @@ class Link
 
 };
 
-
-class Links
-{
-
-	public:
-		Links() {};
-		~Links() { mLinks.clear(); };
-
-		friend class LinkIterator;
-
-		size_t size() { return mLinks.size(); }
-		void add(boost::shared_ptr<Link> link) { mLinks.push_back(link); }
-
-		typedef LinkIterator iterator;
-
-	private:
-		std::vector<boost::shared_ptr<Link> >::iterator begin() { return mLinks.begin(); }
-		std::vector<boost::shared_ptr<Link> >::iterator end() { return mLinks.end(); }
-
-		std::vector<boost::shared_ptr<Link> > mLinks;
-};
-
-
-class LinkIterator : public boost::iterator_facade<LinkIterator, Link, boost::forward_traversal_tag>
-{
-	public:
-		LinkIterator(Links* links):mLinks(links) { begin();};
-		~LinkIterator() {};
-
-		LinkIterator& begin();
-		bool end();
-
-	private:
-		LinkIterator():mLinks(NULL) {};
-
-		friend class boost::iterator_core_access;
-
-		void increment();
-		bool equal(LinkIterator const& other) const;
-		Link& dereference() const { return *(*mNode); }
-
-		std::vector<boost::shared_ptr<Link> >::iterator mNode;
-		Links* mLinks;
-};
+ #endif

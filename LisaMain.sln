@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lisa50", "scripts\LisaMain.vcproj", "{C6D5DC0D-0BB6-4683-B201-1F93FAFF3C38}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7C13B159-BCAE-4C09-AFFC-BC04CB693C9F}"
+	ProjectSection(SolutionItems) = preProject
+		LisaMain.vsd = LisaMain.vsd
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "unitTests", "scripts\unitTests\unitTests.vcproj", "{5E496AAE-CDC7-4CF6-81BE-B53E4B21C1D1}"
 EndProject

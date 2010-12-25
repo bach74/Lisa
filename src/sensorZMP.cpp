@@ -1,8 +1,19 @@
+// =============================================================================
+//  SensorZMP.cpp   version:  1.5
+//  
+//  Copyright (C) 2007-2010 by Bach 
+//  This file is part of the LiSA project.
+//  The LiSA project is licensed under MIT license.
+// 
+// =============================================================================
+
 #include "stdafx.h"
 #include "sensorZMP.h"
 #include "config.h"
+#include "simFacade.h"
 #include "simulation.h"
-#include "globals.h"
+#include "linkIterator.h"
+
 
 SensorZMP::~SensorZMP(void)
 {
@@ -26,7 +37,7 @@ void SensorZMP::update()
 	double sum5=0;
 
 	float deltaT = getDataclass()->getTimeSinceLastPhysXFrame();
-	Ogre::Vector3 g=Globals::Instance().getGravity();
+	Ogre::Vector3 g=SimFacade::Instance().getGravity();
 
 	LinkIterator it = LinkIterator(getDataclass()->getLinks());
 

@@ -1,4 +1,13 @@
-#pragma once
+// =============================================================================
+//  Exception.h   version:  1.5
+//
+//  Copyright (C) 2007-2010 by Bach 
+//  This file is part of the LiSA project.
+//  The LiSA project is licensed under MIT license.
+//
+// =============================================================================
+#ifndef __EXCEPTION_H__
+#define __EXCEPTION_H__
 
 class Exception : public std::runtime_error
 {
@@ -14,3 +23,5 @@ class Exception : public std::runtime_error
 		std::string mDescription;
 		std::string mWhere;
 };
+
+ #endif
