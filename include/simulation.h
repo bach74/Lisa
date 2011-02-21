@@ -14,7 +14,7 @@
 #include "links.h"
 #include "actuator.h"
 #include "actuators.h"
-
+#include "CritSectEx.h"
 
 class Simulation : public Ogre::FrameListener
 {
@@ -83,7 +83,7 @@ class Simulation : public Ogre::FrameListener
 		float               mTimeSinceLastRenderFrame;
 		float               mTimeSinceLastPhysXFrame;
 		SimulationState     mState;
-		CRITICAL_SECTION    mCS;
+		CritSectEx			myCs;
 		bool                mLocked;
 };
 

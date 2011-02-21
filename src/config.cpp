@@ -39,6 +39,7 @@ Config::Config()
 	mKeepAlive=false;
 	mControllerZMP=false;
 	mSelectedObjectGlows=true;
+	mPhysXEnabled=true;
 
 	TCHAR path[MAX_PATH+1];
 	int i=GetCurrentDirectory(MAX_PATH,path);
@@ -70,6 +71,7 @@ Config::Config()
 				else if (i->first=="showCOP")   mShowCOP=val;
 				else if (i->first=="showFRI")   mShowFRI=val;
 				else if (i->first=="keepAlive") mKeepAlive=val;
+				else if (i->first=="PhysXEnabled") mPhysXEnabled=val;
 				else throw Exception(std::string("config value is not supported: ")+secName+i->first,"config.cpp");
 			}
 		}

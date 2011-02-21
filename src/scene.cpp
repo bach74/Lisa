@@ -13,7 +13,8 @@
 #include "simulationImpl.h"
 #include "misc.h"
 #include "contactReporter.h"
-
+#include "simFacade.h"
+#include "config.h"
 
 /**-------------------------------------------------------------------------------
     ctor for Scene class
@@ -232,8 +233,19 @@ void Scene::run()
 		{
 			mSimulation->setFrameTime(currentTicks / 1000.0);
 			float deltaTime = deltaMs / 1000.0;
-			mSimulation->simulate(deltaTime);
 
+			// pass external parameters
+			SimFacade::Instance().getStates();
+			
+			if (Config::Instance().getPhysxEnabled()) {
+				// simulate physics
+				mSimulation->simulate(deltaTime);
+			}
+
+			// set external parameters
+			SimFacade::Instance().setStates();
+
+			// and render occasionally - 1/(renderMult+1) x simulation Td 
 			if (renderCount >= rendererMult)
 			{
 				deltaFPS = mSimulation->getFrameTime() - lastTicksFPS;

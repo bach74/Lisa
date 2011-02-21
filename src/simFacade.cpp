@@ -12,6 +12,7 @@
 #include "simulationImpl.h"
 #include "exception.h"
 
+
 /**----------------------------------------------------------------------------
 	Get i-th body from the .
    
@@ -178,24 +179,6 @@ void SimFacade::loadTrajectory(const TCHAR* filename) const
 }
 
 /**-------------------------------------------------------------------------------
-	getActuator
-	
-	@brief
-	@param n
-	@return Actuator*
----------------------------------------------------------------------------------*/
-/*Actuator* SimFacade::getActuator(UINT n) const
-{
-	ActuatorIterator it(LisaCore::Instance().getSimulation()->getActuators());
-
-	for (UINT i = 0; i < n; ++i)
-	{
-		if (it.end()) { return NULL; }
-	}
-	return &(*it);
-}*/
-
-/**-------------------------------------------------------------------------------
 	getGravity
 	
 	@brief
@@ -269,9 +252,7 @@ void SimFacade::setActuatorParam(USHORT i, USHORT nParam, double valParam)
 --------------------------------------------------------------------------------*/
 double SimFacade::getJointAngle(USHORT i)
 {
-	//*pVal=SimFacade::Instance().getActuator(i);
-	//jCtlr->getJoint()->getAngle();
-	return 0;
+	return mJointAngles[i];
 }
 
 /**-------------------------------------------------------------------------------
@@ -283,8 +264,7 @@ double SimFacade::getJointAngle(USHORT i)
 --------------------------------------------------------------------------------*/
 void SimFacade::setJointSetpoint(USHORT i, USHORT numRef, DOUBLE Val)
 {
-	//Actuator* const jCtlr=SimFacade::Instance().getActuator(i);
-	//jCtlr->getController()->setSetpoint(Val);
+	throw Exception("Not implemented!","simfacade.cpp");
 }
 
 /**-------------------------------------------------------------------------------
@@ -296,9 +276,7 @@ void SimFacade::setJointSetpoint(USHORT i, USHORT numRef, DOUBLE Val)
 --------------------------------------------------------------------------------*/
 double SimFacade::getJointSetpoint(USHORT i, USHORT numRef)
 {
-	//Actuator* const jCtlr=SimFacade::Instance().getActuator(i);
-	//jCtlr->getController()->getSetpoint(*retVal);
-	return 0;
+	return mJointSetpoints[i];
 }
 
 /**-------------------------------------------------------------------------------
@@ -309,9 +287,7 @@ double SimFacade::getJointSetpoint(USHORT i, USHORT numRef)
 --------------------------------------------------------------------------------*/
 double SimFacade::getJointVelocity(USHORT i)
 { 
-	//Actuator* const jCtlr=SimFacade::Instance().getActuator(i);
-	//*pVal=jCtlr->getJoint()->getVelocity();
-	return S_OK;
+	return mJointVelocities[i];
 }
 
 /**-------------------------------------------------------------------------------
@@ -322,7 +298,52 @@ double SimFacade::getJointVelocity(USHORT i)
 --------------------------------------------------------------------------------*/
 double SimFacade::getJointTorque(USHORT i)
 { 
-	//Actuator* const jCtlr=SimFacade::Instance().getActuator(i);
-	//*pVal=jCtlr->getJoint()->getTorque();
-	return 0;	
+	return mJointTorques[i];
+}
+
+
+/**-------------------------------------------------------------------------------
+	setStates
+
+	@brief
+
+	Make a snapshot of simulation variables. This values will then be returned
+	to the caller of getJointXXX() and getXxx() functions;
+---------------------------------------------------------------------------------*/
+void SimFacade::setStates()
+{
+	{
+		CritSectEx::Scope scope(myCs);
+
+		mJointTorques.clear();
+		mJointVelocities.clear();
+		mJointAngles.clear();
+		mJointSetpoints.clear();
+
+		ActuatorIterator it(LisaCore::Instance().getSimulation()->getActuators());
+
+		for (; !it.end(); ++it)
+		{
+			Actuator& a = *it;
+			Joint* j=a.getJoint();
+			mJointAngles.push_back(j->getAngle());
+			mJointTorques.push_back(j->getTorque());
+			mJointVelocities.push_back(j->getVelocity());
+			double val;
+			a.getController()->getSetpoint(val);
+			mJointSetpoints.push_back(val);
+		}
+	
+	}
+}
+
+/**-------------------------------------------------------------------------------
+	getStates
+
+	@brief
+
+	Pass externally modified variables to the simulation variables. 	
+---------------------------------------------------------------------------------*/
+void SimFacade::getStates() 
+{
 }

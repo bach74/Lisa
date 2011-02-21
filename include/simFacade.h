@@ -13,6 +13,7 @@
 #include "simulation.h"
 #include "actuator.h"
 #include "contactReporter.h"
+#include "CritSectEx.h"
 
 /**-------------------------------------------------------------------------------
 	SimFacade is a monolith class that exposes internal variables to the external
@@ -26,6 +27,12 @@ class SimFacade : public ::Singleton<SimFacade>
 	public:
 
 		friend ::Singleton<SimFacade>;
+
+		/// external variables-> simulation variables
+		void getStates();
+
+		/// simulation variables -> state snapshot
+		void setStates();
 
 		/// object
 		int getNumLinks() const;
@@ -65,8 +72,8 @@ class SimFacade : public ::Singleton<SimFacade>
 
 	private:
 		/// hide constructor
-		SimFacade() {};
-		virtual ~SimFacade() {};
+		SimFacade(){};
+		virtual ~SimFacade(){};
 
 		/// get physX scene object
 		NxOgre::Scene* getPhyScene() const
@@ -83,7 +90,14 @@ class SimFacade : public ::Singleton<SimFacade>
 
 		/// get body implementation
 		NxOgre::Actor* SimFacade::getLink(USHORT i) const;
-	
+
+
+		std::vector<double> mJointTorques;
+		std::vector<double> mJointVelocities;
+		std::vector<double> mJointAngles;
+		std::vector<double> mJointSetpoints;
+
+		CritSectEx	myCs;
 };
 
  #endif

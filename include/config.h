@@ -79,6 +79,9 @@ class Config : public Singleton<Config>
 		bool getSelectedObjectGlows() const { return mSelectedObjectGlows; }
 		void setSelectedObjectGlows(bool val) { mSelectedObjectGlows = val; }
 
+		bool getPhysxEnabled() const { return mPhysXEnabled; }
+		void setPhysxEnabled(bool val) { mPhysXEnabled=val; }
+
 	private:
 		Config(void);
 
@@ -92,6 +95,7 @@ class Config : public Singleton<Config>
 		bool mKeepAlive;
 		bool mControllerZMP;
 		bool mSelectedObjectGlows;
+		bool mPhysXEnabled;
 
 		float mVisualDebugScale;
 		float mDrawingScaleCOG;
@@ -102,6 +106,7 @@ class Config : public Singleton<Config>
 		float mCameraRotateSpeed;
 		float mCameraTranslateSpeed;
 		float mActuatorSteppingTime;
+
 };
 
  #endif

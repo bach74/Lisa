@@ -19,7 +19,6 @@
 ---------------------------------------------------------------------------------*/
 Simulation::Simulation(void)
 {
-	InitializeCriticalSection(&mCS);
 	mWorld=NULL;
 	mScene=NULL;
 	mFrameTime=0;
@@ -48,7 +47,6 @@ Simulation::~Simulation(void)
 
 	// remove frame listener
 	Ogre::Root::getSingletonPtr()->removeFrameListener(this);
-	DeleteCriticalSection(&mCS);
 }
 
 /**-------------------------------------------------------------------------------
@@ -60,14 +58,16 @@ bool Simulation::lockState(SimulationState newState)
 {
 	bool ret=false;
 
-	EnterCriticalSection(&mCS);
-	if (mLocked==false)
 	{
-		mState=newState;
-		mLocked=true;
-		ret=true;
+		CritSectEx::Scope scope(myCs);
+	
+		if (mLocked==false)
+		{
+			mState=newState;
+			mLocked=true;
+			ret=true;
+		}
 	}
-	LeaveCriticalSection(&mCS);
 
 	return ret;
 }
@@ -81,13 +81,14 @@ bool Simulation::unlockState()
 {
 	bool ret=false;
 
-	EnterCriticalSection(&mCS);
-	if (mLocked==true)
 	{
-		mLocked=false;
-		ret=true;
+		CritSectEx::Scope scope(myCs);
+		if (mLocked==true)
+		{
+			mLocked=false;
+			ret=true;
+		}
 	}
-	LeaveCriticalSection(&mCS);
 
 	return ret;
 }
