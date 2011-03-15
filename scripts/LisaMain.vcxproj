@@ -1,0 +1,327 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectName>Lisa50</ProjectName>
+    <ProjectGuid>{C6D5DC0D-0BB6-4683-B201-1F93FAFF3C38}</ProjectGuid>
+    <RootNamespace>LisaMain</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfAtl>Dynamic</UseOfAtl>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseOfAtl>Dynamic</UseOfAtl>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</IgnoreImportLibrary>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <EmbedManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</EmbedManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)\bin\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\</IntDir>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</IgnoreImportLibrary>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectDir)$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <GenerateStublessProxies>false</GenerateStublessProxies>
+      <TypeLibraryName>$(ProjectDir)$(IntDir)Lisa50.tlb</TypeLibraryName>
+      <OutputDirectory>..\src\com</OutputDirectory>
+      <HeaderFileName>Lisa50.h</HeaderFileName>
+      <DllDataFileName>
+      </DllDataFileName>
+      <InterfaceIdentifierFileName>Lisa50_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>
+      </ProxyFileName>
+      <ValidateAllParameters>false</ValidateAllParameters>
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions>/Zm155 %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>..\..\..\DevelopmentTools\boost_1_44_0;..\scripts;..\include;..\..\[Engine]\ogre1.7_build\include;..\..\[Engine]\ogre1.7\OgreMain\include;..\..\[Engine]\ogre1.7_build\Dependencies\include;..\dependencies-include\nxogre\include;..\dependencies-include\nxustream2\include;C:\Program Files\NVIDIA Corporation\NVIDIA PhysX SDK\v2.8.3\SDKs\Physics\include;C:\Program Files\NVIDIA Corporation\NVIDIA PhysX SDK\v2.8.3\SDKs\Foundation\include;C:\Program Files\NVIDIA Corporation\NVIDIA PhysX SDK\v2.8.3\SDKs\PhysXLoader\include;C:\Program Files\NVIDIA Corporation\NVIDIA PhysX SDK\v2.8.3\SDKs\NxCharacter\include;C:\Program Files\NVIDIA Corporation\NVIDIA PhysX SDK\v2.8.3\SDKs\Cooking\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CRT_SECURE_NO_WARNINGS;BOOST_ALL_NO_LIB;HAVE_OGRE_BUILDSETTINGS_H;_WINDOWS;_MT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Precise</FloatingPointModel>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+      <BrowseInformation>
+      </BrowseInformation>
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <StringPooling>true</StringPooling>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>OgreMain_d.lib;OIS_d.lib;Version.lib;PhysXLoader.lib;PhysXCooking.lib;NxCharacter.lib;nxOgre_d.lib;lisa_static_libs.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <Version>6.2</Version>
+      <AdditionalLibraryDirectories>..\..\[Engine]\ogre1.7_build\lib\$(Configuration);..\..\[Engine]\ogre1.7_build\Dependencies\lib\$(Configuration);..\dependencies-lib\nxOgre;..\dependencies-lib\lisa-static-lib\$(Configuration);..\..\..\DevelopmentTools\boost_1_44_0\stage\lib;C:\Program Files\NVIDIA Corporation\NVIDIA PhysX SDK\v2.8.3\SDKs\lib\win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <TargetMachine>MachineX86</TargetMachine>
+      <Profile>false</Profile>
+    </Link>
+    <PostBuildEvent>
+      <Message>Copying and performing registration...</Message>
+      <Command>copy $(OutDir)$(TargetName)$(TargetExt) ..\bin\$(Configuration)\$(TargetFileName)
+cd ..\bin\$(IntDir)
+$(TargetFileName) /regserver
+cd $(ProjectDir)
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <TargetEnvironment>Win32</TargetEnvironment>
+      <GenerateStublessProxies>true</GenerateStublessProxies>
+      <TypeLibraryName>$(IntDir)Lisa50.tlb</TypeLibraryName>
+      <HeaderFileName>Lisa50.h</HeaderFileName>
+      <DllDataFileName>
+      </DllDataFileName>
+      <InterfaceIdentifierFileName>Lisa50_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>Lisa50_p.c</ProxyFileName>
+      <ValidateAllParameters>false</ValidateAllParameters>
+    </Midl>
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <AdditionalIncludeDirectories>..\scripts;..\include;$(OGRE_HOME)\include;$(OGRE_HOME)\..\bin\include;$(OGRE_HOME)\..\bin\lib\Release;D:\Development\[Engine]\NxOgre\include;$(OGRE_HOME)\..\Dependencies\include;$(PHYSX_DIR)\SDKs\Physics\include;$(PHYSX_DIR)\SDKs\Foundation\include;$(PHYSX_DIR)\SDKs\PhysXLoader\include;$(PHYSX_DIR)\SDKs\NxCharacter\include;$(PHYSX_DIR)\SDKs\Cooking\include;$(DXSDK_DIR)\Samples\C++\DXUT\Core;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <StringPooling>true</StringPooling>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>OgreMain.lib;OIS_static.lib;Version.lib;PhysXLoader.lib;NxCooking.lib;NxCharacter.lib;nxOgre.lib;lisa_static_libs.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(IntDir)$(ProjectName).exe</OutputFile>
+      <AdditionalLibraryDirectories>$(OGRE_HOME)\lib\$(Configuration);..\..\[Engine]\ogrenew\Dependencies\lib\$(Configuration);..\..\[Engine]\ogrenew\Samples\Common\CEGUIRenderer\lib;..\..\[Engine]\ois-0-7-2\lib;$(NXOGRE_DIR)\compiler\NxOgre.VC8\$(Configuration)\lib;$(PHYSX_DIR)\SDKs\lib\win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+    <PostBuildEvent>
+      <Command>copy $(IntDir)$(TargetFileName) ..\bin\$(IntDir)$(TargetFileName)
+cd ..\bin\$(IntDir)
+$(TargetFileName) /regserver
+cd $(ProjectDir)
+</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\colladafile.cpp" />
+    <ClCompile Include="..\src\config.cpp" />
+    <ClCompile Include="..\src\contactReporter.cpp" />
+    <ClCompile Include="..\src\conversion.cpp" />
+    <ClCompile Include="..\src\debugLogger.cpp" />
+    <ClCompile Include="..\src\link.cpp" />
+    <ClCompile Include="..\src\linkIterator.cpp" />
+    <ClCompile Include="..\src\links.cpp" />
+    <ClCompile Include="..\src\lisa50.cpp" />
+    <ClCompile Include="..\src\lisaCore.cpp" />
+    <ClCompile Include="..\src\logger.cpp" />
+    <ClCompile Include="..\src\stdAfx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\src\trajectory.cpp" />
+    <ClCompile Include="..\src\trajectoryQueue.cpp" />
+    <ClCompile Include="..\src\InputManager.cpp" />
+    <ClCompile Include="..\src\CritSectEx.cpp" />
+    <ClCompile Include="..\src\misc\misc.cpp" />
+    <ClCompile Include="..\src\com\LisaCOM.cpp" />
+    <ClCompile Include="..\src\com\LisaCOMController.cpp" />
+    <ClCompile Include="..\src\com\LisaCOMTrajectory.cpp" />
+    <ClCompile Include="..\src\sensor.cpp" />
+    <ClCompile Include="..\src\sensorCOG.cpp" />
+    <ClCompile Include="..\src\sensorCOP.cpp" />
+    <ClCompile Include="..\src\sensorDecoratorCross.cpp" />
+    <ClCompile Include="..\src\sensorDecoratorVector.cpp" />
+    <ClCompile Include="..\src\sensorForce.cpp" />
+    <ClCompile Include="..\src\SensorFRI.cpp" />
+    <ClCompile Include="..\src\sensors.cpp" />
+    <ClCompile Include="..\src\sensorZMP.cpp" />
+    <ClCompile Include="..\src\actuator.cpp" />
+    <ClCompile Include="..\src\actuatorPID.cpp" />
+    <ClCompile Include="..\src\actuators.cpp" />
+    <ClCompile Include="..\src\controllerPID.cpp" />
+    <ClCompile Include="..\src\controllerZMP.cpp" />
+    <ClCompile Include="..\src\joint.cpp" />
+    <ClCompile Include="..\src\jointD6.cpp" />
+    <ClCompile Include="..\src\jointFactory.cpp" />
+    <ClCompile Include="..\src\jointRevolute.cpp" />
+    <ClCompile Include="..\src\extendedCamera.cpp" />
+    <ClCompile Include="..\src\mySceneController.cpp" />
+    <ClCompile Include="..\src\phyExtendedCamera.cpp" />
+    <ClCompile Include="..\src\scene.cpp" />
+    <ClCompile Include="..\src\lisaAPI.cpp" />
+    <ClCompile Include="..\src\simulation.cpp" />
+    <ClCompile Include="..\src\simulationImpl.cpp" />
+    <ClCompile Include="..\src\simulationInputController.cpp" />
+    <ClCompile Include="..\src\simulationInputControllerDebug.cpp" />
+    <ClCompile Include="..\src\viewDebugger.cpp" />
+    <ClCompile Include="..\src\viewHelp.cpp" />
+    <ClCompile Include="..\src\controllerLineGraph.cpp" />
+    <ClCompile Include="..\src\CSVPlotExporter.cpp" />
+    <ClCompile Include="..\src\drawingCoord.cpp" />
+    <ClCompile Include="..\src\drawingCross.cpp" />
+    <ClCompile Include="..\src\labelWidget.cpp" />
+    <ClCompile Include="..\src\lineGraphFactory.cpp" />
+    <ClCompile Include="..\src\lineGraphWidget.cpp" />
+    <ClCompile Include="..\src\sensorCOPGraph.cpp" />
+    <ClCompile Include="..\src\sensorLineGraph.cpp" />
+    <ClCompile Include="..\src\math\ConvexHullGraham.cpp" />
+    <ClCompile Include="..\src\com\Lisa50_i.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\com\_ILisaCOMControllerEvents_CP.h" />
+    <ClInclude Include="..\src\com\_ILisaComEvents_CP.h" />
+    <ClInclude Include="..\src\com\LisaCOM.h" />
+    <ClInclude Include="..\src\com\LisaCOMController.h" />
+    <ClInclude Include="..\src\com\LisaCOMTrajectory.h" />
+    <ClInclude Include="..\include\colladafile.h" />
+    <ClInclude Include="..\include\config.h" />
+    <ClInclude Include="..\include\contactReporter.h" />
+    <ClInclude Include="..\include\conversion.h" />
+    <ClInclude Include="..\include\debugLogger.h" />
+    <ClInclude Include="..\include\exception.h" />
+    <ClInclude Include="..\include\globals.h" />
+    <ClInclude Include="..\include\link.h" />
+    <ClInclude Include="..\include\linkIterator.h" />
+    <ClInclude Include="..\include\links.h" />
+    <ClInclude Include="..\include\lisaCore.h" />
+    <ClInclude Include="..\include\logger.h" />
+    <ClInclude Include="..\include\stdafx.h" />
+    <ClInclude Include="..\include\trajectory.h" />
+    <ClInclude Include="..\include\trajectoryQueue.h" />
+    <ClInclude Include="..\include\CritSectEx.h" />
+    <ClInclude Include="..\include\misc.h" />
+    <ClInclude Include="..\include\singleton.h" />
+    <ClInclude Include="..\include\InputManager.h" />
+    <ClInclude Include="..\include\actuator.h" />
+    <ClInclude Include="..\include\actuatorPID.h" />
+    <ClInclude Include="..\include\actuators.h" />
+    <ClInclude Include="..\include\controller.h" />
+    <ClInclude Include="..\include\controllerPID.h" />
+    <ClInclude Include="..\include\controllerZMP.h" />
+    <ClInclude Include="..\include\poseControl.h" />
+    <ClInclude Include="..\include\sensor.h" />
+    <ClInclude Include="..\include\sensorCOG.h" />
+    <ClInclude Include="..\include\sensorCOP.h" />
+    <ClInclude Include="..\include\sensorDecorator.h" />
+    <ClInclude Include="..\include\sensorDecoratorCross.h" />
+    <ClInclude Include="..\include\sensorDecoratorVector.h" />
+    <ClInclude Include="..\include\sensorForce.h" />
+    <ClInclude Include="..\include\SensorFRI.h" />
+    <ClInclude Include="..\include\sensorPosition.h" />
+    <ClInclude Include="..\include\sensors.h" />
+    <ClInclude Include="..\include\sensorTorque.h" />
+    <ClInclude Include="..\include\sensorVelocity.h" />
+    <ClInclude Include="..\include\sensorZMP.h" />
+    <ClInclude Include="..\include\joint.h" />
+    <ClInclude Include="..\include\jointD6.h" />
+    <ClInclude Include="..\include\jointFactory.h" />
+    <ClInclude Include="..\include\jointRevolute.h" />
+    <ClInclude Include="..\include\extendedCamera.h" />
+    <ClInclude Include="..\include\mySceneController.h" />
+    <ClInclude Include="..\include\phyExtendedCamera.h" />
+    <ClInclude Include="..\include\scene.h" />
+    <ClInclude Include="..\include\lisaAPI.h" />
+    <ClInclude Include="..\include\simulation.h" />
+    <ClInclude Include="..\include\simulationImpl.h" />
+    <ClInclude Include="..\include\simulationInputController.h" />
+    <ClInclude Include="..\include\simulationInputControllerDebug.h" />
+    <ClInclude Include="..\include\viewDebugger.h" />
+    <ClInclude Include="..\include\viewHelp.h" />
+    <ClInclude Include="..\include\controllerLineGraph.h" />
+    <ClInclude Include="..\include\CSVPlotExporter.h" />
+    <ClInclude Include="..\include\drawingCoord.h" />
+    <ClInclude Include="..\include\drawingCross.h" />
+    <ClInclude Include="..\include\labelWidget.h" />
+    <ClInclude Include="..\include\lineGraphFactory.h" />
+    <ClInclude Include="..\include\lineGraphWidget.h" />
+    <ClInclude Include="..\include\sensorCOPGraph.h" />
+    <ClInclude Include="..\include\sensorLineGraph.h" />
+    <ClInclude Include="..\include\math\ConvexHullGraham.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="..\src\com\Lisa50.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="..\src\com\Lisa50.idl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\res\icon1.ico" />
+    <None Include="..\res\lisa.ico" />
+    <None Include="..\res\Lisa50.rgs" />
+    <None Include="..\res\LisaCom.rgs" />
+    <None Include="..\res\LisaCOMController.rgs" />
+    <None Include="..\res\LisaCOMTrajectory.rgs" />
+    <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="LisaMain.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

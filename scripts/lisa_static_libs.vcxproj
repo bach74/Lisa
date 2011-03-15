@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{85B64612-296A-454F-853C-DB809F80F689}</ProjectGuid>
+    <RootNamespace>lisa_static_libs</RootNamespace>
+    <Keyword>ManagedCProj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <CLRSupport>false</CLRSupport>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <CLRSupport>false</CLRSupport>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\dependencies-lib\lisa-static-lib\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)-static-lib\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\dependencies-lib\lisa-static-lib\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)-static-lib\</IntDir>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\..\..\DevelopmentTools\boost_1_44_0;..\dependencies-include\nxustream2\include;..\..\[Engine]\ogre1.7_build\include;..\..\[Engine]\ogre1.7\OgreMain\include;..\dependencies-include\nxogre\include;C:\Program Files\NVIDIA Corporation\NVIDIA PhysX SDK\v2.8.3\SDKs\Physics\include;C:\Program Files\NVIDIA Corporation\NVIDIA PhysX SDK\v2.8.3\SDKs\Foundation\include;C:\Program Files\NVIDIA Corporation\NVIDIA PhysX SDK\v2.8.3\SDKs\PhysXLoader\include;C:\Program Files\NVIDIA Corporation\NVIDIA PhysX SDK\v2.8.3\SDKs\NxCharacter\include;C:\Program Files\NVIDIA Corporation\NVIDIA PhysX SDK\v2.8.3\SDKs\Cooking\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\dependencies-include\nxustream2\include;..\dependencies-include\ogre\include;..\dependencies-include\nxogre\include;C:\Program Files\NVIDIA Corporation\NVIDIA PhysX SDK\v2.8.1\SDKs\Physics\include;C:\Program Files\NVIDIA Corporation\NVIDIA PhysX SDK\v2.8.1\SDKs\Foundation\include;C:\Program Files\NVIDIA Corporation\NVIDIA PhysX SDK\v2.8.1\SDKs\PhysXLoader\include;C:\Program Files\NVIDIA Corporation\NVIDIA PhysX SDK\v2.8.1\SDKs\NxCharacter\include;C:\Program Files\NVIDIA Corporation\NVIDIA PhysX SDK\v2.8.1\SDKs\Cooking\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Reference Include="System">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </Reference>
+    <Reference Include="System.Data">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </Reference>
+    <Reference Include="System.Xml">
+      <CopyLocalSatelliteAssemblies>true</CopyLocalSatelliteAssemblies>
+      <ReferenceOutputAssembly>true</ReferenceOutputAssembly>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\dependencies-include\tinyxml\tinystr.cpp" />
+    <ClCompile Include="..\dependencies-include\tinyxml\tinyxml.cpp" />
+    <ClCompile Include="..\dependencies-include\tinyxml\tinyxmlerror.cpp" />
+    <ClCompile Include="..\dependencies-include\tinyxml\tinyxmlparser.cpp" />
+    <ClCompile Include="..\dependencies-include\nxustream2\src\NXU_asc2bin.cpp" />
+    <ClCompile Include="..\dependencies-include\nxustream2\src\NXU_colladaexport.cpp" />
+    <ClCompile Include="..\dependencies-include\nxustream2\src\NXU_colladaimport.cpp" />
+    <ClCompile Include="..\dependencies-include\nxustream2\src\NXU_cooking.cpp" />
+    <ClCompile Include="..\dependencies-include\nxustream2\src\NXU_customcopy.cpp" />
+    <ClCompile Include="..\dependencies-include\nxustream2\src\NXU_file.cpp" />
+    <ClCompile Include="..\dependencies-include\nxustream2\src\NXU_geometry.cpp" />
+    <ClCompile Include="..\dependencies-include\nxustream2\src\NXU_GraphicsMesh.cpp" />
+    <ClCompile Include="..\dependencies-include\nxustream2\src\NXU_helper.cpp" />
+    <ClCompile Include="..\dependencies-include\nxustream2\src\NXU_hull.cpp" />
+    <ClCompile Include="..\dependencies-include\nxustream2\src\NXU_physicsexport.cpp" />
+    <ClCompile Include="..\dependencies-include\nxustream2\src\NXU_PhysicsInstantiator.cpp" />
+    <ClCompile Include="..\dependencies-include\nxustream2\src\NXU_ScaledCopy.cpp" />
+    <ClCompile Include="..\dependencies-include\nxustream2\src\NXU_schema.cpp" />
+    <ClCompile Include="..\dependencies-include\nxustream2\src\NXU_schemastream.cpp" />
+    <ClCompile Include="..\dependencies-include\nxustream2\src\NXU_streaming.cpp" />
+    <ClCompile Include="..\dependencies-include\nxustream2\src\NXU_string.cpp" />
+    <ClCompile Include="..\dependencies-include\nxustream2\src\NXU_tinystr.cpp" />
+    <ClCompile Include="..\dependencies-include\nxustream2\src\NXU_tinyxml.cpp" />
+    <ClCompile Include="..\dependencies-include\nxustream2\src\NXU_tinyxmlerror.cpp" />
+    <ClCompile Include="..\dependencies-include\nxustream2\src\NXU_tinyxmlparser.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\dependencies-include\tinyxml\tinystr.h" />
+    <ClInclude Include="..\dependencies-include\tinyxml\tinyxml.h" />
+    <ClInclude Include="..\dependencies-include\nxustream2\include\NXU_asc2bin.h" />
+    <ClInclude Include="..\dependencies-include\nxustream2\include\NXU_colladaexport.h" />
+    <ClInclude Include="..\dependencies-include\nxustream2\include\NXU_colladaimport.h" />
+    <ClInclude Include="..\dependencies-include\nxustream2\include\NXU_cooking.h" />
+    <ClInclude Include="..\dependencies-include\nxustream2\include\NXU_customcopy.h" />
+    <ClInclude Include="..\dependencies-include\nxustream2\include\NXU_file.h" />
+    <ClInclude Include="..\dependencies-include\nxustream2\include\NXU_geometry.h" />
+    <ClInclude Include="..\dependencies-include\nxustream2\include\NXU_GraphicsMesh.h" />
+    <ClInclude Include="..\dependencies-include\nxustream2\include\NXU_helper.h" />
+    <ClInclude Include="..\dependencies-include\nxustream2\include\NXU_hull.h" />
+    <ClInclude Include="..\dependencies-include\nxustream2\include\NXU_physicsexport.h" />
+    <ClInclude Include="..\dependencies-include\nxustream2\include\NXU_physicsinstantiator.h" />
+    <ClInclude Include="..\dependencies-include\nxustream2\include\NXU_ScaledCopy.h" />
+    <ClInclude Include="..\dependencies-include\nxustream2\include\NXU_schema.h" />
+    <ClInclude Include="..\dependencies-include\nxustream2\include\NXU_schemastream.h" />
+    <ClInclude Include="..\dependencies-include\nxustream2\include\NXU_schematypes.h" />
+    <ClInclude Include="..\dependencies-include\nxustream2\include\NXU_streaming.h" />
+    <ClInclude Include="..\dependencies-include\nxustream2\include\NXU_string.h" />
+    <ClInclude Include="..\dependencies-include\nxustream2\include\NXU_tinystr.h" />
+    <ClInclude Include="..\dependencies-include\nxustream2\include\NXU_tinyxml.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files\tinyXML">
+      <UniqueIdentifier>{68ebf48a-e7f8-44a4-9929-90af6ab11dee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\NXU">
+      <UniqueIdentifier>{0e9fbeae-2b47-4050-8c5d-66566307eb4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files\tinyXML">
+      <UniqueIdentifier>{9861bfb3-eab7-4d8f-9154-4b298fd16993}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\NXU">
+      <UniqueIdentifier>{e983064d-2bfc-4dfb-aba8-f5028186223d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\dependencies-include\tinyxml\tinystr.cpp">
+      <Filter>Source Files\tinyXML</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies-include\tinyxml\tinyxml.cpp">
+      <Filter>Source Files\tinyXML</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies-include\tinyxml\tinyxmlerror.cpp">
+      <Filter>Source Files\tinyXML</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies-include\tinyxml\tinyxmlparser.cpp">
+      <Filter>Source Files\tinyXML</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies-include\nxustream2\src\NXU_asc2bin.cpp">
+      <Filter>Source Files\NXU</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies-include\nxustream2\src\NXU_colladaexport.cpp">
+      <Filter>Source Files\NXU</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies-include\nxustream2\src\NXU_colladaimport.cpp">
+      <Filter>Source Files\NXU</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies-include\nxustream2\src\NXU_cooking.cpp">
+      <Filter>Source Files\NXU</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies-include\nxustream2\src\NXU_customcopy.cpp">
+      <Filter>Source Files\NXU</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies-include\nxustream2\src\NXU_file.cpp">
+      <Filter>Source Files\NXU</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies-include\nxustream2\src\NXU_geometry.cpp">
+      <Filter>Source Files\NXU</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies-include\nxustream2\src\NXU_GraphicsMesh.cpp">
+      <Filter>Source Files\NXU</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies-include\nxustream2\src\NXU_helper.cpp">
+      <Filter>Source Files\NXU</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies-include\nxustream2\src\NXU_hull.cpp">
+      <Filter>Source Files\NXU</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies-include\nxustream2\src\NXU_physicsexport.cpp">
+      <Filter>Source Files\NXU</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies-include\nxustream2\src\NXU_PhysicsInstantiator.cpp">
+      <Filter>Source Files\NXU</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies-include\nxustream2\src\NXU_ScaledCopy.cpp">
+      <Filter>Source Files\NXU</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies-include\nxustream2\src\NXU_schema.cpp">
+      <Filter>Source Files\NXU</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies-include\nxustream2\src\NXU_schemastream.cpp">
+      <Filter>Source Files\NXU</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies-include\nxustream2\src\NXU_streaming.cpp">
+      <Filter>Source Files\NXU</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies-include\nxustream2\src\NXU_string.cpp">
+      <Filter>Source Files\NXU</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies-include\nxustream2\src\NXU_tinystr.cpp">
+      <Filter>Source Files\NXU</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies-include\nxustream2\src\NXU_tinyxml.cpp">
+      <Filter>Source Files\NXU</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies-include\nxustream2\src\NXU_tinyxmlerror.cpp">
+      <Filter>Source Files\NXU</Filter>
+    </ClCompile>
+    <ClCompile Include="..\dependencies-include\nxustream2\src\NXU_tinyxmlparser.cpp">
+      <Filter>Source Files\NXU</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\dependencies-include\tinyxml\tinystr.h">
+      <Filter>Header Files\tinyXML</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies-include\tinyxml\tinyxml.h">
+      <Filter>Header Files\tinyXML</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies-include\nxustream2\include\NXU_asc2bin.h">
+      <Filter>Header Files\NXU</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies-include\nxustream2\include\NXU_colladaexport.h">
+      <Filter>Header Files\NXU</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies-include\nxustream2\include\NXU_colladaimport.h">
+      <Filter>Header Files\NXU</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies-include\nxustream2\include\NXU_cooking.h">
+      <Filter>Header Files\NXU</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies-include\nxustream2\include\NXU_customcopy.h">
+      <Filter>Header Files\NXU</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies-include\nxustream2\include\NXU_file.h">
+      <Filter>Header Files\NXU</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies-include\nxustream2\include\NXU_geometry.h">
+      <Filter>Header Files\NXU</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies-include\nxustream2\include\NXU_GraphicsMesh.h">
+      <Filter>Header Files\NXU</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies-include\nxustream2\include\NXU_helper.h">
+      <Filter>Header Files\NXU</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies-include\nxustream2\include\NXU_hull.h">
+      <Filter>Header Files\NXU</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies-include\nxustream2\include\NXU_physicsexport.h">
+      <Filter>Header Files\NXU</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies-include\nxustream2\include\NXU_physicsinstantiator.h">
+      <Filter>Header Files\NXU</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies-include\nxustream2\include\NXU_ScaledCopy.h">
+      <Filter>Header Files\NXU</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies-include\nxustream2\include\NXU_schema.h">
+      <Filter>Header Files\NXU</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies-include\nxustream2\include\NXU_schemastream.h">
+      <Filter>Header Files\NXU</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies-include\nxustream2\include\NXU_schematypes.h">
+      <Filter>Header Files\NXU</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies-include\nxustream2\include\NXU_streaming.h">
+      <Filter>Header Files\NXU</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies-include\nxustream2\include\NXU_string.h">
+      <Filter>Header Files\NXU</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies-include\nxustream2\include\NXU_tinystr.h">
+      <Filter>Header Files\NXU</Filter>
+    </ClInclude>
+    <ClInclude Include="..\dependencies-include\nxustream2\include\NXU_tinyxml.h">
+      <Filter>Header Files\NXU</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

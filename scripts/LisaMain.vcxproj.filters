@@ -1,0 +1,500 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files\input">
+      <UniqueIdentifier>{2cf0068b-f98c-47e1-b5dd-eb4f3484db06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\misc">
+      <UniqueIdentifier>{5444a60d-3fe0-4083-bcc0-4793833f7612}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\com">
+      <UniqueIdentifier>{429457ed-5515-4183-b8f7-507846afddf9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\sensors">
+      <UniqueIdentifier>{c0422291-3b3d-4513-b19e-a7afb579769a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\controllers">
+      <UniqueIdentifier>{cc305389-d930-4585-a38f-8f04ca6b45b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\joints">
+      <UniqueIdentifier>{6c140692-34d5-46f3-8de7-4a6db0f564d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\simulation">
+      <UniqueIdentifier>{779dac18-a41e-4187-8f0b-0ef2ad7b8b26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\graphic">
+      <UniqueIdentifier>{de2755bc-f526-4e73-8f9d-53b8dcb3b606}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\math">
+      <UniqueIdentifier>{f85b3a10-26b1-4e3a-8ed4-264d276c4883}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files\misc">
+      <UniqueIdentifier>{31a3fccd-7694-496c-a667-24a3889e7626}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\input">
+      <UniqueIdentifier>{06f17521-7788-4458-9984-e92cdf25a614}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\controllers">
+      <UniqueIdentifier>{2d1ac175-afda-488c-b752-37a9fd670446}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\sensors">
+      <UniqueIdentifier>{0808bda1-fe7f-426c-b1bd-2dfdeb7f8897}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\joints">
+      <UniqueIdentifier>{2402fe9f-da5e-4e39-a1f9-995a66139222}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\simulation">
+      <UniqueIdentifier>{6683584c-4d3f-4b69-876c-8e00be66202b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\graphic">
+      <UniqueIdentifier>{a78b4f2d-ba0d-41a7-9d48-bcbedf023dad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\math">
+      <UniqueIdentifier>{a4f8b493-a15f-43bb-b22b-a643aa867bf4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{a1e3e414-a3f5-4138-b4bf-4d4bfe863d41}</UniqueIdentifier>
+      <SourceControlFiles>False</SourceControlFiles>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\colladafile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\config.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\contactReporter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\conversion.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\debugLogger.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\link.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\linkIterator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\links.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\lisa50.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\lisaCore.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\logger.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\stdAfx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\trajectory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\trajectoryQueue.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\InputManager.cpp">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\CritSectEx.cpp">
+      <Filter>Source Files\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\misc\misc.cpp">
+      <Filter>Source Files\misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\com\LisaCOM.cpp">
+      <Filter>Source Files\com</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\com\LisaCOMController.cpp">
+      <Filter>Source Files\com</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\com\LisaCOMTrajectory.cpp">
+      <Filter>Source Files\com</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\sensor.cpp">
+      <Filter>Source Files\sensors</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\sensorCOG.cpp">
+      <Filter>Source Files\sensors</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\sensorCOP.cpp">
+      <Filter>Source Files\sensors</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\sensorDecoratorCross.cpp">
+      <Filter>Source Files\sensors</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\sensorDecoratorVector.cpp">
+      <Filter>Source Files\sensors</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\sensorForce.cpp">
+      <Filter>Source Files\sensors</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\SensorFRI.cpp">
+      <Filter>Source Files\sensors</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\sensors.cpp">
+      <Filter>Source Files\sensors</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\sensorZMP.cpp">
+      <Filter>Source Files\sensors</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\actuator.cpp">
+      <Filter>Source Files\controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\actuatorPID.cpp">
+      <Filter>Source Files\controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\actuators.cpp">
+      <Filter>Source Files\controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\controllerPID.cpp">
+      <Filter>Source Files\controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\controllerZMP.cpp">
+      <Filter>Source Files\controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\joint.cpp">
+      <Filter>Source Files\joints</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\jointD6.cpp">
+      <Filter>Source Files\joints</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\jointFactory.cpp">
+      <Filter>Source Files\joints</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\jointRevolute.cpp">
+      <Filter>Source Files\joints</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\extendedCamera.cpp">
+      <Filter>Source Files\simulation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\mySceneController.cpp">
+      <Filter>Source Files\simulation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\phyExtendedCamera.cpp">
+      <Filter>Source Files\simulation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\scene.cpp">
+      <Filter>Source Files\simulation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\simulation.cpp">
+      <Filter>Source Files\simulation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\simulationImpl.cpp">
+      <Filter>Source Files\simulation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\simulationInputController.cpp">
+      <Filter>Source Files\simulation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\simulationInputControllerDebug.cpp">
+      <Filter>Source Files\simulation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\viewDebugger.cpp">
+      <Filter>Source Files\simulation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\viewHelp.cpp">
+      <Filter>Source Files\simulation</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\controllerLineGraph.cpp">
+      <Filter>Source Files\graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\CSVPlotExporter.cpp">
+      <Filter>Source Files\graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\drawingCoord.cpp">
+      <Filter>Source Files\graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\drawingCross.cpp">
+      <Filter>Source Files\graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\labelWidget.cpp">
+      <Filter>Source Files\graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\lineGraphFactory.cpp">
+      <Filter>Source Files\graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\lineGraphWidget.cpp">
+      <Filter>Source Files\graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\sensorCOPGraph.cpp">
+      <Filter>Source Files\graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\sensorLineGraph.cpp">
+      <Filter>Source Files\graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\math\ConvexHullGraham.cpp">
+      <Filter>Source Files\math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\com\Lisa50_i.c">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\lisaAPI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\com\_ILisaCOMControllerEvents_CP.h">
+      <Filter>Source Files\com</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\com\_ILisaComEvents_CP.h">
+      <Filter>Source Files\com</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\com\LisaCOM.h">
+      <Filter>Source Files\com</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\com\LisaCOMController.h">
+      <Filter>Source Files\com</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\com\LisaCOMTrajectory.h">
+      <Filter>Source Files\com</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\colladafile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\contactReporter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\conversion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\debugLogger.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\exception.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\globals.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\link.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\linkIterator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\links.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\lisaCore.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\logger.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\trajectory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\trajectoryQueue.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\CritSectEx.h">
+      <Filter>Header Files\misc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\misc.h">
+      <Filter>Header Files\misc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\singleton.h">
+      <Filter>Header Files\misc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\InputManager.h">
+      <Filter>Header Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\actuator.h">
+      <Filter>Header Files\controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\actuatorPID.h">
+      <Filter>Header Files\controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\actuators.h">
+      <Filter>Header Files\controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\controller.h">
+      <Filter>Header Files\controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\controllerPID.h">
+      <Filter>Header Files\controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\controllerZMP.h">
+      <Filter>Header Files\controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\poseControl.h">
+      <Filter>Header Files\controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\sensor.h">
+      <Filter>Header Files\sensors</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\sensorCOG.h">
+      <Filter>Header Files\sensors</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\sensorCOP.h">
+      <Filter>Header Files\sensors</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\sensorDecorator.h">
+      <Filter>Header Files\sensors</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\sensorDecoratorCross.h">
+      <Filter>Header Files\sensors</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\sensorDecoratorVector.h">
+      <Filter>Header Files\sensors</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\sensorForce.h">
+      <Filter>Header Files\sensors</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\SensorFRI.h">
+      <Filter>Header Files\sensors</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\sensorPosition.h">
+      <Filter>Header Files\sensors</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\sensors.h">
+      <Filter>Header Files\sensors</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\sensorTorque.h">
+      <Filter>Header Files\sensors</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\sensorVelocity.h">
+      <Filter>Header Files\sensors</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\sensorZMP.h">
+      <Filter>Header Files\sensors</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\joint.h">
+      <Filter>Header Files\joints</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\jointD6.h">
+      <Filter>Header Files\joints</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\jointFactory.h">
+      <Filter>Header Files\joints</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\jointRevolute.h">
+      <Filter>Header Files\joints</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\extendedCamera.h">
+      <Filter>Header Files\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\mySceneController.h">
+      <Filter>Header Files\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\phyExtendedCamera.h">
+      <Filter>Header Files\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\scene.h">
+      <Filter>Header Files\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\simulation.h">
+      <Filter>Header Files\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\simulationImpl.h">
+      <Filter>Header Files\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\simulationInputController.h">
+      <Filter>Header Files\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\simulationInputControllerDebug.h">
+      <Filter>Header Files\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\viewDebugger.h">
+      <Filter>Header Files\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\viewHelp.h">
+      <Filter>Header Files\simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\controllerLineGraph.h">
+      <Filter>Header Files\graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\CSVPlotExporter.h">
+      <Filter>Header Files\graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\drawingCoord.h">
+      <Filter>Header Files\graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\drawingCross.h">
+      <Filter>Header Files\graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\labelWidget.h">
+      <Filter>Header Files\graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\lineGraphFactory.h">
+      <Filter>Header Files\graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\lineGraphWidget.h">
+      <Filter>Header Files\graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\sensorCOPGraph.h">
+      <Filter>Header Files\graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\sensorLineGraph.h">
+      <Filter>Header Files\graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\math\ConvexHullGraham.h">
+      <Filter>Header Files\math</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\com\Lisa50.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\lisaAPI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="..\src\com\Lisa50.idl">
+      <Filter>Source Files\com</Filter>
+    </Midl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\res\icon1.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\res\lisa.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\res\Lisa50.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\res\LisaCom.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\res\LisaCOMController.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\res\LisaCOMTrajectory.rgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="LisaMain.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
