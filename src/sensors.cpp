@@ -19,11 +19,11 @@
 
 
 /**-------------------------------------------------------------------------------
-    Sensors
+	Sensors
 
-    @brief
-    @param simulation
-    @return
+	@brief
+	@param simulation
+	@return
 ---------------------------------------------------------------------------------*/
 Sensors::Sensors(Simulation* simulation)
 {
@@ -75,7 +75,7 @@ Sensors::Sensors(Simulation* simulation)
 	{
 		SensorVectors* s = new SensorFRI(simulation);
 		boost::shared_ptr<SensorVectors> fri(
-			new SensorDecoratorCross(s, Ogre::ColourValue(0.42, 0.5624, 0.8492), Config::Instance().getDrawingScaleFRI()));
+			new SensorDecoratorCross(s, Ogre::ColourValue(0.42f, 0.5624f, 0.8492f), Config::Instance().getDrawingScaleFRI()));
 		mSensors.push_back(fri);
 	}
 	else
@@ -87,11 +87,11 @@ Sensors::Sensors(Simulation* simulation)
 }
 
 /**-------------------------------------------------------------------------------
-    ~Sensors
+	~Sensors
 
-    @brief
-    @param
-    @return
+	@brief
+	@param
+	@return
 ---------------------------------------------------------------------------------*/
 Sensors::~Sensors(void)
 {
@@ -99,10 +99,10 @@ Sensors::~Sensors(void)
 }
 
 /**-------------------------------------------------------------------------------
-    update
+	update
 
-    @brief
-    @return void
+	@brief
+	@return void
 ---------------------------------------------------------------------------------*/
 void Sensors::update()
 {
@@ -113,11 +113,11 @@ void Sensors::update()
 }
 
 /**-------------------------------------------------------------------------------
-    getVectorVectorSensor
+	getVectorVectorSensor
 
-    @brief
-    @param sensorName
-    @return SensorVectors*
+	@brief
+	@param sensorName
+	@return SensorVectors*
 ---------------------------------------------------------------------------------*/
 SensorVectors* Sensors::getSensor(const std::string& sensorName) const
 {

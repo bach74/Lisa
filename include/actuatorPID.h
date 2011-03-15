@@ -26,7 +26,7 @@ class ActuatorPID: public Actuator
 			\param      sample_time
 			\return controller output
 		--------------------------------------------------------------------------------*/
-		virtual void update(double currentTime, double sampleTime);
+		virtual void update(float currentTime, float sampleTime);
 };
 
 

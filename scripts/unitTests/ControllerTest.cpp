@@ -11,13 +11,14 @@ class ControllerTest : public cfixcc::TestFixture
 		// mock
 		class MyControllerDouble : public Controller<double> {
 		public:
-			double calculate(double sample_time){
+			double calculate(float sample_time){
 				mOutput=mSetpoint+mInput;
 				return 0;
 			};
-			double calculate(double error, double sample_time) {
+			double calculate(double error, float sample_time) {
 				return calculate(sample_time);
 			};
+			void getParameters(std::vector<double>& ret) const{};
 		};
 
 		//mock
@@ -28,15 +29,16 @@ class ControllerTest : public cfixcc::TestFixture
 				mOutput.push_back(0);
 				mOutput.push_back(0);
 			}
-			double calculate(double sample_time){
+			double calculate(float sample_time){
 				for (unsigned int i=0;i<mInput.size();++i) {
 					mOutput[i]=mSetpoint[i]+mInput[i];
 				}
 				return 0;
 			};
-			double calculate(double error, double sample_time) {
+			double calculate(double error, float sample_time) {
 				return calculate(sample_time);
 			};
+			void getParameters(std::vector<std::vector<double>>& ret) const{};
 		};
 		
 		/**-------------------------------------------------------------------------------

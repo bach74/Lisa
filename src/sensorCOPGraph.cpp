@@ -11,23 +11,23 @@
 #include "SensorCOPGraph.h"
 
 /**-------------------------------------------------------------------------------
-    SensorCOPGraph
+	SensorCOPGraph
 
-    @brief
-    @param sensor
-    @param uniqueName
-    @param parentTop
-    @param parentLeft
-    @param parentBottom
-    @param parentRight
-    @param xProp
-    @param yProp
-    @param sceneManager
-    @return
+	@brief
+	@param sensor
+	@param uniqueName
+	@param parentTop
+	@param parentLeft
+	@param parentBottom
+	@param parentRight
+	@param xProp
+	@param yProp
+	@param sceneManager
+	@return
 ---------------------------------------------------------------------------------*/
 SensorCOPGraph::SensorCOPGraph(SensorVectors* sensor, const char* uniqueName, float parentTop,
-                               float parentLeft, float parentBottom, float parentRight, float xProp,
-                               float yProp, float width, float height, Ogre::SceneManager* sceneManager)
+							   float parentLeft, float parentBottom, float parentRight, float xProp,
+							   float yProp, float width, float height, Ogre::SceneManager* sceneManager)
 	: LineGraphWidget(uniqueName, parentTop, parentLeft, parentBottom, parentRight, xProp, yProp, width, height, sceneManager)
 {
 	mSensor = sensor;
@@ -42,11 +42,11 @@ SensorCOPGraph::SensorCOPGraph(SensorVectors* sensor, const char* uniqueName, fl
 }
 
 /**-------------------------------------------------------------------------------
-    ~SensorCOPGraph
+	~SensorCOPGraph
 
-    @brief
-    @param
-    @return
+	@brief
+	@param
+	@return
 ---------------------------------------------------------------------------------*/
 SensorCOPGraph::~SensorCOPGraph(void)
 {
@@ -55,15 +55,15 @@ SensorCOPGraph::~SensorCOPGraph(void)
 }
 
 /**-------------------------------------------------------------------------------
-     frameEnded is FrameListener callback
+	 frameEnded is FrameListener callback
 
-     @brief
-     @param evt
-     @return void
+	 @brief
+	 @param evt
+	 @return void
 ---------------------------------------------------------------------------------*/
 bool SensorCOPGraph::frameEnded(const Ogre::FrameEvent& evt)
 {
-	float t = Ogre::Root::getSingletonPtr()->getTimer()->getMilliseconds() / 1000.0f;
+	//float t = Ogre::Root::getSingletonPtr()->getTimer()->getMilliseconds() / 1000.0f;
 
 	if (mSensor->getDataValid())
 	{
@@ -72,19 +72,20 @@ bool SensorCOPGraph::frameEnded(const Ogre::FrameEvent& evt)
 
 		Ogre::Vector3 cop = points.front();
 
-		// first vector3 is a current COP position, second one is remaining margin from the edge,
+		// first vector3 is a current COP position, second one is the force
+		// third one is remaining margin from the edge,
 		// and remaining vectors are pressure sensor distribution
-		if (points.size() > 1)
+		if (points.size() > 2)
 		{
-			Ogre::Vector3 centerCH = points[1];
-			Ogre::Vector3 marginMax = points[2];
-			Ogre::Vector3 margin = points[3];
+			Ogre::Vector3 centerCH = points[2];
+			Ogre::Vector3 marginMax = points[3];
+			Ogre::Vector3 margin = points[4];
 
 			// calculate relative distance  (from the center to the edge)
 //			Ogre::Vector3 error((cop.x-centerCH.x)/marginMax.x, 0.0f, (cop.z-centerCH.z)/marginMax.z);
 
 			std::vector<Ogre::Vector3> vertices;
-			std::copy(points.begin() + 4, points.end(), std::back_inserter<std::vector<Ogre::Vector3> >(vertices));
+			std::copy(points.begin() + 5, points.end(), std::back_inserter<std::vector<Ogre::Vector3> >(vertices));
 
 			// delete all lines, and redraw a complete convex hull,
 			// as each edge will be a different line

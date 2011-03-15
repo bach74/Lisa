@@ -20,10 +20,10 @@ std::wstring getStringFromResourceW(UINT resourceID);
 
 class VideoInitializationException {
 public:
-	VideoInitializationException(std::string& desc){
+	VideoInitializationException(const std::string& desc){
 		MessageBox(NULL,desc.c_str(),_T("Video Initialization"),MB_ICONEXCLAMATION);
 	};
-	VideoInitializationException(TCHAR* desc){
+	VideoInitializationException(const TCHAR* desc){
 		MessageBox(NULL,desc,_T("Video Initialization"),MB_ICONEXCLAMATION);
 	};
 };

@@ -24,7 +24,7 @@ void SensorCOG::update()
 {
 	// calculate center-of-gravity for each step
 	Ogre::Vector3 cogPosition(0,0,0);
-	double totalMass = 0;
+	NxReal totalMass = 0;
 
 	LinkIterator it = LinkIterator(getDataclass()->getLinks());
 

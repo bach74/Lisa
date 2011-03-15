@@ -19,7 +19,7 @@ public:
 
 	static void vector2SAFEARRAY(const std::vector<double>& vect,SAFEARRAY** sa);
 	static void SAFEARRAY2vector(SAFEARRAY& sa, std::vector<double>& vect);
-	static SAFEARRAY* Vector3toSAFEARRAY(Ogre::Vector3& vect);
+	static SAFEARRAY* Vector3toSAFEARRAY(const Ogre::Vector3& vect);
 
 	#endif
 

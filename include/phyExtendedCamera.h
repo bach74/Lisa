@@ -18,15 +18,20 @@
 class PhyExtendedCamera : public ExtendedCamera {
 protected:
 
-	NxOgre::Scene*		mPhyScene;
-	NxOgre::RayCaster*	mRayCaster;
+	NxOgre::Scene*							mPhyScene;
+	boost::shared_ptr<NxOgre::RayCaster>	mRayCaster;
 
 public:
 
-	PhyExtendedCamera(Ogre::String name, Ogre::SceneManager *sceneMgr, NxOgre::Scene* phyScene, bool autoTrack=false):ExtendedCamera(name,sceneMgr,autoTrack),mPhyScene(phyScene){
-		mRayCaster=new NxOgre::RayCaster(Ogre::Vector3::ZERO, Ogre::Vector3::ZERO, 200, NxOgre::RayCaster::RCT_CLOSEST, mPhyScene);
-	};
-	virtual ~PhyExtendedCamera();
+	PhyExtendedCamera(Ogre::String name, Ogre::SceneManager *sceneMgr, NxOgre::Scene* phyScene, bool autoTrack=false):
+				ExtendedCamera(name,sceneMgr,autoTrack), mPhyScene(phyScene) 
+		{
+			mRayCaster=boost::shared_ptr<NxOgre::RayCaster>(
+				new NxOgre::RayCaster(Ogre::Vector3::ZERO, Ogre::Vector3::ZERO, 200, NxOgre::RayCaster::RCT_CLOSEST, mPhyScene)
+		);
+	}
+
+				virtual ~PhyExtendedCamera(){};
 	
 	std::string mousePick(float x, float y, std::string& currentObject, bool moveObject);
 };

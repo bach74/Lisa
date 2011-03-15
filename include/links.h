@@ -9,7 +9,7 @@
 #ifndef __LINKS_H__
 #define __LINKS_H__
 
-#include "link.h"
+class Link;
 
 /**-------------------------------------------------------------------------------
 	Class Links is a collection of links

@@ -8,6 +8,7 @@
 // =============================================================================
 #ifndef __MYSCENECONTROLLER_H__
 #define __MYSCENECONTROLLER_H__
+
 #include "NxOgrePrerequisites.h"
 #include <NxOgreSceneController.h>
 
@@ -30,8 +31,8 @@ class MySceneController : public NxOgre::SceneController
 		Ogre::Timer* mTimer;
 
 
-		NxF64     mMaxStep;
-		NxF64     mAccumulator;
+		NxReal     mMaxStep;
+		NxReal     mAccumulator;
 		NxReal    mAlpha;
 		NxU32     mPreviousTime;
 

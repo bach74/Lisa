@@ -10,7 +10,7 @@
 #include "stdafx.h"
 #include "SensorFRI.h"
 #include "config.h"
-#include "simFacade.h"
+#include "lisaAPI.h"
 #include "simulation.h"
 #include "linkIterator.h"
 
@@ -29,7 +29,7 @@ void SensorFRI::update()
 {
 
 	float deltaT = getDataclass()->getTimeSinceLastPhysXFrame();
-	Ogre::Vector3 g=SimFacade::Instance().getGravity();
+	Ogre::Vector3 g=LisaAPI::Instance().getGravity();
 
 
 	std::deque<Ogre::Vector3> a;
@@ -68,18 +68,18 @@ void SensorFRI::update()
 	}
 
 
-	double sum_FG=0;
-	double sum_PzFG=0;
-	double sum_PxFG=0;
-	double sum_mPyaz=0;
-	double sum_mPyax=0;
-	double sum_Taux=0;
-	double sum_Tauz=0;
+	NxReal sum_FG=0;
+	NxReal sum_PzFG=0;
+	NxReal sum_PxFG=0;
+	NxReal sum_mPyaz=0;
+	NxReal sum_mPyax=0;
+	NxReal sum_Taux=0;
+	NxReal sum_Tauz=0;
 
 	// calculate FRI
 	for (UINT i=1;i<a.size();++i) {
-		double FG=m[i]*(-a[i].y+g.y);
-		double mPy=-m[i]*pos[i].y;
+		NxReal FG=m[i]*(-a[i].y+g.y);
+		NxReal mPy=-m[i]*pos[i].y;
 		sum_FG+=FG;
 		sum_PzFG+=pos[i].z*FG;
 		sum_PxFG+=pos[i].x*FG;
@@ -89,10 +89,10 @@ void SensorFRI::update()
 		sum_Tauz+=tau[i].z;
 	}
 
-	double m0g=m[0]*g.y;
-	double DEN=m0g+sum_FG;
-	double NUM1=m0g*pos[0].x+sum_PxFG-sum_mPyax-sum_Tauz;
-	double NUM2=m0g*pos[0].z+sum_PzFG-sum_mPyaz+sum_Taux;	
+	NxReal m0g=m[0]*g.y;
+	NxReal DEN=m0g+sum_FG;
+	NxReal NUM1=m0g*pos[0].x+sum_PxFG-sum_mPyax-sum_Tauz;
+	NxReal NUM2=m0g*pos[0].z+sum_PzFG-sum_mPyaz+sum_Taux;	
 
 	setDataValid(false);
 	if (DEN!=0)

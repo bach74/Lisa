@@ -9,7 +9,7 @@
 
 #include "stdafx.h"
 #include "linkIterator.h"
-
+#include "links.h"
 
 /**-------------------------------------------------------------------------------
 	begin

@@ -7,22 +7,23 @@
 //
 // =============================================================================
 #include "stdafx.h"
-#include "Scene.h"
+#include "scene.h"
+#include "extendedCamera.h"
 #include "PhyExtendedCamera.h"
 #include "simulation.h"
 #include "simulationImpl.h"
 #include "misc.h"
 #include "contactReporter.h"
-#include "simFacade.h"
+#include "lisaAPI.h"
 #include "config.h"
 
 /**-------------------------------------------------------------------------------
-    ctor for Scene class
-    It sets a default camera and a viewport, and registers a
-    framelistener to the Ogre.
+	ctor for Scene class
+	It sets a default camera and a viewport, and registers a
+	framelistener to the Ogre.
 
-    \param wnd (Ogre::RenderWindow *)
-    \return ()
+	\param wnd (Ogre::RenderWindow *)
+	\return ()
  -----------------------------------------------------------------------------*/
 Scene::Scene(Ogre::RenderWindow* wnd) throw(): mWindow(wnd), mSceneMgr(NULL), mCamera(NULL), mSimulation(NULL)
 {
@@ -40,7 +41,7 @@ Scene::Scene(Ogre::RenderWindow* wnd) throw(): mWindow(wnd), mSceneMgr(NULL), mC
 	Ogre::ResourceGroupManager::getSingleton().initialiseAllResourceGroups();
 
 	//mSceneMgr->setFog(FOG_LINEAR, ColourValue::Black, 0.0005f, 4000,4500);
-	mSceneMgr->setAmbientLight(Ogre::ColourValue(0.6, 0.6, 0.6));
+	mSceneMgr->setAmbientLight(Ogre::ColourValue(0.6f, 0.6f, 0.6f));
 	mSceneMgr->setShadowTechnique(mShadowType);
 
 	// default light
@@ -56,10 +57,10 @@ Scene::Scene(Ogre::RenderWindow* wnd) throw(): mWindow(wnd), mSceneMgr(NULL), mC
 };
 
 /**-------------------------------------------------------------------------------
-    dtor for Scene class
-    De-initialize scene and destroy variables initialized in init
+	dtor for Scene class
+	De-initialize scene and destroy variables initialized in init
 
-    \return ()
+	\return ()
  -----------------------------------------------------------------------------*/
 Scene::~Scene()
 {
@@ -74,10 +75,10 @@ Scene::~Scene()
 }
 
 /**-------------------------------------------------------------------------------
-    Adjust mouse clipping area
+	Adjust mouse clipping area
 
-    \param rw (RenderWindow *)
-    \return (void)
+	\param rw (RenderWindow *)
+	\return (void)
  -----------------------------------------------------------------------------*/
 void Scene::windowResized(Ogre::RenderWindow* rw)
 {
@@ -91,10 +92,10 @@ void Scene::windowResized(Ogre::RenderWindow* rw)
 }
 
 /**-------------------------------------------------------------------------------
-    Detach OIS before window shutdown.
+	Detach OIS before window shutdown.
 
-    \param rw (RenderWindow *)
-    \return (void)
+	\param rw (RenderWindow *)
+	\return (void)
  -----------------------------------------------------------------------------*/
 void Scene::windowClosed(Ogre::RenderWindow* rw)
 {
@@ -104,22 +105,22 @@ void Scene::windowClosed(Ogre::RenderWindow* rw)
 		;
 		/*if( m_)
 		{
-		    mInputManager->destroyInputObject( mMouse );
-		    mInputManager->destroyInputObject( mKeyboard );
-		    mInputManager->destroyInputObject( mJoy );
+			mInputManager->destroyInputObject( mMouse );
+			mInputManager->destroyInputObject( mKeyboard );
+			mInputManager->destroyInputObject( mJoy );
 
-		    OIS::InputManager::destroyInputSystem(mInputManager);
-		    mInputManager = 0;
+			OIS::InputManager::destroyInputSystem(mInputManager);
+			mInputManager = 0;
 		}*/
 	}
 }
 
 /**-------------------------------------------------------------------------------
-    intercept mouse wheel messages.
+	intercept mouse wheel messages.
 
-    \param rw (RenderWindow *)
-    \param wParam (WPARAM)
-    \return (void)
+	\param rw (RenderWindow *)
+	\param wParam (WPARAM)
+	\return (void)
  -----------------------------------------------------------------------------*/
 void Scene::windowMouseWheel(Ogre::RenderWindow* rw, WPARAM wParam)
 {
@@ -128,10 +129,10 @@ void Scene::windowMouseWheel(Ogre::RenderWindow* rw, WPARAM wParam)
 }
 
 /**-------------------------------------------------------------------------------
-    intercept focus change messages.
+	intercept focus change messages.
 
-    \param rw (RenderWindow *)
-    \return (void)
+	\param rw (RenderWindow *)
+	\return (void)
  -----------------------------------------------------------------------------*/
 void Scene::windowFocusChange(Ogre::RenderWindow* rw)
 {
@@ -144,9 +145,9 @@ void Scene::windowFocusChange(Ogre::RenderWindow* rw)
 }
 
 /**-------------------------------------------------------------------------------
-    Create default viewport
+	Create default viewport
 
-    \return (void)
+	\return (void)
  -----------------------------------------------------------------------------*/
 void Scene::createDefaultViewport()
 {
@@ -160,10 +161,10 @@ void Scene::createDefaultViewport()
 }
 
 /**-------------------------------------------------------------------------------
-    Load Scene <filename> from an OgreSceneFile .osm
+	Load Scene <filename> from an OgreSceneFile .osm
 
-    \param filename (const char *)
-    \return (void)
+	\param filename (const char *)
+	\return (void)
  -----------------------------------------------------------------------------*/
 void Scene::loadScene(const char* filename)
 {
@@ -199,10 +200,10 @@ void Scene::loadScene(const char* filename)
 }
 
 /**-------------------------------------------------------------------------------
-    Main Scene loop function
-    Render one frame until termination event is received
+	Main Scene loop function
+	Render one frame until termination event is received
 
-    \return (void)
+	\return (void)
  -----------------------------------------------------------------------------*/
 void Scene::run()
 {
@@ -218,7 +219,7 @@ void Scene::run()
 
 	long currentTicks = root->getTimer()->getMilliseconds();
 	long lastTicks = currentTicks;
-	float lastTicksFPS = currentTicks/1000.0;
+	float lastTicksFPS = currentTicks/1000.0f;
 	long deltaMs = 0;
 	float deltaFPS = 0;
 	int  renderCount = 0;
@@ -231,11 +232,11 @@ void Scene::run()
 
 		if (deltaMs >= desiredDelta)
 		{
-			mSimulation->setFrameTime(currentTicks / 1000.0);
-			float deltaTime = deltaMs / 1000.0;
+			mSimulation->setFrameTime(currentTicks/1000.0f);
+			float deltaTime = deltaMs/1000.0f;
 
 			// pass external parameters
-			SimFacade::Instance().getStates();
+			LisaAPI::Instance().getStates();
 			
 			if (Config::Instance().getPhysxEnabled()) {
 				// simulate physics
@@ -243,7 +244,7 @@ void Scene::run()
 			}
 
 			// set external parameters
-			SimFacade::Instance().setStates();
+			LisaAPI::Instance().setStates();
 
 			// and render occasionally - 1/(renderMult+1) x simulation Td 
 			if (renderCount >= rendererMult)

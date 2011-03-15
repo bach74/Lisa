@@ -57,7 +57,7 @@ LabelWidget::LabelWidget(Ogre::OverlayContainer* pContainer, const char* uniqueN
 	textPtr->setCaption(text);
 	textPtr->setFontName("Lucida");
 	textPtr->setCharHeight(mCharHeight);
-	textPtr->setSpaceWidth(0.5 * mCharHeight);
+	textPtr->setSpaceWidth(0.5f * mCharHeight);
 	defineParentBounds(mParentBoundLeft, mParentBoundTop, mParentBoundRight, mParentBoundBottom); // provide boundaries and move widget into place
 	pContainer->addChild(baseElement);
 }
@@ -210,7 +210,7 @@ void LabelWidget::setSize(int charHeight)
 void LabelWidget::centreText()
 {
 	int capLen = textPtr->getCaption().length_Characters();
-	textPtr->setLeft(mXPos + capLen / 2 *(-0.5 * mCharHeight));
+	textPtr->setLeft(mXPos + capLen / 2 *(-0.5f * mCharHeight));
 }
 
 /**-------------------------------------------------------------------------------

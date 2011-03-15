@@ -70,7 +70,8 @@ public:
 	STDMETHOD(enumerateLinks)(VARIANT* val);
 	STDMETHOD(getLinkPositionByName)(BSTR name, VARIANT* val);
 	STDMETHOD(get_time)(DOUBLE* pVal);
-	STDMETHOD(Pause)(SHORT pause);
+	STDMETHOD(pause)(SHORT pause);
+	STDMETHOD(isPaused)(SHORT* val);
 };
 
 OBJECT_ENTRY_AUTO(__uuidof(LisaCOM), LisaCOM)

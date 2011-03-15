@@ -9,11 +9,10 @@
 #ifndef __TRAJECTORYQUEUE_H__
 #define __TRAJECTORYQUEUE_H__
 
-#include "actuator.h"
-
+class Actuator;
 
 /**-------------------------------------------------------------------------------
-    TrajectoryQueue
+	TrajectoryQueue
 ---------------------------------------------------------------------------------*/
 class TrajectoryQueue
 {
@@ -38,10 +37,7 @@ class QueueElementSP : public TrajectoryQueue
 		QueueElementSP(const Actuator& actuator, double time, double val):
 			TrajectoryQueue(actuator, time), mValue(val) {};
 
-		virtual void go()
-		{
-			mActuator.getController()->setSetpoint(mValue);
-		}
+		virtual void go();
 
 	protected:
 		double mValue;

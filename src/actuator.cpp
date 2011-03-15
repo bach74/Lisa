@@ -10,19 +10,29 @@
 #include "stdafx.h"
 #include "actuator.h"
 #include "config.h"
-
+#include "Controller.h"
+#include "sensor.h"
+#include "joint.h"
 
 
 /**-------------------------------------------------------------------------------
-    Prepare inputs for update, set outputs afterwards
-    Should be done each time sampling interval.
-
-    \param      sample_time
-    \return depends on implementation
+	Constructor
+	Creates Actuator and sets its name
 --------------------------------------------------------------------------------*/
-void Actuator::doOneStep(double currentTime, double sampleTime)
+Actuator::Actuator( Joint* joint, Controller<double>* controller, Sensor<double, Joint>* sensor ) : mController(controller), mJoint(joint), mSensor(sensor)
 {
+	mName = "logs\\" + mJoint->getName() + ".log";
+}
 
+/**-------------------------------------------------------------------------------
+	Prepare inputs for update, set outputs afterwards
+	Should be done each time sampling interval.
+
+	\param      sample_time
+	\return depends on implementation
+--------------------------------------------------------------------------------*/
+void Actuator::doOneStep(float currentTime, float sampleTime)
+{
 	mJoint->updateJoint(sampleTime);
 
 	mSensor->update();
@@ -44,13 +54,13 @@ void Actuator::doOneStep(double currentTime, double sampleTime)
 }
 
 /**-------------------------------------------------------------------------------
-    writeToLog
+	writeToLog
 
-    @brief
-    @param desc
-    @return void
+	@brief
+	@param desc
+	@return void
 ---------------------------------------------------------------------------------*/
-void Actuator::writeToLog(NxJointDesc* desc, double currentTime)
+void Actuator::writeToLog(NxJointDesc* desc, float currentTime)
 {
 	mLogBuffer.setf(std::ios::fixed);
 	mLogBuffer.setf(std::ios::showpoint);
@@ -71,9 +81,9 @@ void Actuator::writeToLog(NxJointDesc* desc, double currentTime)
 		NxVec3 linM = desc->actor[i]->getLinearMomentum();
 		NxVec3 linV = desc->actor[i]->getLinearVelocity();
 		mLogBuffer << "\t" << angM.x << "\t" << angM.y << "\t" << angM.z
-		           << "\t" << angV.x << "\t" << angV.y << "\t" << angV.z
-		           << "\t" << linM.x << "\t" << linM.y << "\t" << linM.z
-		           << "\t" << linV.x << "\t" << linV.y << "\t" << linV.z;
+				   << "\t" << angV.x << "\t" << angV.y << "\t" << angV.z
+				   << "\t" << linM.x << "\t" << linM.y << "\t" << linM.z
+				   << "\t" << linV.x << "\t" << linV.y << "\t" << linV.z;
 	}
 
 	mLogBuffer << "\n";

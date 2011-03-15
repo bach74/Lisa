@@ -9,11 +9,10 @@
 #ifndef __SIMULATIONIMPL_H__
 #define __SIMULATIONIMPL_H__
 #include "simulation.h"
-#include "SimulationInputController.h"
-#include "trajectory.h"
-#include "sensors.h"
-#include "../src/com/LisaCOM.h"
 
+class SimulationInputController;
+class Trajectory;
+class Sensors;
 
 /**-------------------------------------------------------------------------------
 	SimulationImpl class
@@ -44,7 +43,7 @@ class SimulationImpl : public Simulation
 		virtual Link*	getSelectedObject() const;
 
 		// TODO better ?
-		Sensors*		getSensors() const { return mSensors; }
+		Sensors*		getSensors() const { return mSensors.get(); }
 
 		std::string		getDescription();
 
@@ -53,13 +52,13 @@ class SimulationImpl : public Simulation
 		SimulationImpl();
 
 		// input controllers - mouse, keyboard, etc...
-		SimulationInputController*  mInputController;
+		boost::shared_ptr<SimulationInputController>  mInputController;
 
 		// trajectory
-		Trajectory* mTrajectory;
+		boost::shared_ptr<Trajectory> mTrajectory;
 
 		// sensors
-		Sensors* mSensors;
+		boost::shared_ptr<Sensors> mSensors;
 
 };
 

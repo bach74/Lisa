@@ -13,7 +13,7 @@
 class Simulation;
 
 /**-------------------------------------------------------------------------------
-    Interface for Sensor class 
+	Interface for Sensor class 
 ---------------------------------------------------------------------------------*/
 template <typename T, class U=Simulation>
 class Sensor

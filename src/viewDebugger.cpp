@@ -13,15 +13,17 @@
 #include "simulationInputControllerDebug.h"
 #include "config.h"
 #include "sensorDecoratorVector.h"
+#include "scene.h"
+#include "link.h"
 
 
 /**-------------------------------------------------------------------------------
-    ViewDebugger
-    Create debug mOverlay and connect to a debug renderer
+	ViewDebugger
+	Create debug mOverlay and connect to a debug renderer
 
-    @brief
-    @param simulation
-    @return
+	@brief
+	@param simulation
+	@return
 ---------------------------------------------------------------------------------*/
 ViewDebugger::ViewDebugger(Simulation* simulation)
 {
@@ -33,13 +35,13 @@ ViewDebugger::ViewDebugger(Simulation* simulation)
 	mForceVec = new SensorDecoratorVector(new SensorForce(mSimulation), Ogre::ColourValue(1, 1, 0),false);
 
 	//Initialize debug GUI system
-	float halfHeight = mSimulation->getScene()->getWindow().getHeight() / 2;
-	float halfWidth = mSimulation->getScene()->getWindow().getWidth() / 2;
+	float halfHeight = mSimulation->getScene()->getWindow().getHeight()/2.0f;
+	float halfWidth = mSimulation->getScene()->getWindow().getWidth()/2.0f;
 
 	mOverlay = Ogre::OverlayManager::getSingleton().create("Simulation.Debug");
 
 	mDebugOverlay = static_cast<Ogre::OverlayContainer*>(Ogre::OverlayManager::getSingleton().createOverlayElement(
-	                    "Panel", "Simulation.WorldDebug"));
+						"Panel", "Simulation.WorldDebug"));
 
 	mOverlay->add2D(mDebugOverlay);
 
@@ -53,7 +55,7 @@ ViewDebugger::ViewDebugger(Simulation* simulation)
 	mDebugOverlayText->setParameter("char_height", "12");
 	mDebugOverlayText->setParameter("horz_align", "left");
 	mDebugOverlayText->setCaption("");
-	mDebugOverlayText->setColour(Ogre::ColourValue(0, 0.8, 0));
+	mDebugOverlayText->setColour(Ogre::ColourValue(0, 0.8f, 0));
 
 	mDebugOverlay->addChild(mDebugOverlayText);
 
@@ -76,11 +78,11 @@ ViewDebugger::ViewDebugger(Simulation* simulation)
 }
 
 /**-------------------------------------------------------------------------------
-    ~ViewDebugger
+	~ViewDebugger
 
-    @brief
-    @param
-    @return
+	@brief
+	@param
+	@return
 ---------------------------------------------------------------------------------*/
 ViewDebugger::~ViewDebugger(void)
 {
@@ -106,11 +108,11 @@ ViewDebugger::~ViewDebugger(void)
 }
 
 /**-------------------------------------------------------------------------------
-    Frame started event
-    update debug info
+	Frame started event
+	update debug info
 
-    \param deltaTime (float)
-    \return (void)
+	\param deltaTime (float)
+	\return (void)
 -----------------------------------------------------------------------------*/
 bool ViewDebugger::frameEnded(const Ogre::FrameEvent& evt)
 {
@@ -124,9 +126,9 @@ bool ViewDebugger::frameEnded(const Ogre::FrameEvent& evt)
 
 
 /**----------------------------------------------------------------------------
-    Updates debug window with useful information
+	Updates debug window with useful information
 
-    \return (void)
+	\return (void)
  -----------------------------------------------------------------------------*/
 void ViewDebugger::updateDebug()
 {
@@ -135,9 +137,9 @@ void ViewDebugger::updateDebug()
 
 	const char* simulationStatesText[] = {"STARTUP", "LOADING", "CANCEL LOADING", "PREPARING", "SIMULATING", "SHUTDOWN", "PAUSED"};
 	objectInfo << "[" << simulationStatesText[mSimulation->getCurrentState()] << "] " <<
-	           "Time: " << std::setw(8) << std::setprecision(4) << std::setfill(' ')  << mSimulation->getFrameTime() <<
-	           " FPS: " << std::setw(6) << std::setprecision(4) << std::setfill(' ') << (1 / mSimulation->getTimeSinceLastRenderFrame()) <<
-	           "  Td (PhysX): " << std::setw(6) << std::setprecision(3) << std::setfill(' ') <<  mSimulation->getTimeSinceLastPhysXFrame() << " ms";
+			   "Time: " << std::setw(8) << std::setprecision(4) << std::setfill(' ')  << mSimulation->getFrameTime() <<
+			   " FPS: " << std::setw(6) << std::setprecision(4) << std::setfill(' ') << (1 / mSimulation->getTimeSinceLastRenderFrame()) <<
+			   "  Td (PhysX): " << std::setw(6) << std::setprecision(3) << std::setfill(' ') <<  mSimulation->getTimeSinceLastPhysXFrame() << " ms";
 
 	if (mExpandedText)
 	{
@@ -151,7 +153,7 @@ void ViewDebugger::updateDebug()
 			Ogre::Degree angle;
 			node->getOrientation().ToAngleAxis(angle, axis);
 			objectInfo << "\r\nSelected: " << selected->getName()
-			           << "\n\rPosition: " << p << "\n\rOrientation: " << angle << " around " << axis;
+					   << "\n\rPosition: " << p << "\n\rOrientation: " << angle << " around " << axis;
 		}
 
 		objectInfo << mDebugDescription + mSimulation->getDescription();
@@ -161,12 +163,12 @@ void ViewDebugger::updateDebug()
 }
 
 /**-------------------------------------------------------------------------------
-    setDebug
+	setDebug
 
-    @brief
-    @param debugView
-    @param show
-    @return void
+	@brief
+	@param debugView
+	@param show
+	@return void
 ---------------------------------------------------------------------------------*/
 void ViewDebugger::setDebug(DebugView debugView)
 {
@@ -306,10 +308,10 @@ void ViewDebugger::setDebug(DebugView debugView)
 }
 
 /**-------------------------------------------------------------------------------
-    getDebugDescription
+	getDebugDescription
 
-    @brief
-    @return std::string
+	@brief
+	@return std::string
 ---------------------------------------------------------------------------------*/
 std::string ViewDebugger::getDebug()
 {
@@ -412,10 +414,10 @@ std::string ViewDebugger::getDebug()
 
 
 /**-------------------------------------------------------------------------------
-    toggle visible debuggers
+	toggle visible debuggers
 
-    @brief
-    @return void
+	@brief
+	@return void
 ---------------------------------------------------------------------------------*/
 void ViewDebugger::toggleVisible()
 {

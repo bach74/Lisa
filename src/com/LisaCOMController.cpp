@@ -9,7 +9,7 @@
 
 #include "stdafx.h"
 #include "LisaCOMController.h"
-#include "SimFacade.h"
+#include "lisaAPI.h"
 #include "conversion.h"
 
 /**-------------------------------------------------------------------------------
@@ -19,7 +19,7 @@
 --------------------------------------------------------------------------------*/
 STDMETHODIMP CLisaCOMController::getVersion(BSTR* version)
 {
-	CComBSTR v="version 1.2";
+	CComBSTR v="version 1.3";
 	*version=v.Detach();
 
 	return S_OK;
@@ -32,7 +32,7 @@ STDMETHODIMP CLisaCOMController::getVersion(BSTR* version)
 --------------------------------------------------------------------------------*/
 STDMETHODIMP CLisaCOMController::get_number(SHORT* pVal)
 {
-	*pVal=SimFacade::Instance().getControllerNum();
+	*pVal=(unsigned short)LisaAPI::Instance().getControllerNum();
 	return S_OK;
 }
 
@@ -47,7 +47,7 @@ STDMETHODIMP CLisaCOMController::get_number(SHORT* pVal)
 --------------------------------------------------------------------------------*/
 STDMETHODIMP CLisaCOMController::getParameters(USHORT i, VARIANT* params)
 {
-	std::vector<double> vectParams = SimFacade::Instance().getActuatorParams(i);
+	std::vector<double> vectParams = LisaAPI::Instance().getActuatorParams(i);
 	SAFEARRAY* sa=new SAFEARRAY();
 	Conversion::vector2SAFEARRAY(vectParams,&sa);
 	CComVariant v(sa);
@@ -70,7 +70,7 @@ STDMETHODIMP CLisaCOMController::setParameters(USHORT i, VARIANT* params)
 	SAFEARRAY* sa=params->parray;
 	std::vector<double> vectParams;
 	Conversion::SAFEARRAY2vector(*sa,vectParams);
-	SimFacade::Instance().setActuatorParams(i, vectParams);	
+	LisaAPI::Instance().setActuatorParams(i, vectParams);	
 
 	return S_OK;
 }
@@ -86,7 +86,7 @@ STDMETHODIMP CLisaCOMController::setParameters(USHORT i, VARIANT* params)
 --------------------------------------------------------------------------------*/
 STDMETHODIMP CLisaCOMController::setParameter(USHORT i, USHORT nParam, DOUBLE val)
 {
-	SimFacade::Instance().setActuatorParam(i, nParam, val);
+	LisaAPI::Instance().setActuatorParam(i, nParam, val);
 	return S_OK;
 }
 
@@ -99,7 +99,7 @@ STDMETHODIMP CLisaCOMController::setParameter(USHORT i, USHORT nParam, DOUBLE va
 --------------------------------------------------------------------------------*/
 STDMETHODIMP CLisaCOMController::getPosition(USHORT i, DOUBLE* pVal)
 {
-	*pVal=SimFacade::Instance().getJointAngle(i);
+	*pVal=LisaAPI::Instance().getJointAngle(i);
 	return S_OK;
 }
 
@@ -111,9 +111,9 @@ STDMETHODIMP CLisaCOMController::getPosition(USHORT i, DOUBLE* pVal)
 	\param Val		set-point
 	\return	HRESULT
 --------------------------------------------------------------------------------*/
-STDMETHODIMP CLisaCOMController::setReference(USHORT i, USHORT numRef, DOUBLE Val)
+STDMETHODIMP CLisaCOMController::setSetpoint(USHORT i, USHORT numRef, DOUBLE Val)
 {
-	SimFacade::Instance().setJointSetpoint(i,numRef,Val);
+	LisaAPI::Instance().setJointSetpoint(i,numRef,Val);
 	return S_OK;
 }
 
@@ -125,9 +125,9 @@ STDMETHODIMP CLisaCOMController::setReference(USHORT i, USHORT numRef, DOUBLE Va
 	\param retVal	returned reference value
 	\return	HRESULT
 --------------------------------------------------------------------------------*/
-STDMETHODIMP CLisaCOMController::getReference(USHORT i, USHORT numRef, DOUBLE* retVal)
+STDMETHODIMP CLisaCOMController::getSetpoint(USHORT i, USHORT numRef, DOUBLE* retVal)
 {
-	*retVal=SimFacade::Instance().getJointSetpoint(i,numRef);
+	*retVal=LisaAPI::Instance().getJointSetpoint(i,numRef);
 	return S_OK;
 }
 
@@ -140,7 +140,7 @@ STDMETHODIMP CLisaCOMController::getReference(USHORT i, USHORT numRef, DOUBLE* r
 --------------------------------------------------------------------------------*/
 STDMETHODIMP CLisaCOMController::getVelocity(USHORT i, DOUBLE* pVal)
 { 
-	*pVal=SimFacade::Instance().getJointVelocity(i);
+	*pVal=LisaAPI::Instance().getJointVelocity(i);
 	return S_OK;
 }
 
@@ -153,6 +153,6 @@ STDMETHODIMP CLisaCOMController::getVelocity(USHORT i, DOUBLE* pVal)
 --------------------------------------------------------------------------------*/
 STDMETHODIMP CLisaCOMController::getTorque(USHORT i, DOUBLE* pVal)
 { 	
-	*pVal=SimFacade::Instance().getJointTorque(i);
+	*pVal=LisaAPI::Instance().getJointTorque(i);
 	return S_OK;	
 }

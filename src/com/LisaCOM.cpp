@@ -10,7 +10,7 @@
 #include "stdafx.h"
 #include "LisaCOM.h"
 #include "atlsafe.h"
-#include "simFacade.h"
+#include "lisaAPI.h"
 #include "conversion.h"
 
 
@@ -22,7 +22,7 @@
 --------------------------------------------------------------------------------*/
 STDMETHODIMP LisaCOM::get_numLinks(SHORT* val)
 {
-	*val=SimFacade::Instance().getNumLinks();
+	*val=(SHORT)LisaAPI::Instance().getNumLinks();
 	return S_OK;
 }
 
@@ -34,7 +34,7 @@ STDMETHODIMP LisaCOM::get_numLinks(SHORT* val)
 --------------------------------------------------------------------------------*/
 STDMETHODIMP LisaCOM::get_time(DOUBLE* pVal)
 {
-	*pVal=SimFacade::Instance().getCurrentTime();
+	*pVal=LisaAPI::Instance().getCurrentTime();
 	return S_OK;
 }
 
@@ -44,9 +44,21 @@ STDMETHODIMP LisaCOM::get_time(DOUBLE* pVal)
 	\param		
 	\return	HRESULT
 --------------------------------------------------------------------------------*/
-STDMETHODIMP LisaCOM::Pause(SHORT pause)
+STDMETHODIMP LisaCOM::pause(SHORT pause)
 {
-	SimFacade::Instance().pauseSimulation(pause!=0);
+	LisaAPI::Instance().pauseSimulation(pause!=0);
+	return S_OK;
+}
+
+/**-------------------------------------------------------------------------------
+	get simulation state
+
+	\param	return value - true if paused
+	\return	HRESULT
+--------------------------------------------------------------------------------*/
+STDMETHODIMP LisaCOM::isPaused(SHORT* val) 
+{
+	*val=LisaAPI::Instance().isSimulationPaused();
 	return S_OK;
 }
 
@@ -58,7 +70,7 @@ STDMETHODIMP LisaCOM::Pause(SHORT pause)
 --------------------------------------------------------------------------------*/
 STDMETHODIMP LisaCOM::getLinkMass(USHORT i, DOUBLE* value)
 {
-	*value=SimFacade::Instance().getLinkMass(i);
+	*value=LisaAPI::Instance().getLinkMass(i);
 	return S_OK;
 }
 
@@ -70,7 +82,7 @@ STDMETHODIMP LisaCOM::getLinkMass(USHORT i, DOUBLE* value)
 --------------------------------------------------------------------------------*/
 STDMETHODIMP LisaCOM::getLinkPosition(USHORT i, VARIANT* val)
 {
-	CComVariant v(Conversion::Vector3toSAFEARRAY(SimFacade::Instance().getLinkPosition(i)));
+	CComVariant v(Conversion::Vector3toSAFEARRAY(LisaAPI::Instance().getLinkPosition(i)));
 	v.Detach(val);
 	return S_OK;
 }
@@ -84,7 +96,7 @@ STDMETHODIMP LisaCOM::getLinkPosition(USHORT i, VARIANT* val)
 STDMETHODIMP LisaCOM::getLinkPositionByName(BSTR name, VARIANT* val)
 {
 	USES_CONVERSION;
-	CComVariant v(Conversion::Vector3toSAFEARRAY(SimFacade::Instance().getLinkPosition(std::string(OLE2A(name)))));
+	CComVariant v(Conversion::Vector3toSAFEARRAY(LisaAPI::Instance().getLinkPosition(std::string(OLE2A(name)))));
 	v.Detach(val);
 	return S_OK;
 }
@@ -97,7 +109,7 @@ STDMETHODIMP LisaCOM::getLinkPositionByName(BSTR name, VARIANT* val)
 --------------------------------------------------------------------------------*/
 STDMETHODIMP LisaCOM::getJointCoordinates(USHORT i, VARIANT* val)
 {	
-	CComVariant v(Conversion::Vector3toSAFEARRAY(SimFacade::Instance().getJointCoordinates(i)));
+	CComVariant v(Conversion::Vector3toSAFEARRAY(LisaAPI::Instance().getJointCoordinates(i)));
 	v.Detach(val);
 	return S_OK;
 }
@@ -111,7 +123,7 @@ STDMETHODIMP LisaCOM::getJointCoordinates(USHORT i, VARIANT* val)
 --------------------------------------------------------------------------------*/
 STDMETHODIMP LisaCOM::getCOPPosition(VARIANT* point)
 {
-	CComVariant v(Conversion::Vector3toSAFEARRAY(SimFacade::Instance().getCOPPosition()));
+	CComVariant v(Conversion::Vector3toSAFEARRAY(LisaAPI::Instance().getCOPPosition()));
 	v.Detach(point);
 	return S_OK;
 }
@@ -125,7 +137,7 @@ STDMETHODIMP LisaCOM::getCOPPosition(VARIANT* point)
 --------------------------------------------------------------------------------*/
 STDMETHODIMP LisaCOM::getCOPForce(VARIANT* force)
 {
-	CComVariant v(Conversion::Vector3toSAFEARRAY(SimFacade::Instance().getCOPForce()));
+	CComVariant v(Conversion::Vector3toSAFEARRAY(LisaAPI::Instance().getCOPForce()));
 	v.Detach(force);
 	return S_OK;
 }
@@ -138,7 +150,7 @@ STDMETHODIMP LisaCOM::getCOPForce(VARIANT* force)
 --------------------------------------------------------------------------------*/
 STDMETHODIMP LisaCOM::close()
 {
-	SimFacade::Instance().closeApplication();
+	LisaAPI::Instance().closeApplication();
 	return S_OK;
 }
 
@@ -153,15 +165,16 @@ STDMETHODIMP LisaCOM::enumerateLinks(VARIANT* val)
 {
 	USES_CONVERSION;
 	
-	int count=SimFacade::Instance().getNumLinks();
-	// Define the array bound structure
+	int count=LisaAPI::Instance().getNumLinks();
+	// Define the array bound structure - empty we'll
+	// add the 
 	CComSafeArrayBound bound[1];
-	bound[0].SetCount(count);
+	bound[0].SetCount(0);
 	bound[0].SetLowerBound(0);
 
 	CComSafeArray<BSTR> sa(bound);
 	for (int i=0;i<count;++i)
-		sa.Add(A2OLE(SimFacade::Instance().getLinkName(i).c_str()));
+		sa.Add(A2OLE(LisaAPI::Instance().getLinkName(i).c_str()));
 
 	CComVariant v(sa);
 	v.Detach(val);

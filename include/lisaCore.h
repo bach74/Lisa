@@ -10,8 +10,8 @@
 #define __LISA_CORE_H__
 
 #include "singleton.h"
-#include "Scene.h"
-#include "simulation.h"
+class Scene;
+class Simulation;
 
 
 typedef std::map<std::string,std::string> VideoOptions;
@@ -33,7 +33,7 @@ public:
 	void go();
 	void stop();
 
-	Simulation* getSimulation() { return mScene->getSimulation(); }
+	const Simulation* getSimulation() const;
 
 private:
 	LisaCore();
@@ -41,11 +41,11 @@ private:
 
 	int init();
 	int deinit();
-	bool getOptions(VideoOptions& opts);
+	bool getOptions(VideoOptions& opts) const;
 
-	Ogre::Root* mOgre;
-	Ogre::RenderWindow* mWindow;
-	Scene *mScene;
+	std::auto_ptr<Ogre::Root> mOgre;
+	std::auto_ptr<Ogre::RenderWindow> mWindow;
+	std::auto_ptr<Scene> mScene;
 
 };
 

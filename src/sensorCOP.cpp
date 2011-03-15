@@ -17,11 +17,11 @@
 #include "linkIterator.h"
 
 /**-------------------------------------------------------------------------------
-    SensorCOP
+	SensorCOP
 
-    @brief
-    @param
-    @return
+	@brief
+	@param
+	@return
 ---------------------------------------------------------------------------------*/
 SensorCOP::SensorCOP(Simulation* simulation): Sensor(simulation, std::string("COP"))
 {
@@ -66,11 +66,11 @@ SensorCOP::SensorCOP(Simulation* simulation): Sensor(simulation, std::string("CO
 }
 
 /**-------------------------------------------------------------------------------
-    ~SensorCOP
+	~SensorCOP
 
-    @brief
-    @param
-    @return
+	@brief
+	@param
+	@return
 ---------------------------------------------------------------------------------*/
 SensorCOP::~SensorCOP(void)
 {
@@ -79,15 +79,16 @@ SensorCOP::~SensorCOP(void)
 
 
 /**-------------------------------------------------------------------------------
-    calculate
+	calculate
 
-    @brief
-    @return void
+	@brief
+	@return void
 ---------------------------------------------------------------------------------*/
 void SensorCOP::update()
 {
 	setDataValid(false);
 	Ogre::Vector3 sumCOP(0, 0, 0);
+	Ogre::Vector3 sumCOPForce(0, 0, 0);
 	float sumForce = 0;
 	std::vector<Ogre::Vector3> contactPoints;
 
@@ -101,6 +102,7 @@ void SensorCOP::update()
 			NxVec3 force = (*it)->getCOPforce();
 			float f = force.magnitude();
 			sumCOP += Ogre::Vector3(pos.x * f, pos.y * f, pos.z * f);
+			sumCOPForce += Ogre::Vector3(force.x, force.y, force.z);
 			sumForce += f;
 
 			BOOST_FOREACH(NxVec3 v, (*it)->mContactPoints)
@@ -115,6 +117,7 @@ void SensorCOP::update()
 		Ogre::Vector3 cop = Ogre::Vector3(sumCOP.x / sumForce, sumCOP.y / sumForce, sumCOP.z / sumForce);
 		std::vector<Ogre::Vector3> values;
 		values.push_back(cop);
+		values.push_back(sumCOPForce);
 
 		if (Config::Instance().getControllerZMP())
 		{

@@ -12,11 +12,11 @@
 
 
 /**-------------------------------------------------------------------------------
-    MySceneController
+	MySceneController
 
-    @brief
-    @param scene
-    @return
+	@brief
+	@param scene
+	@return
 ---------------------------------------------------------------------------------*/
 MySceneController::MySceneController(NxOgre::Scene* scene) : NxOgre::SceneController(scene)
 {
@@ -25,10 +25,10 @@ MySceneController::MySceneController(NxOgre::Scene* scene) : NxOgre::SceneContro
 }
 
 /**-------------------------------------------------------------------------------
-    ~MySceneController
+	~MySceneController
 
-    @brief
-    @return
+	@brief
+	@return
 ---------------------------------------------------------------------------------*/
 MySceneController::~MySceneController()
 {
@@ -36,11 +36,11 @@ MySceneController::~MySceneController()
 }
 
 /**-------------------------------------------------------------------------------
-    init
+	init
 
-    @brief
-    @param nxscene
-    @return void
+	@brief
+	@param nxscene
+	@return void
 ---------------------------------------------------------------------------------*/
 void MySceneController::init(NxScene* nxscene)
 {
@@ -49,13 +49,13 @@ void MySceneController::init(NxScene* nxscene)
 }
 
 /**-------------------------------------------------------------------------------
-    setTiming
+	setTiming
 
-    @brief
-    @param maxTimestep
-    @param matIter
-    @param numSubSteps
-    @return void
+	@brief
+	@param maxTimestep
+	@param matIter
+	@param numSubSteps
+	@return void
 ---------------------------------------------------------------------------------*/
 void MySceneController::setTiming(NxReal maxTimestep, NxU32 maxIter, NxU32 numSubSteps)
 {
@@ -65,14 +65,14 @@ void MySceneController::setTiming(NxReal maxTimestep, NxU32 maxIter, NxU32 numSu
 }
 
 /**-------------------------------------------------------------------------------
-    setTiming
+	setTiming
 
-    @brief
-    @param desc
-    @param maxTimestep
-    @param matIter
-    @param numSubSteps
-    @return void
+	@brief
+	@param desc
+	@param maxTimestep
+	@param matIter
+	@param numSubSteps
+	@return void
 ---------------------------------------------------------------------------------*/
 void MySceneController::setTiming(NxSceneDesc& desc, NxReal maxTimestep, NxU32 maxIter, NxU32 numSubSteps)
 {
@@ -80,7 +80,7 @@ void MySceneController::setTiming(NxSceneDesc& desc, NxReal maxTimestep, NxU32 m
 }
 
 /**-------------------------------------------------------------------------------
-    Simulate
+	Simulate
 
 	ideal asynchronous 
 	while(1) {
@@ -91,18 +91,18 @@ void MySceneController::setTiming(NxSceneDesc& desc, NxReal maxTimestep, NxU32 m
 		moreCalcs();
 	}
 
-    @brief
-    @param
-    @return NxOgre::TimeStep
+	@brief
+	@param
+	@return NxOgre::TimeStep
 ---------------------------------------------------------------------------------*/
 NxOgre::TimeStep MySceneController::Simulate(NxReal)
 {
-	double deltaTime = mTimer->getMicroseconds() * 1.0e-6;
+	float deltaTime = mTimer->getMicroseconds() * 1.0e-6f;
 
-	if (deltaTime > 0.2)  // 5hz
+	if (deltaTime > 0.2f)  // 5hz
 	{
 		mTimer->reset();
-		deltaTime = 0.2;
+		deltaTime = 0.2f;
 	}
 
 	mAccumulator += deltaTime;
@@ -115,7 +115,7 @@ NxOgre::TimeStep MySceneController::Simulate(NxReal)
 		mAccumulator -= mMaxStep;
 	}
 
-	mAlpha = mAccumulator / mMaxStep;
+	mAlpha = mAccumulator/mMaxStep;
 	mTimer->reset();
 
 	NxOgre::TimeStep ts;

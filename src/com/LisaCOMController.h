@@ -62,10 +62,10 @@ public:
 	STDMETHOD(getPosition)(USHORT i, DOUBLE* pVal);
 	STDMETHOD(setParameter)(USHORT i, USHORT numParam, DOUBLE val);
 	STDMETHOD(getVelocity)(USHORT i, DOUBLE* pVal);
-	STDMETHOD(setReference)(USHORT i, USHORT numRef, DOUBLE val);
+	STDMETHOD(setSetpoint)(USHORT i, USHORT numRef, DOUBLE val);
 	STDMETHOD(setParameters)(USHORT i, VARIANT* params);
 	STDMETHOD(getTorque)(USHORT i, DOUBLE* pVal);
-	STDMETHOD(getReference)(USHORT i, USHORT numRef, DOUBLE* retVal);
+	STDMETHOD(getSetpoint)(USHORT i, USHORT numRef, DOUBLE* retVal);
 
 };
 

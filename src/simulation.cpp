@@ -9,6 +9,7 @@
 
 #include "stdafx.h"
 #include "simulation.h"
+#include "actuators.h"
 
 /**-------------------------------------------------------------------------------
 	Simulation
@@ -19,15 +20,11 @@
 ---------------------------------------------------------------------------------*/
 Simulation::Simulation(void)
 {
-	mWorld=NULL;
-	mScene=NULL;
 	mFrameTime=0;
 	mTimeSinceLastPhysXFrame=0;
 	mTimeSinceLastRenderFrame=0;
 	mState=STARTUP;
 	mLocked=false;
-	mLinks=NULL;
-	mActuators = NULL;
 
 	// add this window to frame listeners
 	Ogre::Root::getSingletonPtr()->addFrameListener(this);
@@ -42,9 +39,6 @@ Simulation::Simulation(void)
 ---------------------------------------------------------------------------------*/
 Simulation::~Simulation(void)
 {
-	delete mActuators;
-	mActuators = NULL;
-
 	// remove frame listener
 	Ogre::Root::getSingletonPtr()->removeFrameListener(this);
 }

@@ -10,14 +10,12 @@
 #include "stdafx.h"
 #include "sensorZMP.h"
 #include "config.h"
-#include "simFacade.h"
+#include "lisaAPI.h"
 #include "simulation.h"
 #include "linkIterator.h"
+#include "links.h"
+#include "sensor.h"
 
-
-SensorZMP::~SensorZMP(void)
-{
-}
 
 /**-------------------------------------------------------------------------------
 	update
@@ -27,17 +25,16 @@ SensorZMP::~SensorZMP(void)
 ---------------------------------------------------------------------------------*/
 void SensorZMP::update()
 {
-	int i=0;
-	float mz=0, mx=0;
+	NxReal mz=0, mx=0;
 
-	double sum1=0;
-	double sum2=0;
-	double sum3=0;
-	double sum4=0;
-	double sum5=0;
+	NxReal sum1=0;
+	NxReal sum2=0;
+	NxReal sum3=0;
+	NxReal sum4=0;
+	NxReal sum5=0;
 
-	float deltaT = getDataclass()->getTimeSinceLastPhysXFrame();
-	Ogre::Vector3 g=SimFacade::Instance().getGravity();
+	NxReal deltaT = getDataclass()->getTimeSinceLastPhysXFrame();
+	Ogre::Vector3 g=LisaAPI::Instance().getGravity();
 
 	LinkIterator it = LinkIterator(getDataclass()->getLinks());
 
@@ -80,7 +77,7 @@ void SensorZMP::update()
 
 			// The correct way to determine body position
 			Ogre::Vector3 pos=link.getCMassGlobalPosition();
-			float m=link.getMass();
+			NxReal m=link.getMass();
 			Ogre::Vector3 tau = link.getAngularMomentumDelta(deltaT);
 			Ogre::Vector3 a=link.getLinerAcceleration(deltaT);
 			Ogre::Vector3 force=m*a;
@@ -89,7 +86,7 @@ void SensorZMP::update()
 			mz+=tau.z;
 			mx+=tau.x;
 
-			double FG=-force.y+G.y;
+			NxReal FG=-force.y+G.y;
 			sum1+=FG*pos.x;
 			sum2+=pos.y*force.x;
 			sum3+=FG;

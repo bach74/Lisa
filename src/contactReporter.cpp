@@ -73,9 +73,9 @@ void MyContactReporter::onTouch(NxOgre::Actor *a, NxOgre::Actor *b, NxOgre::Cont
 		mCOPpos.set(0,0,0);
 		mCOPforce.set(0,0,0);
 
-		double sumXtimesXf=0;
-		double sumYtimesYf=0;
-		double sumZtimesZf=0;
+		NxReal sumXtimesXf=0;
+		NxReal sumYtimesYf=0;
+		NxReal sumZtimesZf=0;
 		NxVec3 sumForce(0,0,0);
 		NxVec3 sumPos(0,0,0);
 		int numPoints=0;

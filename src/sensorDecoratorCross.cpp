@@ -10,6 +10,7 @@
 #include "stdafx.h"
 #include "sensorDecoratorCross.h"
 #include "simulation.h"
+#include "scene.h"
 
 /**-------------------------------------------------------------------------------
 	SensorDecoratorCross

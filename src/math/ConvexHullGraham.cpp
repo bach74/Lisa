@@ -272,31 +272,31 @@ float ConvexHullGraham::getMinDistanceY(const Ogre::Vector3& A, const Ogre::Vect
 Ogre::Vector3 ConvexHullGraham::getCenter(const std::vector<Ogre::Vector3>& convexHull)
 {
 	Ogre::Vector3 result(0.0, 0.0, 0.0);
-	double total_area = 0.0;
+	float total_area = 0.0;
 
 	// size-1 because last point should be the same as the first one (for built convex hull)
 	for (unsigned i = 0; i < convexHull.size()-1; ++i)
 	{
 		int j = i % convexHull.size();
 		int k = (i + 1) % convexHull.size();
-		double triangle_area = 0.5 * (convexHull[j].x * convexHull[k].z - convexHull[j].z * convexHull[k].x);
+		float triangle_area = 0.5f * (convexHull[j].x * convexHull[k].z - convexHull[j].z * convexHull[k].x);
 		total_area += triangle_area;
 		// In general, the center (of mass) of any right triangle will be 1/3 of the way out from
 		// the right angle along both axis
-		Ogre::Vector3 center((convexHull[j].x + convexHull[k].x)*(1.0 / 3.0), 0.0, (convexHull[j].z + convexHull[k].z)*(1.0 / 3.0));
+		Ogre::Vector3 center((convexHull[j].x + convexHull[k].x)*(1.0f/3.0f), 0.0f, (convexHull[j].z + convexHull[k].z)*(1.0f/3.0f));
 		center = center * triangle_area;
 		result = result + center;
 	}
 
 	if (total_area==0) {	
-		UINT size=convexHull.size()-1;
+		size_t size=convexHull.size()-1;
 		// collinear points - calculate center as the average
 		for (unsigned i = 0; i < size; ++i)
 		{
 			result.x+=convexHull[i].x;
 			result.z+=convexHull[i].z;
 		}
-		total_area=size;
+		total_area=(float)size;
 	}
 	return result/total_area;
 }

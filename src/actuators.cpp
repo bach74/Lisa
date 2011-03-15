@@ -20,11 +20,11 @@
 
 
 /**-------------------------------------------------------------------------------
-    Actuators
+	Actuators
 
-    @brief
-    @param phyScene
-    @return
+	@brief
+	@param phyScene
+	@return
 ---------------------------------------------------------------------------------*/
 Actuators::Actuators(NxOgre::Scene* phyScene, Sensors* sensors)
 {
@@ -43,11 +43,11 @@ Actuators::Actuators(NxOgre::Scene* phyScene, Sensors* sensors)
 }
 
 /**-------------------------------------------------------------------------------
-    ~Actuators
+	~Actuators
 
-    @brief
-    @param
-    @return
+	@brief
+	@param
+	@return
 ---------------------------------------------------------------------------------*/
 Actuators::~Actuators(void)
 {
@@ -55,10 +55,10 @@ Actuators::~Actuators(void)
 }
 
 /**-------------------------------------------------------------------------------
-    update
+	update
 
-    @brief
-    @return
+	@brief
+	@return
 ---------------------------------------------------------------------------------*/
 void Actuators::update(float frameTime)
 {
@@ -75,10 +75,10 @@ void Actuators::update(float frameTime)
 
 
 /**----------------------------------------------------------------------------
-    Add nxJoint actuator to the scene
+	Add nxJoint actuator to the scene
 
-    \param nxJoint (NxRevoluteJoint *)
-    \return (void)
+	\param nxJoint (NxRevoluteJoint *)
+	\return (void)
 -----------------------------------------------------------------------------*/
 void Actuators::addActuator(Joint* joint)
 {
@@ -137,10 +137,10 @@ void Actuators::addActuator(Joint* joint)
 }
 
 /**-------------------------------------------------------------------------------
-    begin
+	begin
 
-    @brief
-    @return ActuatorIterator&
+	@brief
+	@return ActuatorIterator&
 ---------------------------------------------------------------------------------*/
 ActuatorIterator& ActuatorIterator::begin()
 {
@@ -153,10 +153,10 @@ ActuatorIterator& ActuatorIterator::begin()
 }
 
 /**-------------------------------------------------------------------------------
-    end
+	end
 
-    @brief
-    @return bool
+	@brief
+	@return bool
 ---------------------------------------------------------------------------------*/
 bool ActuatorIterator::end()
 {
@@ -171,11 +171,11 @@ bool ActuatorIterator::end()
 }
 
 /**-------------------------------------------------------------------------------
-    equal
+	equal
 
-    @brief
-    @param other
-    @return bool
+	@brief
+	@param other
+	@return bool
 ---------------------------------------------------------------------------------*/
 bool ActuatorIterator::equal(ActuatorIterator const& other) const
 {

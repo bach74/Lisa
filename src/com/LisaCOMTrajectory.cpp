@@ -9,7 +9,7 @@
 
 #include "stdafx.h"
 #include "LisaCOMTrajectory.h"
-#include "SimFacade.h"
+#include "lisaAPI.h"
 
 
 /**-------------------------------------------------------------------------------
@@ -21,7 +21,7 @@
 STDMETHODIMP CLisaCOMTrajectory::LoadTrajectory(BSTR filename)
 {
 	USES_CONVERSION;
-	SimFacade::Instance().loadTrajectory(COLE2T(filename));
+	LisaAPI::Instance().loadTrajectory(COLE2T(filename));
 
 	return S_OK;
 }

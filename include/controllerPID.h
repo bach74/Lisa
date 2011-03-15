@@ -33,8 +33,10 @@ class ControllerPID : public Controller<double>
 
 		virtual ~ControllerPID() {};
 
-		double calculate(double sample_time);
-		double calculate(double error, double sample_time);
+		double calculate(float sample_time);
+		double calculate(double error, float sample_time);
+
+		void getParameters(std::vector<double>& ret) const;
 
 };
 

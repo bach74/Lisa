@@ -9,11 +9,12 @@
 #ifndef __SIMULATION_H__
 #define __SIMULATION_H__
 
-#include "scene.h"
-#include "link.h"
-#include "links.h"
-#include "actuator.h"
-#include "actuators.h"
+
+class Scene;
+class Link;
+class Links;
+class Actuators;
+class Actuator;
 #include "CritSectEx.h"
 
 class Simulation : public Ogre::FrameListener
@@ -54,28 +55,28 @@ class Simulation : public Ogre::FrameListener
 		void				setTimeSinceLastPhysXFrame(float val) { mTimeSinceLastPhysXFrame = val; }
 
 		// Current object manipulation
-		virtual Link*       getSelectedObject() const = 0;
+		virtual Link*		getSelectedObject() const = 0;
 
-		Links*              getLinks() const { return mLinks; }
-		Actuators*          getActuators() const { return mActuators; };
+		Links*				getLinks() const { return mLinks.get(); }
+		Actuators*			getActuators() const { return mActuators.get(); };
 
-		NxOgre::World*      getWorld() const { return mWorld; }
-		Scene*              getScene() const { return mScene; }
-		NxOgre::Scene*      getPhyScene() const { return mPhyScene; }
+		NxOgre::World*		getWorld() const { return mWorld.get(); }
+		Scene*				getScene() const { return mScene; }
+		NxOgre::Scene*		getPhyScene() const { return mPhyScene.get(); }
 
 		virtual std::string getDescription() = 0;
 
 	protected:
 
-		NxOgre::World*      mWorld;
-		Scene*              mScene;
-		NxOgre::Scene*      mPhyScene;
+		boost::shared_ptr<NxOgre::World>		mWorld;
+		Scene*									mScene;
+		boost::shared_ptr<NxOgre::Scene>		mPhyScene;
 
 		// objects (actors) are represented as links
-		Links*              mLinks;
+		boost::shared_ptr<Links>				mLinks;
 
 		// link controllers (for joints)
-		Actuators*          mActuators;
+		boost::shared_ptr<Actuators>			mActuators;
 
 
 	private:

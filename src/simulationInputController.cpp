@@ -10,15 +10,20 @@
 #include "stdafx.h"
 #include "SimulationInputController.h"
 #include "scene.h"
+#include "viewDebugger.h"
+#include "viewHelp.h"
+#include "lineGraphFactory.h"
+#include "extendedCamera.h"
+#include "sensors.h"
 
 
 /**-------------------------------------------------------------------------------
-    SimulationInputController - initialize and add a mouse
-    and key event listener
+	SimulationInputController - initialize and add a mouse
+	and key event listener
 
-    @brief
-    @param simulation
-    @return
+	@brief
+	@param simulation
+	@return
 ---------------------------------------------------------------------------------*/
 SimulationInputController::SimulationInputController(Simulation* simulation)
 {
@@ -38,10 +43,10 @@ SimulationInputController::SimulationInputController(Simulation* simulation)
 }
 
 /**-------------------------------------------------------------------------------
-    ~SimulationInputController - remove listeners
+	~SimulationInputController - remove listeners
 
-    @brief
-    @return
+	@brief
+	@return
 ---------------------------------------------------------------------------------*/
 SimulationInputController::~SimulationInputController()
 {
@@ -59,10 +64,10 @@ SimulationInputController::~SimulationInputController()
 
 
 /**-------------------------------------------------------------------------------
-    mouse is moving
+	mouse is moving
 
-    \param evt (const OIS::MouseEvent &)
-    \return (void)
+	\param evt (const OIS::MouseEvent &)
+	\return (void)
 -----------------------------------------------------------------------------*/
 bool SimulationInputController::mouseMoved(const OIS::MouseEvent& evt)
 {
@@ -71,11 +76,11 @@ bool SimulationInputController::mouseMoved(const OIS::MouseEvent& evt)
 }
 
 /**-------------------------------------------------------------------------------
-    mouse button was pressed, handle events
+	mouse button was pressed, handle events
 
-    \param evt (const OIS::MouseEvent &)
-    \param id (OIS::MouseButtonID)
-    \return (void)
+	\param evt (const OIS::MouseEvent &)
+	\param id (OIS::MouseButtonID)
+	\return (void)
 -----------------------------------------------------------------------------*/
 bool SimulationInputController::mousePressed(const OIS::MouseEvent& evt, OIS::MouseButtonID id)
 {
@@ -98,16 +103,16 @@ bool SimulationInputController::mousePressed(const OIS::MouseEvent& evt, OIS::Mo
 }
 
 /**-------------------------------------------------------------------------------
-    mouse button was released
+	mouse button was released
 
-    \param evt (const OIS::MouseEvent &)
-    \param id (OIS::MouseButtonID)
-    \return (void)
+	\param evt (const OIS::MouseEvent &)
+	\param id (OIS::MouseButtonID)
+	\return (void)
 -----------------------------------------------------------------------------*/
 bool SimulationInputController::mouseReleased(const OIS::MouseEvent& evt, OIS::MouseButtonID id)
 {
 	// Call mouseReleased of current state
-	const OIS::MouseState& mouseState = evt.state;
+	//const OIS::MouseState& mouseState = evt.state;
 
 	mMouseBtnDown = -1;
 
@@ -125,10 +130,10 @@ bool SimulationInputController::mouseReleased(const OIS::MouseEvent& evt, OIS::M
 }
 
 /**-------------------------------------------------------------------------------
-    handle left mouse button click
+	handle left mouse button click
 
-    \param mstate (const OIS::MouseState &)
-    \return (void)
+	\param mstate (const OIS::MouseState &)
+	\return (void)
 -----------------------------------------------------------------------------*/
 void SimulationInputController::onLeftMouseClick(const OIS::MouseState& mstate)
 {
@@ -138,10 +143,10 @@ void SimulationInputController::onLeftMouseClick(const OIS::MouseState& mstate)
 }
 
 /**-------------------------------------------------------------------------------
-    handle right mouse button click
+	handle right mouse button click
 
-    \param mstate (const OIS::MouseState &)
-    \return (void)
+	\param mstate (const OIS::MouseState &)
+	\return (void)
 -----------------------------------------------------------------------------*/
 void SimulationInputController::onRightMouseClick(const OIS::MouseState& mstate)
 {
@@ -150,11 +155,11 @@ void SimulationInputController::onRightMouseClick(const OIS::MouseState& mstate)
 
 
 /**-------------------------------------------------------------------------------
-    a key was pressed, handle locally required keys and then
-    send them to the GUI
+	a key was pressed, handle locally required keys and then
+	send them to the GUI
 
-    \param evt (const OIS::KeyEvent &)
-    \return (void)
+	\param evt (const OIS::KeyEvent &)
+	\return (void)
 -----------------------------------------------------------------------------*/
 bool SimulationInputController::keyPressed(const OIS::KeyEvent& evt)
 {
@@ -224,10 +229,10 @@ bool SimulationInputController::keyPressed(const OIS::KeyEvent& evt)
 }
 
 /**-------------------------------------------------------------------------------
-    a key was released
+	a key was released
 
-    \param evt (const OIS::KeyEvent &)
-    \return (void)
+	\param evt (const OIS::KeyEvent &)
+	\return (void)
 -----------------------------------------------------------------------------*/
 bool SimulationInputController::keyReleased(const OIS::KeyEvent& evt)
 {

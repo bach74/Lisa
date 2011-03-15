@@ -13,6 +13,7 @@
 #include "inputmanager.h"
 #include "lisaCore.h"
 #include "config.h"
+#include "scene.h"
 
 
 /**-------------------------------------------------------------------------------
@@ -20,9 +21,6 @@
 --------------------------------------------------------------------------------*/
 LisaCore::LisaCore()
 {
-	mWindow=NULL;
-	mOgre=NULL;
-	mScene=NULL;
 	Config::Instance();
 }
 
@@ -31,15 +29,6 @@ LisaCore::LisaCore()
 --------------------------------------------------------------------------------*/
 LisaCore::~LisaCore()
 {
-	delete mScene;
-	mScene=NULL;
-
-	delete mWindow;
-	mWindow=NULL;
-
-	delete mOgre;
-	mOgre=NULL;
-
 }
 
 /**-------------------------------------------------------------------------------
@@ -55,7 +44,7 @@ int LisaCore::init()
 	// the first param is the name of the plugins cfg file, the second is the name of the ogre cfg file
 	// we are not using either here, so provide them as empty strings to let Ogre know not to load them
 	// The third param is the name of the Ogre.log diagnostic file; leave it default for now
-	mOgre=new Ogre::Root("","","Ogre.log");
+	mOgre=std::auto_ptr<Ogre::Root>(new Ogre::Root("","","Ogre.log"));
 	
 	try {
 
@@ -87,17 +76,19 @@ int LisaCore::init()
 				try {
 					#if _DEBUG
 						mOgre->loadPlugin("plugin\\RenderSystem_Direct3D9_d"); 
+						mOgre->loadPlugin("plugin\\RenderSystem_Direct3D10_d");
 					#else
 						mOgre->loadPlugin("plugin\\RenderSystem_Direct3D9"); 
+						mOgre->loadPlugin("plugin\\RenderSystem_Direct3D10"); 
 					#endif
 				} 
 				catch(Ogre::Exception& e) { 
-					Ogre::LogManager::getSingleton().logMessage(std::string("Unable to create D3D9 RenderSystem: ") + e.getFullDescription()); 
+					Ogre::LogManager::getSingleton().logMessage(std::string("Unable to create DirectX RenderSystem: ") + e.getFullDescription()); 
 				}
 			//}
 		//}
 
-		// load common plugins
+		// load common plug-ins
 		#if _DEBUG
 			mOgre->loadPlugin("plugin\\RenderSystem_GL_d");
 			mOgre->loadPlugin("plugin\\Plugin_CgProgramManager_d");
@@ -135,7 +126,7 @@ int LisaCore::init()
 		selectedRenderSystem->setConfigOption("VSync", opts["vsync"]);
 		
 
-		if (opts["renderSystem"]=="Direct3D9 Rendering Subsystem") {
+		if ((opts["renderSystem"]=="Direct3D9 Rendering Subsystem")||(opts["renderSystem"]=="Direct3D10 Rendering Subsystem")) {
 			selectedRenderSystem->setConfigOption("Video Mode",opts["resolution"]+" @ "+opts["colourDepth"] + "-bit colour");
 			selectedRenderSystem->setConfigOption("FSAA","Level "+opts["FSAA"]);
 		} else {
@@ -145,7 +136,7 @@ int LisaCore::init()
 		}
 
 
-		mWindow=mOgre->initialise(true,getStringFromResource(IDS_APPNAME));
+		mWindow=std::auto_ptr<Ogre::RenderWindow>(mOgre->initialise(true,getStringFromResource(IDS_APPNAME)));
 
 		// change default icon
 		// Get window handle
@@ -183,7 +174,7 @@ int LisaCore::deinit()
 	Ogre::ResourceGroupManager::getSingletonPtr()->clearResourceGroup("GUI");
 	Ogre::ResourceGroupManager::getSingletonPtr()->clearResourceGroup(OGRE_DEBUG_GROUP);
 
-	mOgre->detachRenderTarget(mWindow);
+	mOgre->detachRenderTarget(mWindow.get());
 
 	return 0;
 }
@@ -194,7 +185,7 @@ int LisaCore::deinit()
 	\param opts (VideoOptions &)	video options parsed from a config file
 	\return (bool)
  -----------------------------------------------------------------------------*/
-bool LisaCore::getOptions(VideoOptions& opts)
+bool LisaCore::getOptions(VideoOptions& opts) const
 {
 	// read these from the ubiquitous config file...on Win32 we have a nice handy
 	// API to read config files; on other platforms we'll need to fake one
@@ -243,7 +234,7 @@ void LisaCore::go()
 	init();
 	
 	//create Scene
-	mScene=new Scene(mWindow);
+	mScene=std::auto_ptr<Scene>(new Scene(mWindow.get()));
 
 	// get video options from configuration file
 	VideoOptions opts;
@@ -262,8 +253,7 @@ void LisaCore::go()
 	mScene->run();
 
 	// clean up
-	delete mScene;
-	mScene=NULL;
+	mScene.release();
 	deinit();
 }
 
@@ -276,4 +266,14 @@ void LisaCore::stop()
 {
 	HWND hWnd=::FindWindow(NULL,getStringFromResource(IDS_APPNAME).c_str());
 	SendMessage(hWnd,WM_CLOSE,0,0);
+}
+
+/**----------------------------------------------------------------------------
+	get Simulation pointer
+   
+	\return (void)
+ -----------------------------------------------------------------------------*/
+const Simulation* LisaCore::getSimulation() const
+{
+	return mScene->getSimulation();
 }

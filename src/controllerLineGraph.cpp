@@ -55,11 +55,11 @@ ControllerLineGraph::~ControllerLineGraph(void)
 }
 
 /**-------------------------------------------------------------------------------
-     frameEnded is FrameListener callback
+	 frameEnded is FrameListener callback
 
-     @brief
-     @param evt
-     @return void
+	 @brief
+	 @param evt
+	 @return void
 ---------------------------------------------------------------------------------*/
 bool ControllerLineGraph::frameEnded(const Ogre::FrameEvent& evt)
 {
@@ -71,8 +71,8 @@ bool ControllerLineGraph::frameEnded(const Ogre::FrameEvent& evt)
 	mController->getSetpoint(Sp);
 	mController->getInput(Pv);
 	mController->getOutput(Uc);
-	addPointToLine(0, t, Sp);
-	addPointToLine(1, t, Pv);
+	addPointToLine(0, t, (float)Sp);
+	addPointToLine(1, t, (float)Pv);
 	//double err = Sp - Pv;
 	//addPointToLine(2, t, Uc);
 

@@ -12,13 +12,13 @@
 #include "controllerPID.h"
 
 /**-------------------------------------------------------------------------------
-    ControllerZMP
+	ControllerZMP
 
-    @brief
-    @param sensor
-    @param actuators
-    @param filename
-    @return
+	@brief
+	@param sensor
+	@param actuators
+	@param filename
+	@return
 ---------------------------------------------------------------------------------*/
 ControllerZMP::ControllerZMP(SensorVectors& sensorZMP, SensorVectors& sensorCOP, SensorVectors& sensorCOG,
 							 std::vector<boost::shared_ptr<Actuator > >& actuators, const char* filename) :
@@ -32,22 +32,22 @@ ControllerZMP::ControllerZMP(SensorVectors& sensorZMP, SensorVectors& sensorCOP,
 }
 
 /**-------------------------------------------------------------------------------
-    ~ControllerZMP
+	~ControllerZMP
 
-    @brief
-    @param
-    @return
+	@brief
+	@param
+	@return
 ---------------------------------------------------------------------------------*/
 ControllerZMP::~ControllerZMP()
 {
 }
 
 /**-------------------------------------------------------------------------------
-    calculate
+	calculate
 
-    @brief
-    @param sampleTime
-    @return double
+	@brief
+	@param sampleTime
+	@return double
 ---------------------------------------------------------------------------------*/
 double ControllerZMP::calculate(double sampleTime)
 {
@@ -67,6 +67,7 @@ double ControllerZMP::calculate(double sampleTime)
 		std::vector<Ogre::Vector3> values;
 		mSensorCOP.getValue(values);
 		Ogre::Vector3 cop = values[0];
+		//Ogre::Vector3 copForce = values[1];
 
 		std::vector<Ogre::Vector3> valuesCOG;
 		mSensorCOG.getValue(valuesCOG);
@@ -75,21 +76,21 @@ double ControllerZMP::calculate(double sampleTime)
 		if (values.size() > 2)
 		{
 			// get error (distance from COP convex hull center)
-			Ogre::Vector3 centerCH = values[1];
-			Ogre::Vector3 marginMax = values[2];
-			Ogre::Vector3 marginCOP = values[3];
+			Ogre::Vector3 centerCH = values[2];
+			Ogre::Vector3 marginMax = values[3];
+			Ogre::Vector3 marginCOP = values[4];
 			static std::vector<Ogre::Vector3> convexHull;
 			static Ogre::Vector3 errorPrev;
 
 			Ogre::Vector3 error(0,0,0);
-			if (convexHull.size()!=values.size()-4) {
+			if (convexHull.size()!=values.size()-5) {
 				// probably loss of support on one edge
 				// try to determine the edge by comparing with previous convex hull
 				Ogre::Vector3 sumPrev=std::accumulate(convexHull.begin(),convexHull.end(),Ogre::Vector3::ZERO);
-				Ogre::Vector3 sum=std::accumulate(values.begin()+4,values.end(),Ogre::Vector3::ZERO);
+				Ogre::Vector3 sum=std::accumulate(values.begin()+5,values.end(),Ogre::Vector3::ZERO);
 				if (convexHull.size()!=0) {
-					error.x=(sumPrev.x/convexHull.size()>sum.x)?-1:1;
-					error.z=(sumPrev.z/convexHull.size()>sum.z)?-1:1;
+					error.x=(sumPrev.x/convexHull.size()>sum.x)?-1.0f:1.0f;
+					error.z=(sumPrev.z/convexHull.size()>sum.z)?-1.0f:1.0f;
 				}
 			} else {
 				// calculate relative distance  (from the center to the edge)			
@@ -100,21 +101,21 @@ double ControllerZMP::calculate(double sampleTime)
 
 			// store current values to previous values
 			convexHull.clear();
-			std::copy(values.begin()+4,values.end(), std::back_inserter<std::vector<Ogre::Vector3>>(convexHull));
+			std::copy(values.begin()+5,values.end(), std::back_inserter<std::vector<Ogre::Vector3>>(convexHull));
 			errorPrev=error;
 
 			if (fabs(error.x)>1000) {
 				error.x=error.x+1;
 			}
 
-			float t=Ogre::Root::getSingletonPtr()->getTimer()->getMilliseconds()/1000.0;					
+			float t=Ogre::Root::getSingletonPtr()->getTimer()->getMilliseconds()/1000.0f;					
 			
 			double result = CalculateOutput(t, sampleTime);
 
 
 			// TODO debug
 			std::stringstream s;
-			s << Ogre::Root::getSingletonPtr()->getTimer()->getMilliseconds() / 1000.0;
+			s << Ogre::Root::getSingletonPtr()->getTimer()->getMilliseconds()/1000.0f;
 			s << "\t"<< error.x << "\t" << error.y << "\t" << error.z;
 			s << "\t" << gcog.x << "\t" << gcog.y << "\t" << gcog.z;
 			s << "\t" << result;
@@ -131,12 +132,12 @@ double ControllerZMP::calculate(double sampleTime)
 }
 
 /**-------------------------------------------------------------------------------
-    calculate
+	calculate
 
-    @brief
-    @param error
-    @param sampleTime
-    @return double
+	@brief
+	@param error
+	@param sampleTime
+	@return double
 ---------------------------------------------------------------------------------*/
 double ControllerZMP::calculate(double error, double sampleTime)
 {

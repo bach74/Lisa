@@ -1,5 +1,5 @@
 // =============================================================================
-//  seosorCOP.h   version:  1.5
+//  sensorCOP.h   version:  1.5
 //
 //  Copyright (C) 2007-2010 by Bach 
 //  This file is part of the LiSA project.

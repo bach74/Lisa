@@ -16,3 +16,6 @@
 #include <sstream>
 #include <algorithm>
 #include <iostream>
+#include <deque>
+#include <ostream>
+#include <fstream>

@@ -11,6 +11,8 @@
 #include "sensorDecoratorVector.h"
 #include "exception.h"
 #include "simulation.h"
+#include "scene.h"
+
 
 #define ARROW_H 0.25
 

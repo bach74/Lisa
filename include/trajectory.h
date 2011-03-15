@@ -9,7 +9,9 @@
 #ifndef __TRAJECTORY_H__
 #define __TRAJECTORY_H__
 
-#include "trajectoryQueue.h"
+// fwd declaration
+class TrajectoryQueue;
+class Actuator;
 
 class Trajectory
 {

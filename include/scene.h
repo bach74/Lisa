@@ -9,8 +9,7 @@
 #ifndef __SCENE_H__
 #define __SCENE_H__
 
-#include "ExtendedCamera.h"
-
+class ExtendedCamera;
 class Simulation;
 
 /// Scene class

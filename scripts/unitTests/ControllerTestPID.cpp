@@ -146,7 +146,7 @@ class TestPID : public cfixcc::TestFixture
 				}
 
 				controller->setInput(y);
-				controller->calculate(0.01);
+				controller->calculate(0.01f);
 				double out;
 				controller->getOutput(out);
 				y=getSystemOutput(out);

@@ -9,6 +9,7 @@
 
 #include "stdafx.h"
 #include "ViewHelp.h"
+#include "scene.h"
 
 
 /**-------------------------------------------------------------------------------
@@ -24,8 +25,8 @@ ViewHelp::ViewHelp(Simulation* simulation)
 	mSimulation = simulation;
 
 	//Initialize help GUI system
-	float height = mSimulation->getScene()->getWindow().getHeight();
-	float width = mSimulation->getScene()->getWindow().getWidth();
+	int height = mSimulation->getScene()->getWindow().getHeight();
+	int width = mSimulation->getScene()->getWindow().getWidth();
 
 	mOverlay = Ogre::OverlayManager::getSingleton().create("Simulation.Help");
 
@@ -36,14 +37,14 @@ ViewHelp::ViewHelp(Simulation* simulation)
 	mHelpOverlayText = Ogre::OverlayManager::getSingleton().createOverlayElement("TextArea", "Simulation.HelpWindowText");
 	mHelpOverlayText->setMetricsMode(Ogre::GMM_PIXELS);
 	mHelpOverlayText->setLeft(10);
-	mHelpOverlayText->setTop(height / 3);
+	mHelpOverlayText->setTop(height/3.0f);
 	mHelpOverlayText->setWidth(width);
-	mHelpOverlayText->setHeight(height / 3 * 2);
+	mHelpOverlayText->setHeight(height/3.0f*2);
 	mHelpOverlayText->setParameter("font_name", "Lucida");
 	mHelpOverlayText->setParameter("char_height", "14");
 	mHelpOverlayText->setParameter("horz_align", "left");
 	mHelpOverlayText->setCaption("");
-	mHelpOverlayText->setColour(Ogre::ColourValue(0.8, 0.8, 1));
+	mHelpOverlayText->setColour(Ogre::ColourValue(0.8f, 0.8f, 1.0f));
 
 	mHelpOverlay->addChild(mHelpOverlayText);
 

@@ -55,6 +55,7 @@ using namespace ATL;
 #include <sstream>
 #include <algorithm>
 #include <numeric>
+#include <ostream>
 
 // boost stuff
 #define BOOST_LIB_DIAGNOSTIC

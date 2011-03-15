@@ -14,7 +14,10 @@
 
 /// ExtendedCamera base class
 class ExtendedCamera {
+
 protected:
+
+	// TODO
 	Ogre::SceneNode *mTargetNode;		// The camera target
 	Ogre::SceneNode *mCameraNode;		// The camera itself
 	Ogre::Camera *mCamera;				// Ogre camera

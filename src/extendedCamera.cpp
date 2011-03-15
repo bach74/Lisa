@@ -50,7 +50,7 @@ ExtendedCamera::ExtendedCamera(Ogre::String name, Ogre::SceneManager* sceneMgr, 
 	//  mCamera->setPolygonMode(Ogre::PolygonMode::PM_WIREFRAME);
 	//  mCamera->setLodBias(0.3);
 
-	mCamera->setNearClipDistance(0.1);
+	mCamera->setNearClipDistance(0.1f);
 
 	// Infinite far plane?
 	if (Ogre::Root::getSingleton().getRenderSystem()->getCapabilities()->hasCapability(Ogre::RSC_INFINITE_FAR_PLANE))
@@ -91,13 +91,13 @@ ExtendedCamera::~ExtendedCamera()
 }
 
 /**-------------------------------------------------------------------------------
-    update camera position
+	update camera position
 
-    \param mbtn (const OIS::MouseButtonID &)
-    \param mstate (const OIS::MouseState &)
-    \param currentObject (Ogre::String &)
-    \param ctrlHold (bool)
-    \return (void)
+	\param mbtn (const OIS::MouseButtonID &)
+	\param mstate (const OIS::MouseState &)
+	\param currentObject (Ogre::String &)
+	\param ctrlHold (bool)
+	\return (void)
  -----------------------------------------------------------------------------*/
 void ExtendedCamera::updateCamera(const OIS::MouseButtonID& mbtn, const OIS::MouseState& mstate, Ogre::String& currentObject, bool ctrlHold)
 {
@@ -146,7 +146,7 @@ void ExtendedCamera::updateCamera(const OIS::MouseButtonID& mbtn, const OIS::Mou
 		case(OIS::MB_Right) :
 		{
 			// get current camera
-			double transSpeed = mCamera->getRealPosition().length() * translateSpeed;
+			Ogre::Real transSpeed = mCamera->getRealPosition().length() * translateSpeed;
 			Ogre::Vector3 offs(mstate.X.rel * transSpeed, -mstate.Y.rel * transSpeed, mstate.Z.rel);
 			mCamera->moveRelative(offs);
 		}
@@ -155,13 +155,13 @@ void ExtendedCamera::updateCamera(const OIS::MouseButtonID& mbtn, const OIS::Mou
 }
 
 /**-------------------------------------------------------------------------------
-    handle mouse picking
+	handle mouse picking
 
-    \param x (float)
-    \param y (float)
-    \param currentObject (std::string &)
-    \param moveObject (bool)
-    \return (void)
+	\param x (float)
+	\param y (float)
+	\param currentObject (std::string &)
+	\param moveObject (bool)
+	\return (void)
  -----------------------------------------------------------------------------*/
 std::string ExtendedCamera::mousePick(float x, float y, std::string& currentObject, bool moveObject)
 {
@@ -169,11 +169,11 @@ std::string ExtendedCamera::mousePick(float x, float y, std::string& currentObje
 }
 
 /**-------------------------------------------------------------------------------
-    selected object
-        get actual mesh from the nxOgre's body and perform some
-        visualization so that user can perceive that this object
-        is selected
-        \return object name
+	selected object
+		get actual mesh from the nxOgre's body and perform some
+		visualization so that user can perceive that this object
+		is selected
+		\return object name
 --------------------------------------------------------------------------------*/
 std::string ExtendedCamera::selectObject(Ogre::Entity* entity)
 {
@@ -200,10 +200,10 @@ std::string ExtendedCamera::selectObject(Ogre::Entity* entity)
 }
 
 /**-------------------------------------------------------------------------------
-    unselected previously selected object
+	unselected previously selected object
 
-    \param entity (Ogre::Entity *)
-    \return (void)
+	\param entity (Ogre::Entity *)
+	\return (void)
  -----------------------------------------------------------------------------*/
 void ExtendedCamera::unselectObject(Ogre::Entity* entity)
 {

@@ -9,8 +9,6 @@
 #ifndef __CONTROLLER_H__
 #define __CONTROLLER_H__
 
-#include "logger.h"
-
 template <typename T>
 class Controller
 {
@@ -20,12 +18,14 @@ class Controller
 		virtual ~Controller() {};
 
 		void setInput(const T& val) { mInput=val; }
-		void getInput(T& ret) { ret=mInput; }
+		void getInput(T& ret) const { ret=mInput; }
 
-		void getOutput(T& ret) { ret=mOutput; }
+		void getOutput(T& ret) const { ret=mOutput; }
 
 		void setSetpoint(const T& val) { mSetpoint=val; }
-		void getSetpoint(T& ret) { ret=mSetpoint; }
+		void getSetpoint(T& ret) const { ret=mSetpoint; }
+
+		virtual void getParameters(std::vector<T>& ret) const = 0;
 
 		/**-------------------------------------------------------------------------------
 			Calculate controller internal values and mStates.
@@ -34,8 +34,8 @@ class Controller
 			\param      sample_time
 			\return depends on implementation
 		--------------------------------------------------------------------------------*/
-		virtual double calculate(double sample_time) = 0;
-		virtual double calculate(double error, double sample_time) = 0;
+		virtual double calculate(float sample_time) = 0;
+		virtual double calculate(double error, float sample_time) = 0;
 
 
 	protected:

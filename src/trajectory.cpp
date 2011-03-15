@@ -9,6 +9,9 @@
 
 #include "stdafx.h"
 #include "trajectory.h"
+#include "actuator.h"
+#include "joint.h"
+#include "trajectoryQueue.h"
 #include "..\dependencies-include\tinyxml\tinyxml.h"
 #include "..\dependencies-include\tinyxml\tinyxml.cpp"
 #include "..\dependencies-include\tinyxml\tinyxmlparser.cpp"
@@ -18,11 +21,11 @@
 
 
 /**-------------------------------------------------------------------------------
-    Trajectory
+	Trajectory
 
-    @brief
-    @param filename
-    @return
+	@brief
+	@param filename
+	@return
 ---------------------------------------------------------------------------------*/
 Trajectory::Trajectory(const std::string& filename)
 {
@@ -41,38 +44,38 @@ Trajectory::Trajectory(const std::string& filename)
 }
 
 /**-------------------------------------------------------------------------------
-    ~Trajectory
+	~Trajectory
 
-    @brief
-    @return
+	@brief
+	@return
 ---------------------------------------------------------------------------------*/
 Trajectory::~Trajectory()
 {
 }
 
 /**-------------------------------------------------------------------------------
-    addQueue
+	addQueue
 
-    @brief
-    @param q
-    @return void
+	@brief
+	@param q
+	@return void
 ---------------------------------------------------------------------------------*/
 void Trajectory::addQueue(boost::shared_ptr<TrajectoryQueue> q)
 {
 	mQueue.push_back(q);
 
 	std::sort(mQueue.begin(), mQueue.end(), boost::bind(
-	              std::less<double>(),
-	              boost::bind(&TrajectoryQueue::mTime, _1),
-	              boost::bind(&TrajectoryQueue::mTime, _2)));
+				  std::less<double>(),
+				  boost::bind(&TrajectoryQueue::mTime, _1),
+				  boost::bind(&TrajectoryQueue::mTime, _2)));
 
 }
 
 /**-------------------------------------------------------------------------------
-    update
+	update
 
-    @brief
-    @return void
+	@brief
+	@return void
 ---------------------------------------------------------------------------------*/
 void Trajectory::update()
 {
@@ -98,12 +101,12 @@ void Trajectory::update()
 }
 
 /**-------------------------------------------------------------------------------
-    load actuator trajectory from XML file
+	load actuator trajectory from XML file
 
-    @brief
-    @param actuators
-    @param filename
-    @return void
+	@brief
+	@param actuators
+	@param filename
+	@return void
 ---------------------------------------------------------------------------------*/
 void Trajectory::load(const std::vector<boost::shared_ptr<Actuator > >& actuators)
 {

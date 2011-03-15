@@ -15,16 +15,19 @@
 #include "sensorCOPGraph.h"
 #include "config.h"
 #include "simulationImpl.h"
-
+#include "sensors.h"
+#include "scene.h"
+#include "actuators.h"
+#include "joint.h"
 
 #define N_GRAPHS 5
 
 /**-------------------------------------------------------------------------------
-    LineGraphFactory
+	LineGraphFactory
 
-    @brief
-    @param simulation
-    @return
+	@brief
+	@param simulation
+	@return
 ---------------------------------------------------------------------------------*/
 LineGraphFactory::LineGraphFactory(Simulation* simulation)
 {
@@ -35,8 +38,8 @@ LineGraphFactory::LineGraphFactory(Simulation* simulation)
 		throw Exception("Simulation is NULL", "LineGraphFactory");
 	}
 
-	float height = mSimulation->getScene()->getWindow().getHeight() - 1;
-	float width = mSimulation->getScene()->getWindow().getWidth() - 1;
+	float height = mSimulation->getScene()->getWindow().getHeight() - 1.0f;
+	float width = mSimulation->getScene()->getWindow().getWidth() - 1.0f;
 
 	float graphWidth = width/2.4f ;
 	float graphHeight = height / N_GRAPHS*0.98f;
@@ -55,8 +58,8 @@ LineGraphFactory::LineGraphFactory(Simulation* simulation)
 		float x = sizeX;
 		float y = sizeY * mGraphs.size();
 		std::string jointName = a.getJoint()->getName();
-		boost::shared_ptr<LineGraphWidget> gw(new ControllerLineGraph(c, jointName.c_str(), 1, 1, height, width, x, y,
-		                                      graphWidth, graphHeight, &mSimulation->getScene()->getSceneManager()));
+		boost::shared_ptr<LineGraphWidget> gw(new ControllerLineGraph(c, jointName.c_str(), 1.0f, 1.0f, height, width, x, y,
+											  graphWidth, graphHeight, &mSimulation->getScene()->getSceneManager()));
 
 		gw->setGraphTitle(jointName.c_str());
 		gw->setXAxisTitle("t[s]");
@@ -84,7 +87,7 @@ LineGraphFactory::LineGraphFactory(Simulation* simulation)
 			float x = sizeX;
 			float y = sizeY * mGraphs.size();
 			boost::shared_ptr<LineGraphWidget> gw(new SensorLineGraph(sensorZMP, sensorName.c_str(), 1, 1, height, width, x,
-			                                      y, graphWidth, graphHeight, &mSimulation->getScene()->getSceneManager()));
+												  y, graphWidth, graphHeight, &mSimulation->getScene()->getSceneManager()));
 
 			gw->setGraphTitle(sensorName.c_str());
 			gw->setXAxisTitle("t[s]");
@@ -109,8 +112,8 @@ LineGraphFactory::LineGraphFactory(Simulation* simulation)
 
 			float x = sizeX;
 			float y = sizeY * mGraphs.size();
-			boost::shared_ptr<LineGraphWidget> gw(new SensorCOPGraph(sensorCOP, sensorName.c_str(), 1, 1, height, width, x,
-			                                      y, graphWidth, graphHeight, &mSimulation->getScene()->getSceneManager()));
+			boost::shared_ptr<LineGraphWidget> gw(new SensorCOPGraph(sensorCOP, sensorName.c_str(), 1.0f, 1.0f, height, width, x,
+												  y, graphWidth, graphHeight, &mSimulation->getScene()->getSceneManager()));
 
 			gw->setGraphTitle(sensorName.c_str());
 			gw->setXAxisTitle("x-pos");
@@ -132,11 +135,11 @@ LineGraphFactory::LineGraphFactory(Simulation* simulation)
 }
 
 /**-------------------------------------------------------------------------------
-    ~LineGraphFactory
+	~LineGraphFactory
 
-    @brief
-    @param
-    @return
+	@brief
+	@param
+	@return
 ---------------------------------------------------------------------------------*/
 LineGraphFactory::~LineGraphFactory()
 {

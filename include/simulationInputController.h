@@ -10,10 +10,11 @@
 #define __SIMULATIONINPUTCONTROLLER_H__
 
 #include "inputManager.h"
-#include "simulation.h"
-#include "viewDebugger.h"
-#include "viewHelp.h"
-#include "LineGraphFactory.h"
+
+class Simulation;
+class ViewDebugger;
+class ViewHelp;
+class LineGraphFactory;
 
 class SimulationInputController : public OIS::KeyListener, OIS::MouseListener
 {

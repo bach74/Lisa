@@ -61,6 +61,10 @@ namespace NxOgre {
 #include "..\src\trajectory.cpp"
 #include "..\src\logger.cpp"
 #include "..\src\trajectoryQueue.cpp"
+//mock
+Actuator::Actuator(Joint* joint, Controller<double>* controller, Sensor<double, Joint>* sensor) {
+	mName="mock object";
+}
 
 Config::Config(){};
 Config::~Config(){};
@@ -81,14 +85,15 @@ private:
 
 	class MyController : public Controller<double> {
 		public:
-			virtual double calculate(double sample_time){return 0;}
-			virtual double calculate(double error, double sample_time){return 0;}
+			virtual double calculate(float sample_time){return 0;}
+			virtual double calculate(double error, float sample_time){return 0;}
+			void getParameters(std::vector<double>& ret) const{};
 	};
 
 	class MyActuator : public Actuator {
 		public:
 			MyActuator(const std::string& name) : Actuator(new MyJoint(name), new MyController(), NULL){}
-			virtual void update(double currentTime, double sampleTime) {}
+			virtual void update(float currentTime, float sampleTime) {}
 	};
 
 public:

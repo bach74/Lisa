@@ -12,8 +12,8 @@
 #include "controllerPID.h"
 
 /**-------------------------------------------------------------------------------
-    ctor
-    initialize controller
+	ctor
+	initialize controller
 --------------------------------------------------------------------------------*/
 ControllerPID::ControllerPID(double Kp, double Ti, double Td, double out_max)
 {
@@ -34,26 +34,26 @@ ControllerPID::ControllerPID(double Kp, double Ti, double Td, double out_max)
 }
 
 /**-------------------------------------------------------------------------------
-    Update controller internal values and mStates.
+	Update controller internal values and mStates.
 
-    \param      error
-    \param      sample_time
-    \return controller output
+	\param      error
+	\param      sample_time
+	\return controller output
 --------------------------------------------------------------------------------*/
-double ControllerPID::calculate(double sample_time)
+double ControllerPID::calculate(float sample_time)
 {
 	return calculate(mSetpoint - mInput, sample_time);
 }
 
 /**-------------------------------------------------------------------------------
-    calculate
+	calculate
 
-    @brief
-    @param error
-    @param sample_time
-    @return double
+	@brief
+	@param error
+	@param sample_time
+	@return double
 ---------------------------------------------------------------------------------*/
-double ControllerPID::calculate(double error, double sample_time)
+double ControllerPID::calculate(double error, float sample_time)
 {
 	// better PID control response, with derivative output based on
 	// process value (input) instead of set-point
@@ -94,4 +94,19 @@ double ControllerPID::calculate(double error, double sample_time)
 	mOutput = uc;
 
 	return uc;
+}
+
+
+/**-------------------------------------------------------------------------------
+	getParameters
+
+	@brief return controller parameters
+	@param ret return value
+	@return double
+---------------------------------------------------------------------------------*/
+void ControllerPID::getParameters( std::vector<double>& ret ) const
+{
+	ret.push_back(Kp);
+	ret.push_back(Ti);
+	ret.push_back(Td);
 }

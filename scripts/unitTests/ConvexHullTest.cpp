@@ -39,7 +39,7 @@ class ConvexHullTest : public cfixcc::TestFixture
 			CFIXCC_ASSERT_LESS(fabs(1 - ret[4].z), eps);
 
 
-			float xd=g.getMinDistanceX(Ogre::Vector3(1,0,1),Ogre::Vector3(-1,0,1), Ogre::Vector3(0.5,0,0.2));
+			float xd=g.getMinDistanceX(Ogre::Vector3(1,0,1),Ogre::Vector3(-1,0,1), Ogre::Vector3(0.5f,0,0.2f));
 			xd=g.getMinDistanceX(Ogre::Vector3(-1,0,-1),Ogre::Vector3(-1,0,1), Ogre::Vector3(-1,0,0));
 
 			Ogre::Vector3 p = Ogre::Vector3(0.0f, 0.0f, 0.0f);
@@ -196,8 +196,8 @@ class ConvexHullTest : public cfixcc::TestFixture
 
 			std::vector<Ogre::Vector3> points;
 
-			float x[4] = { -6.3951168, -6.3851147, -1.5870258, -1.5970277};
-			float y[4] = {5.3782315, -2.3468137, -2.3406014, 5.3844428};
+			float x[4] = { -6.3951168f, -6.3851147f, -1.5870258f, -1.5970277f};
+			float y[4] = {5.3782315f, -2.3468137f, -2.3406014f, 5.3844428f};
 
 			for (int i = 0; i < 4; ++i)
 			{
@@ -209,7 +209,7 @@ class ConvexHullTest : public cfixcc::TestFixture
 			g.partition_points();
 			std::vector<Ogre::Vector3> ret = g.build_hull();
 
-			Ogre::Vector3 p = Ogre::Vector3(-4.6299214, 0, 2.9168518);
+			Ogre::Vector3 p = Ogre::Vector3(-4.6299214f, 0, 2.9168518f);
 
 			std::vector<float> distancesX;
 			std::vector<float> distancesY;

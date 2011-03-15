@@ -63,7 +63,7 @@ void Conversion::SAFEARRAY2vector(SAFEARRAY& sa, std::vector<double>& vect)
 	\param vect (Ogre::Vector3 &)
 	\return (SAFEARRAY*)
  -----------------------------------------------------------------------------*/
-SAFEARRAY* Conversion::Vector3toSAFEARRAY(Ogre::Vector3& vect)
+SAFEARRAY* Conversion::Vector3toSAFEARRAY(const Ogre::Vector3& vect)
 {
 	SAFEARRAY* sa=new SAFEARRAY();
 

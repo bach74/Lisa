@@ -1,16 +1,32 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lisa50", "scripts\LisaMain.vcproj", "{C6D5DC0D-0BB6-4683-B201-1F93FAFF3C38}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7C13B159-BCAE-4C09-AFFC-BC04CB693C9F}"
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Main Project", "Main Project", "{7C13B159-BCAE-4C09-AFFC-BC04CB693C9F}"
 	ProjectSection(SolutionItems) = preProject
 		LisaMain.vsd = LisaMain.vsd
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "unitTests", "scripts\unitTests\unitTests.vcproj", "{5E496AAE-CDC7-4CF6-81BE-B53E4B21C1D1}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lisa50", "scripts\LisaMain.vcxproj", "{C6D5DC0D-0BB6-4683-B201-1F93FAFF3C38}"
+	ProjectSection(ProjectDependencies) = postProject
+		{85B64612-296A-454F-853C-DB809F80F689} = {85B64612-296A-454F-853C-DB809F80F689}
+	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lisa_static_libs", "scripts\lisa_static_libs.vcproj", "{85B64612-296A-454F-853C-DB809F80F689}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "unitTests", "scripts\unitTests\unitTests.vcxproj", "{5E496AAE-CDC7-4CF6-81BE-B53E4B21C1D1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C6D5DC0D-0BB6-4683-B201-1F93FAFF3C38} = {C6D5DC0D-0BB6-4683-B201-1F93FAFF3C38}
+		{85B64612-296A-454F-853C-DB809F80F689} = {85B64612-296A-454F-853C-DB809F80F689}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lisa_static_libs", "scripts\lisa_static_libs.vcxproj", "{85B64612-296A-454F-853C-DB809F80F689}"
+	ProjectSection(ProjectDependencies) = postProject
+		{268E4979-D53F-4B6A-9ED9-5479456E0FBE} = {268E4979-D53F-4B6A-9ED9-5479456E0FBE}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "nxOgre", "scripts\nxOgre\nxOgre.vcxproj", "{268E4979-D53F-4B6A-9ED9-5479456E0FBE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dependencies", "Dependencies", "{CA68C6BE-3CE1-43B0-8514-81793E68319D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{3B19A094-3F93-445D-A263-DFC1D97A5F9E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -52,13 +68,25 @@ Global
 		{85B64612-296A-454F-853C-DB809F80F689}.Release|Mixed Platforms.Build.0 = Release|Win32
 		{85B64612-296A-454F-853C-DB809F80F689}.Release|Win32.ActiveCfg = Release|Win32
 		{85B64612-296A-454F-853C-DB809F80F689}.Release|Win32.Build.0 = Release|Win32
+		{268E4979-D53F-4B6A-9ED9-5479456E0FBE}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{268E4979-D53F-4B6A-9ED9-5479456E0FBE}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{268E4979-D53F-4B6A-9ED9-5479456E0FBE}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{268E4979-D53F-4B6A-9ED9-5479456E0FBE}.Debug|Win32.ActiveCfg = Debug|Win32
+		{268E4979-D53F-4B6A-9ED9-5479456E0FBE}.Debug|Win32.Build.0 = Debug|Win32
+		{268E4979-D53F-4B6A-9ED9-5479456E0FBE}.Release|Any CPU.ActiveCfg = Release|Win32
+		{268E4979-D53F-4B6A-9ED9-5479456E0FBE}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{268E4979-D53F-4B6A-9ED9-5479456E0FBE}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{268E4979-D53F-4B6A-9ED9-5479456E0FBE}.Release|Win32.ActiveCfg = Release|Win32
+		{268E4979-D53F-4B6A-9ED9-5479456E0FBE}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{C6D5DC0D-0BB6-4683-B201-1F93FAFF3C38} = {7C13B159-BCAE-4C09-AFFC-BC04CB693C9F}
-		{5E496AAE-CDC7-4CF6-81BE-B53E4B21C1D1} = {7C13B159-BCAE-4C09-AFFC-BC04CB693C9F}
+		{85B64612-296A-454F-853C-DB809F80F689} = {CA68C6BE-3CE1-43B0-8514-81793E68319D}
+		{268E4979-D53F-4B6A-9ED9-5479456E0FBE} = {CA68C6BE-3CE1-43B0-8514-81793E68319D}
+		{5E496AAE-CDC7-4CF6-81BE-B53E4B21C1D1} = {3B19A094-3F93-445D-A263-DFC1D97A5F9E}
 	EndGlobalSection
 	GlobalSection(DPCodeReviewSolutionGUID) = preSolution
 		DPCodeReviewSolutionGUID = {00000000-0000-0000-0000-000000000000}

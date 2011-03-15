@@ -3,18 +3,18 @@
 /* this ALWAYS GENERATED file contains the definitions for the interfaces */
 
 
- /* File created by MIDL compiler version 7.00.0500 */
-/* at Fri Feb 18 13:29:37 2011
+ /* File created by MIDL compiler version 7.00.0555 */
+/* at Tue Mar 08 18:05:49 2011
  */
 /* Compiler settings for ..\src\com\Lisa50.idl:
-    Oicf, W1, Zp8, env=Win32 (32b run)
+    Oicf, W1, Zp8, env=Win32 (32b run), target_arch=X86 7.00.0555 
     protocol : dce , ms_ext, c_ext
     error checks: allocation ref bounds_check enum stub_data 
     VC __declspec() decoration level: 
          __declspec(uuid()), __declspec(selectany), __declspec(novtable)
          DECLSPEC_UUID(), MIDL_INTERFACE()
 */
-//@@MIDL_FILE_HEADING(  )
+/* @@MIDL_FILE_HEADING(  ) */
 
 #pragma warning( disable: 4049 )  /* more than 64k source lines */
 
@@ -149,7 +149,7 @@ EXTERN_C const IID IID_ILisaCOMController;
             /* [in] */ USHORT i,
             /* [retval][out] */ DOUBLE *pVal) = 0;
         
-        virtual /* [helpstring][id] */ HRESULT STDMETHODCALLTYPE setReference( 
+        virtual /* [helpstring][id] */ HRESULT STDMETHODCALLTYPE setSetpoint( 
             /* [in] */ USHORT i,
             /* [in] */ USHORT numRef,
             /* [in] */ DOUBLE Val) = 0;
@@ -171,7 +171,7 @@ EXTERN_C const IID IID_ILisaCOMController;
             /* [in] */ USHORT i,
             /* [retval][out] */ DOUBLE *pVal) = 0;
         
-        virtual /* [helpstring][id] */ HRESULT STDMETHODCALLTYPE getReference( 
+        virtual /* [helpstring][id] */ HRESULT STDMETHODCALLTYPE getSetpoint( 
             /* [in] */ USHORT i,
             USHORT numRef,
             /* [retval][out] */ DOUBLE *retVal) = 0;
@@ -187,7 +187,7 @@ EXTERN_C const IID IID_ILisaCOMController;
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             ILisaCOMController * This,
             /* [in] */ REFIID riid,
-            /* [iid_is][out] */ 
+            /* [annotation][iid_is][out] */ 
             __RPC__deref_out  void **ppvObject);
         
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
@@ -243,7 +243,7 @@ EXTERN_C const IID IID_ILisaCOMController;
             /* [in] */ USHORT i,
             /* [retval][out] */ DOUBLE *pVal);
         
-        /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *setReference )( 
+        /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *setSetpoint )( 
             ILisaCOMController * This,
             /* [in] */ USHORT i,
             /* [in] */ USHORT numRef,
@@ -270,7 +270,7 @@ EXTERN_C const IID IID_ILisaCOMController;
             /* [in] */ USHORT i,
             /* [retval][out] */ DOUBLE *pVal);
         
-        /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *getReference )( 
+        /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *getSetpoint )( 
             ILisaCOMController * This,
             /* [in] */ USHORT i,
             USHORT numRef,
@@ -324,8 +324,8 @@ EXTERN_C const IID IID_ILisaCOMController;
 #define ILisaCOMController_getPosition(This,i,pVal)	\
     ( (This)->lpVtbl -> getPosition(This,i,pVal) ) 
 
-#define ILisaCOMController_setReference(This,i,numRef,Val)	\
-    ( (This)->lpVtbl -> setReference(This,i,numRef,Val) ) 
+#define ILisaCOMController_setSetpoint(This,i,numRef,Val)	\
+    ( (This)->lpVtbl -> setSetpoint(This,i,numRef,Val) ) 
 
 #define ILisaCOMController_getVelocity(This,i,pVal)	\
     ( (This)->lpVtbl -> getVelocity(This,i,pVal) ) 
@@ -339,8 +339,8 @@ EXTERN_C const IID IID_ILisaCOMController;
 #define ILisaCOMController_getTorque(This,i,pVal)	\
     ( (This)->lpVtbl -> getTorque(This,i,pVal) ) 
 
-#define ILisaCOMController_getReference(This,i,numRef,retVal)	\
-    ( (This)->lpVtbl -> getReference(This,i,numRef,retVal) ) 
+#define ILisaCOMController_getSetpoint(This,i,numRef,retVal)	\
+    ( (This)->lpVtbl -> getSetpoint(This,i,numRef,retVal) ) 
 
 #endif /* COBJMACROS */
 
@@ -382,7 +382,7 @@ EXTERN_C const IID IID_ILisaCOMTrajectory;
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             ILisaCOMTrajectory * This,
             /* [in] */ REFIID riid,
-            /* [iid_is][out] */ 
+            /* [annotation][iid_is][out] */ 
             __RPC__deref_out  void **ppvObject);
         
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
@@ -504,10 +504,10 @@ EXTERN_C const IID IID_ILisaCOM;
         virtual /* [helpstring][id] */ HRESULT STDMETHODCALLTYPE getCOPPosition( 
             /* [retval][out] */ VARIANT *point) = 0;
         
+        virtual /* [helpstring][id] */ HRESULT STDMETHODCALLTYPE close( void) = 0;
+        
         virtual /* [helpstring][id] */ HRESULT STDMETHODCALLTYPE getCOPForce( 
             /* [retval][out] */ VARIANT *force) = 0;
-        
-        virtual /* [helpstring][id] */ HRESULT STDMETHODCALLTYPE close( void) = 0;
         
         virtual /* [helpstring][id][propget] */ HRESULT STDMETHODCALLTYPE get_numLinks( 
             /* [retval][out] */ SHORT *pVal) = 0;
@@ -522,8 +522,11 @@ EXTERN_C const IID IID_ILisaCOM;
         virtual /* [helpstring][id][propget] */ HRESULT STDMETHODCALLTYPE get_time( 
             /* [retval][out] */ DOUBLE *pVal) = 0;
         
-        virtual /* [helpstring][id] */ HRESULT STDMETHODCALLTYPE Pause( 
+        virtual /* [helpstring][id] */ HRESULT STDMETHODCALLTYPE pause( 
             /* [in] */ SHORT pause) = 0;
+        
+        virtual /* [helpstring][id] */ HRESULT STDMETHODCALLTYPE isPaused( 
+            /* [retval][out] */ SHORT *pause) = 0;
         
     };
     
@@ -536,7 +539,7 @@ EXTERN_C const IID IID_ILisaCOM;
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             ILisaCOM * This,
             /* [in] */ REFIID riid,
-            /* [iid_is][out] */ 
+            /* [annotation][iid_is][out] */ 
             __RPC__deref_out  void **ppvObject);
         
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
@@ -593,12 +596,12 @@ EXTERN_C const IID IID_ILisaCOM;
             ILisaCOM * This,
             /* [retval][out] */ VARIANT *point);
         
+        /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *close )( 
+            ILisaCOM * This);
+        
         /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *getCOPForce )( 
             ILisaCOM * This,
             /* [retval][out] */ VARIANT *force);
-        
-        /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *close )( 
-            ILisaCOM * This);
         
         /* [helpstring][id][propget] */ HRESULT ( STDMETHODCALLTYPE *get_numLinks )( 
             ILisaCOM * This,
@@ -617,9 +620,13 @@ EXTERN_C const IID IID_ILisaCOM;
             ILisaCOM * This,
             /* [retval][out] */ DOUBLE *pVal);
         
-        /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *Pause )( 
+        /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *pause )( 
             ILisaCOM * This,
             /* [in] */ SHORT pause);
+        
+        /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *isPaused )( 
+            ILisaCOM * This,
+            /* [retval][out] */ SHORT *pause);
         
         END_INTERFACE
     } ILisaCOMVtbl;
@@ -669,11 +676,11 @@ EXTERN_C const IID IID_ILisaCOM;
 #define ILisaCOM_getCOPPosition(This,point)	\
     ( (This)->lpVtbl -> getCOPPosition(This,point) ) 
 
-#define ILisaCOM_getCOPForce(This,force)	\
-    ( (This)->lpVtbl -> getCOPForce(This,force) ) 
-
 #define ILisaCOM_close(This)	\
     ( (This)->lpVtbl -> close(This) ) 
+
+#define ILisaCOM_getCOPForce(This,force)	\
+    ( (This)->lpVtbl -> getCOPForce(This,force) ) 
 
 #define ILisaCOM_get_numLinks(This,pVal)	\
     ( (This)->lpVtbl -> get_numLinks(This,pVal) ) 
@@ -687,8 +694,11 @@ EXTERN_C const IID IID_ILisaCOM;
 #define ILisaCOM_get_time(This,pVal)	\
     ( (This)->lpVtbl -> get_time(This,pVal) ) 
 
-#define ILisaCOM_Pause(This,pause)	\
-    ( (This)->lpVtbl -> Pause(This,pause) ) 
+#define ILisaCOM_pause(This,pause)	\
+    ( (This)->lpVtbl -> pause(This,pause) ) 
+
+#define ILisaCOM_isPaused(This,pause)	\
+    ( (This)->lpVtbl -> isPaused(This,pause) ) 
 
 #endif /* COBJMACROS */
 
@@ -736,7 +746,7 @@ EXTERN_C const IID DIID__ILisaCOMControllerEvents;
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             _ILisaCOMControllerEvents * This,
             /* [in] */ REFIID riid,
-            /* [iid_is][out] */ 
+            /* [annotation][iid_is][out] */ 
             __RPC__deref_out  void **ppvObject);
         
         ULONG ( STDMETHODCALLTYPE *AddRef )( 
@@ -859,7 +869,7 @@ EXTERN_C const IID DIID__ILisaCOMEvents;
         HRESULT ( STDMETHODCALLTYPE *QueryInterface )( 
             _ILisaCOMEvents * This,
             /* [in] */ REFIID riid,
-            /* [iid_is][out] */ 
+            /* [annotation][iid_is][out] */ 
             __RPC__deref_out  void **ppvObject);
         
         ULONG ( STDMETHODCALLTYPE *AddRef )( 

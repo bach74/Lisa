@@ -1,6 +1,6 @@
 #include "StdAfx.h"
 #include <cfixcc.h>
-#include "math\FloatMath.h"
+#include "FloatMath.h"
 
 #pragma warning(disable:4996)
 

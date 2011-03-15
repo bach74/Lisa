@@ -3,18 +3,18 @@
 /* this ALWAYS GENERATED file contains the proxy stub code */
 
 
- /* File created by MIDL compiler version 7.00.0500 */
-/* at Sat Dec 25 20:20:58 2010
+ /* File created by MIDL compiler version 7.00.0555 */
+/* at Tue Mar 08 18:05:49 2011
  */
 /* Compiler settings for ..\src\com\Lisa50.idl:
-    Oicf, W1, Zp8, env=Win32 (32b run)
+    Oicf, W1, Zp8, env=Win32 (32b run), target_arch=X86 7.00.0555 
     protocol : dce , ms_ext, c_ext
     error checks: allocation ref bounds_check enum stub_data 
     VC __declspec() decoration level: 
          __declspec(uuid()), __declspec(selectany), __declspec(novtable)
          DECLSPEC_UUID(), MIDL_INTERFACE()
 */
-//@@MIDL_FILE_HEADING(  )
+/* @@MIDL_FILE_HEADING(  ) */
 
 #if !defined(_M_IA64) && !defined(_M_AMD64)
 
@@ -44,13 +44,13 @@
 #include "rpcproxy.h"
 #ifndef __RPCPROXY_H_VERSION__
 #error this stub requires an updated version of <rpcproxy.h>
-#endif // __RPCPROXY_H_VERSION__
+#endif /* __RPCPROXY_H_VERSION__ */
 
 
 #include "Lisa50.h"
 
 #define TYPE_FORMAT_STRING_SIZE   1063                              
-#define PROC_FORMAT_STRING_SIZE   667                               
+#define PROC_FORMAT_STRING_SIZE   695                               
 #define EXPR_FORMAT_STRING_SIZE   1                                 
 #define TRANSMIT_AS_TABLE_SIZE    0            
 #define WIRE_MARSHAL_TABLE_SIZE   2            
@@ -74,7 +74,7 @@ typedef struct _Lisa50_MIDL_EXPR_FORMAT_STRING
     } Lisa50_MIDL_EXPR_FORMAT_STRING;
 
 
-static RPC_SYNTAX_IDENTIFIER  _RpcTransferSyntax = 
+static const RPC_SYNTAX_IDENTIFIER  _RpcTransferSyntax = 
 {{0x8A885D04,0x1CEB,0x11C9,{0x9F,0xE8,0x08,0x00,0x2B,0x10,0x48,0x60}},{2,0}};
 
 
@@ -111,7 +111,7 @@ extern const USER_MARSHAL_ROUTINE_QUADRUPLE UserMarshalRoutines[ WIRE_MARSHAL_TA
 #endif
 
 #if !(TARGET_IS_NT40_OR_LATER)
-#error You need a Windows NT 4.0 or later to run this stub because it uses these features:
+#error You need Windows NT 4.0 or later to run this stub because it uses these features:
 #error   -Oif or -Oicf, [wire_marshal] or [user_marshal] attribute, float, double or hyper in -Oif or -Oicf.
 #error However, your C/C++ compilation flags indicate you intend to run this app on earlier systems.
 #error This app will fail with the RPC_X_WRONG_STUB_VERSION error.
@@ -251,7 +251,7 @@ static const Lisa50_MIDL_PROC_FORMAT_STRING Lisa50__MIDL_ProcFormatString =
 /* 122 */	0x8,		/* FC_LONG */
 			0x0,		/* 0 */
 
-	/* Procedure setReference */
+	/* Procedure setSetpoint */
 
 /* 124 */	0x33,		/* FC_AUTO_HANDLE */
 			0x6c,		/* Old Flags:  object, Oi2 */
@@ -429,7 +429,7 @@ static const Lisa50_MIDL_PROC_FORMAT_STRING Lisa50__MIDL_ProcFormatString =
 /* 304 */	0x8,		/* FC_LONG */
 			0x0,		/* 0 */
 
-	/* Procedure getReference */
+	/* Procedure getSetpoint */
 
 /* 306 */	0x33,		/* FC_AUTO_HANDLE */
 			0x6c,		/* Old Flags:  object, Oi2 */
@@ -584,47 +584,47 @@ static const Lisa50_MIDL_PROC_FORMAT_STRING Lisa50__MIDL_ProcFormatString =
 /* 468 */	0x8,		/* FC_LONG */
 			0x0,		/* 0 */
 
-	/* Procedure getCOPForce */
+	/* Procedure close */
 
 /* 470 */	0x33,		/* FC_AUTO_HANDLE */
 			0x6c,		/* Old Flags:  object, Oi2 */
 /* 472 */	NdrFcLong( 0x0 ),	/* 0 */
 /* 476 */	NdrFcShort( 0xb ),	/* 11 */
-/* 478 */	NdrFcShort( 0xc ),	/* x86 Stack size/offset = 12 */
+/* 478 */	NdrFcShort( 0x8 ),	/* x86 Stack size/offset = 8 */
 /* 480 */	NdrFcShort( 0x0 ),	/* 0 */
 /* 482 */	NdrFcShort( 0x8 ),	/* 8 */
-/* 484 */	0x5,		/* Oi2 Flags:  srv must size, has return, */
-			0x2,		/* 2 */
-
-	/* Parameter force */
-
-/* 486 */	NdrFcShort( 0x4113 ),	/* Flags:  must size, must free, out, simple ref, srv alloc size=16 */
-/* 488 */	NdrFcShort( 0x4 ),	/* x86 Stack size/offset = 4 */
-/* 490 */	NdrFcShort( 0x3f8 ),	/* Type Offset=1016 */
-
-	/* Return value */
-
-/* 492 */	NdrFcShort( 0x70 ),	/* Flags:  out, return, base type, */
-/* 494 */	NdrFcShort( 0x8 ),	/* x86 Stack size/offset = 8 */
-/* 496 */	0x8,		/* FC_LONG */
-			0x0,		/* 0 */
-
-	/* Procedure close */
-
-/* 498 */	0x33,		/* FC_AUTO_HANDLE */
-			0x6c,		/* Old Flags:  object, Oi2 */
-/* 500 */	NdrFcLong( 0x0 ),	/* 0 */
-/* 504 */	NdrFcShort( 0xc ),	/* 12 */
-/* 506 */	NdrFcShort( 0x8 ),	/* x86 Stack size/offset = 8 */
-/* 508 */	NdrFcShort( 0x0 ),	/* 0 */
-/* 510 */	NdrFcShort( 0x8 ),	/* 8 */
-/* 512 */	0x4,		/* Oi2 Flags:  has return, */
+/* 484 */	0x4,		/* Oi2 Flags:  has return, */
 			0x1,		/* 1 */
 
 	/* Return value */
 
+/* 486 */	NdrFcShort( 0x70 ),	/* Flags:  out, return, base type, */
+/* 488 */	NdrFcShort( 0x4 ),	/* x86 Stack size/offset = 4 */
+/* 490 */	0x8,		/* FC_LONG */
+			0x0,		/* 0 */
+
+	/* Procedure getCOPForce */
+
+/* 492 */	0x33,		/* FC_AUTO_HANDLE */
+			0x6c,		/* Old Flags:  object, Oi2 */
+/* 494 */	NdrFcLong( 0x0 ),	/* 0 */
+/* 498 */	NdrFcShort( 0xc ),	/* 12 */
+/* 500 */	NdrFcShort( 0xc ),	/* x86 Stack size/offset = 12 */
+/* 502 */	NdrFcShort( 0x0 ),	/* 0 */
+/* 504 */	NdrFcShort( 0x8 ),	/* 8 */
+/* 506 */	0x5,		/* Oi2 Flags:  srv must size, has return, */
+			0x2,		/* 2 */
+
+	/* Parameter force */
+
+/* 508 */	NdrFcShort( 0x4113 ),	/* Flags:  must size, must free, out, simple ref, srv alloc size=16 */
+/* 510 */	NdrFcShort( 0x4 ),	/* x86 Stack size/offset = 4 */
+/* 512 */	NdrFcShort( 0x3f8 ),	/* Type Offset=1016 */
+
+	/* Return value */
+
 /* 514 */	NdrFcShort( 0x70 ),	/* Flags:  out, return, base type, */
-/* 516 */	NdrFcShort( 0x4 ),	/* x86 Stack size/offset = 4 */
+/* 516 */	NdrFcShort( 0x8 ),	/* x86 Stack size/offset = 8 */
 /* 518 */	0x8,		/* FC_LONG */
 			0x0,		/* 0 */
 
@@ -736,7 +736,7 @@ static const Lisa50_MIDL_PROC_FORMAT_STRING Lisa50__MIDL_ProcFormatString =
 /* 636 */	0x8,		/* FC_LONG */
 			0x0,		/* 0 */
 
-	/* Procedure Pause */
+	/* Procedure pause */
 
 /* 638 */	0x33,		/* FC_AUTO_HANDLE */
 			0x6c,		/* Old Flags:  object, Oi2 */
@@ -760,6 +760,32 @@ static const Lisa50_MIDL_PROC_FORMAT_STRING Lisa50__MIDL_ProcFormatString =
 /* 660 */	NdrFcShort( 0x70 ),	/* Flags:  out, return, base type, */
 /* 662 */	NdrFcShort( 0x8 ),	/* x86 Stack size/offset = 8 */
 /* 664 */	0x8,		/* FC_LONG */
+			0x0,		/* 0 */
+
+	/* Procedure isPaused */
+
+/* 666 */	0x33,		/* FC_AUTO_HANDLE */
+			0x6c,		/* Old Flags:  object, Oi2 */
+/* 668 */	NdrFcLong( 0x0 ),	/* 0 */
+/* 672 */	NdrFcShort( 0x12 ),	/* 18 */
+/* 674 */	NdrFcShort( 0xc ),	/* x86 Stack size/offset = 12 */
+/* 676 */	NdrFcShort( 0x0 ),	/* 0 */
+/* 678 */	NdrFcShort( 0x22 ),	/* 34 */
+/* 680 */	0x4,		/* Oi2 Flags:  has return, */
+			0x2,		/* 2 */
+
+	/* Parameter pause */
+
+/* 682 */	NdrFcShort( 0x2150 ),	/* Flags:  out, base type, simple ref, srv alloc size=8 */
+/* 684 */	NdrFcShort( 0x4 ),	/* x86 Stack size/offset = 4 */
+/* 686 */	0x6,		/* FC_SHORT */
+			0x0,		/* 0 */
+
+	/* Return value */
+
+/* 688 */	NdrFcShort( 0x70 ),	/* Flags:  out, return, base type, */
+/* 690 */	NdrFcShort( 0x8 ),	/* x86 Stack size/offset = 8 */
+/* 692 */	0x8,		/* FC_LONG */
 			0x0,		/* 0 */
 
 			0x0
@@ -1576,20 +1602,20 @@ CINTERFACE_PROXY_VTABLE(17) _ILisaCOMControllerProxyVtbl =
     IUnknown_QueryInterface_Proxy,
     IUnknown_AddRef_Proxy,
     IUnknown_Release_Proxy ,
-    0 /* (void *) (INT_PTR) -1 /* IDispatch::GetTypeInfoCount */ ,
-    0 /* (void *) (INT_PTR) -1 /* IDispatch::GetTypeInfo */ ,
-    0 /* (void *) (INT_PTR) -1 /* IDispatch::GetIDsOfNames */ ,
+    0 /* IDispatch::GetTypeInfoCount */ ,
+    0 /* IDispatch::GetTypeInfo */ ,
+    0 /* IDispatch::GetIDsOfNames */ ,
     0 /* IDispatch_Invoke_Proxy */ ,
     (void *) (INT_PTR) -1 /* ILisaCOMController::getVersion */ ,
     (void *) (INT_PTR) -1 /* ILisaCOMController::get_number */ ,
     (void *) (INT_PTR) -1 /* ILisaCOMController::getParameters */ ,
     (void *) (INT_PTR) -1 /* ILisaCOMController::getPosition */ ,
-    (void *) (INT_PTR) -1 /* ILisaCOMController::setReference */ ,
+    (void *) (INT_PTR) -1 /* ILisaCOMController::setSetpoint */ ,
     (void *) (INT_PTR) -1 /* ILisaCOMController::getVelocity */ ,
     (void *) (INT_PTR) -1 /* ILisaCOMController::setParameter */ ,
     (void *) (INT_PTR) -1 /* ILisaCOMController::setParameters */ ,
     (void *) (INT_PTR) -1 /* ILisaCOMController::getTorque */ ,
-    (void *) (INT_PTR) -1 /* ILisaCOMController::getReference */
+    (void *) (INT_PTR) -1 /* ILisaCOMController::getSetpoint */
 };
 
 
@@ -1662,9 +1688,9 @@ CINTERFACE_PROXY_VTABLE(8) _ILisaCOMTrajectoryProxyVtbl =
     IUnknown_QueryInterface_Proxy,
     IUnknown_AddRef_Proxy,
     IUnknown_Release_Proxy ,
-    0 /* (void *) (INT_PTR) -1 /* IDispatch::GetTypeInfoCount */ ,
-    0 /* (void *) (INT_PTR) -1 /* IDispatch::GetTypeInfo */ ,
-    0 /* (void *) (INT_PTR) -1 /* IDispatch::GetIDsOfNames */ ,
+    0 /* IDispatch::GetTypeInfoCount */ ,
+    0 /* IDispatch::GetTypeInfo */ ,
+    0 /* IDispatch::GetIDsOfNames */ ,
     0 /* IDispatch_Invoke_Proxy */ ,
     (void *) (INT_PTR) -1 /* ILisaCOMTrajectory::LoadTrajectory */
 };
@@ -1704,12 +1730,13 @@ static const unsigned short ILisaCOM_FormatStringOffsetTable[] =
     56,
     442,
     470,
-    498,
+    492,
     520,
     548,
     576,
     610,
-    638
+    638,
+    666
     };
 
 static const MIDL_STUBLESS_PROXY_INFO ILisaCOM_ProxyInfo =
@@ -1733,28 +1760,29 @@ static const MIDL_SERVER_INFO ILisaCOM_ServerInfo =
     0,
     0,
     0};
-CINTERFACE_PROXY_VTABLE(18) _ILisaCOMProxyVtbl = 
+CINTERFACE_PROXY_VTABLE(19) _ILisaCOMProxyVtbl = 
 {
     &ILisaCOM_ProxyInfo,
     &IID_ILisaCOM,
     IUnknown_QueryInterface_Proxy,
     IUnknown_AddRef_Proxy,
     IUnknown_Release_Proxy ,
-    0 /* (void *) (INT_PTR) -1 /* IDispatch::GetTypeInfoCount */ ,
-    0 /* (void *) (INT_PTR) -1 /* IDispatch::GetTypeInfo */ ,
-    0 /* (void *) (INT_PTR) -1 /* IDispatch::GetIDsOfNames */ ,
+    0 /* IDispatch::GetTypeInfoCount */ ,
+    0 /* IDispatch::GetTypeInfo */ ,
+    0 /* IDispatch::GetIDsOfNames */ ,
     0 /* IDispatch_Invoke_Proxy */ ,
     (void *) (INT_PTR) -1 /* ILisaCOM::getLinkMass */ ,
     (void *) (INT_PTR) -1 /* ILisaCOM::getLinkPosition */ ,
     (void *) (INT_PTR) -1 /* ILisaCOM::getJointCoordinates */ ,
     (void *) (INT_PTR) -1 /* ILisaCOM::getCOPPosition */ ,
-    (void *) (INT_PTR) -1 /* ILisaCOM::getCOPForce */ ,
     (void *) (INT_PTR) -1 /* ILisaCOM::close */ ,
+    (void *) (INT_PTR) -1 /* ILisaCOM::getCOPForce */ ,
     (void *) (INT_PTR) -1 /* ILisaCOM::get_numLinks */ ,
     (void *) (INT_PTR) -1 /* ILisaCOM::enumerateLinks */ ,
     (void *) (INT_PTR) -1 /* ILisaCOM::getLinkPositionByName */ ,
     (void *) (INT_PTR) -1 /* ILisaCOM::get_time */ ,
-    (void *) (INT_PTR) -1 /* ILisaCOM::Pause */
+    (void *) (INT_PTR) -1 /* ILisaCOM::pause */ ,
+    (void *) (INT_PTR) -1 /* ILisaCOM::isPaused */
 };
 
 
@@ -1774,6 +1802,7 @@ static const PRPC_STUB_FUNCTION ILisaCOM_table[] =
     NdrStubCall2,
     NdrStubCall2,
     NdrStubCall2,
+    NdrStubCall2,
     NdrStubCall2
 };
 
@@ -1781,7 +1810,7 @@ CInterfaceStubVtbl _ILisaCOMStubVtbl =
 {
     &IID_ILisaCOM,
     &ILisaCOM_ServerInfo,
-    18,
+    19,
     &ILisaCOM_table[-3],
     CStdStubBuffer_DELEGATING_METHODS
 };
@@ -1800,7 +1829,7 @@ static const MIDL_STUB_DESC Object_StubDesc =
     1, /* -error bounds_check flag */
     0x20000, /* Ndr library version */
     0,
-    0x70001f4, /* MIDL Version 7.0.500 */
+    0x700022b, /* MIDL Version 7.0.555 */
     0,
     UserMarshalRoutines,
     0,  /* notify & notify_flag routine table */
@@ -1810,7 +1839,7 @@ static const MIDL_STUB_DESC Object_StubDesc =
     0
     };
 
-const CInterfaceProxyVtbl * _Lisa50_ProxyVtblList[] = 
+const CInterfaceProxyVtbl * const _Lisa50_ProxyVtblList[] = 
 {
     ( CInterfaceProxyVtbl *) &_ILisaCOMTrajectoryProxyVtbl,
     ( CInterfaceProxyVtbl *) &_ILisaCOMProxyVtbl,
@@ -1818,7 +1847,7 @@ const CInterfaceProxyVtbl * _Lisa50_ProxyVtblList[] =
     0
 };
 
-const CInterfaceStubVtbl * _Lisa50_StubVtblList[] = 
+const CInterfaceStubVtbl * const _Lisa50_StubVtblList[] = 
 {
     ( CInterfaceStubVtbl *) &_ILisaCOMTrajectoryStubVtbl,
     ( CInterfaceStubVtbl *) &_ILisaCOMStubVtbl,
@@ -1834,7 +1863,7 @@ PCInterfaceName const _Lisa50_InterfaceNamesList[] =
     0
 };
 
-const IID *  _Lisa50_BaseIIDList[] = 
+const IID *  const _Lisa50_BaseIIDList[] = 
 {
     &IID_IDispatch,
     &IID_IDispatch,

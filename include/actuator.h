@@ -7,9 +7,16 @@
 #ifndef __ACTUATOR_H__
 #define __ACTUATOR_H__
 
-#include "controller.h"
-#include "joint.h"
-#include "sensor.h"
+
+//forward declarations
+template <typename T>
+class Controller;
+template <typename T, typename U>
+class Sensor;
+class Joint;
+
+#include "logger.h"
+
 
 /**-------------------------------------------------------------------------------
 	Actuator template class wraps NxJoint class
@@ -20,20 +27,11 @@ class Actuator : public LoggerWriter<Actuator>
 {
 	public:
 
-		Actuator(Joint* joint, Controller<double>* controller, Sensor<double, Joint>* sensor): mController(controller), mJoint(joint), mSensor(sensor)  {
-			mName = "logs\\" + mJoint->getName() + ".log";
-		}
+		Actuator(Joint* joint, Controller<double>* controller, Sensor<double, Joint>* sensor);
 		
-		virtual ~Actuator() {
-			delete mJoint;
-			mJoint = NULL;
-			delete mController;
-			mController = NULL;
-			delete mSensor;
-			mSensor=NULL;
-		}
+		virtual ~Actuator(){};
 
-		void doOneStep(double currentTime, double sampleTime);;
+		void doOneStep(float currentTime, float sampleTime);;
 
 		Controller<double>*		getController() const { return mController; }		
 		Joint*					getJoint() const { return mJoint; }
@@ -47,7 +45,7 @@ class Actuator : public LoggerWriter<Actuator>
 			\param      sample_time
 			\return depends on implementation
 		--------------------------------------------------------------------------------*/
-		virtual void update(double currentTime, double sampleTime) = 0;
+		virtual void update(float currentTime, float sampleTime) = 0;
 
 		/**-------------------------------------------------------------------------------
 			Write values to the log file.
@@ -56,7 +54,7 @@ class Actuator : public LoggerWriter<Actuator>
 			\param      desc
 			\return     nothing
 		--------------------------------------------------------------------------------*/
-		void writeToLog(NxJointDesc* desc, double currentTime);
+		void writeToLog(NxJointDesc* desc, float currentTime);
 
 		Joint*					mJoint;
 		Controller<double>*		mController;

@@ -10,6 +10,7 @@
 #include "stdafx.h"
 #include "simulationInputControllerDebug.h"
 #include "InputManager.h"
+#include "link.h"
 
 
 /**-------------------------------------------------------------------------------

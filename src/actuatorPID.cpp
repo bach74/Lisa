@@ -11,14 +11,15 @@
 #include "actuatorPID.h"
 #include "JointRevolute.h"
 #include "jointD6.h"
+#include "Controller.h"
 
 /**-------------------------------------------------------------------------------
-    ActuatorPID
+	ActuatorPID
 
-    @brief
-    @param node
-    @param controller
-    @return
+	@brief
+	@param node
+	@param controller
+	@return
 ---------------------------------------------------------------------------------*/
 ActuatorPID::ActuatorPID(Joint* node, Controller<double>* controller, Sensor<double, Joint>* sensor) : Actuator(node, controller, sensor)
 {
@@ -44,8 +45,8 @@ ActuatorPID::ActuatorPID(Joint* node, Controller<double>* controller, Sensor<dou
 
 
 /**-------------------------------------------------------------------------------
-        dtor
-        clear all structures and release the memory
+		dtor
+		clear all structures and release the memory
 --------------------------------------------------------------------------------*/
 ActuatorPID::~ActuatorPID()
 {
@@ -54,13 +55,13 @@ ActuatorPID::~ActuatorPID()
 
 
 /**-------------------------------------------------------------------------------
-    Update controller internal values and states.
-    Should be done each time sampling interval.
+	Update controller internal values and states.
+	Should be done each time sampling interval.
 
-    \param      sample_time
-    \return controller output
+	\param      sample_time
+	\return controller output
 --------------------------------------------------------------------------------*/
-void ActuatorPID::update(double currentTime, double sampleTime)
+void ActuatorPID::update(float currentTime, float sampleTime)
 {
 	if (mJoint->getType() == NX_JOINT_REVOLUTE)
 	{
@@ -69,7 +70,7 @@ void ActuatorPID::update(double currentTime, double sampleTime)
 		NxMotorDesc motorDesc;
 		JointRevolute* revJoint = dynamic_cast<JointRevolute*>(mJoint);
 		revJoint->getMotor(motorDesc);
-		motorDesc.velTarget = out; // [rad/s]
+		motorDesc.velTarget = (NxReal)out; // [rad/s]
 		revJoint->setMotor(motorDesc);
 	}
 	else if (mJoint->getType() == NX_JOINT_D6)
@@ -87,11 +88,11 @@ void ActuatorPID::update(double currentTime, double sampleTime)
 
 		if (descD6->twistDrive.driveType == NX_D6JOINT_DRIVE_POSITION)
 		{
-			descD6->driveOrientation.fromAngleAxisFast(sp,NxVec3(1,0,0));			
+			descD6->driveOrientation.fromAngleAxisFast((NxReal)sp,NxVec3(1,0,0));			
 		}
 		else
 		{
-			descD6->driveAngularVelocity.x=sp;
+			descD6->driveAngularVelocity.x=(NxReal)sp;
 		}
 		mJoint->setDesc(descD6);
 	}

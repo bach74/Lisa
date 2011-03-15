@@ -10,13 +10,26 @@
 #include "stdafx.h"
 #include "trajectoryQueue.h"
 #include "config.h"
-
+#include "actuator.h"
+#include "Controller.h"
+#include "joint.h"
 
 /**-------------------------------------------------------------------------------
-    go
+	go
 
-    @brief
-    @return
+	@brief
+	@return
+---------------------------------------------------------------------------------*/
+void QueueElementSP::go()
+{
+	mActuator.getController()->setSetpoint(mValue);
+}
+
+/**-------------------------------------------------------------------------------
+	go
+
+	@brief
+	@return
 ---------------------------------------------------------------------------------*/
 void QueueElementType::go()
 {
@@ -29,10 +42,10 @@ void QueueElementType::go()
 }
 
 /**-------------------------------------------------------------------------------
-    go
+	go
 
-    @brief
-    @return void
+	@brief
+	@return void
 ---------------------------------------------------------------------------------*/
 void QueueElementForce::go()
 {
