@@ -490,7 +490,6 @@
     <None Include="..\res\LisaCOMTrajectory.rgs">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="LisaMain.rc">

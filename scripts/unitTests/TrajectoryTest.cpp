@@ -88,6 +88,7 @@ private:
 			virtual double calculate(float sample_time){return 0;}
 			virtual double calculate(double error, float sample_time){return 0;}
 			void getParameters(std::vector<double>& ret) const{};
+			void setParameters(const std::vector<double>& ret) {};
 	};
 
 	class MyActuator : public Actuator {

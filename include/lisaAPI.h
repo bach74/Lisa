@@ -29,9 +29,6 @@ class LisaAPI : public ::Singleton<LisaAPI>
 
 		friend ::Singleton<LisaAPI>;
 
-		/// external variables-> simulation variables
-		void getStates();
-
 		/// simulation variables -> state snapshot
 		void setStates();
 

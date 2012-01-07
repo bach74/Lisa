@@ -102,11 +102,24 @@ double ControllerPID::calculate(double error, float sample_time)
 
 	@brief return controller parameters
 	@param ret return value
-	@return double
 ---------------------------------------------------------------------------------*/
 void ControllerPID::getParameters( std::vector<double>& ret ) const
 {
 	ret.push_back(Kp);
 	ret.push_back(Ti);
 	ret.push_back(Td);
+}
+
+
+/**-------------------------------------------------------------------------------
+	setParameters
+
+	@brief set controller parameters
+	@param ret values
+---------------------------------------------------------------------------------*/
+void ControllerPID::setParameters(const std::vector<double>& val )
+{
+	Kp=val.at(0);
+	Ti=val.at(1);
+	Td=val.at(2);
 }

@@ -56,7 +56,7 @@ LabelWidget::LabelWidget(Ogre::OverlayContainer* pContainer, const char* uniqueN
 	textPtr->setMetricsMode(Ogre::GMM_PIXELS);
 	textPtr->setCaption(text);
 	textPtr->setFontName("Lucida");
-	textPtr->setCharHeight(mCharHeight);
+	textPtr->setCharHeight(static_cast<Ogre::Real>(mCharHeight));
 	textPtr->setSpaceWidth(0.5f * mCharHeight);
 	defineParentBounds(mParentBoundLeft, mParentBoundTop, mParentBoundRight, mParentBoundBottom); // provide boundaries and move widget into place
 	pContainer->addChild(baseElement);
@@ -198,7 +198,7 @@ void LabelWidget::setFont(const char* fontName)
 void LabelWidget::setSize(int charHeight)
 {
 	mCharHeight = charHeight;
-	textPtr->setCharHeight(charHeight);
+	textPtr->setCharHeight(static_cast<Ogre::Real>(charHeight));
 }
 
 /**-------------------------------------------------------------------------------

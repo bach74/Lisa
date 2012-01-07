@@ -19,6 +19,7 @@ class ControllerTest : public cfixcc::TestFixture
 				return calculate(sample_time);
 			};
 			void getParameters(std::vector<double>& ret) const{};
+			void setParameters(const std::vector<double>& ret) {};
 		};
 
 		//mock
@@ -38,7 +39,8 @@ class ControllerTest : public cfixcc::TestFixture
 			double calculate(double error, float sample_time) {
 				return calculate(sample_time);
 			};
-			void getParameters(std::vector<std::vector<double>>& ret) const{};
+			void getParameters(std::vector<std::vector<double>>& ret) const {};
+			void setParameters(const std::vector<std::vector<double>>& ret) {};
 		};
 		
 		/**-------------------------------------------------------------------------------
@@ -49,7 +51,6 @@ class ControllerTest : public cfixcc::TestFixture
 		---------------------------------------------------------------------------------*/
 		void TestValuesDouble()
 		{
-
 			MyControllerDouble controller;
 			
 			controller.setSetpoint(10);

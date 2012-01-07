@@ -31,7 +31,10 @@
                     <ComboBox Height="23" HorizontalAlignment="Left" Margin="7,0,0,439" Name="cbTestController" VerticalAlignment="Bottom" Width="444" SelectionChanged="cbTest_SelectionChanged" />
                     <Label Content="Returned Values" Height="28" HorizontalAlignment="Left" Margin="7,78,0,0" Name="label7" VerticalAlignment="Top" />
                     <Label Content="Select one function for testing" Height="28" HorizontalAlignment="Left" Margin="7,19,0,0" Name="label8" VerticalAlignment="Top" />
-                    <TextBox Height="344" HorizontalAlignment="Left" IsUndoEnabled="False" Margin="7,110,0,0" MaxLines="5000" Name="txtLogCtrl" VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" Width="444" />
+                    <TextBox Height="282" HorizontalAlignment="Left" IsUndoEnabled="False" Margin="7,110,0,0" MaxLines="5000" Name="txtLogCtrl" VerticalAlignment="Top" VerticalScrollBarVisibility="Auto" Width="444" />
+                    <Label Content="Set Setpoint" Height="28" HorizontalAlignment="Left" Margin="7,418,0,0" Name="label5" VerticalAlignment="Top" />
+                    <TextBox Height="23" HorizontalAlignment="Left" Margin="105,421,0,0" Name="tbSetSetPoint" VerticalAlignment="Top" Width="120" />
+                    <Button Content="Set" Height="23" HorizontalAlignment="Left" Margin="249,421,0,0" Name="btnSetSetpoint" VerticalAlignment="Top" Width="75" Click="btnSetSetpoint_Click" />
                 </Grid>
             </TabItem>
         </TabControl>

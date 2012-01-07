@@ -1,7 +1,7 @@
 // =============================================================================
 //  Config.h   version:  1.5
 //
-//  Copyright (C) 2007-2010 by Bach 
+//  Copyright (C) 2007-2010 by Bach
 //  This file is part of the LiSA project.
 //  The LiSA project is licensed under MIT license.
 //
@@ -80,11 +80,16 @@ class Config : public Singleton<Config>
 		void setSelectedObjectGlows(bool val) { mSelectedObjectGlows = val; }
 
 		bool getPhysxEnabled() const { return mPhysXEnabled; }
-		void setPhysxEnabled(bool val) { mPhysXEnabled=val; }
+		void setPhysxEnabled(bool val) { mPhysXEnabled = val; }
+
+		float getPhysicsSampleTime() const { return mPhysicsSamplingTime; }
+		void setPhysicsSampleTime(float sampleTime) { mPhysicsSamplingTime = sampleTime; }
+
+		short getRenderEveryNthFrame() const { return mRenderEveryNthFrame; }
+		void setRenderEveryNthFrame(short val) { mRenderEveryNthFrame = val; }
 
 	private:
 		Config(void);
-
 		bool mShowForces;
 		bool mShowZMP;
 		bool mShowCOG;
@@ -107,6 +112,8 @@ class Config : public Singleton<Config>
 		float mCameraTranslateSpeed;
 		float mActuatorSteppingTime;
 
+		float mPhysicsSamplingTime;
+		short mRenderEveryNthFrame;
 };
 
- #endif
+#endif

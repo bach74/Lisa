@@ -52,9 +52,9 @@ namespace TestClient
             cbTestController.Items.Add("getTorque");
             cbTestController.Items.Add("getVelocity");
             cbTestController.Items.Add("getSetpoint");
-            cbTestController.Items.Add("setParameter");
-            cbTestController.Items.Add("setParameters");
-            cbTestController.Items.Add("setSetpoint");
+            //cbTestController.Items.Add("setParameter");
+            //cbTestController.Items.Add("setParameters");
+            //cbTestController.Items.Add("setSetpoint");
 
             cbTestCOM.IsEnabled = false;
             cbTestController.IsEnabled = false;
@@ -387,6 +387,20 @@ namespace TestClient
             {
                 startThreadTestCOMController();
             }
+        }
+
+        private void btnSetSetpoint_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                double d = Double.Parse(tbSetSetPoint.Text);
+                if (mLisaController!=null)
+                {
+                    ushort i = (ushort)lbLinks.SelectedIndex;
+                    mLisaController.setSetpoint(i, 0, d);
+                }
+            }
+            catch (FormatException) { }
         }
     }
 }

@@ -29,7 +29,7 @@ LisaAPI::LisaAPI() : mFrameTime(0)
 
 	LinkIterator itLink = LinkIterator(sim->getLinks());
 
-	for (;!itLink.end(); ++itLink)
+	for (; !itLink.end(); ++itLink)
 	{
 		if (itLink->isDynamic())
 		{
@@ -51,9 +51,12 @@ void LisaAPI::pauseSimulation(bool pause) const
 
 	sim->getLinks();
 
-	if (pause) {
+	if (pause)
+	{
 		sim->requestStateChange(Simulation::SIMULATING);
-	} else {
+	}
+	else
+	{
 		sim->requestStateChange(Simulation::PAUSED);
 	}
 }
@@ -66,7 +69,7 @@ void LisaAPI::pauseSimulation(bool pause) const
 short LisaAPI::isSimulationPaused() const
 {
 	const Simulation* sim = LisaCore::Instance().getSimulation();
-	return !(sim->getCurrentState()==Simulation::SIMULATING);
+	return !(sim->getCurrentState() == Simulation::SIMULATING);
 }
 
 /**----------------------------------------------------------------------------
@@ -97,7 +100,7 @@ std::string LisaAPI::getLinkName(size_t i) const
  -----------------------------------------------------------------------------*/
 double LisaAPI::getCurrentTime() const
 {
-	return mFrameTime;	
+	return mFrameTime;
 }
 
 
@@ -120,7 +123,7 @@ double LisaAPI::getLinkMass(size_t i) const
  -----------------------------------------------------------------------------*/
 Ogre::Vector3 LisaAPI::getLinkPosition(size_t i) const
 {
-	return mLinkPositions.at(i); 
+	return mLinkPositions.at(i);
 }
 
 /**----------------------------------------------------------------------------
@@ -131,8 +134,8 @@ Ogre::Vector3 LisaAPI::getLinkPosition(size_t i) const
  -----------------------------------------------------------------------------*/
 Ogre::Vector3 LisaAPI::getLinkPosition(const std::string& linkName) const
 {
-	auto it=std::find(mLinkNames.begin(),mLinkNames.end(),linkName);
-	return (it!=mLinkNames.end())?mLinkPositions[it-mLinkNames.begin()]:Ogre::Vector3(0,0,0);
+	auto it = std::find(mLinkNames.begin(), mLinkNames.end(), linkName);
+	return (it != mLinkNames.end()) ? mLinkPositions[it-mLinkNames.begin()] : Ogre::Vector3(0, 0, 0);
 }
 
 /**----------------------------------------------------------------------------
@@ -153,19 +156,22 @@ Ogre::Vector3 LisaAPI::getJointCoordinates(size_t i) const
  -----------------------------------------------------------------------------*/
 Ogre::Vector3 LisaAPI::getCOPPosition() const
 {
-	Ogre::Vector3 ret(0,0,0);
-	// see if there is contact sensor	
+	Ogre::Vector3 ret(0, 0, 0);
+
+	// see if there is a contact sensor
 	if (Config::Instance().getControllerZMP())
 	{
 		// find contact sensor and report COP
-		SensorVectors* sensorCOP = dynamic_cast<const SimulationImpl*>(getSimulation())->getSensors()->getSensor("COP");		
+		SensorVectors* sensorCOP = dynamic_cast<const SimulationImpl*>(getSimulation())->getSensors()->getSensor("COP");
+
 		if (sensorCOP->getDataValid())
 		{
 			std::vector<Ogre::Vector3> val;
 			sensorCOP->getValue(val);
-			ret=val.front();
+			ret = val.front();
 		}
 	}
+
 	return ret;
 }
 
@@ -176,19 +182,22 @@ Ogre::Vector3 LisaAPI::getCOPPosition() const
  -----------------------------------------------------------------------------*/
 Ogre::Vector3 LisaAPI::getCOPForce() const
 {
-	Ogre::Vector3 ret(0,0,0);
-	// see if there is contact sensor	
+	Ogre::Vector3 ret(0, 0, 0);
+
+	// see if there is contact sensor
 	if (Config::Instance().getControllerZMP())
 	{
 		// find contact sensor and report COP
-		SensorVectors* sensorCOP = dynamic_cast<const SimulationImpl*>(getSimulation())->getSensors()->getSensor("COP");		
+		SensorVectors* sensorCOP = dynamic_cast<const SimulationImpl*>(getSimulation())->getSensors()->getSensor("COP");
+
 		if (sensorCOP->getDataValid())
 		{
 			std::vector<Ogre::Vector3> val;
 			sensorCOP->getValue(val);
-			ret=val.at(1);
+			ret = val.at(1);
 		}
 	}
+
 	return ret;
 }
 
@@ -272,7 +281,16 @@ std::vector<double> LisaAPI::getActuatorParams(size_t i)
 ---------------------------------------------------------------------------------*/
 void LisaAPI::setActuatorParams(size_t i, std::vector<double>& params)
 {
-	throw Exception("Not implemented!", "simfacade.cpp");
+	const Simulation* sim = LisaCore::Instance().getSimulation();
+
+	// iterate through the actuators and add the states to member variables
+	ActuatorIterator itAct(sim->getActuators());
+
+	for (size_t j=0; (!itAct.end()&&(j<i)); ++itAct, ++j) {};
+	if (!itAct.end()) {
+		Actuator& a = *itAct;
+		a.getController()->setParameters(params);
+	}
 }
 
 /**-------------------------------------------------------------------------------
@@ -303,12 +321,24 @@ double LisaAPI::getJointAngle(size_t i)
 	set i-th actuator reference
 
 	\param i        i-th actuator
-	\param numRef   numRef-th actuator
+	\param numRef   numRef-th actuator (IGNORED)
 	\param Val      set-point
 --------------------------------------------------------------------------------*/
 void LisaAPI::setJointSetpoint(size_t i, size_t numRef, DOUBLE Val)
 {
-	throw Exception("Not implemented!", "simfacade.cpp");
+	const Simulation* sim = LisaCore::Instance().getSimulation();
+
+	// iterate through the actuators and add the states to member variables
+	ActuatorIterator itAct(sim->getActuators());
+
+	// will protect the entire scope (until destroyed)
+	CritSectEx::Scope scope(myCs);
+
+	for (size_t j=0; (!itAct.end()&&(j<i)); ++itAct, ++j) {};
+	if (!itAct.end()) {
+		Actuator& a = *itAct;
+		a.getController()->setSetpoint(Val);
+	}
 }
 
 /**-------------------------------------------------------------------------------
@@ -356,70 +386,57 @@ double LisaAPI::getJointTorque(size_t i)
 ---------------------------------------------------------------------------------*/
 void LisaAPI::setStates()
 {
+	const Simulation* sim = LisaCore::Instance().getSimulation();
+	mFrameTime = sim->getFrameTime();
+
+	// iterate through the actuators and add the states to member variables
+	ActuatorIterator itAct(sim->getActuators()); 
+
+	// will protect the entire scope (until destroyed)
+	CritSectEx::Scope scope(myCs);
+
+	// clear all old values
+	mJointTorques.clear();
+	mJointVelocities.clear();
+	mJointAngles.clear();
+	mJointSetpoints.clear();
+	mJointCoordinates.clear();
+	mActuatorParams.clear();
+
+	for (; !itAct.end(); ++itAct)
 	{
-		const Simulation* sim = LisaCore::Instance().getSimulation();
-		mFrameTime=sim->getFrameTime();
+		Actuator& a = *itAct;
+		Joint* j = a.getJoint();
+		mJointAngles.push_back(j->getAngle());
+		mJointTorques.push_back(j->getTorque());
+		mJointVelocities.push_back(j->getVelocity());
+		double val;
+		a.getController()->getSetpoint(val);
+		mJointSetpoints.push_back(val);
+		mJointCoordinates.push_back(NxOgre::NxConvert<Ogre::Vector3, NxVec3>(j->getGlobalAnchor()));
 
-		// will protect the entire scope (until destroyed)
-		CritSectEx::Scope scope(myCs);
-
-		// clear all old values
-		mJointTorques.clear();
-		mJointVelocities.clear();
-		mJointAngles.clear();
-		mJointSetpoints.clear();
-		mJointCoordinates.clear();
-		mActuatorParams.clear();
-
-		// iterate through the actuators and add the states to member variables
-		ActuatorIterator itAct(sim->getActuators());
-
-		for (; !itAct.end(); ++itAct)
+		mActuatorParams.push_back(std::vector<double>());
+		std::vector<double> cp;
+		a.getController()->getParameters(cp);
+		BOOST_FOREACH(double d, cp)
 		{
-			Actuator& a = *itAct;
-			Joint* j = a.getJoint();
-			mJointAngles.push_back(j->getAngle());
-			mJointTorques.push_back(j->getTorque());
-			mJointVelocities.push_back(j->getVelocity());
-			double val;
-			a.getController()->getSetpoint(val);
-			mJointSetpoints.push_back(val);
-			mJointCoordinates.push_back( NxOgre::NxConvert<Ogre::Vector3, NxVec3>(j->getGlobalAnchor()));
-
-			mActuatorParams.push_back(std::vector<double>());
-			std::vector<double> cp;
-			a.getController()->getParameters(cp);
-			BOOST_FOREACH(double d,cp) {
-				mActuatorParams.back().push_back(d);
-			}
+			mActuatorParams.back().push_back(d);
 		}
-
-		// clear link variables
-		mLinkPositions.clear();
-
-		// iterate through the actors and add the states to member variables
-		LinkIterator itLink = LinkIterator(sim->getLinks());
-		for (;!itLink.end(); ++itLink)
-		{
-			if (itLink->isDynamic())
-			{
-				mLinkPositions.push_back(itLink->getCMassGlobalPosition());
-			}
-		}
-
 	}
-}
 
-/**-------------------------------------------------------------------------------
-	getStates
+	// clear link variables
+	mLinkPositions.clear();
 
-	@brief
+	// iterate through the actors and add the states to member variables
+	LinkIterator itLink = LinkIterator(sim->getLinks());
 
-	Pass externally modified variables to the simulation variables.
----------------------------------------------------------------------------------*/
-void LisaAPI::getStates()
-{
-	
+	for (; !itLink.end(); ++itLink)
+	{
+		if (itLink->isDynamic())
+		{
+			mLinkPositions.push_back(itLink->getCMassGlobalPosition());
+		}
+	}
 }
 
 /**-------------------------------------------------------------------------------

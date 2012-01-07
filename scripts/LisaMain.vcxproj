@@ -19,7 +19,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseOfAtl>Dynamic</UseOfAtl>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
     <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -42,7 +42,7 @@
     <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</IgnoreImportLibrary>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
     <EmbedManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</EmbedManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(SolutionDir)\bin\$(Configuration)\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectDir)$(Configuration)\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\</IntDir>
     <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</IgnoreImportLibrary>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
@@ -133,12 +133,17 @@ cd $(ProjectDir)
     </Midl>
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
-      <AdditionalIncludeDirectories>..\scripts;..\include;$(OGRE_HOME)\include;$(OGRE_HOME)\..\bin\include;$(OGRE_HOME)\..\bin\lib\Release;D:\Development\[Engine]\NxOgre\include;$(OGRE_HOME)\..\Dependencies\include;$(PHYSX_DIR)\SDKs\Physics\include;$(PHYSX_DIR)\SDKs\Foundation\include;$(PHYSX_DIR)\SDKs\PhysXLoader\include;$(PHYSX_DIR)\SDKs\NxCharacter\include;$(PHYSX_DIR)\SDKs\Cooking\include;$(DXSDK_DIR)\Samples\C++\DXUT\Core;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\..\DevelopmentTools\boost_1_44_0;..\scripts;..\include;..\..\[Engine]\ogre1.7_build\include;..\..\[Engine]\ogre1.7\OgreMain\include;..\..\[Engine]\ogre1.7_build\Dependencies\include;..\dependencies-include\nxogre\include;..\dependencies-include\nxustream2\include;C:\Program Files\NVIDIA Corporation\NVIDIA PhysX SDK\v2.8.3\SDKs\Physics\include;C:\Program Files\NVIDIA Corporation\NVIDIA PhysX SDK\v2.8.3\SDKs\Foundation\include;C:\Program Files\NVIDIA Corporation\NVIDIA PhysX SDK\v2.8.3\SDKs\PhysXLoader\include;C:\Program Files\NVIDIA Corporation\NVIDIA PhysX SDK\v2.8.3\SDKs\NxCharacter\include;C:\Program Files\NVIDIA Corporation\NVIDIA PhysX SDK\v2.8.3\SDKs\Cooking\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_CRT_SECURE_NO_WARNINGS;BOOST_ALL_NO_LIB;HAVE_OGRE_BUILDSETTINGS_H;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>Level4</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <StringPooling>true</StringPooling>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <AdditionalOptions>/Zm155 %(AdditionalOptions)</AdditionalOptions>
+      <TreatWarningAsError>true</TreatWarningAsError>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -146,24 +151,25 @@ cd $(ProjectDir)
       <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
-      <AdditionalDependencies>OgreMain.lib;OIS_static.lib;Version.lib;PhysXLoader.lib;NxCooking.lib;NxCharacter.lib;nxOgre.lib;lisa_static_libs.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <OutputFile>$(IntDir)$(ProjectName).exe</OutputFile>
-      <AdditionalLibraryDirectories>$(OGRE_HOME)\lib\$(Configuration);..\..\[Engine]\ogrenew\Dependencies\lib\$(Configuration);..\..\[Engine]\ogrenew\Samples\Common\CEGUIRenderer\lib;..\..\[Engine]\ois-0-7-2\lib;$(NXOGRE_DIR)\compiler\NxOgre.VC8\$(Configuration)\lib;$(PHYSX_DIR)\SDKs\lib\win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>OgreMain.lib;OIS.lib;Version.lib;PhysXLoader.lib;PhysXCooking.lib;NxCharacter.lib;nxOgre.lib;lisa_static_libs.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
+      <AdditionalLibraryDirectories>..\..\[Engine]\ogre1.7_build\lib\$(Configuration);..\..\[Engine]\ogre1.7_build\Dependencies\lib\$(Configuration);..\dependencies-lib\nxOgre;..\dependencies-lib\lisa-static-lib\$(Configuration);..\..\..\DevelopmentTools\boost_1_44_0\stage\lib;C:\Program Files\NVIDIA Corporation\NVIDIA PhysX SDK\v2.8.3\SDKs\lib\win32;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <RandomizedBaseAddress>false</RandomizedBaseAddress>
-      <DataExecutionPrevention>
-      </DataExecutionPrevention>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
       <TargetMachine>MachineX86</TargetMachine>
+      <Version>6.2</Version>
     </Link>
     <PostBuildEvent>
-      <Command>copy $(IntDir)$(TargetFileName) ..\bin\$(IntDir)$(TargetFileName)
+      <Command>copy $(OutDir)$(TargetName)$(TargetExt) ..\bin\$(Configuration)\$(TargetFileName)
 cd ..\bin\$(IntDir)
 $(TargetFileName) /regserver
 cd $(ProjectDir)
 </Command>
+      <Message>Copying and performing registration...</Message>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -180,6 +186,7 @@ cd $(ProjectDir)
     <ClCompile Include="..\src\logger.cpp" />
     <ClCompile Include="..\src\stdAfx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\src\trajectory.cpp" />
     <ClCompile Include="..\src\trajectoryQueue.cpp" />
@@ -230,6 +237,8 @@ cd $(ProjectDir)
     <ClCompile Include="..\src\math\ConvexHullGraham.cpp" />
     <ClCompile Include="..\src\com\Lisa50_i.c">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </PrecompiledHeader>
     </ClCompile>
   </ItemGroup>
@@ -316,7 +325,6 @@ cd $(ProjectDir)
     <None Include="..\res\LisaCom.rgs" />
     <None Include="..\res\LisaCOMController.rgs" />
     <None Include="..\res\LisaCOMTrajectory.rgs" />
-    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="LisaMain.rc" />

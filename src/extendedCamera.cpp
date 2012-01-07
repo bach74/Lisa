@@ -133,9 +133,9 @@ void ExtendedCamera::updateCamera(const OIS::MouseButtonID& mbtn, const OIS::Mou
 				sc->translate(vw, Ogre::Node::TS_LOCAL);
 				// this transformation will "ignore" camera's orientation
 				Ogre::Quaternion qOri = mCamera->getRealOrientation();
-				Ogre::Quaternion q((Ogre::Radian)mstate.X.rel * rotateSpeed, Ogre::Vector3(0, 1, 0));
+				Ogre::Quaternion q(static_cast<Ogre::Radian>(mstate.X.rel * rotateSpeed), Ogre::Vector3(0, 1, 0));
 				sc->rotate(qOri * q * qOri.Inverse(), Ogre::Node::TS_WORLD);
-				Ogre::Quaternion q2((Ogre::Radian) - mstate.Y.rel * rotateSpeed, Ogre::Vector3(1, 0, 0));
+				Ogre::Quaternion q2(static_cast<Ogre::Radian>(-mstate.Y.rel * rotateSpeed), Ogre::Vector3(1, 0, 0));
 				sc->rotate(qOri * q2 * qOri.Inverse(), Ogre::Node::TS_WORLD);
 				sc->translate(-vw, Ogre::Node::TS_LOCAL);
 			}
@@ -147,7 +147,8 @@ void ExtendedCamera::updateCamera(const OIS::MouseButtonID& mbtn, const OIS::Mou
 		{
 			// get current camera
 			Ogre::Real transSpeed = mCamera->getRealPosition().length() * translateSpeed;
-			Ogre::Vector3 offs(mstate.X.rel * transSpeed, -mstate.Y.rel * transSpeed, mstate.Z.rel);
+			Ogre::Vector3 offs(static_cast<Ogre::Real>(mstate.X.rel * transSpeed),
+				static_cast<Ogre::Real>(-mstate.Y.rel * transSpeed), static_cast<Ogre::Real>(mstate.Z.rel));
 			mCamera->moveRelative(offs);
 		}
 		break;

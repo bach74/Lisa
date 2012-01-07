@@ -37,6 +37,7 @@ class ControllerPID : public Controller<double>
 		double calculate(double error, float sample_time);
 
 		void getParameters(std::vector<double>& ret) const;
+		void setParameters(const std::vector<double>& val);
 
 };
 

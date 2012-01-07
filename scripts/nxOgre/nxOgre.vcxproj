@@ -25,7 +25,7 @@
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -45,6 +45,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(ProjectDir)$(Configuration)\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -76,14 +77,22 @@ copy $(ProjectDir)$(Configuration)\$(TargetName).lib ..\..\dependencies-lib\nxOg
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;NXOGRE_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;NXOGRE_EXPORTS;BOOST_ALL_NO_LIB;HAVE_OGRE_BUILDSETTINGS_H;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\DevelopmentTools\boost_1_44_0;$(SolutionDir)dependencies-include\nxOgre\include;..\..\..\[Engine]\ogre1.7_build\include;..\..\..\[Engine]\ogre1.7\OgreMain\include;C:\Program Files (x86)\NVIDIA Corporation\NVIDIA PhysX SDK\v2.8.3\SDKs\Physics\include;C:\Program Files (x86)\NVIDIA Corporation\NVIDIA PhysX SDK\v2.8.3\SDKs\Foundation\include;C:\Program Files (x86)\NVIDIA Corporation\NVIDIA PhysX SDK\v2.8.3\SDKs\Cooking\include;C:\Program Files (x86)\NVIDIA Corporation\NVIDIA PhysX SDK\v2.8.3\SDKs\PhysXLoader\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>..\..\..\[Engine]\ogre1.7_build\lib\Release;C:\Program Files (x86)\NVIDIA Corporation\NVIDIA PhysX SDK\v2.8.3\SDKs\lib\Win32;..\..\..\DevelopmentTools\boost_1_44_0\stage\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <Version>1.0.Bleeding</Version>
+      <AdditionalDependencies>OgreMain.lib;PhysXLoader.lib;PhysXCooking.lib;</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>copy $(ProjectDir)$(Configuration)\$(TargetFileName) ..\..\bin\$(Configuration)
+copy $(ProjectDir)$(Configuration)\$(TargetName).lib ..\..\dependencies-lib\nxOgre</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\..\dependencies-include\nxogre\include\BetajaenCC.h" />

@@ -38,7 +38,7 @@ ViewHelp::ViewHelp(Simulation* simulation)
 	mHelpOverlayText->setMetricsMode(Ogre::GMM_PIXELS);
 	mHelpOverlayText->setLeft(10);
 	mHelpOverlayText->setTop(height/3.0f);
-	mHelpOverlayText->setWidth(width);
+	mHelpOverlayText->setWidth(static_cast<Ogre::Real>(width));
 	mHelpOverlayText->setHeight(height/3.0f*2);
 	mHelpOverlayText->setParameter("font_name", "Lucida");
 	mHelpOverlayText->setParameter("char_height", "14");

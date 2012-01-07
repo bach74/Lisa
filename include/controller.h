@@ -26,6 +26,7 @@ class Controller
 		void getSetpoint(T& ret) const { ret=mSetpoint; }
 
 		virtual void getParameters(std::vector<T>& ret) const = 0;
+		virtual void setParameters(const std::vector<T>& val) = 0;
 
 		/**-------------------------------------------------------------------------------
 			Calculate controller internal values and mStates.

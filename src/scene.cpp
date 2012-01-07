@@ -208,8 +208,8 @@ void Scene::loadScene(const char* filename)
 void Scene::run()
 {
 	MSG msg;
-	float desiredDelta = 10; //ms - 0.01s - 100 FPS
-	int   rendererMult = 3; //(3+1)*desiredDelta = 40 = 25ms
+	float desiredDelta = Config::Instance().getPhysicsSampleTime();
+	int   rendererMult = Config::Instance().getRenderEveryNthFrame()-1;
 
 	Ogre::Root* root = Ogre::Root::getSingletonPtr();
 	root->setFrameSmoothingPeriod(0);
@@ -234,10 +234,7 @@ void Scene::run()
 		{
 			mSimulation->setFrameTime(currentTicks/1000.0f);
 			float deltaTime = deltaMs/1000.0f;
-
-			// pass external parameters
-			LisaAPI::Instance().getStates();
-			
+		
 			if (Config::Instance().getPhysxEnabled()) {
 				// simulate physics
 				mSimulation->simulate(deltaTime);

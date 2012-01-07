@@ -41,6 +41,9 @@ Config::Config()
 	mSelectedObjectGlows=true;
 	mPhysXEnabled=true;
 
+	mPhysicsSamplingTime=10; //[ms] 
+	mRenderEveryNthFrame=4;	// 25 FPS
+
 	TCHAR path[MAX_PATH+1];
 	int i=GetCurrentDirectory(MAX_PATH,path);
 	path[i]='\\';
@@ -118,10 +121,19 @@ Config::Config()
 				else throw Exception(std::string("config value is not supported: ")+secName+i->first,"config.cpp");
 			}
 		}
+		else if (secName=="simulation")
+		{
+			Ogre::ConfigFile::SettingsMultiMap::iterator i=csettings->begin();
+			for (; i!=csettings->end(); ++i)
+			{
+				if (i->first=="PHYSICS_SAMPLE_TIME") mPhysicsSamplingTime=convert<float,std::string>(i->second);
+				else if (i->first=="RENDER_EVERY_NTH_FRAME") mRenderEveryNthFrame=convert<short,std::string>(i->second);
+				else throw Exception(std::string("config value is not supported: ")+secName+i->first,"config.cpp");
+			}
+		}
 	}
 }
 
 Config::~Config(void)
 {
 }
-
