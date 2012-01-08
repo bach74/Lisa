@@ -118,6 +118,40 @@ STDMETHODIMP CLisaCOMController::setSetpoint(USHORT i, USHORT numRef, DOUBLE Val
 }
 
 /**-------------------------------------------------------------------------------
+	set all actuator reference
+
+	\param values		set-points
+	\return	HRESULT
+--------------------------------------------------------------------------------*/
+STDMETHODIMP CLisaCOMController::setSetpoints(VARIANT* values)
+{
+	SAFEARRAY* sa=values->parray;
+	std::vector<double> vectParams;
+	Conversion::SAFEARRAY2vector(*sa,vectParams);
+
+	LisaAPI::Instance().setJointSetpoints(vectParams);
+	return S_OK;
+}
+
+/**-------------------------------------------------------------------------------
+	set all actuator reference
+
+	\param values		set-points
+	\return	HRESULT
+--------------------------------------------------------------------------------*/
+STDMETHODIMP CLisaCOMController::getPositions(VARIANT* values)
+{
+	std::vector<double> positions =  LisaAPI::Instance().getJointAngles();
+
+	SAFEARRAY* sa=new SAFEARRAY();
+	Conversion::vector2SAFEARRAY(positions,&sa);
+	CComVariant v(sa);
+	v.Detach(values);
+
+	return S_OK;
+}
+
+/**-------------------------------------------------------------------------------
 	get i-th actuator reference
 
 	\param i		i-th actuator 

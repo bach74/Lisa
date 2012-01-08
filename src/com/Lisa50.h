@@ -4,7 +4,7 @@
 
 
  /* File created by MIDL compiler version 7.00.0555 */
-/* at Sat Jan 07 02:25:47 2012
+/* at Sun Jan 08 00:48:16 2012
  */
 /* Compiler settings for ..\src\com\Lisa50.idl:
     Oicf, W1, Zp8, env=Win32 (32b run), target_arch=X86 7.00.0555 
@@ -176,6 +176,12 @@ EXTERN_C const IID IID_ILisaCOMController;
             USHORT numRef,
             /* [retval][out] */ DOUBLE *retVal) = 0;
         
+        virtual /* [helpstring][id] */ HRESULT STDMETHODCALLTYPE getPositions( 
+            /* [retval][out] */ VARIANT *positions) = 0;
+        
+        virtual /* [helpstring][id] */ HRESULT STDMETHODCALLTYPE setSetpoints( 
+            /* [in] */ VARIANT *values) = 0;
+        
     };
     
 #else 	/* C style interface */
@@ -276,6 +282,14 @@ EXTERN_C const IID IID_ILisaCOMController;
             USHORT numRef,
             /* [retval][out] */ DOUBLE *retVal);
         
+        /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *getPositions )( 
+            ILisaCOMController * This,
+            /* [retval][out] */ VARIANT *positions);
+        
+        /* [helpstring][id] */ HRESULT ( STDMETHODCALLTYPE *setSetpoints )( 
+            ILisaCOMController * This,
+            /* [in] */ VARIANT *values);
+        
         END_INTERFACE
     } ILisaCOMControllerVtbl;
 
@@ -341,6 +355,12 @@ EXTERN_C const IID IID_ILisaCOMController;
 
 #define ILisaCOMController_getSetpoint(This,i,numRef,retVal)	\
     ( (This)->lpVtbl -> getSetpoint(This,i,numRef,retVal) ) 
+
+#define ILisaCOMController_getPositions(This,positions)	\
+    ( (This)->lpVtbl -> getPositions(This,positions) ) 
+
+#define ILisaCOMController_setSetpoints(This,values)	\
+    ( (This)->lpVtbl -> setSetpoints(This,values) ) 
 
 #endif /* COBJMACROS */
 

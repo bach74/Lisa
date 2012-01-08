@@ -50,8 +50,7 @@ void Conversion::SAFEARRAY2vector(SAFEARRAY& sa, std::vector<double>& vect)
 	SafeArrayAccessData(&sa,(void**)&pData);
 		for (UINT i=0;i<sa.rgsabound[0].cElements;++i)
 		{
-			vect.push_back(double());
-			vect.back()=*pData++;
+			vect.push_back(double(*pData++));
 		}
 	SafeArrayUnaccessData(&sa);
 }

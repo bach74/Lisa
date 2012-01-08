@@ -459,3 +459,38 @@ const Simulation* LisaAPI::getSimulation() const
 {
 	return LisaCore::Instance().getSimulation();
 }
+
+/**-------------------------------------------------------------------------------
+	get all joint positions
+
+	@brief
+---------------------------------------------------------------------------------*/
+void LisaAPI::setJointSetpoints(const std::vector<double>& setpoints)
+{
+	const Simulation* sim = LisaCore::Instance().getSimulation();
+
+	// iterate through the actuators and add the states to member variables
+	ActuatorIterator it(sim->getActuators());
+
+	// will protect the entire scope (until destroyed)
+	CritSectEx::Scope scope(myCs);
+
+	for (unsigned int i=0; ((i<setpoints.size())&&!it.end()); ++it, ++i)
+	{
+		it->getController()->setSetpoint(setpoints[i]);
+	}
+}
+
+
+/**-------------------------------------------------------------------------------
+	get all joint positions
+
+	@brief
+---------------------------------------------------------------------------------*/
+std::vector<double> LisaAPI::getJointAngles()
+{
+	std::vector<double> ret;
+
+	std::copy(mJointAngles.begin(),mJointAngles.end(),std::back_inserter(ret));
+	return std::move(ret);
+}

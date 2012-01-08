@@ -65,6 +65,8 @@ class LisaAPI : public ::Singleton<LisaAPI>
 		double	getJointTorque(size_t i);
 		void	setJointSetpoint(size_t i, size_t nParam, double val);
 		double	getJointSetpoint(size_t i, size_t nParam);
+		void	setJointSetpoints(const std::vector<double>& setpoints);
+		std::vector<double> getJointAngles();
 
 		/// simulation
 		Ogre::Vector3 getGravity();

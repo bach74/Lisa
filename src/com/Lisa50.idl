@@ -27,6 +27,8 @@ interface ILisaCOMController : IDispatch{
 	[id(16), helpstring("method setParameters")] HRESULT setParameters([in] USHORT i, [in] VARIANT* params);
 	[id(17), helpstring("get i-th actuator torque")] HRESULT getTorque([in] USHORT i, [out,retval] DOUBLE* pVal);
 	[id(18), helpstring("get setpoint for the i-th controller")] HRESULT getSetpoint([in] USHORT i, USHORT numRef, [out,retval] DOUBLE* retVal);
+	[id(19), helpstring("get all actuator positions")] HRESULT getPositions([out,retval] VARIANT* positions);
+	[id(20), helpstring("asdfasfds")] HRESULT setSetpoints([in] VARIANT* values);
 };
 [
 	object,

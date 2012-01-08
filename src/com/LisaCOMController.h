@@ -67,6 +67,8 @@ public:
 	STDMETHOD(getTorque)(USHORT i, DOUBLE* pVal);
 	STDMETHOD(getSetpoint)(USHORT i, USHORT numRef, DOUBLE* retVal);
 
+	STDMETHOD(getPositions)(VARIANT* positions);
+	STDMETHOD(setSetpoints)(VARIANT* values);
 };
 
 OBJECT_ENTRY_AUTO(__uuidof(LisaCOMController), CLisaCOMController)
