@@ -134,7 +134,6 @@ void MyContactReporter::onTouch(NxOgre::Actor *a, NxOgre::Actor *b, NxOgre::Cont
 /**-------------------------------------------------------------------------------
 	Make a log with contacts data for later analysis
 
-	\param iIter (int)
 	\return (void)
  -----------------------------------------------------------------------------*/
 void MyContactReporter::updateLog()

@@ -243,6 +243,9 @@ void Scene::run()
 			// set external parameters
 			LisaAPI::Instance().setStates();
 
+			// save logging values
+			LisaAPI::Instance().updateLog();
+
 			// and render occasionally - 1/(renderMult+1) x simulation Td 
 			if (renderCount >= rendererMult)
 			{

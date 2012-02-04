@@ -22,8 +22,6 @@ Config::Config()
 	mShowCOG=false;
 	mShowCOP=false;
 	mShowFRI=false;
-	mLoggingSensors=false;
-	mLoggingControllers=false;
 
 	mVisualDebugScale=1.0f;
 	mDrawingScaleCOG=1.0f;
@@ -43,6 +41,11 @@ Config::Config()
 
 	mPhysicsSamplingTime=10; //[ms] 
 	mRenderEveryNthFrame=4;	// 25 FPS
+
+	mLoggingSensors=false;
+	mLoggingControllers=false;
+	mLoggingControllerZMP=false;
+	mLoggingPositions=false;
 
 	TCHAR path[MAX_PATH+1];
 	int i=GetCurrentDirectory(MAX_PATH,path);
@@ -87,6 +90,8 @@ Config::Config()
 				bool val=(i->second=="true");
 				if (i->first=="logging_sensors") mLoggingSensors=val;
 				else if (i->first=="logging_controllers") mLoggingControllers=val;
+				else if (i->first=="logging_controller_zmp") mLoggingControllerZMP=val;
+				else if (i->first=="logging_positions") mLoggingPositions=val;
 				else throw Exception(std::string("config value is not supported: ")+secName+i->first,"config.cpp");
 			}
 		}

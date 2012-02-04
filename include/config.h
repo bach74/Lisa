@@ -43,6 +43,12 @@ class Config : public Singleton<Config>
 		bool getLoggingSensors() const { return mLoggingSensors; }
 		void setLoggingSensors(bool val) { mLoggingSensors = val; }
 
+		bool getLoggingPositions() const { return mLoggingPositions; }
+		void setLoggingPositions(bool val) { mLoggingPositions = val; }
+		
+		bool getLoggingControllerZMP() const { return mLoggingControllerZMP; }
+		void setLoggingControllerZMP(bool val) { mLoggingControllerZMP = val; }
+
 		float getVisualDebugScale() const { return mVisualDebugScale; }
 		void setVisualDebugScale(float val) { mVisualDebugScale = val; }
 
@@ -95,8 +101,6 @@ class Config : public Singleton<Config>
 		bool mShowCOG;
 		bool mShowCOP;
 		bool mShowFRI;
-		bool mLoggingSensors;
-		bool mLoggingControllers;
 		bool mKeepAlive;
 		bool mControllerZMP;
 		bool mSelectedObjectGlows;
@@ -114,6 +118,11 @@ class Config : public Singleton<Config>
 
 		float mPhysicsSamplingTime;
 		short mRenderEveryNthFrame;
+
+		bool mLoggingSensors;
+		bool mLoggingControllers;
+		bool mLoggingControllerZMP;
+		bool mLoggingPositions;
 };
 
 #endif

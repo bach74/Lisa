@@ -13,7 +13,7 @@
 #include "sensor.h"
 #include "actuator.h"
 
-class ControllerZMP : public Controller<double>
+class ControllerZMP : public Controller<double>, public LoggerWriter<ControllerZMP>
 {
 	public:
 		ControllerZMP(SensorVectors& sensorZMP, SensorVectors& sensorCOP, SensorVectors& sensorCOG,
@@ -30,6 +30,7 @@ class ControllerZMP : public Controller<double>
 		SensorVectors& mSensorCOP;
 		SensorVectors& mSensorCOG;
 		std::vector<boost::shared_ptr<Actuator > >& mActuators;
+
 };
 
  #endif

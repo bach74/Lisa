@@ -37,6 +37,8 @@ LisaAPI::LisaAPI() : mFrameTime(0)
 			mLinkMass.push_back(itLink->getMass());
 		}
 	}
+
+	mName = "logs\\simulation.log";
 }
 
 /**----------------------------------------------------------------------------
@@ -286,8 +288,10 @@ void LisaAPI::setActuatorParams(size_t i, std::vector<double>& params)
 	// iterate through the actuators and add the states to member variables
 	ActuatorIterator itAct(sim->getActuators());
 
-	for (size_t j=0; (!itAct.end()&&(j<i)); ++itAct, ++j) {};
-	if (!itAct.end()) {
+	for (size_t j = 0; (!itAct.end() && (j < i)); ++itAct, ++j) {};
+
+	if (!itAct.end())
+	{
 		Actuator& a = *itAct;
 		a.getController()->setParameters(params);
 	}
@@ -334,8 +338,10 @@ void LisaAPI::setJointSetpoint(size_t i, size_t numRef, DOUBLE Val)
 	// will protect the entire scope (until destroyed)
 	CritSectEx::Scope scope(myCs);
 
-	for (size_t j=0; (!itAct.end()&&(j<i)); ++itAct, ++j) {};
-	if (!itAct.end()) {
+	for (size_t j = 0; (!itAct.end() && (j < i)); ++itAct, ++j) {};
+
+	if (!itAct.end())
+	{
 		Actuator& a = *itAct;
 		a.getController()->setSetpoint(Val);
 	}
@@ -390,7 +396,7 @@ void LisaAPI::setStates()
 	mFrameTime = sim->getFrameTime();
 
 	// iterate through the actuators and add the states to member variables
-	ActuatorIterator itAct(sim->getActuators()); 
+	ActuatorIterator itAct(sim->getActuators());
 
 	// will protect the entire scope (until destroyed)
 	CritSectEx::Scope scope(myCs);
@@ -475,7 +481,7 @@ void LisaAPI::setJointSetpoints(const std::vector<double>& setpoints)
 	// will protect the entire scope (until destroyed)
 	CritSectEx::Scope scope(myCs);
 
-	for (unsigned int i=0; ((i<setpoints.size())&&!it.end()); ++it, ++i)
+	for (unsigned int i = 0; ((i < setpoints.size()) && !it.end()); ++it, ++i)
 	{
 		it->getController()->setSetpoint(setpoints[i]);
 	}
@@ -491,6 +497,27 @@ std::vector<double> LisaAPI::getJointAngles()
 {
 	std::vector<double> ret;
 
-	std::copy(mJointAngles.begin(),mJointAngles.end(),std::back_inserter(ret));
+	std::copy(mJointAngles.begin(), mJointAngles.end(), std::back_inserter(ret));
 	return std::move(ret);
+}
+
+/**-------------------------------------------------------------------------------
+	save variables to log file
+
+	@brief
+---------------------------------------------------------------------------------*/
+void LisaAPI::updateLog()
+{
+	if (Config::Instance().getLoggingPositions())
+	{
+		mLogBuffer << std::setprecision(6);
+		mLogBuffer << std::setw(6) << mFrameTime << ": ";
+
+		for (auto it = mLinkPositions.begin(); it != mLinkPositions.end(); ++it)
+		{
+			mLogBuffer << it->x << " " << it->y << " " << it->z << ", ";
+		}
+
+		mLogBuffer << std::endl;
+	}
 }

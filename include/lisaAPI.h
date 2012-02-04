@@ -11,6 +11,7 @@
 
 #include "singleton.h"
 #include "CritSectEx.h"
+#include "logger.h"
 
 class Simulation;
 class Actuator;
@@ -20,10 +21,13 @@ class Actuator;
 	LisaAPI is a monolith class that exposes internal variables to the external
 	interface. The variables are guaranteed to be from the same sampling period.
 	
+	The simulation variables can be persisted to a log file by using the loggerwritter
+	interface.
+
 	@brief
 	@return int
 ---------------------------------------------------------------------------------*/
-class LisaAPI : public ::Singleton<LisaAPI>
+class LisaAPI : public ::Singleton<LisaAPI>, public LoggerWriter<LisaAPI>
 {
 	public:
 
@@ -70,6 +74,9 @@ class LisaAPI : public ::Singleton<LisaAPI>
 
 		/// simulation
 		Ogre::Vector3 getGravity();
+
+		///logging
+		void updateLog();
 
 	private:
 		/// hide constructor
