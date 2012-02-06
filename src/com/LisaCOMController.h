@@ -1,5 +1,5 @@
 // =============================================================================
-//  LisaCOMController.h   version:  1.5
+//  LisaCOMController.h   
 //  
 //	Declaration of the CLisaCOMController
 //

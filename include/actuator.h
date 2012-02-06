@@ -1,7 +1,7 @@
 // =============================================================================
-//  actuator.h   version:  1.5
+//  actuator.h   
 //
-//  Copyright (C) 2007-2010 by Bach - All Rights Reserved
+//  Copyright (C) 2007-2012 by Bach - All Rights Reserved
 //
 // =============================================================================
 #ifndef __ACTUATOR_H__

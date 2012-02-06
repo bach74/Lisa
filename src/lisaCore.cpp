@@ -1,7 +1,7 @@
 // =============================================================================
-//  LisaCore.cpp   version:  1.5
+//  LisaCore.cpp   
 //  
-//  Copyright (C) 2007-2010 by Bach 
+//  Copyright (C) 2007-2012 by Bach 
 //  This file is part of the LiSA project.
 //  The LiSA project is licensed under MIT license.
 // 
@@ -44,7 +44,7 @@ int LisaCore::init()
 	// the first param is the name of the plugins cfg file, the second is the name of the ogre cfg file
 	// we are not using either here, so provide them as empty strings to let Ogre know not to load them
 	// The third param is the name of the Ogre.log diagnostic file; leave it default for now
-	mOgre=std::auto_ptr<Ogre::Root>(new Ogre::Root("","","Ogre.log"));
+	mOgre=std::unique_ptr<Ogre::Root>(new Ogre::Root("","","Ogre.log"));
 	
 	try {
 
@@ -136,7 +136,7 @@ int LisaCore::init()
 		}
 
 
-		mWindow=std::auto_ptr<Ogre::RenderWindow>(mOgre->initialise(true,getStringFromResource(IDS_APPNAME)));
+		mWindow=std::unique_ptr<Ogre::RenderWindow>(mOgre->initialise(true,getStringFromResource(IDS_APPNAME)));
 
 		// change default icon
 		// Get window handle
@@ -234,7 +234,7 @@ void LisaCore::go()
 	init();
 	
 	//create Scene
-	mScene=std::auto_ptr<Scene>(new Scene(mWindow.get()));
+	mScene=std::unique_ptr<Scene>(new Scene(mWindow.get()));
 
 	// get video options from configuration file
 	VideoOptions opts;

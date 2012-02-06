@@ -1,7 +1,7 @@
 // =============================================================================
-//  LisaCore.h   version:  1.5
+//  LisaCore.h   
 //  
-//  Copyright (C) 2007-2010 by Bach 
+//  Copyright (C) 2007-2012 by Bach 
 //  This file is part of the LiSA project.
 //  The LiSA project is licensed under MIT license.
 // 
@@ -43,9 +43,9 @@ private:
 	int deinit();
 	bool getOptions(VideoOptions& opts) const;
 
-	std::auto_ptr<Ogre::Root> mOgre;
-	std::auto_ptr<Ogre::RenderWindow> mWindow;
-	std::auto_ptr<Scene> mScene;
+	std::unique_ptr<Ogre::Root> mOgre;
+	std::unique_ptr<Ogre::RenderWindow> mWindow;
+	std::unique_ptr<Scene> mScene;
 
 };
 

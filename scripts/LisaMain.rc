@@ -13,13 +13,11 @@
 #undef APSTUDIO_READONLY_SYMBOLS
 
 /////////////////////////////////////////////////////////////////////////////
-// Croatian resources
+// Croatian (Croatia) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_HRV)
-#ifdef _WIN32
 LANGUAGE LANG_CROATIAN, SUBLANG_DEFAULT
 #pragma code_page(1250)
-#endif //_WIN32
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -29,18 +27,16 @@ LANGUAGE LANG_CROATIAN, SUBLANG_DEFAULT
 IDR_LISACOMCONTROLLER   REGISTRY                "..\\res\\LisaCOMController.rgs"
 IDR_LISACOMTRAJECTORY   REGISTRY                "..\\res\\LisaCOMTrajectory.rgs"
 IDR_LISACOM             REGISTRY                "..\\res\\LisaCom.rgs"
-#endif    // Croatian resources
+#endif    // Croatian (Croatia) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
 /////////////////////////////////////////////////////////////////////////////
-// English (U.S.) resources
+// English (United States) resources
 
 #if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
-#ifdef _WIN32
 LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 #pragma code_page(1252)
-#endif //_WIN32
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -91,8 +87,8 @@ IDI_LISA_SMALL          ICON                    "..\\res\\icon1.ico"
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,0,5,3
- PRODUCTVERSION 1,0,5,3
+ FILEVERSION 1,0,5,5
+ PRODUCTVERSION 1,0,5,5
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -108,12 +104,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "bach"
-            VALUE "FileVersion", "1.0.5.3"
+            VALUE "FileVersion", "1.0.5.5"
             VALUE "InternalName", "Lisa50.exe"
-            VALUE "LegalCopyright", "(c) Bach 2006-2010"
+            VALUE "LegalCopyright", "(c) Bach 2007-2012"
             VALUE "OriginalFilename", "Lisa50.exe"
             VALUE "ProductName", "L.i.S.A."
-            VALUE "ProductVersion", "1.0.5.3"
+            VALUE "ProductVersion", "1.0.5.5"
         END
     END
     BLOCK "VarFileInfo"
@@ -128,14 +124,14 @@ END
 // String Table
 //
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_PROJNAME            "Lisa50"
     IDS_APPNAME             "Lisa 5.0"
     IDS_CONFIG_FILE_NAME    "config.ini"
 END
 
-#endif    // English (U.S.) resources
+#endif    // English (United States) resources
 /////////////////////////////////////////////////////////////////////////////
 
 

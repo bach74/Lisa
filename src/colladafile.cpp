@@ -1,5 +1,5 @@
 // =============================================================================
-//  colladafile.cpp   version:  1.5
+//  colladafile.cpp   
 //
 //   Collada physics Importer/Exporter for nxOgre. Based on
 //   Scene Export: This program shows how to export and import a scene to

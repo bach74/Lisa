@@ -465,6 +465,9 @@
     <ClInclude Include="..\include\lisaAPI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="VersionInfo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Midl Include="..\src\com\Lisa50.idl">

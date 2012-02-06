@@ -314,6 +314,7 @@ cd $(ProjectDir)
     <ClInclude Include="..\include\math\ConvexHullGraham.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="..\src\com\Lisa50.h" />
+    <ClInclude Include="VersionInfo.h" />
   </ItemGroup>
   <ItemGroup>
     <Midl Include="..\src\com\Lisa50.idl" />

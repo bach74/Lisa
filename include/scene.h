@@ -1,7 +1,7 @@
 // =============================================================================
-//  scene.h   version:  1.5
+//  scene.h   
 //
-//  Copyright (C) 2007-2010 by Bach 
+//  Copyright (C) 2007-2012 by Bach 
 //  This file is part of the LiSA project.
 //  The LiSA project is licensed under MIT license.
 //
@@ -43,6 +43,8 @@ class Scene : public Ogre::WindowEventListener
 		void createDefaultViewport();
 		void createResourceListener() {};
 		void loadResources() {};
+		void createGridVisuals(const Ogre::AxisAlignedBox& worldAABB);
+		Ogre::AxisAlignedBox getSceneSize(Ogre::SceneNode* node);
 
 		Scene() {};
 

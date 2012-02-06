@@ -1,7 +1,7 @@
 // =============================================================================
-//  simulation.cpp   version:  1.5
+//  simulation.cpp   
 //
-//  Copyright (C) 2007-2010 by Bach 
+//  Copyright (C) 2007-2012 by Bach 
 //  This file is part of the LiSA project.
 //  The LiSA project is licensed under MIT license.
 //
@@ -195,8 +195,6 @@ void SimulationImpl::loadScene(const std::string& filename)
  -----------------------------------------------------------------------------*/
 void SimulationImpl::onPrepareSimulation()
 {
-	mScene->getCamera().getOgreCamera()->setPosition(28, 44, 42);
-
 	//LogManager::getSingleton().logMessage(Ogre::LML_NORMAL,DumpNodes(mSceneMgr->getRootSceneNode()).c_str());
 	
 	// Create sensors according to the config file

@@ -1,7 +1,7 @@
 // =============================================================================
-//  scene.cpp   version:  1.5
+//  scene.cpp   
 //
-//  Copyright (C) 2007-2010 by Bach 
+//  Copyright (C) 2007-2012 by Bach
 //  This file is part of the LiSA project.
 //  The LiSA project is licensed under MIT license.
 //
@@ -162,43 +162,96 @@ void Scene::createDefaultViewport()
 
 /**-------------------------------------------------------------------------------
 	Load Scene <filename> from an OgreSceneFile .osm
-
+	
+	and creates camera(s) and viewport(s)
 	\param filename (const char *)
 	\return (void)
  -----------------------------------------------------------------------------*/
 void Scene::loadScene(const char* filename)
-{
-	// load Scene
-	// note that load Scene creates cameras and viewports also
-
-	// create nice looking grid
-	// this is only the visual representation, the physics is defined elsewhere
-	Ogre::StaticGeometry* mStaticGeom;
-	mStaticGeom = mSceneMgr->createStaticGeometry("Grid");
-	Ogre::Entity* entFloor = mSceneMgr->createEntity("nx.floor", "nx.floor.mesh");
-	entFloor->setCastShadows(false);
-	mStaticGeom->addEntity(entFloor, Ogre::Vector3(0, -0.05f, 0));
-	Ogre::Entity* entAxis = mSceneMgr->createEntity("nx.axis", "nx.body.axis.mesh");
-	entAxis->setCastShadows(false);
-	mStaticGeom->addEntity(entAxis, Ogre::Vector3(0, 0.01f, 0));
-	mStaticGeom->build();
-	mStaticGeom->setCastShadows(false);
-
+{	
 	// create and set simulation state to STARTUP
 	// simulation class also takes care of the input handling
 	mSimulation = new SimulationImpl(this);
 
 	mCamera = new PhyExtendedCamera("MainCamera", mSceneMgr, mSimulation->getPhyScene());
 	mCamera->getOgreCamera()->setPosition(Ogre::Vector3(30, 30, 50));
-	mCamera->getOgreCamera()->lookAt(Ogre::Vector3(0, 0, 0));
+	mCamera->getOgreCamera()->lookAt(Ogre::Vector3(0, 0, 0));	
 
 	createDefaultViewport();
 
-	//TODO:
+	//TODO: coupling 
 	((SimulationImpl*)mSimulation)->loadScene(std::string(filename));
 
+
+	Ogre::AxisAlignedBox worldAABB = getSceneSize(mSceneMgr->getRootSceneNode());
+	createGridVisuals(worldAABB);
+	mCamera->getOgreCamera()->setPosition(worldAABB.getMaximum()*4);
 }
 
+/**-------------------------------------------------------------------------------
+	create nice looking grid
+	this is only the visual representation, the physics is defined elsewhere.
+	Also scene size (bounding box of all objects) will be determined and grid will
+	be scaled accordingly
+
+	\return (void)
+ -----------------------------------------------------------------------------*/
+void Scene::createGridVisuals(const Ogre::AxisAlignedBox& worldAABB)
+{
+	NxReal maxSize = std::max(worldAABB.getMaximum().x + worldAABB.getMinimum().x, worldAABB.getMaximum().y + worldAABB.getMinimum().y);
+	maxSize = std::max(maxSize, worldAABB.getMaximum().z + worldAABB.getMinimum().z);
+
+	Ogre::Vector3 scale(maxSize/5.0f, maxSize/5.0f, maxSize/5.0f);
+
+	// create "grid"
+	Ogre::StaticGeometry* mStaticGeom;
+	mStaticGeom = mSceneMgr->createStaticGeometry("Grid");
+	Ogre::Entity* entFloor = mSceneMgr->createEntity("nx.floor", "nx.floor.mesh");
+	entFloor->setCastShadows(false);
+	mStaticGeom->addEntity(entFloor, Ogre::Vector3(0, -0.05f, 0), Ogre::Quaternion::IDENTITY, scale);
+
+	// create "arrows"
+	Ogre::Entity* entAxis = mSceneMgr->createEntity("nx.axis", "nx.body.axis.mesh");
+	entAxis->setCastShadows(false);
+	mStaticGeom->addEntity(entAxis, Ogre::Vector3(0, 0.02f, 0), Ogre::Quaternion::IDENTITY, scale);
+	mStaticGeom->build();
+	mStaticGeom->setCastShadows(false);
+}
+
+/**-------------------------------------------------------------------------------
+	\return scene bounding box
+ -----------------------------------------------------------------------------*/
+Ogre::AxisAlignedBox Scene::getSceneSize(Ogre::SceneNode* startNode)
+{
+	Ogre::AxisAlignedBox worldAABB;
+	worldAABB.setNull();
+
+	Ogre::Node::ChildNodeIterator childIterator = startNode->getChildIterator();
+
+	while (childIterator.hasMoreElements())
+	{
+		std::string name = childIterator.current()->first;
+		Ogre::SceneNode* currentNode = static_cast<Ogre::SceneNode*>(childIterator.current()->second);
+
+		// TODO: better check if it is a camera node
+		if (name.find("Camera") == -1)
+		{
+			currentNode->_updateBounds();
+
+			unsigned short numAttached = currentNode->numAttachedObjects();
+
+			for (unsigned short i = 0; i < numAttached; ++i)
+			{
+				worldAABB.merge(currentNode->getAttachedObject(i)->getWorldBoundingBox());
+			}
+		}
+
+		worldAABB.merge(getSceneSize(currentNode));
+		childIterator.moveNext();
+	}
+
+	return worldAABB;
+}
 /**-------------------------------------------------------------------------------
 	Main Scene loop function
 	Render one frame until termination event is received
@@ -209,7 +262,7 @@ void Scene::run()
 {
 	MSG msg;
 	float desiredDelta = Config::Instance().getPhysicsSampleTime();
-	int   rendererMult = Config::Instance().getRenderEveryNthFrame()-1;
+	int   rendererMult = Config::Instance().getRenderEveryNthFrame() - 1;
 
 	Ogre::Root* root = Ogre::Root::getSingletonPtr();
 	root->setFrameSmoothingPeriod(0);
@@ -219,7 +272,7 @@ void Scene::run()
 
 	long currentTicks = root->getTimer()->getMilliseconds();
 	long lastTicks = currentTicks;
-	float lastTicksFPS = currentTicks/1000.0f;
+	float lastTicksFPS = currentTicks / 1000.0f;
 	long deltaMs = 0;
 	float deltaFPS = 0;
 	int  renderCount = 0;
@@ -232,10 +285,11 @@ void Scene::run()
 
 		if (deltaMs >= desiredDelta)
 		{
-			mSimulation->setFrameTime(currentTicks/1000.0f);
-			float deltaTime = deltaMs/1000.0f;
-		
-			if (Config::Instance().getPhysxEnabled()) {
+			mSimulation->setFrameTime(currentTicks / 1000.0f);
+			float deltaTime = deltaMs / 1000.0f;
+
+			if (Config::Instance().getPhysxEnabled())
+			{
 				// simulate physics
 				mSimulation->simulate(deltaTime);
 			}
@@ -246,7 +300,7 @@ void Scene::run()
 			// save logging values
 			LisaAPI::Instance().updateLog();
 
-			// and render occasionally - 1/(renderMult+1) x simulation Td 
+			// and render occasionally - 1/(renderMult+1) x simulation Td
 			if (renderCount >= rendererMult)
 			{
 				deltaFPS = mSimulation->getFrameTime() - lastTicksFPS;
@@ -293,3 +347,4 @@ void Scene::run()
 		}
 	}
 }
+

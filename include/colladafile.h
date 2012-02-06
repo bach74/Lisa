@@ -1,11 +1,11 @@
 // =============================================================================
-//  colladafile.h   version:  1.5
+//  colladafile.h   
 //	Collada physics Importer/Exporter for nxOgre. Based on
 //	a serialization sample for the PhysX Physics SDK showing explicit export
 //	and import of a scene by Stephen Hatcher, based on work by Pierre Terdiman
 //	(01.01.04) and others
 //  
-//  Copyright (C) 2007-2010 by Bach 
+//  Copyright (C) 2007-2012 by Bach 
 //  This file is part of the LiSA project.
 //  The LiSA project is licensed under MIT license.
 // 
