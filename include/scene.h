@@ -32,6 +32,8 @@ class Scene : public Ogre::WindowEventListener
 		void setShadowTechnique(Ogre::ShadowTechnique st) { mShadowType=st; }
 		Ogre::ShadowTechnique getShadowTechnique()   { return mShadowType; }
 
+		float getGridUnitSize()						{ return mGridUnitSize; }
+
 	protected:
 		virtual void windowResized(Ogre::RenderWindow* rw);
 		virtual void windowClosed(Ogre::RenderWindow* rw);
@@ -47,7 +49,6 @@ class Scene : public Ogre::WindowEventListener
 		Ogre::AxisAlignedBox getSceneSize(Ogre::SceneNode* node);
 
 		Scene() {};
-
 		Ogre::SceneManager*         mSceneMgr;
 		Ogre::RenderWindow*         mWindow;
 		ExtendedCamera*             mCamera;
@@ -55,6 +56,7 @@ class Scene : public Ogre::WindowEventListener
 
 		// attributes
 		Ogre::ShadowTechnique       mShadowType;
+		float mGridUnitSize;
 };
 
  #endif

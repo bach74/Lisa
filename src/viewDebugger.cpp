@@ -1,10 +1,10 @@
 // =============================================================================
-//  ViewDebugger.cpp   
-//  
-//  Copyright (C) 2007-2012 by Bach 
+//  ViewDebugger.cpp
+//
+//  Copyright (C) 2007-2012 by Bach
 //  This file is part of the LiSA project.
 //  The LiSA project is licensed under MIT license.
-// 
+//
 // =============================================================================
 
 #include "stdafx.h"
@@ -15,6 +15,7 @@
 #include "sensorDecoratorVector.h"
 #include "scene.h"
 #include "link.h"
+#include "extendedCamera.h"
 
 
 /**-------------------------------------------------------------------------------
@@ -32,16 +33,16 @@ ViewDebugger::ViewDebugger(Simulation* simulation)
 	mDebugView = VISUAL_NONE;
 	mShowDebuggersCurrent = 0;
 	mExpandedText = false;
-	mForceVec = new SensorDecoratorVector(new SensorForce(mSimulation), Ogre::ColourValue(1, 1, 0),false);
+	mForceVec = new SensorDecoratorVector(new SensorForce(mSimulation), Ogre::ColourValue(1, 1, 0), false);
 
 	//Initialize debug GUI system
-	float halfHeight = mSimulation->getScene()->getWindow().getHeight()/2.0f;
-	float halfWidth = mSimulation->getScene()->getWindow().getWidth()/2.0f;
+	float halfHeight = mSimulation->getScene()->getWindow().getHeight() / 2.0f;
+	float halfWidth = mSimulation->getScene()->getWindow().getWidth() / 2.0f;
 
 	mOverlay = Ogre::OverlayManager::getSingleton().create("Simulation.Debug");
 
 	mDebugOverlay = static_cast<Ogre::OverlayContainer*>(Ogre::OverlayManager::getSingleton().createOverlayElement(
-						"Panel", "Simulation.WorldDebug"));
+	                    "Panel", "Simulation.WorldDebug"));
 
 	mOverlay->add2D(mDebugOverlay);
 
@@ -137,13 +138,17 @@ void ViewDebugger::updateDebug()
 
 	const char* simulationStatesText[] = {"STARTUP", "LOADING", "CANCEL LOADING", "PREPARING", "SIMULATING", "SHUTDOWN", "PAUSED"};
 	objectInfo << "[" << simulationStatesText[mSimulation->getCurrentState()] << "] " <<
-			   "Time: " << std::setw(8) << std::setprecision(4) << std::setfill(' ')  << mSimulation->getFrameTime() <<
-			   " FPS: " << std::setw(6) << std::setprecision(4) << std::setfill(' ') << (1 / mSimulation->getTimeSinceLastRenderFrame()) <<
-			   "  Td (PhysX): " << std::setw(6) << std::setprecision(3) << std::setfill(' ') <<  mSimulation->getTimeSinceLastPhysXFrame() << " ms";
+	           "Time: " << std::setw(8) << std::setprecision(4) << std::setfill(' ')  << mSimulation->getFrameTime() <<
+	           " FPS: " << std::setw(6) << std::setprecision(4) << std::setfill(' ') << (1 / mSimulation->getTimeSinceLastRenderFrame()) <<
+	           "  Td (PhysX): " << std::setw(6) << std::setprecision(3) << std::setfill(' ') <<  mSimulation->getTimeSinceLastPhysXFrame() << " ms";
 
 	if (mExpandedText)
 	{
+		objectInfo << "\r\nUnit Grid size: " << mSimulation->getScene()->getGridUnitSize();
+
 		objectInfo << "\r\nShowing: " << getDebug();
+
+		objectInfo << "\r\nCamera Type: " << determineCameraType();
 
 		if (selected)
 		{
@@ -153,7 +158,7 @@ void ViewDebugger::updateDebug()
 			Ogre::Degree angle;
 			node->getOrientation().ToAngleAxis(angle, axis);
 			objectInfo << "\r\nSelected: " << selected->getName()
-					   << "\n\rPosition: " << p << "\n\rOrientation: " << angle << " around " << axis;
+			           << "\n\rPosition: " << p << "\n\rOrientation: " << angle << " around " << axis;
 		}
 
 		objectInfo << mDebugDescription + mSimulation->getDescription();
@@ -431,5 +436,23 @@ void ViewDebugger::toggleVisible()
 	else
 	{
 		physicsSDK->setParameter(mShowDebuggers[mShowDebuggersCurrent], 1.0f);
+	}
+}
+
+/**-------------------------------------------------------------------------------
+	determineCameraType
+
+	@brief
+	@return std::string
+---------------------------------------------------------------------------------*/
+std::string ViewDebugger::determineCameraType()
+{
+	switch (mSimulation->getScene()->getCamera().getCameraType())
+	{
+		case ExtendedCamera::FREE_MOUSE:
+			return "Free mouse camera";
+			break;
+		default:
+			return "Unknown";
 	}
 }

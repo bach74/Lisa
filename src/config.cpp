@@ -28,10 +28,14 @@ Config::Config()
 	mDrawingScaleCOP=1.0f;
 	mDrawingScaleFRI=1.0f;
 	mDrawingScaleZMP=1.0f;
+	mDrawGridSize=5.0f;
+	mDrawGridArrowsSize=5.0f;
 
 	mCameraZoomSpeed=0.01f;
 	mCameraRotateSpeed=0.01f;
 	mCameraTranslateSpeed=0.003f;
+	mCameraAutotracking=false;
+
 	mActuatorSteppingTime=0.03f;
 
 	mKeepAlive=false;
@@ -110,7 +114,11 @@ Config::Config()
 				else if (i->first=="CAMERA_ROTATE_SPEED") mCameraRotateSpeed=val;
 				else if (i->first=="CAMERA_TRANSLATE_SPEED") mCameraTranslateSpeed=val;
 				else if (i->first=="CAMERA_ZOOM_SPEED") mCameraZoomSpeed=val;
+				else if (i->first=="CAMERA_AUTOTRACKING") mCameraAutotracking=(i->second=="true");
+				else if (i->first=="CAMERA_AUTOTRACKING_OBJECT") mCameraAutotrackingObject=i->second;
 				else if (i->first=="SELECTED_OBJECT_GLOWS") mSelectedObjectGlows=(i->second=="true");
+				else if (i->first=="GRID_SIZE") mDrawGridSize=val;
+				else if (i->first=="GRID_ARROWS_SIZE") mDrawGridArrowsSize=val;
 				else throw Exception(std::string("config value is not supported: ")+secName+i->first,"config.cpp");
 			}
 		}

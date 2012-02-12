@@ -1,5 +1,5 @@
 // =============================================================================
-//  scene.cpp   
+//  scene.cpp
 //
 //  Copyright (C) 2007-2012 by Bach
 //  This file is part of the LiSA project.
@@ -16,6 +16,7 @@
 #include "contactReporter.h"
 #include "lisaAPI.h"
 #include "config.h"
+#include "exception.h"
 
 /**-------------------------------------------------------------------------------
 	ctor for Scene class
@@ -27,6 +28,8 @@
  -----------------------------------------------------------------------------*/
 Scene::Scene(Ogre::RenderWindow* wnd) throw(): mWindow(wnd), mSceneMgr(NULL), mCamera(NULL), mSimulation(NULL)
 {
+	mGridUnitSize = -1;
+
 	Ogre::WindowEventUtilities::addWindowEventListener(mWindow, this);
 
 	// first step, create a basic scenemanager
@@ -162,30 +165,38 @@ void Scene::createDefaultViewport()
 
 /**-------------------------------------------------------------------------------
 	Load Scene <filename> from an OgreSceneFile .osm
-	
+
 	and creates camera(s) and viewport(s)
 	\param filename (const char *)
 	\return (void)
  -----------------------------------------------------------------------------*/
 void Scene::loadScene(const char* filename)
-{	
+{
 	// create and set simulation state to STARTUP
 	// simulation class also takes care of the input handling
 	mSimulation = new SimulationImpl(this);
 
-	mCamera = new PhyExtendedCamera("MainCamera", mSceneMgr, mSimulation->getPhyScene());
+	bool autotracking = Config::Instance().getCameraAutotracking();
+
+	mCamera = new PhyExtendedCamera("MainCamera", mSceneMgr, mSimulation->getPhyScene(), autotracking);
 	mCamera->getOgreCamera()->setPosition(Ogre::Vector3(30, 30, 50));
-	mCamera->getOgreCamera()->lookAt(Ogre::Vector3(0, 0, 0));	
+	mCamera->getOgreCamera()->lookAt(Ogre::Vector3(0, 0, 0));
 
 	createDefaultViewport();
 
-	//TODO: coupling 
+	//TODO: coupling
 	((SimulationImpl*)mSimulation)->loadScene(std::string(filename));
 
-
+	// position camera according to the scene size
 	Ogre::AxisAlignedBox worldAABB = getSceneSize(mSceneMgr->getRootSceneNode());
 	createGridVisuals(worldAABB);
-	mCamera->getOgreCamera()->setPosition(worldAABB.getMaximum()*4);
+	mCamera->getOgreCamera()->setPosition(worldAABB.getMaximum() * 4);
+
+	if (autotracking)
+	{
+		mCamera->changeTargetNode(Config::Instance().getCameraAutotrackingObject());
+	}
+
 }
 
 /**-------------------------------------------------------------------------------
@@ -201,19 +212,27 @@ void Scene::createGridVisuals(const Ogre::AxisAlignedBox& worldAABB)
 	NxReal maxSize = std::max(worldAABB.getMaximum().x + worldAABB.getMinimum().x, worldAABB.getMaximum().y + worldAABB.getMinimum().y);
 	maxSize = std::max(maxSize, worldAABB.getMaximum().z + worldAABB.getMinimum().z);
 
-	Ogre::Vector3 scale(maxSize/5.0f, maxSize/5.0f, maxSize/5.0f);
+	// use round numbers for grid sizes
+	NxReal gridScale = maxSize / Config::Instance().getDrawGridSize();
+	Ogre::Vector3 gridScaleVector(gridScale, gridScale, gridScale);
+
+	// normal grid unit size is 2.0m
+	mGridUnitSize = 2.0f * gridScale;
+
+	NxReal gridArrowScale = maxSize / Config::Instance().getDrawGridArrowsSize();
+	Ogre::Vector3 gridArrowsScaleVector(gridArrowScale, gridArrowScale, gridArrowScale);
 
 	// create "grid"
 	Ogre::StaticGeometry* mStaticGeom;
 	mStaticGeom = mSceneMgr->createStaticGeometry("Grid");
 	Ogre::Entity* entFloor = mSceneMgr->createEntity("nx.floor", "nx.floor.mesh");
 	entFloor->setCastShadows(false);
-	mStaticGeom->addEntity(entFloor, Ogre::Vector3(0, -0.05f, 0), Ogre::Quaternion::IDENTITY, scale);
+	mStaticGeom->addEntity(entFloor, Ogre::Vector3(0, -0.05f, 0), Ogre::Quaternion::IDENTITY, gridScaleVector);
 
 	// create "arrows"
 	Ogre::Entity* entAxis = mSceneMgr->createEntity("nx.axis", "nx.body.axis.mesh");
 	entAxis->setCastShadows(false);
-	mStaticGeom->addEntity(entAxis, Ogre::Vector3(0, 0.02f, 0), Ogre::Quaternion::IDENTITY, scale);
+	mStaticGeom->addEntity(entAxis, Ogre::Vector3(0, 0.02f, 0), Ogre::Quaternion::IDENTITY, gridArrowsScaleVector);
 	mStaticGeom->build();
 	mStaticGeom->setCastShadows(false);
 }
@@ -347,4 +366,3 @@ void Scene::run()
 		}
 	}
 }
-

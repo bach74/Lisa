@@ -1,7 +1,7 @@
 // =============================================================================
-//  extendedCamera.cpp   
+//  extendedCamera.cpp
 //
-//  Copyright (C) 2007-2012 by Bach 
+//  Copyright (C) 2007-2012 by Bach
 //  This file is part of the LiSA project.
 //  The LiSA project is licensed under MIT license.
 //
@@ -25,6 +25,8 @@ ExtendedCamera::ExtendedCamera(Ogre::String name, Ogre::SceneManager* sceneMgr, 
 	mName = name;
 	mSceneMgr = sceneMgr;
 	mTargetNode = NULL;
+	mCameraType = FREE_MOUSE;
+	mTightness = 0.01f;
 
 	mAutoTracking = autoTrack;
 	// Create the camera's node structure
@@ -33,8 +35,13 @@ ExtendedCamera::ExtendedCamera(Ogre::String name, Ogre::SceneManager* sceneMgr, 
 	if (mAutoTracking)
 	{
 		mTargetNode = mSceneMgr->getRootSceneNode()->createChildSceneNode(mName + "_target");
-		mCameraNode->setAutoTracking(true, mTargetNode);    // The camera will always look at the camera target
-		mCameraNode->setFixedYawAxis(true);                 // Needed because of auto tracking
+
+		// The camera will always look at the camera target
+		mCameraNode->setAutoTracking(true, mTargetNode);
+		// Needed because of auto tracking
+		mCameraNode->setFixedYawAxis(true);
+		// Register a framelistener when autotracking is enabled
+		Ogre::Root::getSingletonPtr()->addFrameListener(this);
 	}
 	else
 	{
@@ -78,17 +85,20 @@ ExtendedCamera::~ExtendedCamera()
 	//delete mRaySceneQuery;
 	//mRaySceneQuery=NULL;
 
+	Ogre::Root::getSingleton().removeFrameListener(this);
+
 	mCameraNode->detachAllObjects();
 	mSceneMgr->destroySceneNode(mName);
 	mSceneMgr->destroyCamera(mCamera);
 
 	if (mAutoTracking)
 	{
-		mSceneMgr->destroySceneNode(mName + "_target");
+		mSceneMgr->destroySceneNode(mTargetNode);
 	}
 
 	delete mStencilOpFrameListener;
 }
+
 
 /**-------------------------------------------------------------------------------
 	update camera position
@@ -104,54 +114,11 @@ void ExtendedCamera::updateCamera(const OIS::MouseButtonID& mbtn, const OIS::Mou
 	float rotateSpeed = Config::Instance().getCameraRotateSpeed();
 	float translateSpeed = Config::Instance().getCameraTranslateSpeed();
 
-	switch (mbtn)
+	switch (mCameraType)
 	{
-		case(OIS::MB_Left) :
-		{
-			if (ctrlHold)
-			{
-				// if left control is held then change camera's view
-				// otherwise rotate camera around an object or coordinate system's center
-				mCamera->yaw((Ogre::Radian)(-mstate.X.rel * rotateSpeed));
-				mCamera->pitch((Ogre::Radian)(-mstate.Y.rel * rotateSpeed));
-			}
-			else
-			{
-				Ogre::SceneNode* sc = mCamera->getParentSceneNode();
-				Ogre::Vector3 vw(0, 0, 0);
-
-				// if object is selected, rotate around it
-				if (mSceneMgr->hasEntity(currentObject))
-				{
-					Ogre::SceneNode* node = mSceneMgr->getEntity(currentObject)->getParentSceneNode();
-					vw = node->_getDerivedPosition();
-					Ogre::Matrix4 m4 = sc->_getFullTransform();
-					// rotation around selected object
-					vw = m4.inverse() * vw;
-				}
-
-				sc->translate(vw, Ogre::Node::TS_LOCAL);
-				// this transformation will "ignore" camera's orientation
-				Ogre::Quaternion qOri = mCamera->getRealOrientation();
-				Ogre::Quaternion q(static_cast<Ogre::Radian>(mstate.X.rel * rotateSpeed), Ogre::Vector3(0, 1, 0));
-				sc->rotate(qOri * q * qOri.Inverse(), Ogre::Node::TS_WORLD);
-				Ogre::Quaternion q2(static_cast<Ogre::Radian>(-mstate.Y.rel * rotateSpeed), Ogre::Vector3(1, 0, 0));
-				sc->rotate(qOri * q2 * qOri.Inverse(), Ogre::Node::TS_WORLD);
-				sc->translate(-vw, Ogre::Node::TS_LOCAL);
-			}
-		}
-		break;
-		case(OIS::MB_Middle) :
+		case FREE_MOUSE:
+			updateFreeMouseCamera(mbtn, ctrlHold, mstate, rotateSpeed, currentObject, translateSpeed);
 			break;
-		case(OIS::MB_Right) :
-		{
-			// get current camera
-			Ogre::Real transSpeed = mCamera->getRealPosition().length() * translateSpeed;
-			Ogre::Vector3 offs(static_cast<Ogre::Real>(mstate.X.rel * transSpeed),
-				static_cast<Ogre::Real>(-mstate.Y.rel * transSpeed), static_cast<Ogre::Real>(mstate.Z.rel));
-			mCamera->moveRelative(offs);
-		}
-		break;
 	}
 }
 
@@ -221,4 +188,134 @@ void ExtendedCamera::unselectObject(Ogre::Entity* entity)
 		mSceneMgr->destroySceneNode(high->getName());
 		mSceneMgr->destroyEntity(entity->getName() + "_alphaGlowGlow");
 	}
+}
+
+/**-------------------------------------------------------------------------------
+	updateFreeMouseCamera
+
+	@brief
+	@param mbtn
+	@param ctrlHold
+	@param mstate
+	@param rotateSpeed
+	@param currentObject
+	@param translateSpeed
+	@return void
+---------------------------------------------------------------------------------*/
+void ExtendedCamera::updateFreeMouseCamera(const OIS::MouseButtonID& mbtn, bool ctrlHold, const OIS::MouseState& mstate, float rotateSpeed, Ogre::String& currentObject, float translateSpeed)
+{
+	switch (mbtn)
+	{
+		case(OIS::MB_Left) :
+		{
+			if (ctrlHold)
+			{
+				// if left control is held then change camera's view
+				// otherwise rotate camera around an object or coordinate system's center
+				mCamera->yaw((Ogre::Radian)(-mstate.X.rel * rotateSpeed));
+				mCamera->pitch((Ogre::Radian)(-mstate.Y.rel * rotateSpeed));
+			}
+			else
+			{
+				Ogre::SceneNode* sc = mCamera->getParentSceneNode();
+				Ogre::Vector3 vw(0, 0, 0);
+
+				// if object is selected, rotate around it
+				if (mSceneMgr->hasEntity(currentObject))
+				{
+					Ogre::SceneNode* node = mSceneMgr->getEntity(currentObject)->getParentSceneNode();
+					vw = node->_getDerivedPosition();
+					Ogre::Matrix4 m4 = sc->_getFullTransform();
+					// rotation around selected object
+					vw = m4.inverse() * vw;
+				}
+
+				sc->translate(vw, Ogre::Node::TS_LOCAL);
+				// this transformation will "ignore" camera's orientation
+				Ogre::Quaternion qOri = mCamera->getRealOrientation();
+				Ogre::Quaternion q(static_cast<Ogre::Radian>(mstate.X.rel * rotateSpeed), Ogre::Vector3(0, 1, 0));
+				sc->rotate(qOri * q * qOri.Inverse(), Ogre::Node::TS_WORLD);
+				Ogre::Quaternion q2(static_cast<Ogre::Radian>(-mstate.Y.rel * rotateSpeed), Ogre::Vector3(1, 0, 0));
+				sc->rotate(qOri * q2 * qOri.Inverse(), Ogre::Node::TS_WORLD);
+				sc->translate(-vw, Ogre::Node::TS_LOCAL);
+			}
+		}
+		break;
+		case(OIS::MB_Middle) :
+			break;
+		case(OIS::MB_Right) :
+		{
+			// get current camera
+			Ogre::Real transSpeed = mCamera->getRealPosition().length() * translateSpeed;
+			Ogre::Vector3 offs(static_cast<Ogre::Real>(mstate.X.rel * transSpeed),
+			                   static_cast<Ogre::Real>(-mstate.Y.rel * transSpeed), static_cast<Ogre::Real>(mstate.Z.rel));
+			mCamera->moveRelative(offs);
+		}
+		break;
+	}
+}
+
+/**-------------------------------------------------------------------------------
+	changeCameraType
+
+	@brief
+	@param val
+	@param selectedObject
+	@return void
+---------------------------------------------------------------------------------*/
+void ExtendedCamera::changeCameraType(CameraType val, const std::string& selectedObject)
+{
+	if (mSceneMgr->hasEntity(selectedObject))
+	{
+		switch (mCameraType)
+		{
+			case FREE_MOUSE:
+				break;
+		}
+
+		mCameraType = val;
+	}
+}
+
+/**-------------------------------------------------------------------------------
+	changeTargetNode
+	If autotracking is enabled, targetnode will be tracked. Instead of tracking
+	a original node
+
+	@brief
+	@param target
+	@return void
+---------------------------------------------------------------------------------*/
+void ExtendedCamera::changeTargetNode(const std::string& target)
+{
+	if (mSceneMgr->hasSceneNode(target))
+	{
+		mTargetName = target;
+		Ogre::SceneNode* newTargetNode = mSceneMgr->getSceneNode(target);
+
+		mCamera->setAutoTracking(false);
+		mSceneMgr->destroySceneNode(mTargetNode);
+		mTargetNode = mSceneMgr->getRootSceneNode()->createChildSceneNode(newTargetNode->getName() + "_target");
+		mCamera->setAutoTracking(true, mTargetNode);
+	}
+	else
+	{
+		throw Exception("Auto-tracking object cannot be found in scene.\n Please check config.ini!", "scene.cpp");
+	}
+}
+
+
+/**-------------------------------------------------------------------------------
+	frameStarted
+
+	@brief
+	@param evt
+	@return bool
+---------------------------------------------------------------------------------*/
+bool ExtendedCamera::frameStarted(const Ogre::FrameEvent& evt)
+{
+	Ogre::Vector3 target = mSceneMgr->getSceneNode(mTargetName)->_getDerivedPosition();
+	mTargetNode->_setDerivedPosition(Ogre::Vector3(target.x, 0, target.y));
+
+	return true;
 }

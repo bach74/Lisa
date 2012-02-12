@@ -1,10 +1,10 @@
 // =============================================================================
-//  SimulationImputController.cpp   
-//  
-//  Copyright (C) 2007-2012 by Bach 
+//  SimulationImputController.cpp
+//
+//  Copyright (C) 2007-2012 by Bach
 //  This file is part of the LiSA project.
 //  The LiSA project is licensed under MIT license.
-// 
+//
 // =============================================================================
 
 #include "stdafx.h"
@@ -174,6 +174,12 @@ bool SimulationInputController::keyPressed(const OIS::KeyEvent& evt)
 			// when left control is pressed change camera movement type
 			mBtnControl = true;
 			break;
+		case OIS::KC_C:
+		{
+			ExtendedCamera::CameraType newCameraType = static_cast<ExtendedCamera::CameraType>((mSimulation->getScene()->getCamera().getCameraType() + 1) % 4);
+			mSimulation->getScene()->getCamera().changeCameraType(newCameraType, mSelectedObject);
+		}
+		break;
 		case OIS::KC_F1:
 
 			if (mHelpWindow)
@@ -215,11 +221,16 @@ bool SimulationInputController::keyPressed(const OIS::KeyEvent& evt)
 			break;
 		case OIS::KC_F4:
 			mPaused = !mPaused;
-			if (!mPaused) {
+
+			if (!mPaused)
+			{
 				mSimulation->requestStateChange(Simulation::SIMULATING);
-			} else {
+			}
+			else
+			{
 				mSimulation->requestStateChange(Simulation::PAUSED);
 			}
+
 			break;
 		default:
 			break;

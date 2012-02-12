@@ -73,6 +73,12 @@ class Config : public Singleton<Config>
 		float getCameraTranslateSpeed() const { return mCameraTranslateSpeed; }
 		void setCameraTranslateSpeed(float val) { mCameraTranslateSpeed = val; }
 
+		bool getCameraAutotracking() const { return mCameraAutotracking; }
+		void setCameraAutotracking(bool val) { mCameraAutotracking = val; }
+
+		std::string getCameraAutotrackingObject() const { return mCameraAutotrackingObject; }
+		void setCameraAutotrackingObject(std::string val) { mCameraAutotrackingObject = val; }
+
 		float getActuatorSteppingTime() const { return mActuatorSteppingTime; }
 		void setActuatorSteppingTime(float val) { mActuatorSteppingTime = val; }
 
@@ -94,6 +100,12 @@ class Config : public Singleton<Config>
 		short getRenderEveryNthFrame() const { return mRenderEveryNthFrame; }
 		void setRenderEveryNthFrame(short val) { mRenderEveryNthFrame = val; }
 
+		float getDrawGridSize() const { return mDrawGridSize; }
+		void setDrawGridSize(float val) { mDrawGridSize = val; }
+
+		float getDrawGridArrowsSize() const { return mDrawGridArrowsSize; }
+		void setDrawGridArrowsSize(float val) { mDrawGridArrowsSize = val; }
+
 	private:
 		Config(void);
 		bool mShowForces;
@@ -111,11 +123,16 @@ class Config : public Singleton<Config>
 		float mDrawingScaleCOP;
 		float mDrawingScaleZMP;
 		float mDrawingScaleFRI;
+		float mDrawGridSize;
+		float mDrawGridArrowsSize;
+		
 		float mCameraZoomSpeed;
 		float mCameraRotateSpeed;
 		float mCameraTranslateSpeed;
-		float mActuatorSteppingTime;
+		bool mCameraAutotracking;
+		std::string mCameraAutotrackingObject;
 
+		float mActuatorSteppingTime;
 		float mPhysicsSamplingTime;
 		short mRenderEveryNthFrame;
 
@@ -123,6 +140,8 @@ class Config : public Singleton<Config>
 		bool mLoggingControllers;
 		bool mLoggingControllerZMP;
 		bool mLoggingPositions;
+		
+		
 };
 
 #endif

@@ -67,7 +67,7 @@ class ViewDebugger: public Ogre::FrameListener
 
 		void updateDebug();
 		void showDebug(bool show);
-		
+		std::string determineCameraType();		
 
 };
 

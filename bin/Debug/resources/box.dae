@@ -296,25 +296,25 @@
     </physics_model>
     <physics_model id="Scene0-PhysicsInstance">
       <instance_physics_model url="#Scene0-PhysicsModel">
-        <instance_rigid_body target="#Actor0-Node" body="Actor0-RigidBody">
+        <!--instance_rigid_body target="#Actor0-Node" body="Actor0-RigidBody">
           <technique_common>
             <angular_velocity>0 0	0</angular_velocity>
             <velocity>0 0	0</velocity>
           </technique_common>
-        </instance_rigid_body>
+        </instance_rigid_body-->
         <instance_rigid_body target="#Actor1-Node" body="Actor1-RigidBody">
           <technique_common>
             <angular_velocity>0 0	0</angular_velocity>
             <velocity>0 0	0</velocity>
           </technique_common>
         </instance_rigid_body>
-        <instance_rigid_body target="#Actor2-Node" body="Actor2-RigidBody">
+        <!--instance_rigid_body target="#Actor2-Node" body="Actor2-RigidBody">
           <technique_common>
             <angular_velocity>0 0	0</angular_velocity>
             <velocity>0 0	0</velocity>
           </technique_common>
-        </instance_rigid_body>
-        <instance_rigid_constraint constraint="Joint0-RigidConstraint" />
+        </instance_rigid_body-->
+        <!--instance_rigid_constraint constraint="Joint0-RigidConstraint" /-->
         <extra>
           <technique profile="PhysX">
           </technique>

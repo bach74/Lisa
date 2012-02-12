@@ -1,0 +1,5 @@
+5.5.5.1
+	+ new option in config.ini: GRID_SIZE (default=5.0) will scale the "floor" grid with this factor
+	+ new option in config.ini: GRID_ARROWS_SIZE (default=5.0) will scale the "floor arrows" with this factor
+		+ actual size (in [m]) of one grid is now displayed on the extended info view (F2, BKSP)
+	+ new option in config.ini: CAMERA_AUTOTRACKING and CAMERA_AUTOTRACKING_OBJECT will autotrack the specified object

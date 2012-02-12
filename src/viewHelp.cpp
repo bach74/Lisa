@@ -10,7 +10,7 @@
 #include "stdafx.h"
 #include "ViewHelp.h"
 #include "scene.h"
-
+#include "VersionInfo.h"
 
 /**-------------------------------------------------------------------------------
     ViewHelp
@@ -94,6 +94,7 @@ bool ViewHelp::frameEnded(const Ogre::FrameEvent& evt)
 	helpText << "F2 - toggle debug window\n";
 	helpText << "F3 - show graphs\n";
 	helpText << "F4 - start/pause simulation \n\n";
+	helpText << "C  - change camera Type \n\n";
 	helpText << "LCTRL - change camera movement type\n\n";
 	helpText << "DEBUG commands (F2 debug window shown)\n" << "----------------------------------------------------------------------------------\n";
 	helpText << "TAB - change force mode\n";
@@ -106,7 +107,7 @@ bool ViewHelp::frameEnded(const Ogre::FrameEvent& evt)
 	helpText << "LEFT/RIGHT -x/+x force/moment on the currently selected object\n";
 	helpText << "Q/A +y/-y force/moment on the currently selected object\n";
 	helpText << "BACKSPACE - show complete debug text";
-	helpText << "\n\n\n\n (c) 2010 by Bach - version 5.6";
+	helpText << "\n\n\n\n "<<VER_COPYRIGHT_STR<<" - version "<<VER_PRODUCT_VERSION_STR;
 
 	mHelpOverlayText->setCaption(helpText.str());
 
