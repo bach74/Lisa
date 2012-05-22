@@ -1,10 +1,10 @@
 // =============================================================================
-//  JointD6.cpp   
-//  
-//  Copyright (C) 2007-2012 by Bach 
+//  JointD6.cpp
+//
+//  Copyright (C) 2007-2012 by Bach
 //  This file is part of the LiSA project.
 //  The LiSA project is licensed under MIT license.
-// 
+//
 // =============================================================================
 
 #include "stdafx.h"
@@ -36,7 +36,7 @@ void JointD6::getDesc(NxJointDesc** desc)
 
 /**-------------------------------------------------------------------------------
 	setDesc
-	
+
 	@brief
 	@param desc
 	@return void
@@ -64,13 +64,10 @@ NxReal JointD6::getInternalMotorSetpoint()
 	NxD6Joint* joint = (NxD6Joint*)mJoint;
 	joint->saveToDesc(desc);
 
-	if (desc.twistDrive.driveType == NX_D6JOINT_DRIVE_POSITION)
-	{
+	if (desc.twistDrive.driveType == NX_D6JOINT_DRIVE_POSITION) {
 		NxQuat orientation = desc.driveOrientation;
 		res=orientation.getAngle();
-	}
-	else
-	{
+	} else {
 		res = desc.driveAngularVelocity.x;
 	}
 
@@ -79,7 +76,7 @@ NxReal JointD6::getInternalMotorSetpoint()
 
 /**-------------------------------------------------------------------------------
 	updateJoint
-	
+
 	@brief
 	@param sampleTime
 	@return void
@@ -92,29 +89,34 @@ void JointD6::updateJoint(float sampleTime)
 	// getAngle
 	mAngle=getAngleD6(desc)-mStartAngle;
 
+	NxActor* actor1=desc.actor[0];
+	NxActor* actor2=desc.actor[1];
+
+	// primary joint axis
+	NxVec3 axis = desc.localAxis[1];
+
 	// getVelocity
 	// Retrieves the revolute joint angle's rate of change (angular velocity).
 	// It is the angular velocity of body1 minus body2 projected along the axis.
-	NxVec3 vel1 = desc.actor[0]->getAngularVelocity();
-	NxVec3 vel2 = desc.actor[1]->getAngularVelocity();
-	NxMat33 o1 = desc.actor[0]->getGlobalOrientation();
-	NxMat33 o2 = desc.actor[1]->getGlobalOrientation();
+	NxVec3 vel1_global = actor1->getAngularVelocity();
+	NxVec3 vel2_global = actor2->getAngularVelocity();
+	NxMat33 o1_global = actor1->getGlobalOrientation();
+	NxMat33 o2_global = actor2->getGlobalOrientation();
 
 	// Should be o1*trans(vel1), but there is no such function
 	// instead we use
-	NxVec3 vel1_1, vel2_2;
-	o1.multiplyByTranspose(vel1, vel1_1);
-	o2.multiplyByTranspose(vel2, vel2_2);
-	NxVec3 vel = vel1_1 - vel2_2;
-	mVelocity = vel.z;
+	NxVec3 vel1_local, vel2_local;
+	o1_global.multiplyByTranspose(vel1_global, vel1_local);
+	o2_global.multiplyByTranspose(vel2_global, vel2_local);
+	NxVec3 vel = vel1_local - vel2_local;
+	mVelocity = vel.dot(axis);
 
 	mAcceleration = (sampleTime != 0) ? (mVelocityPrev - mVelocity) / sampleTime : 0;
 
-	NxVec3 axis = desc.localAxis[1];
-	NxMat33 rot = desc.actor[1]->getGlobalOrientation();
+	NxMat33 rot = actor2->getGlobalOrientation();
 	// transform global frame moment to local frame moment so that we get
 	// constant moments around the axes
-	mAngularMomentum = desc.actor[1]->getAngularMomentum().dot(rot * axis);
+	mAngularMomentum = actor2->getAngularMomentum().dot(rot * axis);
 
 	//Torque
 	//tau=dL/dt or I*d(omega)/dt=I*alpha
@@ -127,18 +129,23 @@ void JointD6::updateJoint(float sampleTime)
 
 /**-------------------------------------------------------------------------------
 	getAngleD6
-	
+
 	@brief
 	@return float
 ---------------------------------------------------------------------------------*/
 float JointD6::getAngleD6(const NxD6JointDesc& desc) const
 {
-	NxQuat q1 = desc.actor[0]->getGlobalOrientationQuat();
-	NxQuat q2 = desc.actor[1]->getGlobalOrientationQuat();
-	float angle1=q1.getAngle();
-	float angle2=q2.getAngle();
-	//q1.invert();
-	//NxQuat q = q2 * q1;
-	//return q.getAngle();
-	return angle1-angle2;
+	NxActor* actor1=desc.actor[0];
+	NxActor* actor2=desc.actor[1];
+	NxQuat qaxis(desc.localAxis[0],0);
+
+	// get angle difference between the objects adjusted
+	// to the primary joint axis
+	NxQuat q1 = actor1->getGlobalOrientationQuat();
+	NxQuat q2i = actor2->getGlobalOrientationQuat();
+	q2i.invert();
+	qaxis.invert();
+	NxQuat q = qaxis*q2i*q1;
+	
+	return q.getAngle();
 }

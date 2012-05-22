@@ -10,8 +10,6 @@
 #define __MISC_H__
 
 
-//void createColourCube()
-
 void DumpNodes(std::stringstream &ss, Ogre::Node *n, int level);
 std::string DumpNodes(Ogre::Node *n);
 

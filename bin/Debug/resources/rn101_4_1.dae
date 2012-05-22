@@ -434,7 +434,7 @@
             <kinematic>false</kinematic>
             <filter_sleep_velocity>false</filter_sleep_velocity>
             <group>0</group>
-            <disable_collision>false</disable_collision>
+            <disable_collision>true</disable_collision>
             <disable_response>false</disable_response>
             <lock_com>false</lock_com>
           </technique>
@@ -586,7 +586,7 @@
         <extra>
           <technique profile="PhysX">
             <NxJointDriveDesc id="twistDrive">
-              <driveType>NX_D6JOINT_DRIVE_VELOCITY</driveType>
+              <driveType>NX_D6JOINT_DRIVE_POSITION</driveType>
               <spring>2500</spring>
               <damping>100</damping>
               <forceLimit>INF</forceLimit>
